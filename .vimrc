@@ -15,7 +15,7 @@ Plugin 'gmarik/Vundle.vim'
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
 Plugin 'sjl/gundo.vim'
-
+Plugin 'altercation/vim-colors-solarized'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
@@ -37,6 +37,9 @@ Plugin 'sjl/gundo.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+syntax enable
+set background=dark
+colorscheme solarized
 
 set backspace=start,eol,indent
 set ruler
@@ -70,14 +73,6 @@ map!    <F3>    <ESC>kgqji
 "map <S-UP> <UP>
 "map <S-DOWN> <DOWN>
 
-if &t_Co > 2 || has("gui_running")
-    " Black on Yellow
-    colorscheme professional
-    " zenburn is light gray on dark gray
-    " colorscheme zenburn
-    set hlsearch
-    set guifont=DejaVu\ Sans\ Mono\ 12,DejaVu\ LGC\ Sans\ Mono\ 12,Bitstream\ Vera\ Sans\ Mono\ 12,Nimbus\ Mono\ L\ 12
-endif
 
 filetype indent plugin on
 

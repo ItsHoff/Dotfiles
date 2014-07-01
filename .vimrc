@@ -16,6 +16,10 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'sjl/gundo.vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'davidhalter/jedi-vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'klen/python-mode'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
@@ -37,10 +41,42 @@ Plugin 'altercation/vim-colors-solarized'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+
+" MY SETTINGS
 syntax enable
 set background=dark
-colorscheme solarized
+"colorscheme solarized
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+let g:solarized_contrast="normal"
+let g:solarized_visibility="normal"
+color solarized " Load a colorscheme
 
+let g:jedi#auto_initialization = 1
+let g:jedi#popup_select_first = 0
+let g:jedi#use_tabs_not_buffers = 0
+let g:jedi#use_splits_not_buffers = "right"
+
+let g:pymode = 1
+let g:pymode_folding = 0
+let g:pymode_rope = 0
+let g:pymode_rope_completion = 0
+
+map <C-n> :NERDTreeToggle<CR>
+
+if &t_Co > 2 || has("gui_running")
+    " Powerline setup
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+    set laststatus=2
+    set hlsearch
+    set guifont=DejaVu\ Sans\ Mono\ 12,DejaVu\ LGC\ Sans\ Mono\ 12,Bitstream\ Vera\ Sans\ Mono\ 12,Nimbus\ Mono\ L\ 12
+endif
+
+" set number
+set nowrap
+set sidescroll=1
+
+" DEFAULTS
 set backspace=start,eol,indent
 set ruler
 set showcmd

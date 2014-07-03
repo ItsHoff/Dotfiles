@@ -56,13 +56,16 @@ let g:jedi#auto_initialization = 1
 let g:jedi#popup_select_first = 0
 let g:jedi#use_tabs_not_buffers = 0
 let g:jedi#use_splits_not_buffers = "right"
+let g:jedi#show_call_signatures = "0"
 
 let g:pymode = 1
 let g:pymode_folding = 0
 let g:pymode_rope = 0
 let g:pymode_rope_completion = 0
+let g:pymode_run_bind = ''
 
 map <C-n> :NERDTreeToggle<CR>
+nnoremap <F9> :GundoToggle<CR>
 
 if &t_Co > 2 || has("gui_running")
     " Powerline setup

@@ -15,7 +15,11 @@ Plugin 'gmarik/Vundle.vim'
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
 Plugin 'sjl/gundo.vim'
-
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'davidhalter/jedi-vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'klen/python-mode'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
@@ -38,6 +42,44 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 
+" MY SETTINGS
+syntax enable
+set background=dark
+"colorscheme solarized
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+let g:solarized_contrast="normal"
+let g:solarized_visibility="normal"
+color solarized " Load a colorscheme
+
+let g:jedi#auto_initialization = 1
+let g:jedi#popup_select_first = 0
+let g:jedi#use_tabs_not_buffers = 0
+let g:jedi#use_splits_not_buffers = "right"
+let g:jedi#show_call_signatures = "0"
+
+let g:pymode = 1
+let g:pymode_folding = 0
+let g:pymode_rope = 0
+let g:pymode_rope_completion = 0
+let g:pymode_run_bind = ''
+
+map <C-n> :NERDTreeToggle<CR>
+nnoremap <F9> :GundoToggle<CR>
+
+if &t_Co > 2 || has("gui_running")
+    " Powerline setup
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+    set laststatus=2
+    set hlsearch
+    set guifont=DejaVu\ Sans\ Mono\ 12,DejaVu\ LGC\ Sans\ Mono\ 12,Bitstream\ Vera\ Sans\ Mono\ 12,Nimbus\ Mono\ L\ 12
+endif
+
+" set number
+set nowrap
+set sidescroll=1
+
+" DEFAULTS
 set backspace=start,eol,indent
 set ruler
 set showcmd
@@ -70,14 +112,6 @@ map!    <F3>    <ESC>kgqji
 "map <S-UP> <UP>
 "map <S-DOWN> <DOWN>
 
-if &t_Co > 2 || has("gui_running")
-    " Black on Yellow
-    colorscheme professional
-    " zenburn is light gray on dark gray
-    " colorscheme zenburn
-    set hlsearch
-    set guifont=DejaVu\ Sans\ Mono\ 12,DejaVu\ LGC\ Sans\ Mono\ 12,Bitstream\ Vera\ Sans\ Mono\ 12,Nimbus\ Mono\ L\ 12
-endif
 
 filetype indent plugin on
 

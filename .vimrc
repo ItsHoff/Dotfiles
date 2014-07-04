@@ -43,14 +43,15 @@ filetype plugin indent on    " required
 
 
 " MY SETTINGS
+
 syntax enable
 set background=dark
-"colorscheme solarized
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-let g:solarized_contrast="normal"
-let g:solarized_visibility="normal"
-color solarized " Load a colorscheme
+let g:solarized_termcolors=88
+colorscheme solarized
+" let g:solarized_termtrans=1
+" let g:solarized_contrast="normal"
+" let g:solarized_visibility="normal"
+" color solarized " Load a colorscheme
 
 let g:jedi#auto_initialization = 1
 let g:jedi#popup_select_first = 0
@@ -67,97 +68,136 @@ let g:pymode_run_bind = ''
 map <C-n> :NERDTreeToggle<CR>
 nnoremap <F9> :GundoToggle<CR>
 
+" Quicker window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+" Map esc to ctrl-i
+imap <C-i> <Esc>
+vmap <C-i> <Esc>
+
 if &t_Co > 2 || has("gui_running")
     " Powerline setup
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
     set laststatus=2
     set hlsearch
     set guifont=DejaVu\ Sans\ Mono\ 12,DejaVu\ LGC\ Sans\ Mono\ 12,Bitstream\ Vera\ Sans\ Mono\ 12,Nimbus\ Mono\ L\ 12
+"    let g:solarized_termcolors=256
+"    let g:solarized_termtrans=1
+"    let g:solarized_contrast="normal"
+"    let g:solarized_visibility="normal"
+"    color solarized " Load a colorscheme
 endif
 
-" set number
-set nowrap
+" MY VIM SETTINGS
+
+" Limit line-length to 80 columns by highlighting col 81 onward
+if exists("+colorcolumn")
+    set colorcolumn=81
+endif
+
+" Highlight current line
+set cursorline
+" Don’t keep results highlighted after searching...
+set nohlsearch
+" ...just highlight as we type
+set incsearch
+" Ignore case when searching...
+set ignorecase
+" ...except if we input a capital letter
+set smartcase
+
+" Interactions
+
+" Start scrolling slightly before the cursor reaches an edge
+set scrolloff=3
+set sidescrolloff=5
+" Scroll sideways a character at a time, rather than a screen at a time
 set sidescroll=1
+" Allow motions and back-spacing over line-endings etc
+set backspace=indent,eol,start
+set whichwrap=h,l,b,<,>,~,[,]
+
+" Tabs, indentation and lines
+
+" 4 spaces please
+set expandtab
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+" Round indent to nearest multiple of 4
+set shiftround
+" No line-wrapping
+set nowrap
+
+set showcmd
+set number
+set encoding=utf-8
 
 " DEFAULTS
-set backspace=start,eol,indent
-set ruler
-set showcmd
-set ignorecase
-set vb t_vb= 
-set linebreak
 
-set listchars=tab:#^
+"set backspace=start,eol,indent
+"set ruler
+"set showcmd
+"set ignorecase
+"set vb t_vb= 
+"set linebreak
 
-set tabstop=8
-set softtabstop=4
-set shiftwidth=4
-set smartindent
+"set listchars=tab:#^
+
+" set tabstop=8
+" set softtabstop=4
+" set shiftwidth=4
+" set smartindent
 "To change tabs to spaces, type :%retab
 
-nmap    <F1>    gqap
-nmap    <F2>    gqqj
-nmap    <F3>    kgqj
-map!    <F1>    <ESC>gqapi
-map!    <F2>    <ESC>gqqji
-map!    <F3>    <ESC>kgqji
+" filetype indent plugin on
 
+" source ~/.vim/autocmds.vim
+"source ~/.vim/vimgpg.vim
+"autocmd Filetype tex source ~/.vim/auctex.vim
+"autocmd Filetype bib source ~/.vim/bibtex.vim
 
-"map <F7> :set wm=0<nl>
-"map <F8> :set wm=2<nl>
-"map <F9> :set ai<nl>
-"map <F10> :set noai<nl>
-"map <F1> <ESC>
-"map! <F1> <ESC>
-"map <S-UP> <UP>
-"map <S-DOWN> <DOWN>
+"function SaneFortran (foo) 
+"    if a:foo == 'f95' 
+"		let g:fortran_have_tabs=0 
+"		let g:fortran_more_precise=1 
+"		let b:fortran_free_source=1 
+"		let b:fortran_fixed_source=0 
+"		let b:fortran_dialect="f95" 
+"		let b:fortran_do_enddo=1 
+"     else 
+"         unlet! fortran_free_source 
+"     endif 
+"     return 0 
+" endfunction 
 
+" autocmd FileType cfiles set cindent
+" autocmd FileType fortran call SaneFortran ('f95')
+" autocmd FileType make set noexpandtab
+" autocmd FileType python set expandtab
 
-filetype indent plugin on
-
-source ~/.vim/autocmds.vim
-source ~/.vim/vimgpg.vim
-autocmd Filetype tex source ~/.vim/auctex.vim
-autocmd Filetype bib source ~/.vim/bibtex.vim
-
-function SaneFortran (foo) 
-    if a:foo == 'f95' 
-		let g:fortran_have_tabs=0 
-		let g:fortran_more_precise=1 
-		let b:fortran_free_source=1 
-		let b:fortran_fixed_source=0 
-		let b:fortran_dialect="f95" 
-		let b:fortran_do_enddo=1 
-    else 
-        unlet! fortran_free_source 
-    endif 
-    return 0 
-endfunction 
-
-autocmd FileType cfiles set cindent
-autocmd FileType fortran call SaneFortran ('f95')
-autocmd FileType make set noexpandtab
-autocmd FileType python set expandtab
-
-autocmd FileType haskell set expandtab|set tabstop=8|set shiftwidth=8|set softtabstop=8
+" autocmd FileType haskell set expandtab|set tabstop=8|set shiftwidth=8|set softtabstop=8
 
 
 " Protect large files from sourcing and other overhead.
 " Files become read only
-if !exists("my_auto_commands_loaded")
-        let my_auto_commands_loaded = 1
-        " Large files are > 10M
-        " Set options:
-        "     eventignore+=FileType (no syntax highlighting etc
-        "            assumes FileType always on)
-        "       noswapfile (save copy of file)
-        "       bufhidden=unload (save memory when other file is viewed)
-        "       buftype=nowritefile (is read-only)
-        "       undolevels=-1 (no undo possible)
-        let g:LargeFile = 1024 * 1024 * 10
-        augroup LargeFile
+"if !exists("my_auto_commands_loaded")
+"        let my_auto_commands_loaded = 1
+"        " Large files are > 10M
+"        " Set options:
+"        "     eventignore+=FileType (no syntax highlighting etc
+"        "            assumes FileType always on)
+"        "       noswapfile (save copy of file)
+"        "       bufhidden=unload (save memory when other file is viewed)
+"        "       buftype=nowritefile (is read-only)
+"        "       undolevels=-1 (no undo possible)
+"        let g:LargeFile = 1024 * 1024 * 10
+"        augroup LargeFile
 "                autocmd BufReadPre * let f=expand("<afile>") | if getfsize(f) > g:LargeFile | set eventignore+=FileType | setlocal noswapfile bufhidden=unload buftype=nowrite undolevels=-1 | else | set eventignore-=FileType | endif
-                autocmd BufReadPre * let f=expand("<afile>") | if getfsize(f) > g:LargeFile | set eventignore+=FileType | setlocal noswapfile bufhidden=unload undolevels=-1 | else | set eventignore-=FileType | endif
-        augroup END
-endif 
+"                autocmd BufReadPre * let f=expand("<afile>") | if getfsize(f) > g:LargeFile | set eventignore+=FileType | setlocal noswapfile bufhidden=unload undolevels=-1 | else | set eventignore-=FileType | endif
+"        augroup END
+"endif 
 

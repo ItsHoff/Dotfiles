@@ -19,6 +19,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/nerdtree'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'klen/python-mode'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
@@ -46,18 +47,21 @@ filetype plugin indent on    " required
 
 syntax enable
 set background=dark
-let g:solarized_termcolors=88
 colorscheme solarized
 " let g:solarized_termtrans=1
 " let g:solarized_contrast="normal"
 " let g:solarized_visibility="normal"
 " color solarized " Load a colorscheme
 
+" Map leader
+let mapleader = "ö"
+
 let g:jedi#auto_initialization = 1
-let g:jedi#popup_select_first = 0
-let g:jedi#use_tabs_not_buffers = 0
-let g:jedi#use_splits_not_buffers = "right"
-let g:jedi#show_call_signatures = "0"
+let g:jedi#popup_select_first = 1
+let g:jedi#use_tabs_not_buffers = 1
+" let g:jedi#use_splits_not_buffers = "right"
+let g:jedi#show_call_signatures = 0
+let g:jedi#popup_on_dot = 1
 
 let g:pymode = 1
 let g:pymode_folding = 0
@@ -74,9 +78,12 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-" Map esc to ctrl-i
-imap <C-i> <Esc>
-vmap <C-i> <Esc>
+" Map esc to something else 
+imap å <Esc>
+vmap å <Esc>
+
+" Make Y work like C and D
+map Y y$
 
 if &t_Co > 2 || has("gui_running")
     " Powerline setup
@@ -132,6 +139,14 @@ set shiftround
 " No line-wrapping
 set nowrap
 
+" Allow hidden buffers, don't limit to 1 file per window/split
+set hidden
+
+" " Save backups and swap files in single folder.
+" set backupdir=~/.vim/backup/
+" set directory=~/.vim/backup/
+
+set history=100
 set showcmd
 set number
 set encoding=utf-8

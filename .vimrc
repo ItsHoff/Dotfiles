@@ -19,8 +19,16 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/nerdtree'
-" Plugin 'Valloric/YouCompleteMe'
 Plugin 'klen/python-mode'
+
+" Plugins to checkout
+Plugin 'Raimondi/delimitMate'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-repeat'
+" Plugin 'Valloric/YouCompleteMe'
+" Plugin 'SirVer/ultisnips'
+" Plugin 'Shougo/unite.vim'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
@@ -84,6 +92,12 @@ vmap å <Esc>
 
 " Make Y work like C and D
 map Y y$
+
+" Map arrow keys to swap buffers and tabs
+noremap <Up> :bn<CR>
+noremap <Down> :bp<CR>  
+noremap <Right> gt
+noremap <Left> gT
 
 if &t_Co > 2 || has("gui_running")
     " Powerline setup

@@ -1,7 +1,10 @@
-set langmenu=en_US.UTF-8    " sets the language of the menu (gvim)
-lang mes en                 " sets the language of the messages / ui (vim)
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" LANGUAGE SETTINGS
+set langmenu=en_US.UTF-8            " sets the language of the menu (gvim)
+language messages en_US.UTF-8       " sets the language of the messages / ui (vim)
+
+" SETUP VUNDLE
+set nocompatible                    " be iMproved, required
+filetype off                        " required
 
 " set the runtime path to include Vundle and initialize
 if has("win32") || has("win16")
@@ -57,69 +60,29 @@ Plugin 'tpope/vim-repeat'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+" BASIC SETTINGS----------------------------------------------------------------
 
-" MY SETTINGS
+set encoding=utf-8
+set autoindent
+set showmode
+set showcmd
+set visualbell
+set history=1000
+set undofile
+set number
+set list
+set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
+set showbreak=↪
+set splitbelow
+set splitright
+set autowrite
+set autoread
 
-syntax enable
-set background=dark
-colorscheme solarized
-" let g:solarized_termtrans=1
-" let g:solarized_contrast="normal"
-" let g:solarized_visibility="normal"
-" color solarized " Load a colorscheme
-
-" Map leader
-let mapleader = "ö"
-
-let g:jedi#auto_initialization = 1
-let g:jedi#popup_select_first = 1
-let g:jedi#use_tabs_not_buffers = 1
-" let g:jedi#use_splits_not_buffers = "right"
-let g:jedi#show_call_signatures = 0
-let g:jedi#popup_on_dot = 1
-
-let g:pymode = 1
-let g:pymode_folding = 0
-let g:pymode_rope = 0
-let g:pymode_rope_completion = 0
-let g:pymode_run_bind = ''
-
-map <C-n> :NERDTreeToggle<CR>
-nnoremap <F9> :GundoToggle<CR>
-
-" Quicker window movement
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-
-" Map esc to something else 
-imap å <Esc>
-vmap å <Esc>
-
-" Make Y work like C and D
-map Y y$
-
-" Map arrow keys to swap buffers and tabs
-noremap <Up> :bn<CR>
-noremap <Down> :bp<CR>  
-noremap <Right> gt
-noremap <Left> gT
-
-if &t_Co > 2 || has("gui_running")
-    " Powerline setup
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
-    set laststatus=2
-    set hlsearch
-    set guifont=DejaVu\ Sans\ Mono\ 12,DejaVu\ LGC\ Sans\ Mono\ 12,Bitstream\ Vera\ Sans\ Mono\ 12,Nimbus\ Mono\ L\ 12
-"    let g:solarized_termcolors=256
-"    let g:solarized_termtrans=1
-"    let g:solarized_contrast="normal"
-"    let g:solarized_visibility="normal"
-"    color solarized " Load a colorscheme
-endif
-
-" MY VIM SETTINGS
+" Time out on key codes but not mappings.
+" Basically this makes terminal Vim work sanely.
+set notimeout
+set ttimeout
+set ttimeoutlen=10
 
 " Limit line-length to 80 columns by highlighting col 81 onward
 if exists("+colorcolumn")
@@ -128,16 +91,16 @@ endif
 
 " Highlight current line
 set cursorline
-" Don’t keep results highlighted after searching...
-set nohlsearch
-" ...just highlight as we type
+" Keep results highlighted after searching
+set hlsearch
+" Highlight as we type
 set incsearch
 " Ignore case when searching...
 set ignorecase
 " ...except if we input a capital letter
 set smartcase
 
-" Interactions
+" INTERACTIONS
 
 " Start scrolling slightly before the cursor reaches an edge
 set scrolloff=3
@@ -146,9 +109,9 @@ set sidescrolloff=5
 set sidescroll=1
 " Allow motions and back-spacing over line-endings etc
 set backspace=indent,eol,start
-set whichwrap=h,l,b,<,>,~,[,]
+set whichwrap=b,<,>,~,[,]
 
-" Tabs, indentation and lines
+" TABS, INDENTATION AND LINES
 
 " 4 spaces please
 set expandtab
@@ -163,77 +126,118 @@ set nowrap
 " Allow hidden buffers, don't limit to 1 file per window/split
 set hidden
 
-" " Save backups and swap files in single folder.
-" set backupdir=~/.vim/backup/
-" set directory=~/.vim/backup/
+" Backups
+set backup                        " enable backups
+set noswapfile
+set undodir=~/.vim/tmp/undo//     " undo files
+set backupdir=~/.vim/tmp/backup// " backups
+set directory=~/.vim/tmp/swap//   " swap files
 
-set history=100
-set showcmd
-set number
-set encoding=utf-8
-
-" DEFAULTS
-
-"set backspace=start,eol,indent
-"set ruler
-"set showcmd
-"set ignorecase
-"set vb t_vb= 
-"set linebreak
-
-"set listchars=tab:#^
-
-" set tabstop=8
-" set softtabstop=4
-" set shiftwidth=4
-" set smartindent
-"To change tabs to spaces, type :%retab
-
-" filetype indent plugin on
-
-" source ~/.vim/autocmds.vim
-"source ~/.vim/vimgpg.vim
-"autocmd Filetype tex source ~/.vim/auctex.vim
-"autocmd Filetype bib source ~/.vim/bibtex.vim
-
-"function SaneFortran (foo) 
-"    if a:foo == 'f95' 
-"		let g:fortran_have_tabs=0 
-"		let g:fortran_more_precise=1 
-"		let b:fortran_free_source=1 
-"		let b:fortran_fixed_source=0 
-"		let b:fortran_dialect="f95" 
-"		let b:fortran_do_enddo=1 
-"     else 
-"         unlet! fortran_free_source 
-"     endif 
-"     return 0 
-" endfunction 
-
-" autocmd FileType cfiles set cindent
-" autocmd FileType fortran call SaneFortran ('f95')
-" autocmd FileType make set noexpandtab
-" autocmd FileType python set expandtab
-
-" autocmd FileType haskell set expandtab|set tabstop=8|set shiftwidth=8|set softtabstop=8
+" Make those folders automatically if they don't already exist.
+if !isdirectory(expand(&undodir))
+    call mkdir(expand(&undodir), "p")
+endif
+if !isdirectory(expand(&backupdir))
+    call mkdir(expand(&backupdir), "p")
+endif
+if !isdirectory(expand(&directory))
+    call mkdir(expand(&directory), "p")
+endif
 
 
-" Protect large files from sourcing and other overhead.
-" Files become read only
-"if !exists("my_auto_commands_loaded")
-"        let my_auto_commands_loaded = 1
-"        " Large files are > 10M
-"        " Set options:
-"        "     eventignore+=FileType (no syntax highlighting etc
-"        "            assumes FileType always on)
-"        "       noswapfile (save copy of file)
-"        "       bufhidden=unload (save memory when other file is viewed)
-"        "       buftype=nowritefile (is read-only)
-"        "       undolevels=-1 (no undo possible)
-"        let g:LargeFile = 1024 * 1024 * 10
-"        augroup LargeFile
-"                autocmd BufReadPre * let f=expand("<afile>") | if getfsize(f) > g:LargeFile | set eventignore+=FileType | setlocal noswapfile bufhidden=unload buftype=nowrite undolevels=-1 | else | set eventignore-=FileType | endif
-"                autocmd BufReadPre * let f=expand("<afile>") | if getfsize(f) > g:LargeFile | set eventignore+=FileType | setlocal noswapfile bufhidden=unload undolevels=-1 | else | set eventignore-=FileType | endif
-"        augroup END
-"endif 
+" Colorscheme
+syntax enable
+set background=dark
+colorscheme solarized
 
+set laststatus=2
+set guifont=DejaVu\ Sans\ Mono\ 12,DejaVu\ LGC\ Sans\ Mono\ 12,Bitstream\ Vera\ Sans\ Mono\ 12,Nimbus\ Mono\ L\ 12
+
+
+" PLUGIN SETTINGS---------------------------------------------------------------
+
+" Jedi-vim
+let g:jedi#auto_initialization = 1
+let g:jedi#popup_select_first = 1
+let g:jedi#use_tabs_not_buffers = 1
+" let g:jedi#use_splits_not_buffers = "right"
+let g:jedi#show_call_signatures = 0
+let g:jedi#popup_on_dot = 1
+
+" Pymode
+let g:pymode = 1
+let g:pymode_folding = 0
+let g:pymode_rope = 0
+let g:pymode_rope_completion = 0
+let g:pymode_run_bind = ''
+
+
+" MAPPINGS----------------------------------------------------------------------
+
+" VIM MAPPINGS
+
+" Map leader
+let mapleader = "ö"
+
+" Quicker window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+" Map esc to something else
+imap å <Esc>
+vmap å <Esc>
+
+" Make Y work like C and D
+map Y y$
+
+" Map arrow keys to swap buffers and tabs
+noremap <Up> :bn<CR>
+noremap <Down> :bp<CR>
+noremap <Right> gt
+noremap <Left> gT
+
+" Clear highlight
+noremap <leader>f :nohlsearch<CR>
+
+" Split line (sister to [J]oin lines)
+" The normal use of S is covered by cc, so don't worry about shadowing it.
+nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
+
+" Source selection or line
+vnoremap <leader>S y:execute @@<cr>:echo 'Sourced selection.'<cr>
+nnoremap <leader>S ^vg_y:execute @@<cr>:echo 'Sourced line.'<cr>
+
+" Quick editing
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
+" PLUGIN MAPPINGS
+
+map <C-n> :NERDTreeToggle<CR>
+nnoremap <F9> :GundoToggle<CR>
+
+
+" AUTOCOMMANDS------------------------------------------------------------------
+
+" Save when losing focus
+au FocusLost * :silent! wall
+
+" Resize splits when the window is resized
+au VimResized * :wincmd =
+
+" Cursorline {{{
+" Only show cursorline in the current window and in normal mode.
+augroup cline
+    au!
+    au WinLeave,InsertEnter * set nocursorline
+    au WinEnter,InsertLeave * set cursorline
+augroup END
+
+" Trailing whitespace {{{
+" Only shown when not in insert mode so I don't go insane.
+augroup trailing
+    au!
+    au InsertEnter * :set listchars-=trail:⌴
+    au InsertLeave * :set listchars+=trail:⌴
+augroup END

@@ -77,6 +77,7 @@ set splitbelow
 set splitright
 set autowrite
 set autoread
+set gdefault
 
 " Time out on key codes but not mappings.
 " Basically this makes terminal Vim work sanely.
@@ -153,6 +154,21 @@ colorscheme solarized
 set laststatus=2
 set guifont=DejaVu\ Sans\ Mono\ 12,DejaVu\ LGC\ Sans\ Mono\ 12,Bitstream\ Vera\ Sans\ Mono\ 12,Nimbus\ Mono\ L\ 12
 
+" GUI
+
+if has('gui_running')
+    " GUI Vim
+
+    " Remove all the UI cruft
+    set go-=T
+    set go-=l
+    set go-=L
+    set go-=r
+    set go-=R
+
+    " Use console messages instead of popups
+    set go+=c
+endif
 
 " PLUGIN SETTINGS---------------------------------------------------------------
 
@@ -178,12 +194,6 @@ let g:pymode_run_bind = ''
 
 " Map leader
 let mapleader = "ö"
-
-" Quicker window movement
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
 
 " Map esc to something else
 imap å <Esc>
@@ -211,6 +221,55 @@ nnoremap <leader>S ^vg_y:execute @@<cr>:echo 'Sourced line.'<cr>
 
 " Quick editing
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
+" Easier split commands
+nnoremap <leader>so :only<CR>
+nnoremap <leader>sc :close<CR>
+
+" Easier tab commands
+nnoremap <leader>tc :tabclose<CR>
+nnoremap <leader>tn :tabnew<CR>
+nnoremap <leader>to :tabonly<CR>
+
+" Space to toggle folds.
+nnoremap <Space> za
+vnoremap <Space> za
+
+" MOVEMENT
+
+" Keep search matches in the middle of the window.
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Same when jumping around
+nnoremap g; g;zz
+nnoremap g, g,zz
+nnoremap <c-o> <c-o>zz
+
+" H and L move to the start and end of line
+noremap H ^
+noremap L $
+vnoremap L g_
+
+" Heresy
+inoremap <c-a> <esc>I
+inoremap <c-e> <esc>A
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
+
+" It's 2013.
+noremap j gj
+noremap k gk
+noremap gj j
+noremap gk k
+
+" Quicker window movement
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+noremap <leader>v <C-w>v
+noremap <leader>h <C-w>s
 
 " PLUGIN MAPPINGS
 
@@ -240,4 +299,13 @@ augroup trailing
     au!
     au InsertEnter * :set listchars-=trail:⌴
     au InsertLeave * :set listchars+=trail:⌴
+augroup END
+
+" FILETYPES
+
+" Python
+augroup ft_python
+    au!
+    au FileType python set foldmethod=indent
+    au FileType python set foldnestmax=2
 augroup END

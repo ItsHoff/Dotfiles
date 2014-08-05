@@ -34,8 +34,10 @@ Plugin 'klen/python-mode'
 " Plugins to checkout
 Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-commentary'
+" Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
 " Plugin 'Valloric/YouCompleteMe'
 " Plugin 'SirVer/ultisnips'
 " Plugin 'Shougo/unite.vim'
@@ -78,6 +80,7 @@ set splitright
 set autowrite
 set autoread
 set gdefault
+set textwidth=0
 
 " Time out on key codes but not mappings.
 " Basically this makes terminal Vim work sanely.
@@ -181,12 +184,21 @@ let g:jedi#show_call_signatures = 0
 let g:jedi#popup_on_dot = 1
 
 " Pymode
-let g:pymode = 1
+let g:pymode = 0
 let g:pymode_folding = 0
 let g:pymode_rope = 0
 let g:pymode_rope_completion = 0
 let g:pymode_run_bind = ''
 
+" Syntastic
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_auto_jump = 2
+let g:syntastic_python_pylint_quiet_messages = {"regex": 'C0103'}
+let g:syntastic_python_pylint_args = "--max-line-length=85
+                                    \ --disable=C0103,R0201"
+
+" Nerd-commenter
+let g:NERDSpaceDelims = 1
 
 " MAPPINGS----------------------------------------------------------------------
 
@@ -271,10 +283,15 @@ nnoremap <C-l> <C-w>l
 noremap <leader>v <C-w>v
 noremap <leader>h <C-w>s
 
+" Location list movement
+nnoremap <leader>ln :lnext<CR>
+nnoremap <leader>lp :lprev<CR>
+
 " PLUGIN MAPPINGS
 
 map <C-n> :NERDTreeToggle<CR>
 nnoremap <F9> :GundoToggle<CR>
+nnoremap <leader>le :Errors<CR>
 
 
 " AUTOCOMMANDS------------------------------------------------------------------

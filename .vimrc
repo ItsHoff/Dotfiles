@@ -81,6 +81,7 @@ set autowrite
 set autoread
 set gdefault
 set textwidth=0
+set foldmethod=manual
 
 " Time out on key codes but not mappings.
 " Basically this makes terminal Vim work sanely.
@@ -184,7 +185,9 @@ let g:jedi#show_call_signatures = 0
 let g:jedi#popup_on_dot = 1
 
 " Pymode
-let g:pymode = 0
+let g:pymode = 1
+let g:pymode_options = 0   "  _max_line_length = 0
+let g:pymode_lint = 0
 let g:pymode_folding = 0
 let g:pymode_rope = 0
 let g:pymode_rope_completion = 0
@@ -199,6 +202,9 @@ let g:syntastic_python_pylint_args = "--max-line-length=85
 
 " Nerd-commenter
 let g:NERDSpaceDelims = 1
+
+" Delimit Mate
+let delimitMate_nesting_quotes = ["'", '"']
 
 " MAPPINGS----------------------------------------------------------------------
 
@@ -247,6 +253,18 @@ nnoremap <leader>to :tabonly<CR>
 nnoremap <Space> za
 vnoremap <Space> za
 
+" Make zO recursively open whatever fold we're in, even if it's partially open.
+nnoremap zO zczO
+
+" "Focus" the current line.  Basically:
+"
+" 1. Close all folds.
+" 2. Open just the folds containing the current line.
+" 3. Move the line to a little bit (15 lines) above the center of the screen.
+"
+" This mapping wipes out the z mark, which I never use.
+nnoremap zh mzzMzvzz15<c-e>`z
+
 " MOVEMENT
 
 " Keep search matches in the middle of the window.
@@ -284,8 +302,18 @@ noremap <leader>v <C-w>v
 noremap <leader>h <C-w>s
 
 " Location list movement
+nnoremap <leader>ll :ll<CR>
+nnoremap <leader>lf :lfirst<CR>
 nnoremap <leader>ln :lnext<CR>
 nnoremap <leader>lp :lprev<CR>
+nnoremap <leader>lc :lclose<CR>
+
+" Same for quickfix
+nnoremap <leader>ql :cl<CR>
+nnoremap <leader>qf :cfirst<CR>
+nnoremap <leader>qn :cnext<CR>
+nnoremap <leader>qp :cprev<CR>
+nnoremap <leader>qc :cclose<CR>
 
 " PLUGIN MAPPINGS
 

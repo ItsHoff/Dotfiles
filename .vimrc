@@ -7,12 +7,7 @@ set nocompatible                    " be iMproved, required
 filetype off                        " required
 
 " set the runtime path to include Vundle and initialize
-if has("win32") || has("win16")
-    set rtp+=~/vimfiles/bundle/Vundle.vim
-    let path='~/vimfiles/bundle'
-else
-    set rtp+=~/.vim/bundle/Vundle.vim
-endif
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -26,41 +21,29 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'sjl/gundo.vim'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plugin 'davidhalter/jedi-vim'
+Plugin 'bling/vim-airline'
+" Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'klen/python-mode'
-
-" Plugins to checkout
+Plugin 'wting/rust.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-surround'
-" Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
-" Plugin 'Valloric/YouCompleteMe'
+
+" Plugins to checkout
 " Plugin 'SirVer/ultisnips'
 " Plugin 'Shougo/unite.vim'
 
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-
-" Git plugin not hosted on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
-
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-
-" Avoid a name conflict with L9
-" Plugin 'user/L9', {'name': 'newL9'}
+Plugin 'file:///C:/Programming/vim-ycm'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+" WHEN YCM SHITS ITSELF---------------------------------------------------------¨
+let g:ycm_server_keep_logfiles=0
 
 " BASIC SETTINGS----------------------------------------------------------------
 
@@ -156,7 +139,12 @@ set background=dark
 colorscheme solarized
 
 set laststatus=2
-set guifont=DejaVu\ Sans\ Mono\ 12,DejaVu\ LGC\ Sans\ Mono\ 12,Bitstream\ Vera\ Sans\ Mono\ 12,Nimbus\ Mono\ L\ 12
+if has("win32")
+    "set guifont=DejaVu\ Sans\ Mono\:h12
+    set guifont=Sauce\ Code\ Powerline\:h12
+else
+    set guifont=DejaVu\ Sans\ Mono\ 12
+endif
 
 " GUI
 
@@ -205,6 +193,12 @@ let g:NERDSpaceDelims = 1
 
 " Delimit Mate
 let delimitMate_nesting_quotes = ["'", '"']
+
+" YCM
+let g:ycm_global_ycm_extra_conf = ""
+
+" Airline
+let g:airline_powerline_fonts = 1
 
 " MAPPINGS----------------------------------------------------------------------
 

@@ -22,6 +22,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'sjl/gundo.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
+" Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 " Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'klen/python-mode'
@@ -36,7 +37,11 @@ Plugin 'scrooloose/syntastic'
 " Plugin 'SirVer/ultisnips'
 " Plugin 'Shougo/unite.vim'
 
-Plugin 'file:///C:/Programming/vim-ycm'
+if has('win32')
+    Plugin 'file:///C:/Programming/vim-ycm'
+else
+    Plugin 'Valloric/YouCompleteMe'
+endif
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -65,6 +70,8 @@ set autoread
 set gdefault
 set textwidth=0
 set foldmethod=manual
+set laststatus=2
+set noshowmode
 
 " Time out on key codes but not mappings.
 " Basically this makes terminal Vim work sanely.
@@ -138,7 +145,6 @@ syntax enable
 set background=dark
 colorscheme solarized
 
-set laststatus=2
 if has("win32")
     "set guifont=DejaVu\ Sans\ Mono\:h12
     set guifont=Sauce\ Code\ Powerline\:h12
@@ -199,6 +205,10 @@ let g:ycm_global_ycm_extra_conf = ""
 
 " Airline
 let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\u3000"
 
 " MAPPINGS----------------------------------------------------------------------
 

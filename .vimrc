@@ -22,8 +22,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'sjl/gundo.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
-" Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-" Plugin 'davidhalter/jedi-vim'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'klen/python-mode'
 Plugin 'wting/rust.vim'
@@ -35,7 +34,7 @@ Plugin 'scrooloose/syntastic'
 
 " Plugins to checkout
 " Plugin 'SirVer/ultisnips'
-" Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/unite.vim'
 
 if has('win32')
     Plugin 'file:///C:/Programming/vim-ycm'
@@ -172,11 +171,16 @@ endif
 
 " Jedi-vim
 let g:jedi#auto_initialization = 1
-let g:jedi#popup_select_first = 1
-let g:jedi#use_tabs_not_buffers = 1
-" let g:jedi#use_splits_not_buffers = "right"
-let g:jedi#show_call_signatures = 0
-let g:jedi#popup_on_dot = 1
+let g:jedi#completions_enabled = 0
+let g:jedi#rename_command = "<leader>r"
+let g:jedi#assignments_command = ""
+let g:jedi#definitions_command = ""
+
+" let g:jedi#popup_select_first = 1
+" let g:jedi#use_tabs_not_buffers = 1
+"  let g:jedi#use_splits_not_buffers = "right"
+" let g:jedi#show_call_signatures = 0
+" let g:jedi#popup_on_dot = 1
 
 " Pymode
 let g:pymode = 1
@@ -191,7 +195,7 @@ let g:pymode_run_bind = ''
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_auto_jump = 2
 let g:syntastic_python_pylint_quiet_messages = {"regex": 'C0103'}
-let g:syntastic_python_pylint_args = "--max-line-length=85
+let g:syntastic_python_pylint_args = "--max-line-length=90
                                     \ --disable=C0103,R0201"
 
 " Nerd-commenter
@@ -202,13 +206,15 @@ let delimitMate_nesting_quotes = ["'", '"']
 
 " YCM
 let g:ycm_global_ycm_extra_conf = ""
+nnoremap <leader>g :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
 
 " Airline
 let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_symbols.space = "\u3000"
+" if !exists('g:airline_symbols')
+    " let g:airline_symbols = {}
+" endif
+" let g:airline_symbols.space = "\ua0"
 
 " MAPPINGS----------------------------------------------------------------------
 
@@ -252,6 +258,7 @@ nnoremap <leader>sc :close<CR>
 nnoremap <leader>tc :tabclose<CR>
 nnoremap <leader>tn :tabnew<CR>
 nnoremap <leader>to :tabonly<CR>
+nnoremap <leader>te <C-W>T
 
 " Space to toggle folds.
 nnoremap <Space> za

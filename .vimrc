@@ -33,8 +33,10 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 
 " Plugins to checkout
-" Plugin 'SirVer/ultisnips'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 Plugin 'Shougo/unite.vim'
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
 
 if has('win32')
     Plugin 'file:///C:/Programming/vim-ycm'
@@ -47,7 +49,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 " WHEN YCM SHITS ITSELF---------------------------------------------------------¨
-let g:ycm_server_keep_logfiles=0
+" let g:ycm_server_keep_logfiles=1
 
 " BASIC SETTINGS----------------------------------------------------------------
 
@@ -215,6 +217,12 @@ let g:airline_powerline_fonts = 1
     " let g:airline_symbols = {}
 " endif
 " let g:airline_symbols.space = "\ua0"
+
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
 
 " MAPPINGS----------------------------------------------------------------------
 

@@ -2,6 +2,7 @@
 	name = ItsHoff
 	email = ItsHoff@users.noreply.github.com
 [credential]
+	helper = wincred
 	helper = cache --timeout=3600
 [push]
 	default = simple

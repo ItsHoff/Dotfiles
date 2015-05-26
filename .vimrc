@@ -339,6 +339,7 @@ nnoremap <leader>qc :cclose<CR>
 map <C-n> :NERDTreeToggle<CR>
 nnoremap <F9> :GundoToggle<CR>
 nnoremap <leader>le :Errors<CR>
+imap <C-L> <Plug>delimitMateS-Tab
 
 
 " AUTOCOMMANDS------------------------------------------------------------------
@@ -372,4 +373,10 @@ augroup ft_python
     au!
     au FileType python set foldmethod=indent
     au FileType python set foldnestmax=2
+augroup END
+
+" Text
+augroup ft_txt
+    au!
+    au FileType text set wrap
 augroup END

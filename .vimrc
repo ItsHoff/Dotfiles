@@ -2,6 +2,9 @@
 set langmenu=en_US.UTF-8            " sets the language of the menu (gvim)
 language messages en_US.UTF-8       " sets the language of the messages / ui (vim)
 
+" MAP LEADER
+let mapleader = "ö"
+
 " SETUP VUNDLE
 set nocompatible                    " be iMproved, required
 filetype off                        " required
@@ -36,6 +39,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/vimproc.vim'
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
 
 if has('win32')
@@ -70,7 +74,8 @@ set autowrite
 set autoread
 set gdefault
 set textwidth=0
-set foldmethod=manual
+set foldmethod=syntax
+set foldminlines=5
 set laststatus=2
 set noshowmode
 
@@ -169,7 +174,22 @@ if has('gui_running')
     set go+=c
 endif
 
+
 " PLUGIN SETTINGS---------------------------------------------------------------
+
+" Airline
+let g:airline_powerline_fonts = 1
+" if !exists('g:airline_symbols')
+    " let g:airline_symbols = {}
+" endif
+" let g:airline_symbols.space = "\ua0"
+
+" Delimit Mate
+let delimitMate_nesting_quotes = ["'", '"']
+imap <C-L> <Plug>delimitMateS-Tab
+
+" Gundo
+nnoremap <F9> :GundoToggle<CR>
 
 " Jedi-vim
 let g:jedi#auto_initialization = 1
@@ -177,12 +197,19 @@ let g:jedi#completions_enabled = 0
 let g:jedi#rename_command = "<leader>r"
 let g:jedi#assignments_command = ""
 let g:jedi#definitions_command = ""
-
 " let g:jedi#popup_select_first = 1
 " let g:jedi#use_tabs_not_buffers = 1
-"  let g:jedi#use_splits_not_buffers = "right"
+" let g:jedi#use_splits_not_buffers = "right"
 " let g:jedi#show_call_signatures = 0
 " let g:jedi#popup_on_dot = 1
+
+" LaTeX-Box
+
+" Nerd-commenter
+let g:NERDSpaceDelims = 1
+
+" Nerd Tree
+map <C-n> :NERDTreeToggle<CR>
 
 " Pymode
 let g:pymode = 1
@@ -194,42 +221,55 @@ let g:pymode_rope_completion = 0
 let g:pymode_run_bind = ''
 
 " Syntastic
+nnoremap <leader>le :Errors<CR>
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_auto_jump = 2
 let g:syntastic_python_pylint_quiet_messages = {"regex": 'C0103'}
 let g:syntastic_python_pylint_args = "--max-line-length=90
                                     \ --disable=C0103,R0201"
 
-" Nerd-commenter
-let g:NERDSpaceDelims = 1
-
-" Delimit Mate
-let delimitMate_nesting_quotes = ["'", '"']
-
-" YCM
-let g:ycm_global_ycm_extra_conf = ""
-nnoremap <leader>g :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
-
-" Airline
-let g:airline_powerline_fonts = 1
-" if !exists('g:airline_symbols')
-    " let g:airline_symbols = {}
-" endif
-" let g:airline_symbols.space = "\ua0"
-
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
+" Unite
+" The prefix key.
+nnoremap [unite] <Nop>
+nmap <leader>u [unite]
+
+call unite#custom#profile('default', 'context', {
+\   'start_insert': 0,
+\   'smartcase': 1
+\ })
+
+call unite#custom#source('file, file/new, buffer, file_rec',
+        \ 'matchers', 'matcher_fuzzy')
+call unite#custom#source('file, file/new, buffer, file_rec',
+        \ 'sorters', 'sorter_selecta')
+let g:unite_source_history_yank_enable = 1
+
+nnoremap [unite]f :<C-u>Unite -buffer-name=files -start-insert file/async:!<CR>
+nnoremap [unite]b :<C-u>Unite -buffer-name=buffers buffer<CR>
+nnoremap [unite]c :<C-u>Unite -buffer-name=commands -start-insert command<CR>
+nnoremap [unite]m :<C-u>Unite -buffer-name=mappings -start-insert mapping<CR>
+nnoremap [unite]g :<C-u>Unite -buffer-name=grep grep:.<CR>
+nnoremap [unite]y :<C-u>Unite -buffer-name=yank history/yank<CR>
+nnoremap [unite]w :<C-u>UniteWithCursorWord -buffer-name=grep_word grep:.<CR>
+
+nnoremap [unite]r :<C-u>UniteResume<CR>
+
+nnoremap [unite]n :<C-u>UniteNext<CR>
+nnoremap [unite]p :<C-u>UnitePrevious<CR>
+
+" YCM
+let g:ycm_global_ycm_extra_conf = ""
+let g:ycm_confirm_extra_conf = 1
+nnoremap <leader>a :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
+
 
 " MAPPINGS----------------------------------------------------------------------
-
-" VIM MAPPINGS
-
-" Map leader
-let mapleader = "ö"
 
 " Map esc to something else
 imap å <Esc>
@@ -334,13 +374,6 @@ nnoremap <leader>qn :cnext<CR>
 nnoremap <leader>qp :cprev<CR>
 nnoremap <leader>qc :cclose<CR>
 
-" PLUGIN MAPPINGS
-
-map <C-n> :NERDTreeToggle<CR>
-nnoremap <F9> :GundoToggle<CR>
-nnoremap <leader>le :Errors<CR>
-imap <C-L> <Plug>delimitMateS-Tab
-
 
 " AUTOCOMMANDS------------------------------------------------------------------
 
@@ -366,6 +399,15 @@ augroup trailing
     au InsertLeave * :set listchars+=trail:⌴
 augroup END
 
+" Remove trailing whitespace on write
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+
 " FILETYPES
 
 " Python
@@ -379,4 +421,10 @@ augroup END
 augroup ft_txt
     au!
     au FileType text set wrap
+augroup END
+
+" Tex
+augroup ft_tex
+    au!
+    au FileType tex set wrap
 augroup END

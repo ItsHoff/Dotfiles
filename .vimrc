@@ -4,6 +4,7 @@ language messages en_US.UTF-8       " sets the language of the messages / ui (vi
 
 " MAP LEADER
 let mapleader = "ö"
+let maplocalleader = "ä"
 
 " SETUP VUNDLE
 set nocompatible                    " be iMproved, required
@@ -25,7 +26,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'sjl/gundo.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
-Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'klen/python-mode'
 Plugin 'wting/rust.vim'
@@ -145,7 +145,6 @@ if !isdirectory(expand(&directory))
     call mkdir(expand(&directory), "p")
 endif
 
-
 " Colorscheme
 syntax enable
 set background=dark
@@ -159,17 +158,14 @@ else
 endif
 
 " GUI
-
 if has('gui_running')
     " GUI Vim
-
     " Remove all the UI cruft
     set go-=T
     set go-=l
     set go-=L
     set go-=r
     set go-=R
-
     " Use console messages instead of popups
     set go+=c
 endif
@@ -191,19 +187,11 @@ imap <C-L> <Plug>delimitMateS-Tab
 " Gundo
 nnoremap <F9> :GundoToggle<CR>
 
-" Jedi-vim
-let g:jedi#auto_initialization = 1
-let g:jedi#completions_enabled = 0
-let g:jedi#rename_command = "<leader>r"
-let g:jedi#assignments_command = ""
-let g:jedi#definitions_command = ""
-" let g:jedi#popup_select_first = 1
-" let g:jedi#use_tabs_not_buffers = 1
-" let g:jedi#use_splits_not_buffers = "right"
-" let g:jedi#show_call_signatures = 0
-" let g:jedi#popup_on_dot = 1
-
 " LaTeX-Box
+let g:LatexBox_latexmk_async = 1
+let g:LatexBox_latexmk_preview_continuously = 1
+let g:LatexBox_quickfix = 2
+let g:LatexBox_build_dir = "latex_build/"
 
 " Nerd-commenter
 let g:NERDSpaceDelims = 1
@@ -406,7 +394,7 @@ fun! <SID>StripTrailingWhitespaces()
     %s/\s\+$//e
     call cursor(l, c)
 endfun
-autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd FileType c,cpp,java,php,ruby,python,tex autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
 " FILETYPES
 

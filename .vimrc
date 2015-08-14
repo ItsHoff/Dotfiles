@@ -34,13 +34,14 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
+Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/vimproc.vim'
 
 " Plugins to checkout
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/vimproc.vim'
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'unblevable/quick-scope'
 
 if has('win32')
     Plugin 'file:///C:/Programming/vim-ycm'
@@ -78,6 +79,7 @@ set foldmethod=syntax
 set foldminlines=5
 set laststatus=2
 set noshowmode
+set relativenumber
 
 " Time out on key codes but not mappings.
 " Basically this makes terminal Vim work sanely.
@@ -189,9 +191,8 @@ nnoremap <F9> :GundoToggle<CR>
 
 " LaTeX-Box
 let g:LatexBox_latexmk_async = 1
-let g:LatexBox_latexmk_preview_continuously = 1
+let g:LatexBox_latexmk_preview_continuously = 0
 let g:LatexBox_quickfix = 2
-let g:LatexBox_build_dir = "latex_build/"
 
 " Nerd-commenter
 let g:NERDSpaceDelims = 1
@@ -210,11 +211,18 @@ let g:pymode_run_bind = ''
 
 " Syntastic
 nnoremap <leader>le :Errors<CR>
+nnoremap <localleader>ss :SyntasticCheck<CR>
 let g:syntastic_aggregate_errors = 1
-let g:syntastic_auto_jump = 2
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_cursor_column = 0
+let g:syntastic_auto_jump = 0
 let g:syntastic_python_pylint_quiet_messages = {"regex": 'C0103'}
 let g:syntastic_python_pylint_args = "--max-line-length=90
                                     \ --disable=C0103,R0201"
+let g:syntastic_mode_map = { "mode": "active",
+                           \ "active_filetypes": [],
+                           \ "passive_filetypes": ["tex"] }
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<c-j>"
@@ -324,9 +332,9 @@ nnoremap g, g,zz
 nnoremap <c-o> <c-o>zz
 
 " H and L move to the start and end of line
-noremap H ^
-noremap L $
-vnoremap L g_
+noremap H g^
+noremap L g$
+noremap + $
 
 " Heresy
 inoremap <c-a> <esc>I
@@ -396,6 +404,32 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 autocmd FileType c,cpp,java,php,ruby,python,tex autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
+" Insert into your .vimrc after quick-scope is loaded.
+" Obviously depends on <https://github.com/unblevable/quick-scope> being installed.
+
+" Thanks to @VanLaser for cleaning the code up and expanding capabilities to include e.g. `df`
+
+let g:qs_enable = 0
+let g:qs_enable_char_list = [ 'f', 'F', 't', 'T' ]
+
+function! Quick_scope_selective(movement)
+    let needs_disabling = 0
+    if !g:qs_enable
+        QuickScopeToggle
+        redraw
+        let needs_disabling = 1
+    endif
+    let letter = nr2char(getchar())
+    if needs_disabling
+        QuickScopeToggle
+    endif
+    return a:movement . letter
+endfunction
+
+for i in g:qs_enable_char_list
+	execute 'noremap <expr> <silent>' . i . " Quick_scope_selective('". i . "')"
+endfor
+
 " FILETYPES
 
 " Python
@@ -415,4 +449,5 @@ augroup END
 augroup ft_tex
     au!
     au FileType tex set wrap
+    au FileType tex set colorcolumn=0
 augroup END

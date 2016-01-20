@@ -40,7 +40,8 @@ Plugin 'Shougo/vimproc.vim'
 " Plugins to checkout
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'LaTeX-Box-Team/LaTeX-Box'
+" Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'lervag/vimtex'
 Plugin 'unblevable/quick-scope'
 
 if has('win32')
@@ -189,10 +190,6 @@ imap <C-L> <Plug>delimitMateS-Tab
 " Gundo
 nnoremap <F9> :GundoToggle<CR>
 
-" LaTeX-Box
-let g:LatexBox_latexmk_async = 1
-let g:LatexBox_latexmk_preview_continuously = 0
-let g:LatexBox_quickfix = 2
 
 " Nerd-commenter
 let g:NERDSpaceDelims = 1
@@ -257,6 +254,17 @@ nnoremap [unite]r :<C-u>UniteResume<CR>
 
 nnoremap [unite]n :<C-u>UniteNext<CR>
 nnoremap [unite]p :<C-u>UnitePrevious<CR>
+
+" Vimtex
+let g:vimtex_view_general_viewer = 'SumatraPDF'
+let g:vimtex_view_general_options = '-forward-search @tex @line @pdf'
+let g:vimtex_view_general_options_latexmk = '-reuse-instance'
+" if !exists('g:ycm_semantic_triggers')
+    " let g:ycm_semantic_triggers = {}
+" endif
+" let g:ycm_semantic_triggers.tex = [
+    " \ 're!\\[A-Za-z]*(ref|cite)[A-Za-z]*([^]]*])?{([^}]*, ?)*'
+    " \ ]
 
 " YCM
 let g:ycm_global_ycm_extra_conf = ""

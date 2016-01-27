@@ -36,19 +36,13 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc.vim'
+Plugin 'Valloric/YouCompleteMe'
 
 " Plugins to checkout
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-" Plugin 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'lervag/vimtex'
 Plugin 'unblevable/quick-scope'
-
-if has('win32')
-    Plugin 'file:///C:/Programming/vim-ycm'
-else
-    Plugin 'Valloric/YouCompleteMe'
-endif
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -259,12 +253,6 @@ nnoremap [unite]p :<C-u>UnitePrevious<CR>
 let g:vimtex_view_general_viewer = 'SumatraPDF'
 let g:vimtex_view_general_options = '-forward-search @tex @line @pdf'
 let g:vimtex_view_general_options_latexmk = '-reuse-instance'
-" if !exists('g:ycm_semantic_triggers')
-    " let g:ycm_semantic_triggers = {}
-" endif
-" let g:ycm_semantic_triggers.tex = [
-    " \ 're!\\[A-Za-z]*(ref|cite)[A-Za-z]*([^]]*])?{([^}]*, ?)*'
-    " \ ]
 
 " YCM
 let g:ycm_global_ycm_extra_conf = ""
@@ -340,9 +328,10 @@ nnoremap g, g,zz
 nnoremap <c-o> <c-o>zz
 
 " H and L move to the start and end of line
-noremap H g^
-noremap L g$
-noremap + $
+noremap H ^
+noremap gH g^
+noremap L $
+noremap gL g$
 
 " Heresy
 inoremap <c-a> <esc>I
@@ -412,6 +401,7 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 autocmd FileType c,cpp,java,php,ruby,python,tex autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
+" Highlight possible options with f, F, t and T when pressed
 " Insert into your .vimrc after quick-scope is loaded.
 " Obviously depends on <https://github.com/unblevable/quick-scope> being installed.
 

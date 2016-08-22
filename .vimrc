@@ -408,24 +408,32 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 autocmd FileType c,cpp,java,php,ruby,python,tex autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
+
 " FILETYPES
+
+" Markdown
+augroup ft_markdown
+    au!
+    au FileType markdown setlocal colorcolumn=0
+    au FileType markdown setlocal wrap
+augroup END
 
 " Python
 augroup ft_python
     au!
-    au FileType python set foldmethod=indent
-    au FileType python set foldnestmax=2
-augroup END
-
-" Text
-augroup ft_txt
-    au!
-    au FileType text set wrap
+    au FileType python setlocal foldmethod=indent
+    au FileType python setlocal foldnestmax=2
 augroup END
 
 " Tex
 augroup ft_tex
     au!
-    au FileType tex set wrap
-    au FileType tex set colorcolumn=0
+    au FileType tex setlocal wrap
+    au FileType tex setlocal colorcolumn=0
+augroup END
+
+" Text
+augroup ft_txt
+    au!
+    au FileType text setlocal wrap
 augroup END

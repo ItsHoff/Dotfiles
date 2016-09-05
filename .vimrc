@@ -406,7 +406,7 @@ fun! <SID>StripTrailingWhitespaces()
     %s/\s\+$//e
     call cursor(l, c)
 endfun
-autocmd FileType c,cpp,java,php,ruby,python,tex autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
 
 " FILETYPES
@@ -423,6 +423,13 @@ augroup ft_python
     au!
     au FileType python setlocal foldmethod=indent
     au FileType python setlocal foldnestmax=2
+augroup END
+
+" Rst
+augroup ft_rst
+    au!
+    au FileType rst setlocal colorcolumn=0
+    au FileType rst setlocal wrap
 augroup END
 
 " Tex

@@ -70,6 +70,7 @@ set foldminlines=5
 set laststatus=2
 set noshowmode
 set relativenumber
+set fileformat=unix
 
 " Time out on key codes but not mappings.
 " Basically this makes terminal Vim work sanely.

@@ -10,7 +10,7 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-;; GENERAL SETTINGS
+;; GENERAL SETTINGS------------------------------------------------------------------------
 
 (setq visible-bell 1)               ; No error beep
 (tool-bar-mode -1)                  ; No toolbar
@@ -19,7 +19,7 @@
 (global-linum-mode 1)               ; Show line numbers
 (show-paren-mode 1)                 ; Show matching parenthesis
 
-; Smooth scrolling
+;; Smooth scrolling
 (setq scroll-step 1)
 (setq scroll-margin 5)
 (setq scroll-conservatively 10000)
@@ -27,9 +27,7 @@
 (setq hscroll-step 1)
 (setq hscroll-margin 5)
 
-
-;; BACKUPS ETC.
-
+;; Backups
 ; Put backups in .emacs.d
 (defvar backup-directory (concat user-emacs-directory "backups"))
 (if (not (file-exists-p backup-directory))
@@ -39,15 +37,15 @@
 (setq create-lockfiles nil)         ; Don't create lockfiles
 (setq auto-save-default nil)        ; No auto-saves
 
-;; FONT
+;; Font
 (set-frame-font "Consolas-11")
 
-;; TABS & SPACES
+;; Tabs & Spaces
 (setq-default tab-always-indent nil)    ; Allow tabbing outside of indent
 (setq-default indent-tabs-mode nil)     ; Use spaces instead of tabs
 (setq-default tab-width 4)              ; Tab = 4 spaces
 
-;; HOOKS
+;; HOOKS-----------------------------------------------------------------------------------
 
 ; Auto-save on focus lost
 (add-hook 'focus-out-hook (lambda () (interactive) (save-some-buffers t)))
@@ -55,7 +53,7 @@
 ; Remove trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;; PACKAGES
+;; PACKAGES--------------------------------------------------------------------------------
 
 ;; Install all packages automatically
 (setq use-package-always-ensure t)

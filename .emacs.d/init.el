@@ -1,7 +1,8 @@
 (require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/"))
+             '("melpa" . "https://melpa.org/packages/")
+             '("org" . "http://orgmode.org/elpa/"))
 
 (package-initialize)
 
@@ -45,6 +46,10 @@
 (setq-default indent-tabs-mode nil)     ; Use spaces instead of tabs
 (setq-default tab-width 4)              ; Tab = 4 spaces
 
+;; Remaps
+(global-set-key (kbd "M-ä") help-map)   ; Remap help
+(global-set-key (kbd "M-ö") 'describe-key)   ; Temporary key help
+
 ;; HOOKS-----------------------------------------------------------------------------------
 
 ; Auto-save on focus lost
@@ -68,11 +73,22 @@
 (use-package evil
   :init (evil-mode t)
   :config
+  (setq evil-ex-substitute-global t)
   (define-key evil-normal-state-map "H" 'evil-first-non-blank)
-  (define-key evil-normal-state-map "L" 'evil-end-of-line))
+  (define-key evil-normal-state-map "L" 'evil-end-of-line)
+  (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
+  (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
+  (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
+  (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right))
 
 (use-package flycheck
   :init (global-flycheck-mode))
+
+(use-package org)
+
+(use-package smartparens-config
+  :ensure smartparens
+  :init (smartparens-global-mode))
 
 (use-package spaceline-config
   :ensure spaceline
@@ -85,6 +101,11 @@
   :config
   (setq x-underline-at-descent-line t)
   (load-theme 'solarized-dark t))
+
+;; GLSL
+
+(use-package glsl-mode
+  :mode "\\.glsl'")
 
 ;; Rust
 
@@ -109,3 +130,17 @@
 
 (provide 'init)
 ;;; init.el ends here
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (org-mode use-package spaceline solarized-theme smartparens smart-mode-line-powerline-theme racer powerline-evil glsl-mode flycheck-rust company cargo auctex))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

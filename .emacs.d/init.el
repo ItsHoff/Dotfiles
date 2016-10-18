@@ -68,12 +68,14 @@
   :init (global-company-mode)
   :config
   (setq company-idle-delay 0.2)
-  (setq company-minimum-prefix-length 1))
+  (setq company-minimum-prefix-length 2))
 
 (use-package evil
   :init (evil-mode t)
   :config
-  (setq evil-ex-substitute-global t)
+  (setq evil-ex-substitute-global t) ;; substitute replaces all occurences in line
+  ;; Make Y function sensibly
+  (define-key evil-normal-state-map "Y" (lambda () (interactive) (evil-yank-line (point) (point-at-eol))))
   (define-key evil-normal-state-map "H" 'evil-first-non-blank)
   (define-key evil-normal-state-map "L" 'evil-end-of-line)
   (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
@@ -104,8 +106,7 @@
 
 ;; GLSL
 
-(use-package glsl-mode
-  :mode "\\.glsl'")
+(use-package glsl-mode)
 
 ;; Rust
 
@@ -121,8 +122,7 @@
   (add-hook 'rust-mode-hook #'racer-mode)
   (add-hook 'racer-mode-hook #'eldoc-mode))
 
-(use-package rust-mode
-  :mode "\\.rs\\'")
+(use-package rust-mode)
 
 ;; Tex
 (use-package tex-site
@@ -130,17 +130,3 @@
 
 (provide 'init)
 ;;; init.el ends here
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (org-mode use-package spaceline solarized-theme smartparens smart-mode-line-powerline-theme racer powerline-evil glsl-mode flycheck-rust company cargo auctex))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

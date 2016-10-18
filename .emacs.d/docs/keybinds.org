@@ -1,106 +1,109 @@
 * Defaults
 ** Normal
+*** TODO
+    * figure out a use for öäå
+    * remap bigger movement
 *** Unmodified
-    | Key         | Function                  | Status       |
-    |-------------+---------------------------+--------------|
-    | <esc>       | esc                       | core         |
-    | 1-0         | num modifier              | core         |
-    | +           | next non-blank line       | replace      |
-    | ´           | -                         | avoid        |
-    | <backspace> | back char                 | replace      |
-    | <tab>       | cycling / completion      | core         |
-    | q           | record macro              | niche        |
-    | w           | word                      | core         |
-    | e           | end                       | core         |
-    | r           | replace char              | core         |
-    | t           | till                      | core         |
-    | y           | yank                      | core         |
-    | u           | undo                      | core         |
-    | i           | insert                    | core         |
-    | o           | open below                | core         |
-    | p           | paste                     | core         |
-    | å           | -                         | use          |
-    | ¨           | -                         | avoid        |
-    | a           | append                    | core         |
-    | s           | substitute char           | replace      |
-    | d           | delete                    | core         |
-    | f           | find                      | core         |
-    | g           | prefix: "go"              | core         |
-    | h           | <left>                    | core         |
-    | j           | <down>                    | core         |
-    | k           | <up>                      | core         |
-    | l           | <right>                   | core         |
-    | ö           | -                         | use          |
-    | ä           | -                         | use          |
-    | '           | goto mark line            | learn / move |
-    | <           | unindent                  | core         |
-    | z           | prefix: view manipulation | core         |
-    | x           | delete char               | core         |
-    | c           | change                    | core         |
-    | v           | visual                    | core         |
-    | b           | back                      | core         |
-    | n           | next (find)               | useful       |
-    | m           | set mark                  | learn / move |
-    | ,           | reverse find              | core / swap  |
-    | .           | repeat                    | core         |
-    | -           | previous non-blank line   | replace      |
-    | <space>     | prefix: tbd               | use          |
-    | <enter>     | enter                     | replace      |
+    | Key         | Function                  | Status       | Ideas    |
+    |-------------+---------------------------+--------------+----------|
+    | <esc>       | esc                       | core         |          |
+    | 1-0         | num modifier              | core         |          |
+    | +           | next non-blank line       | replace      |          |
+    | ´           | -                         | avoid        |          |
+    | <backspace> | back char                 | replace      |          |
+    | <tab>       | cycling / completion      | core         |          |
+    | q           | record macro              | niche        |          |
+    | w           | word                      | core         |          |
+    | e           | end                       | core         |          |
+    | r           | replace char              | core         |          |
+    | t           | till                      | core         |          |
+    | y           | yank                      | core         |          |
+    | u           | undo                      | core         |          |
+    | i           | insert                    | core         |          |
+    | o           | open below                | core         |          |
+    | p           | paste                     | core         |          |
+    | å           | -                         | use          |          |
+    | ¨           | -                         | avoid        |          |
+    | a           | append                    | core         |          |
+    | s           | substitute char           | replace      | sentence |
+    | d           | delete                    | core         |          |
+    | f           | find                      | core         |          |
+    | g           | prefix: "go"              | core         |          |
+    | h           | <left>                    | core         |          |
+    | j           | <down>                    | core         |          |
+    | k           | <up>                      | core         |          |
+    | l           | <right>                   | core         |          |
+    | ö           | -                         | use          |          |
+    | ä           | -                         | use          |          |
+    | '           | goto mark line            | learn / move |          |
+    | <           | unindent                  | core         |          |
+    | z           | prefix: view manipulation | core         |          |
+    | x           | delete char               | core         |          |
+    | c           | change                    | core         |          |
+    | v           | visual                    | core         |          |
+    | b           | back                      | core         |          |
+    | n           | next (find)               | useful       |          |
+    | m           | set mark                  | learn / move |          |
+    | ,           | reverse find              | core / swap  |          |
+    | .           | repeat                    | core         |          |
+    | -           | previous non-blank line   | replace      |          |
+    | <space>     | prefix: tbd               | use          |          |
+    | <enter>     | enter                     | replace      |          |
 *** Shift
-    | Key         | Function                  | Status          |
-    |-------------+---------------------------+-----------------|
-    | ½           | -                         | potential       |
-    | !           | shell cmd                 | think / replace |
-    | "           | access register           | core / promote  |
-    | #           | search word back          | useful          |
-    | ¤           | -                         | potential       |
-    | %           | goto match                | useful          |
-    | &           | repeat substitute         | learn / replace |
-    | /           | find forward              | core            |
-    | (           | sentence back             | promote         |
-    | )           | sentence forward          | promote         |
-    | =           | indent                    | learn / replace |
-    | ?           | find back                 | think / replace |
-    | `           | goto mark                 | avoid           |
-    | <backspace> | del                       | replace         |
-    | <tab>       | backwards tab             | core            |
-    | Q           | -                         | use             |
-    | W           | WORD                      | core            |
-    | E           | END                       | core            |
-    | R           | replace mode              | replace         |
-    | T           | back till                 | core            |
-    | Y           | yank line                 | remap eol       |
-    | U           | undo line                 | learn / replace |
-    | I           | insert bol                | core            |
-    | O           | open above                | core            |
-    | P           | paste before              | core            |
-    | Å           | -                         | use             |
-    | ^           | first non-blank char      | avoid           |
-    | A           | append eol                | core            |
-    | S           | substitute line           | replace         |
-    | D           | delete eol                | core            |
-    | F           | find back                 | core            |
-    | G           | eof / goto line           | useful / remap  |
-    | H           | bol                       | core            |
-    | J           | join                      | useful / remap  |
-    | K           | man                       | replace / remap |
-    | L           | eol                       | core            |
-    | Ö           | -                         | use             |
-    | Ä           | -                         | use             |
-    | *           | search word forward       | remap / useful  |
-    | >           | indent                    | core            |
-    | Z           | prefix: quit              | replace         |
-    | X           | backspace                 | replace         |
-    | C           | change eol                | core            |
-    | V           | visual line               | core            |
-    | B           | BACK                      | core            |
-    | N           | previous (find)           | useful          |
-    | M           | window middle             | replace         |
-    | ;           | repeat find               | core / swap     |
-    | :           | cmd line                  | core            |
-    | _           | next line first non-blank | replace         |
-    | <space>     | -                         | replace         |
-    | <enter>     | enter                     | replace         |
+    | Key         | Function                  | Status          | Ideas                           |
+    |-------------+---------------------------+-----------------+---------------------------------|
+    | ½           | -                         | potential       |                                 |
+    | !           | shell cmd                 | think / replace |                                 |
+    | "           | access register           | core / promote  |                                 |
+    | #           | search word back          | useful          |                                 |
+    | ¤           | -                         | potential       |                                 |
+    | %           | goto match                | useful          |                                 |
+    | &           | repeat substitute         | learn / replace |                                 |
+    | /           | find forward              | core            |                                 |
+    | (           | sentence back             | promote         |                                 |
+    | )           | sentence forward          | promote         |                                 |
+    | =           | auto indent               | learn / replace |                                 |
+    | ?           | find back                 | think / replace |                                 |
+    | `           | goto mark                 | avoid           |                                 |
+    | <backspace> | del                       | replace         |                                 |
+    | <tab>       | backwards tab             | core            |                                 |
+    | Q           | -                         | use             |                                 |
+    | W           | WORD                      | core            |                                 |
+    | E           | END                       | core            |                                 |
+    | R           | replace mode              | replace         |                                 |
+    | T           | back till                 | core            |                                 |
+    | Y           | yank eol                  | core            |                                 |
+    | U           | undo line                 | learn / replace |                                 |
+    | I           | insert bol                | core            |                                 |
+    | O           | open above                | core            |                                 |
+    | P           | paste before              | core            |                                 |
+    | Å           | -                         | use             |                                 |
+    | ^           | first non-blank char      | avoid           |                                 |
+    | A           | append eol                | core            |                                 |
+    | S           | substitute line           | replace         |                                 |
+    | D           | delete eol                | core            |                                 |
+    | F           | find back                 | core            |                                 |
+    | G           | eof / goto line           | useful / remap  |                                 |
+    | H           | bol                       | core            | should go to hard bol if at bol |
+    | J           | join                      | useful / remap  | replace with long down          |
+    | K           | man                       | replace / remap | replace with long up            |
+    | L           | eol                       | core            |                                 |
+    | Ö           | -                         | use             |                                 |
+    | Ä           | -                         | use             |                                 |
+    | *           | search word forward       | remap / useful  |                                 |
+    | >           | indent                    | core            |                                 |
+    | Z           | prefix: quit              | replace         |                                 |
+    | X           | backspace                 | replace         |                                 |
+    | C           | change eol                | core            |                                 |
+    | V           | visual line               | core            |                                 |
+    | B           | BACK                      | core            |                                 |
+    | N           | previous (find)           | useful          |                                 |
+    | M           | window middle             | replace         |                                 |
+    | ;           | repeat find               | core / swap     |                                 |
+    | :           | cmd line                  | core            |                                 |
+    | _           | next line first non-blank | replace         |                                 |
+    | <space>     | -                         | replace         |                                 |
+    | <enter>     | enter                     | replace         |                                 |
 *** Alt Gr
     | Key   | Function         | Status          |
     |-------+------------------+-----------------|
@@ -119,9 +122,202 @@
     | \vert | goto column      | avoid           |
     | µ     | -                | avoid           |
 *** Control
-    | Key         | Function                  | Status          |
-    |-------------+---------------------------+-----------------|
+    | Key         | Function           | Status    | Ideas           |
+    |-------------+--------------------+-----------+-----------------|
+    | 1-0         | -                  | potential |                 |
+    | +           | -                  | potential |                 |
+    | ´           | -                  | avoid     |                 |
+    | <backspace> | -                  | potential |                 |
+    | <tab>       | -                  | potential |                 |
+    | q           | random             | potential |                 |
+    | w           | prefix: window     | core      |                 |
+    | e           | scroll window down | move      |                 |
+    | r           | redo               | core      |                 |
+    | t           | random             | potential |                 |
+    | y           | scroll window up   | move      |                 |
+    | u           | emacs arguments    | potential |                 |
+    | i           | jump forward       | core      |                 |
+    | o           | jump backwards     | core      |                 |
+    | p           | paste pop          | potential |                 |
+    | å           | -                  | potential |                 |
+    | ¨           | -                  | avoid     |                 |
+    | a           | -                  | potential |                 |
+    | s           | emacs search       | potential |                 |
+    | d           | scroll down        | move      | move to hjkl    |
+    | f           | page down          | move      | ^               |
+    | g           | emacs quit         | potential |                 |
+    | h           | left split         | core      |                 |
+    | j           | down split         | core      |                 |
+    | k           | up split           | core      |                 |
+    | l           | right split        | core      |                 |
+    | ö           | -                  | potential |                 |
+    | ä           | -                  | potential |                 |
+    | '           | -                  | potential |                 |
+    | <           | -                  | potential |                 |
+    | z           | emacs state        | move      | behind a prefix |
+    | x           | emacs prefix       | no idea   |                 |
+    | c           | emacs prefix       | replace   | compile prefix  |
+    | v           | visual block       | core      |                 |
+    | b           | page up            | move      | hjkl            |
+    | n           | paste pop          | potential |                 |
+    | m           | enter?             | potential |                 |
+    | ,           | -                  | potential |                 |
+    | .           | repeat pop         | potential |                 |
+    | -           | negative argument  | potential |                 |
+    | <space>     | emacs selection    | potential |                 |
+    | <enter>     | -                  | potential |                 |
 *** Alt
-    | Key         | Function                  | Status          |
-    |-------------+---------------------------+-----------------|
-* Org-Mode
+    | Key | Function      | Status |
+    |-----+---------------+--------|
+    | x   | emacs execute | core   |
+** Insert
+*** Ideas
+    * easier brackets
+    * some unix / emacs style commands
+*** Keys
+    | Key | Function            | Status |
+    |-----+---------------------+--------|
+    | c-a | paste last insert   |        |
+    | c-d | shift line left     |        |
+    | c-e | copy from below     |        |
+    | c-k | insert-digraph      |        |
+    | c-n | complete next       |        |
+    | c-o | complete previous   |        |
+    | c-r | paste from register |        |
+    | c-t | shift line right    |        |
+    | c-v | quoted insert       |        |
+    | c-w | delete word back    |        |
+    | c-y | copy from above     |        |
+    | c-z | emacs state         |        |
+** Prefix: g - Go
+***  Ideas
+     * These here:
+        [ (             evil-previous-open-paren
+        [ [             evil-backward-section-begin
+        [ ]             evil-backward-section-end
+        [ {             evil-previous-open-brace
+
+        ] )             evil-next-close-paren
+        ] [             evil-forward-section-end
+        ] ]             evil-forward-section-begin
+        ] }             evil-next-close-brace
+*** TODO
+*** Keys
+    | Key | Function                       | Status       | Ideas        |
+    |-----+--------------------------------+--------------+--------------|
+    | &   | repeat global substitute       |              |              |
+    | ,   | last change reverse            | promote      |              |
+    | 8   | print cursor position          |              |              |
+    | ;   | last change                    | promote      |              |
+    | ?   | rot-13                         | replace      |              |
+    | F   | file with line                 |              |              |
+    | J   | join whitespace                |              |              |
+    | U   | upper case                     |              |              |
+    | a   | print cursor position          |              |              |
+    | f   | file                           |              |              |
+    | i   | insert resume                  |              |              |
+    | q   | fill and move                  |              |              |
+    | u   | lower case                     |              |              |
+    | w   | fill text                      |              |              |
+    | ~   | toggle case                    | avoid        |              |
+    | c-] | find tag                       | doesnt work? |              |
+    | #   | search back                    |              |              |
+    | $   | end of visual line             |              |              |
+    | *   | search forward                 |              |              |
+    | 0   | beginning of visual line       |              |              |
+    | E   | backwards WORD end             |              |              |
+    | N   | select next match              |              |              |
+    | ^   | first non blank of visual line | avoid        |              |
+    | _   | last non-blank                 |              |              |
+    | d   | definition                     |              |              |
+    | e   | backwards word end             |              |              |
+    | g   | first line                     |              |              |
+    | j   | down visual line               | remap        | replace hjkl |
+    | k   | up visual line                 | remap        | ^            |
+    | m   | middle of visual line          |              |              |
+    | n   | select next match              |              |              |
+    | v   | restore visual selection       | useful       |              |
+** Prefix: z - Folding
+*** Ideas
+    * TODO: Should rethink folding
+*** Keys
+    | Key     | Function           | Status |
+    |---------+--------------------+--------|
+    | =       | spelling           |        |
+    | O       | recursive open     |        |
+    | a       | toggle fold        |        |
+    | c       | close fold         |        |
+    | m       | close folds        |        |
+    | o       | open folds         |        |
+    | r       | open folds         |        |
+    | <enter> | keyboard macro     |        |
+    | +       | bottom line to top |        |
+    | -       | keyboard macro     |        |
+    | .       | keyboard macro     |        |
+    | H       | scroll left        |        |
+    | L       | scroll right       |        |
+    | ^       | top line to bottom |        |
+    | b       | line to bottom     |        |
+    | h       | column left        |        |
+    | l       | column right       |        |
+    | t       | line to top        |        |
+    | z       | line to center     |        |
+    | <left>  | keyboard macro     |        |
+    | <right> | keyboard macro     |        |
+    |         |                    |        |
+** Prefix: C-w - Window
+*** Keys
+    | Key   | Function          | Status |
+    |-------+-------------------+--------|
+    | C-b   | bottom right      |        |
+    | C-c   | delete            |        |
+    | C-f   | ffap-other-widow? |        |
+    | C-n   | new               |        |
+    | C-o   | delete other      |        |
+    | c-p   | mru?              |        |
+    | c-r   | rotate down       |        |
+    | c-s   | split             |        |
+    | c-t   | top left          |        |
+    | c-v   | vsplit            |        |
+    | c-w   | next              |        |
+    | c-_   | set height        |        |
+    | +     | increase height   |        |
+    | -     | decrease height   |        |
+    | <     | decrease width    |        |
+    | =     | balance windows   |        |
+    | >     | increase width    |        |
+    | H     | far left          |        |
+    | J     | very bottom       |        |
+    | K     | very top          |        |
+    | L     | far right         |        |
+    | R     | rotate upwards    |        |
+    | S     | split             |        |
+    | W     | previous          |        |
+    | _     | set height        |        |
+    | b     | bottom right      |        |
+    | c     | delete            |        |
+    | h     | left              |        |
+    | j     | down              |        |
+    | k     | up                |        |
+    | l     | right             |        |
+    | n     | new               |        |
+    | \vbar | set width         |        |
+    | c-H   | far left          |        |
+    | c-J   | very bottom       |        |
+    | c-K   | very top          |        |
+    | c-L   | far right         |        |
+    | c-R   | rotate upwards    |        |
+    | c-S   | split             |        |
+    | c-W   | previous          |        |
+** Prefix: <space> - Leader
+* Minimal
+  * hjkl movement
+  * control-hjkl split movement
+* Packages
+** Flychech
+*** TODO
+** Undo-Tree
+*** TODO
+* Major Modes
+** Org
+*** TODO

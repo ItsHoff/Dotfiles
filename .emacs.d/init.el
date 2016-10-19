@@ -6,7 +6,7 @@
 
 (package-initialize)
 
-;; Bootstrap `use-package'
+;; bootstrap `use-package'
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
@@ -76,12 +76,62 @@
   (setq evil-ex-substitute-global t) ;; substitute replaces all occurences in line
   ;; Make Y function sensibly
   (define-key evil-normal-state-map "Y" (lambda () (interactive) (evil-yank-line (point) (point-at-eol))))
-  (define-key evil-normal-state-map "H" 'evil-first-non-blank)
-  (define-key evil-normal-state-map "L" 'evil-end-of-line)
-  (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
-  (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
-  (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
-  (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right))
+  ;; esc quits
+  (defun minibuffer-keyboard-quit ()
+    "Abort recursive edit.
+    In Delete Selection mode, if the mark is active, just deactivate it;
+    then it takes a second \\[keyboard-quit] to abort the minibuffer."
+    (interactive)
+    (if (and delete-selection-mode transient-mark-mode mark-active)
+        (setq deactivate-mark  t)
+      (when (get-buffer "*Completions*") (delete-windows-on "*Completions*"))
+      (abort-recursive-edit)))
+  (define-key evil-normal-state-map [escape] 'keyboard-quit)
+  (define-key evil-visual-state-map [escape] 'keyboard-quit)
+  (define-key minibuffer-local-map [escape] 'minibuffer-keyboard-quit)
+  (define-key minibuffer-local-ns-map [escape] 'minibuffer-keyboard-quit)
+  (define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
+  (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
+  (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
+  (global-set-key [escape] 'evil-exit-emacs-state)
+  :bind
+  (:map evil-normal-state-map
+        ;; Swap , and ;
+        ("," . evil-repeat-find-char)
+        (";" . evil-repeat-find-char-reverse)
+        ;; Combine delete and replace char
+        ("q" . evil-replace)
+        ("Q" . evil-delete-char)
+        ;; Join
+        ("x" . evil-join)
+        ; TODO split
+        ;; Make ¤ be forward #
+        ("¤" . evil-search-word-forward)
+        ;; Undo tree
+        ("U" . undo-tree-redo)
+        ("C-u" . undo-tree-visualize)
+        ; TODO edit undo tree bindings
+
+        ;; Move sentence object
+        ("s" . evil-forward-sentence-begin)
+        ("S" . evil-backward-sentence-begin)
+        ;; Move paragraph object
+        ("r" . evil-forward-paragraph)
+        ("R" . evil-backward-paragraph)
+
+        ;; Make j and k move visual lines
+        ("j" . evil-next-visual-line)
+        ("k" . evil-previous-visual-line)
+        ;; Bigger Movement
+        ("J" . evil-scroll-page-down)
+        ("K" . evil-scroll-page-up)
+        ("H" . evil-first-non-blank-of-visual-line)
+        ("L" . evil-end-of-visual-line)
+        ;; Window Movement
+        ("C-j" . evil-window-down)
+        ("C-k" . evil-window-up)
+        ("C-h" . evil-window-left)
+        ("C-l" . evil-window-right)))
 
 (use-package flycheck
   :init (global-flycheck-mode))

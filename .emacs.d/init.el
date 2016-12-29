@@ -1,3 +1,8 @@
+;;; package --- Summary
+;;; Commentary:
+;;; My .emacs
+
+;;; Code:
 (require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives
@@ -47,8 +52,7 @@
 (setq-default tab-width 4)              ; Tab = 4 spaces
 
 ;; Remaps
-(global-set-key (kbd "M-ä") help-map)   ; Remap help
-(global-set-key (kbd "M-ö") 'describe-key)   ; Temporary key help
+(global-set-key (kbd "M-+") help-map)   ; Remap help
 
 ;; HOOKS-----------------------------------------------------------------------------------
 
@@ -74,8 +78,34 @@
   :init (evil-mode t)
   :config
   (setq evil-ex-substitute-global t) ;; substitute replaces all occurences in line
-  ;; Make Y function sensibly
-  (define-key evil-normal-state-map "Y" (lambda () (interactive) (evil-yank-line (point) (point-at-eol))))
+
+  (defun my-yank-eol ()
+    (interactive)
+    (evil-yank-line (point) (point-at-eol)))
+
+  ;; Scroll down a page and place cursor at bottom
+  (defun my-scroll-page-down (n)
+    (interactive "P")
+    (if n
+        (evil-scroll-page-down n)
+      (evil-scroll-page-down 1))
+    (evil-window-bottom))
+
+  ;; Scroll up a page and place cursor at top
+  (defun my-scroll-page-up (n)
+    (interactive "P")
+    (if n
+        (evil-scroll-page-up n)
+      (evil-scroll-page-up 1))
+    (evil-window-top))
+
+  ;; Split line
+  (defun my-split ()
+    (interactive)
+    (setq save-point (point))
+    (newline-and-indent)
+    (goto-char (- save-point 1)))
+
   ;; esc quits
   (defun minibuffer-keyboard-quit ()
     "Abort recursive edit.
@@ -94,53 +124,59 @@
   (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
   (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
   (global-set-key [escape] 'evil-exit-emacs-state)
+
+  ;; Easier brackets
+  (define-key evil-insert-state-map (kbd "C-h") (lambda () (interactive) (insert "{")))
+  (define-key evil-insert-state-map (kbd "C-l") (lambda () (interactive) (insert "}")))
+  (define-key evil-insert-state-map (kbd "C-j") (lambda () (interactive) (insert "[")))
+  (define-key evil-insert-state-map (kbd "C-k") (lambda () (interactive) (insert "]")))
+
   :bind
   (:map evil-normal-state-map
+        ;; Make Y function sensibly
+        ("Y" . my-yank-eol)
         ;; Swap , and ;
         ("," . evil-repeat-find-char)
         (";" . evil-repeat-find-char-reverse)
-        ;; Combine delete and replace char
-        ("q" . evil-replace)
-        ("Q" . evil-delete-char)
-        ;; Join
-        ("x" . evil-join)
-        ; TODO split
+        ;; Join + split
+        ("<backspace>" . evil-join)
+        ("<return>" . my-split)
         ;; Make ¤ be forward #
         ("¤" . evil-search-word-forward)
         ;; Undo tree
         ("U" . undo-tree-redo)
-        ("C-u" . undo-tree-visualize)
+        ("C-u" . undo-tree-visualizer-relative-timestamps)
         ; TODO edit undo tree bindings
 
         ;; Move sentence object
         ("s" . evil-forward-sentence-begin)
         ("S" . evil-backward-sentence-begin)
         ;; Move paragraph object
-        ("r" . evil-forward-paragraph)
-        ("R" . evil-backward-paragraph)
+        ("q" . evil-forward-paragraph)
+        ("Q" . evil-backward-paragraph)
 
         ;; Make j and k move visual lines
         ("j" . evil-next-visual-line)
         ("k" . evil-previous-visual-line)
         ;; Bigger Movement
-        ("J" . evil-scroll-page-down)
-        ("K" . evil-scroll-page-up)
         ("H" . evil-first-non-blank-of-visual-line)
         ("L" . evil-end-of-visual-line)
+        ("J" . my-scroll-page-down)
+        ("K" . my-scroll-page-up)
         ;; Window Movement
         ("C-j" . evil-window-down)
         ("C-k" . evil-window-up)
         ("C-h" . evil-window-left)
-        ("C-l" . evil-window-right)))
+        ("C-l" . evil-window-right)
+
+   :map evil-visual-state-map
+        ("H" . evil-first-non-blank-of-visual-line)
+        ("L" . evil-end-of-visual-line)))
 
 (use-package flycheck
   :init (global-flycheck-mode))
 
 (use-package org)
-
-(use-package smartparens-config
-  :ensure smartparens
-  :init (smartparens-global-mode))
 
 (use-package spaceline-config
   :ensure spaceline
@@ -167,7 +203,6 @@
   :config (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 
 (use-package racer
-  :init (setq racer-rust-src-path "C:\\Programming\\Rust-GNU\\src\\rustc-nightly\\src")
   :config
   (add-hook 'rust-mode-hook #'racer-mode)
   (add-hook 'racer-mode-hook #'eldoc-mode))
@@ -180,3 +215,17 @@
 
 (provide 'init)
 ;;; init.el ends here
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (use-package spaceline solarized-theme smart-mode-line-powerline-theme racer powerline-evil glsl-mode flycheck-rust company cargo auctex))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

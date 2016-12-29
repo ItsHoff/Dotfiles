@@ -1,6 +1,5 @@
 * Normal
 ** TODO
-    * create split line on X
     * find good place for help
       - cant be insertable key to work with insert mode
 ** Free Keys
@@ -11,8 +10,6 @@
    * m
    * -
    * +
-   * <backspace>
-   * <enter>
    * z?
 ** Unmodified
     | Key         | Function                  | Status  | Ideas                    |
@@ -21,12 +18,12 @@
     | 1-0         | num modifier              | core    |                          |
     | +           | next non-blank line       | replace |                          |
     | ´           | -                         | avoid   |                          |
-    | <backspace> | back char                 | replace |                          |
+    | <backspace> | join line                 | useful  |                          |
     | <tab>       | cycling / completion      | core    |                          |
-    | q           | replace char              | core    |                          |
+    | q           | paragraph                 | useful  |                          |
     | w           | word                      | core    |                          |
     | e           | end                       | core    |                          |
-    | r           | paragraph                 | useful  |                          |
+    | r           | replace char              | core    |                          |
     | t           | till                      | core    |                          |
     | y           | yank                      | core    |                          |
     | u           | undo                      | core    |                          |
@@ -49,7 +46,7 @@
     | '           | goto mark line            | move    | move marks behind leader |
     | <           | unindent                  | core    |                          |
     | z           | prefix: view manipulation | core    |                          |
-    | x           | join                      | core    |                          |
+    | x           | delete char               | core    |                          |
     | c           | change                    | core    |                          |
     | v           | visual                    | core    |                          |
     | b           | back                      | core    |                          |
@@ -59,7 +56,7 @@
     | .           | repeat                    | core    |                          |
     | -           | previous non-blank line   | replace |                          |
     | <space>     | prefix: leader            | core    |                          |
-    | <enter>     | enter                     | replace |                          |
+    | <enter>     | split line                | useful  |                          |
     | <up>        | -                         | use     |                          |
     | <down>      | -                         | use     |                          |
     | <left>      | -                         | use     |                          |
@@ -82,10 +79,10 @@
     | `           | goto mark                 | avoid           |                                     |
     | <backspace> | del                       | replace         |                                     |
     | <tab>       | backwards tab             | core            |                                     |
-    | Q           | delete char               | core            |                                     |
+    | Q           | paragraph backwards       | useful          |                                     |
     | W           | WORD                      | core            |                                     |
     | E           | END                       | core            |                                     |
-    | R           | paragraph backwards       | useful          |                                     |
+    | R           | -                         | use             |                                     |
     | T           | back till                 | core            |                                     |
     | Y           | yank eol                  | core            |                                     |
     | U           | redo                      | core            |                                     |
@@ -108,7 +105,7 @@
     | *           | search word forward       | remap / useful  |                                     |
     | >           | indent                    | core            |                                     |
     | Z           | prefix: quit              | replace         |                                     |
-    | X           | backspace                 | replace         | split line                          |
+    | X           | -                         | use             |                                     |
     | C           | change eol                | core            |                                     |
     | V           | visual line               | core            |                                     |
     | B           | BACK                      | core            |                                     |
@@ -168,9 +165,10 @@
 *** Ideas
     * m-z for emacs state
 *** Keys
-    | Key | Function      | Status |
-    |-----+---------------+--------|
-    | x   | emacs execute | core   |
+    | Key   | Function      | Status |
+    |-------+---------------+--------|
+    | x     | emacs execute | core   |
+    | + (?) | help          |        |
 ** Alt Gr
 | Key   | Function         | Status          | Ideas                     |
 |-------+------------------+-----------------+---------------------------|
@@ -330,7 +328,10 @@
     | c-a | paste last insert   |        |
     | c-d | shift line left     |        |
     | c-e | copy from below     |        |
-    | c-k | insert-digraph      |        |
+    | c-h | insert {            | useful |
+    | c-j | insert [            | useful |
+    | c-k | insert ]            | useful |
+    | c-l | insert }           | useful |
     | c-n | complete next       |        |
     | c-o | complete previous   |        |
     | c-r | paste from register |        |
@@ -339,6 +340,10 @@
     | c-w | delete word back    |        |
     | c-y | copy from above     |        |
     | c-z | emacs state         |        |
+** Overwritten
+   | Old Key | Function       | Status | Ideas |
+   |---------+----------------+--------+-------|
+   | c-k     | insert-digraph |        |       |
 * Minimal
   * hjkl movement
   * control-hjkl split movement

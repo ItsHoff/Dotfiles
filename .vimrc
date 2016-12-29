@@ -34,7 +34,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc.vim'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'lervag/vimtex'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -444,4 +444,6 @@ augroup END
 augroup ft_txt
     au!
     au FileType text setlocal wrap
+    au FileType text setlocal nolist
+    au FileType text setlocal linebreak
 augroup END

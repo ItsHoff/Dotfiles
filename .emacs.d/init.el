@@ -24,6 +24,8 @@
 (setq inhibit-startup-screen t)     ; No message at startup
 (global-linum-mode 1)               ; Show line numbers
 (show-paren-mode 1)                 ; Show matching parenthesis
+(modify-syntax-entry ?_ "w")        ; _ is now part of a word
+(modify-syntax-entry ?- "w")        ; aswell as -
 
 ;; Smooth scrolling
 (setq scroll-step 1)
@@ -127,7 +129,10 @@
 
   ;; Easier brackets
   (define-key evil-insert-state-map (kbd "C-h") (lambda () (interactive) (insert "{")))
-  (define-key evil-insert-state-map (kbd "C-l") (lambda () (interactive) (insert "}")))
+  (define-key evil-insert-state-map (kbd "C-l") (lambda () (interactive)
+                                                  (insert "}")
+                                                  (save-excursion (evil-indent-line
+                                                                   (point-at-bol) (point-at-eol)))))
   (define-key evil-insert-state-map (kbd "C-j") (lambda () (interactive) (insert "[")))
   (define-key evil-insert-state-map (kbd "C-k") (lambda () (interactive) (insert "]")))
 

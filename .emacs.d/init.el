@@ -26,6 +26,7 @@
 (show-paren-mode 1)                 ; Show matching parenthesis
 (modify-syntax-entry ?_ "w")        ; _ is now part of a word
 (modify-syntax-entry ?- "w")        ; aswell as -
+(setq x-select-enable-clipboard nil)    ; Disable emacs clipboard and rely on evil
 
 ;; Smooth scrolling
 (setq scroll-step 1)
@@ -46,7 +47,12 @@
 (setq auto-save-default nil)        ; No auto-saves
 
 ;; Font
-(set-frame-font "Consolas-11")
+(cond
+  ((find-font (font-spec :name "Consolas"))
+   (set-frame-font "Consolas-11"))
+  ((find-font (font-spec :name "DejaVu Sans Mono"))
+   (set-frame-font "DejaVu Sans Mono-11"))
+  )
 
 ;; Tabs & Spaces
 (setq-default tab-always-indent nil)    ; Allow tabbing outside of indent
@@ -55,6 +61,9 @@
 
 ;; Remaps
 (global-set-key (kbd "M-+") help-map)   ; Remap help
+
+;; Unbind
+(global-unset-key (kbd "C-<backspace>"))
 
 ;; HOOKS-----------------------------------------------------------------------------------
 

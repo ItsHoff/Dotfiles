@@ -1,15 +1,18 @@
 * Normal
 ** TODO
    * Operator mode brackets
+   * (c-x r [w/j]) workspace management
+     * window-configuration-to-register
+     * jump-to-register
 ** Free Keys
-*** Complete Package
-   * ö
-   * ä
-   * å
-   * m
-   * -
-   * +
-   * z?
+** Complete Package
+  * ö
+  * ä
+  * å
+  * m
+  * -
+  * +
+  * z?
 ** Unmodified
     | Key         | Function                  | Status  | Ideas                    |
     |-------------+---------------------------+---------+--------------------------|

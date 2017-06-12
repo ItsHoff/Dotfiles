@@ -113,9 +113,9 @@
   ;; Split line
   (defun my-split ()
     (interactive)
-    (setq save-point (point))
-    (newline-and-indent)
-    (goto-char (- save-point 1)))
+    (let ((save-point (point)))
+      (newline-and-indent)
+      (goto-char (- save-point 1))))
 
   ;; esc quits
   (defun minibuffer-keyboard-quit ()
@@ -137,14 +137,14 @@
   (global-set-key [escape] 'evil-exit-emacs-state)
 
   ;; Easier brackets
-  (define-key evil-insert-state-map (kbd "C-h") (lambda () (interactive) (insert "{")))
+  (define-key evil-insert-state-map (kbd "C-h") (kbd "{"))
   (define-key evil-insert-state-map (kbd "C-l")  ; Also indent
     (lambda () (interactive)
       (insert "}")
       (save-excursion
         (evil-indent-line (point-at-bol) (point-at-eol)))))
-  (define-key evil-insert-state-map (kbd "C-j") (lambda () (interactive) (insert "[")))
-  (define-key evil-insert-state-map (kbd "C-k") (lambda () (interactive) (insert "]")))
+  (define-key evil-insert-state-map (kbd "C-j") (kbd "["))
+  (define-key evil-insert-state-map (kbd "C-k") (kbd "]"))
 
   :bind
   (:map evil-normal-state-map

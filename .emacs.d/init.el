@@ -138,10 +138,11 @@
 
   ;; Easier brackets
   (define-key evil-insert-state-map (kbd "C-h") (lambda () (interactive) (insert "{")))
-  (define-key evil-insert-state-map (kbd "C-l") (lambda () (interactive)
-                                                  (insert "}")
-                                                  (save-excursion (evil-indent-line
-                                                                   (point-at-bol) (point-at-eol)))))
+  (define-key evil-insert-state-map (kbd "C-l")  ; Also indent
+    (lambda () (interactive)
+      (insert "}")
+      (save-excursion
+        (evil-indent-line (point-at-bol) (point-at-eol)))))
   (define-key evil-insert-state-map (kbd "C-j") (lambda () (interactive) (insert "[")))
   (define-key evil-insert-state-map (kbd "C-k") (lambda () (interactive) (insert "]")))
 

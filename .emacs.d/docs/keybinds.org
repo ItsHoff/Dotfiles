@@ -1,7 +1,6 @@
 * Normal
 ** TODO
-    * find good place for help
-      - cant be insertable key to work with insert mode
+   * Operator mode brackets
 ** Free Keys
 *** Complete Package
    * ö
@@ -331,7 +330,7 @@
     | c-h | insert {            | useful |
     | c-j | insert [            | useful |
     | c-k | insert ]            | useful |
-    | c-l | insert }           | useful |
+    | c-l | insert }            | useful |
     | c-n | complete next       |        |
     | c-o | complete previous   |        |
     | c-r | paste from register |        |
@@ -348,6 +347,8 @@
   * hjkl movement
   * control-hjkl split movement
 * Packages
+** Org
+*** TODO
 ** Flychech
 *** TODO
 ** Undo-Tree

@@ -101,34 +101,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
         "C-l" 'evil-window-right
         )
 
-;; Easier brackets
-(general-imap "C-h" (kbd "{")
-              "C-l" (lambda () (interactive)
-                      (insert "}")
-                      (save-excursion ; Indent aswell
-                        (evil-indent-line (point-at-bol) (point-at-eol))))
-              "C-j" (kbd "[")
-              "C-k" (kbd "]"))
-
-(general-nvmap "f" (general-key-dispatch 'evil-find-char
-                     "C-h" (general-simulate-keys ('evil-find-char "{"))
-                     "C-l" (general-simulate-keys ('evil-find-char "}"))
-                     "C-j" (general-simulate-keys ('evil-find-char "["))
-                     "C-k" (general-simulate-keys ('evil-find-char "]"))
-                     )
-              "t" (general-key-dispatch 'evil-find-char-to
-                    "C-h" (general-simulate-keys ('evil-find-char-to "{"))
-                    "C-l" (general-simulate-keys ('evil-find-char-to "}"))
-                    "C-j" (general-simulate-keys ('evil-find-char-to "["))
-                    "C-k" (general-simulate-keys ('evil-find-char-to "]"))
-                    )
-              "r" (general-key-dispatch 'evil-replace
-                    "C-h" (general-simulate-keys ('evil-replace "{"))
-                    "C-l" (general-simulate-keys ('evil-replace "}"))
-                    "C-j" (general-simulate-keys ('evil-replace "["))
-                    "C-k" (general-simulate-keys ('evil-replace "]"))
-                    ))
-
+(load "easy-brackets")
 
 (provide 'keybindings)
 ;;; keybindings.el ends here

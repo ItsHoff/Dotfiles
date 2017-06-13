@@ -3,7 +3,7 @@
 ;;; My .emacs
 
 ;;; Code:
-(add-to-list 'load-path "~/.emacs.d/lisp/")
+(add-to-list 'load-path "~/.emacs.d/init/")
 (require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives

@@ -61,7 +61,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 ;; BINDINGS -----------------------------------------------------------------------------------
 
-(general-define-key "M-+" 'help-map) ; Remap help
+(general-define-key "M-+" help-map) ; Remap help
 
 (general-define-key :keymaps '(evil-normal-state-map evil-visual-state-map)
         ;; Make Y function sensibly

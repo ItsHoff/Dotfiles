@@ -3,6 +3,7 @@
 ;;; My .emacs
 
 ;;; Code:
+(add-to-list 'load-path "~/.emacs.d/lisp/")
 (require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives
@@ -16,7 +17,7 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-;; GENERAL SETTINGS------------------------------------------------------------------------
+;; GENERAL SETTINGS ----------------------------------------------------------------------------
 
 (setq visible-bell 1)               ; No error beep
 (tool-bar-mode -1)                  ; No toolbar
@@ -59,13 +60,7 @@
 (setq-default indent-tabs-mode nil)     ; Use spaces instead of tabs
 (setq-default tab-width 4)              ; Tab = 4 spaces
 
-;; Remaps
-(global-set-key (kbd "M-+") help-map)   ; Remap help
-
-;; Unbind
-(global-unset-key (kbd "C-<backspace>"))
-
-;; HOOKS-----------------------------------------------------------------------------------
+;; HOOKS ---------------------------------------------------------------------------------------
 
 ; Auto-save on focus lost
 (add-hook 'focus-out-hook (lambda () (interactive) (save-some-buffers t)))
@@ -73,7 +68,7 @@
 ; Remove trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;; PACKAGES--------------------------------------------------------------------------------
+;; PACKAGES ------------------------------------------------------------------------------------
 
 ;; Install all packages automatically
 (setq use-package-always-ensure t)
@@ -88,108 +83,13 @@
 (use-package evil
   :init (evil-mode t)
   :config
-  (setq evil-ex-substitute-global t) ;; substitute replaces all occurences in line
-
-  (defun my-yank-eol ()
-    (interactive)
-    (evil-yank-line (point) (point-at-eol)))
-
-  ;; Scroll down a page and place cursor at bottom
-  (defun my-scroll-page-down (n)
-    (interactive "P")
-    (if n
-        (evil-scroll-page-down n)
-      (evil-scroll-page-down 1))
-    (evil-window-bottom))
-
-  ;; Scroll up a page and place cursor at top
-  (defun my-scroll-page-up (n)
-    (interactive "P")
-    (if n
-        (evil-scroll-page-up n)
-      (evil-scroll-page-up 1))
-    (evil-window-top))
-
-  ;; Split line
-  (defun my-split ()
-    (interactive)
-    (let ((save-point (point)))
-      (newline-and-indent)
-      (goto-char (- save-point 1))))
-
-  ;; esc quits
-  (defun minibuffer-keyboard-quit ()
-    "Abort recursive edit.
-    In Delete Selection mode, if the mark is active, just deactivate it;
-    then it takes a second \\[keyboard-quit] to abort the minibuffer."
-    (interactive)
-    (if (and delete-selection-mode transient-mark-mode mark-active)
-        (setq deactivate-mark  t)
-      (when (get-buffer "*Completions*") (delete-windows-on "*Completions*"))
-      (abort-recursive-edit)))
-  (define-key evil-normal-state-map [escape] 'keyboard-quit)
-  (define-key evil-visual-state-map [escape] 'keyboard-quit)
-  (define-key minibuffer-local-map [escape] 'minibuffer-keyboard-quit)
-  (define-key minibuffer-local-ns-map [escape] 'minibuffer-keyboard-quit)
-  (define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
-  (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
-  (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
-  (global-set-key [escape] 'evil-exit-emacs-state)
-
-  ;; Easier brackets
-  (define-key evil-insert-state-map (kbd "C-h") (kbd "{"))
-  (define-key evil-insert-state-map (kbd "C-l")  ; Also indent
-    (lambda () (interactive)
-      (insert "}")
-      (save-excursion
-        (evil-indent-line (point-at-bol) (point-at-eol)))))
-  (define-key evil-insert-state-map (kbd "C-j") (kbd "["))
-  (define-key evil-insert-state-map (kbd "C-k") (kbd "]"))
-
-  :bind
-  (:map evil-normal-state-map
-        ;; Make Y function sensibly
-        ("Y" . my-yank-eol)
-        ;; Swap , and ;
-        ("," . evil-repeat-find-char)
-        (";" . evil-repeat-find-char-reverse)
-        ;; Join + split
-        ("<backspace>" . evil-join)
-        ("<return>" . my-split)
-        ;; Make ¤ be forward #
-        ("¤" . evil-search-word-forward)
-        ;; Undo tree
-        ("U" . undo-tree-redo)
-        ("C-u" . undo-tree-visualizer-relative-timestamps)
-        ; TODO edit undo tree bindings
-
-        ;; Move sentence object
-        ("s" . evil-forward-sentence-begin)
-        ("S" . evil-backward-sentence-begin)
-        ;; Move paragraph object
-        ("q" . evil-forward-paragraph)
-        ("Q" . evil-backward-paragraph)
-
-        ;; Make j and k move visual lines
-        ("j" . evil-next-visual-line)
-        ("k" . evil-previous-visual-line)
-        ;; Bigger Movement
-        ("H" . evil-first-non-blank-of-visual-line)
-        ("L" . evil-end-of-visual-line)
-        ("J" . my-scroll-page-down)
-        ("K" . my-scroll-page-up)
-        ;; Window Movement
-        ("C-j" . evil-window-down)
-        ("C-k" . evil-window-up)
-        ("C-h" . evil-window-left)
-        ("C-l" . evil-window-right)
-
-   :map evil-visual-state-map
-        ("H" . evil-first-non-blank-of-visual-line)
-        ("L" . evil-end-of-visual-line)))
+  (setq evil-ex-substitute-global t)) ; substitute replaces all occurences in line
 
 (use-package flycheck
   :init (global-flycheck-mode))
+
+(use-package general
+  :init (general-evil-setup))
 
 (use-package org)
 
@@ -227,6 +127,8 @@
 ;; Tex
 (use-package tex-site
   :ensure auctex)
+
+(load "keybindings")
 
 (provide 'init)
 ;;; init.el ends here

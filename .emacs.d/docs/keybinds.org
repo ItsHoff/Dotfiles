@@ -1,9 +1,4 @@
 * Normal
-** TODO
-   * Operator mode brackets
-   * (c-x r [w/j]) workspace management
-     * window-configuration-to-register
-     * jump-to-register
 ** Free Keys
 ** Complete Package
   * ö
@@ -321,9 +316,6 @@
    | K       | evil-lookup (man)      | maybe   |                           |
    | c-u     | universal-argument     | remap   | m-u                       |
 * Insert
-** Ideas
-    * easier brackets
-    * some unix / emacs style commands
 ** Keys
     | Key | Function            | Status |
     |-----+---------------------+--------|
@@ -346,16 +338,3 @@
    | Old Key | Function       | Status | Ideas |
    |---------+----------------+--------+-------|
    | c-k     | insert-digraph |        |       |
-* Minimal
-  * hjkl movement
-  * control-hjkl split movement
-* Packages
-** Org
-*** TODO
-** Flychech
-*** TODO
-** Undo-Tree
-*** TODO
-* Major Modes
-** Org
-*** TODO

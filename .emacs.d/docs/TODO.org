@@ -1,8 +1,3 @@
-* Ideas
-   * (c-x r [w/j]) workspace management
-     * window-configuration-to-register
-     * jump-to-register
-   * some unix / emacs style commands in insert mode
 * TODO
 ** Create minimal combability mode
   * hjkl movement
@@ -10,6 +5,11 @@
 ** Learn and map Org
 ** Learn and map Flycheck
 ** Learn and map Undotree
+* Ideas
+   * (c-x r [w/j]) workspace management
+     * window-configuration-to-register
+     * jump-to-register
+   * some unix / emacs style commands in insert mode
 * Packages to checkout
 ** Magit
    * https://magit.vc/

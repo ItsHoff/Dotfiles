@@ -1,4 +1,13 @@
-;; Easier brackets
+;;; package --- Summary
+;;; Commentary:
+;;; Make brackets easier to use
+
+;;; Code:
+(defun my-no-dot (func)
+  "Wrap evil-declare-not-repeat to return the FUNC for keybinding."
+  (evil-declare-not-repeat func)
+  func)
+
 (general-imap "C-h" (kbd "{")
               "C-l" (lambda () (interactive)
                       (insert "}")
@@ -8,28 +17,28 @@
               "C-k" (kbd "]"))
 
 (general-nvmap "f" (general-key-dispatch 'evil-find-char
-                     "C-h" (general-simulate-keys ('evil-find-char "{"))
-                     "C-l" (general-simulate-keys ('evil-find-char "}"))
-                     "C-j" (general-simulate-keys ('evil-find-char "["))
-                     "C-k" (general-simulate-keys ('evil-find-char "]"))
+                     "C-h" (my-no-dot (general-simulate-keys ('evil-find-char "{")))
+                     "C-l" (my-no-dot (general-simulate-keys ('evil-find-char "}")))
+                     "C-j" (my-no-dot (general-simulate-keys ('evil-find-char "[")))
+                     "C-k" (my-no-dot (general-simulate-keys ('evil-find-char "]")))
                      )
               "F" (general-key-dispatch 'evil-find-char-backward
-                    "C-h" (general-simulate-keys ('evil-find-char-backward "{"))
-                    "C-l" (general-simulate-keys ('evil-find-char-backward "}"))
-                    "C-j" (general-simulate-keys ('evil-find-char-backward "["))
-                    "C-k" (general-simulate-keys ('evil-find-char-backward "]"))
+                    "C-h" (my-no-dot (general-simulate-keys ('evil-find-char-backward "{")))
+                    "C-l" (my-no-dot (general-simulate-keys ('evil-find-char-backward "}")))
+                    "C-j" (my-no-dot (general-simulate-keys ('evil-find-char-backward "[")))
+                    "C-k" (my-no-dot (general-simulate-keys ('evil-find-char-backward "]")))
                     )
               "t" (general-key-dispatch 'evil-find-char-to
-                    "C-h" (general-simulate-keys ('evil-find-char-to "{"))
-                    "C-l" (general-simulate-keys ('evil-find-char-to "}"))
-                    "C-j" (general-simulate-keys ('evil-find-char-to "["))
-                    "C-k" (general-simulate-keys ('evil-find-char-to "]"))
+                    "C-h" (my-no-dot (general-simulate-keys ('evil-find-char-to "{")))
+                    "C-l" (my-no-dot (general-simulate-keys ('evil-find-char-to "}")))
+                    "C-j" (my-no-dot (general-simulate-keys ('evil-find-char-to "[")))
+                    "C-k" (my-no-dot (general-simulate-keys ('evil-find-char-to "]")))
                     )
               "T" (general-key-dispatch 'evil-find-char-to-backward
-                    "C-h" (general-simulate-keys ('evil-find-char-to-backward "{"))
-                    "C-l" (general-simulate-keys ('evil-find-char-to-backward "}"))
-                    "C-j" (general-simulate-keys ('evil-find-char-to-backward "["))
-                    "C-k" (general-simulate-keys ('evil-find-char-to-backward "]"))
+                    "C-h" (my-no-dot (general-simulate-keys ('evil-find-char-to-backward "{")))
+                    "C-l" (my-no-dot (general-simulate-keys ('evil-find-char-to-backward "}")))
+                    "C-j" (my-no-dot (general-simulate-keys ('evil-find-char-to-backward "[")))
+                    "C-k" (my-no-dot (general-simulate-keys ('evil-find-char-to-backward "]")))
                     )
               "r" (general-key-dispatch 'evil-replace
                     "C-h" (general-simulate-keys ('evil-replace "{"))
@@ -103,35 +112,35 @@
                     )
 
               "y" (general-key-dispatch 'evil-yank
-                    "f C-h" (general-simulate-keys ('evil-yank "f{"))
-                    "f C-l" (general-simulate-keys ('evil-yank "f}"))
-                    "f C-j" (general-simulate-keys ('evil-yank "f["))
-                    "f C-k" (general-simulate-keys ('evil-yank "f]"))
+                    "f C-h" (my-no-dot (general-simulate-keys ('evil-yank "f{")))
+                    "f C-l" (my-no-dot (general-simulate-keys ('evil-yank "f}")))
+                    "f C-j" (my-no-dot (general-simulate-keys ('evil-yank "f[")))
+                    "f C-k" (my-no-dot (general-simulate-keys ('evil-yank "f]")))
 
-                    "F C-h" (general-simulate-keys ('evil-yank "F{"))
-                    "F C-l" (general-simulate-keys ('evil-yank "F}"))
-                    "F C-j" (general-simulate-keys ('evil-yank "F["))
-                    "F C-k" (general-simulate-keys ('evil-yank "F]"))
+                    "F C-h" (my-no-dot (general-simulate-keys ('evil-yank "F{")))
+                    "F C-l" (my-no-dot (general-simulate-keys ('evil-yank "F}")))
+                    "F C-j" (my-no-dot (general-simulate-keys ('evil-yank "F[")))
+                    "F C-k" (my-no-dot (general-simulate-keys ('evil-yank "F]")))
 
-                    "t C-h" (general-simulate-keys ('evil-yank "t{"))
-                    "t C-l" (general-simulate-keys ('evil-yank "t}"))
-                    "t C-j" (general-simulate-keys ('evil-yank "t["))
-                    "t C-k" (general-simulate-keys ('evil-yank "t]"))
+                    "t C-h" (my-no-dot (general-simulate-keys ('evil-yank "t{")))
+                    "t C-l" (my-no-dot (general-simulate-keys ('evil-yank "t}")))
+                    "t C-j" (my-no-dot (general-simulate-keys ('evil-yank "t[")))
+                    "t C-k" (my-no-dot (general-simulate-keys ('evil-yank "t]")))
 
-                    "T C-h" (general-simulate-keys ('evil-yank "T{"))
-                    "T C-l" (general-simulate-keys ('evil-yank "T}"))
-                    "T C-j" (general-simulate-keys ('evil-yank "T["))
-                    "T C-k" (general-simulate-keys ('evil-yank "T]"))
+                    "T C-h" (my-no-dot (general-simulate-keys ('evil-yank "T{")))
+                    "T C-l" (my-no-dot (general-simulate-keys ('evil-yank "T}")))
+                    "T C-j" (my-no-dot (general-simulate-keys ('evil-yank "T[")))
+                    "T C-k" (my-no-dot (general-simulate-keys ('evil-yank "T]")))
 
-                    "i C-h" (general-simulate-keys ('evil-yank "i{"))
-                    "i C-l" (general-simulate-keys ('evil-yank "i}"))
-                    "i C-j" (general-simulate-keys ('evil-yank "i["))
-                    "i C-k" (general-simulate-keys ('evil-yank "i]"))
+                    "i C-h" (my-no-dot (general-simulate-keys ('evil-yank "i{")))
+                    "i C-l" (my-no-dot (general-simulate-keys ('evil-yank "i}")))
+                    "i C-j" (my-no-dot (general-simulate-keys ('evil-yank "i[")))
+                    "i C-k" (my-no-dot (general-simulate-keys ('evil-yank "i]")))
 
-                    "a C-h" (general-simulate-keys ('evil-yank "a{"))
-                    "a C-l" (general-simulate-keys ('evil-yank "a}"))
-                    "a C-j" (general-simulate-keys ('evil-yank "a["))
-                    "a C-k" (general-simulate-keys ('evil-yank "a]"))
+                    "a C-h" (my-no-dot (general-simulate-keys ('evil-yank "a{")))
+                    "a C-l" (my-no-dot (general-simulate-keys ('evil-yank "a}")))
+                    "a C-j" (my-no-dot (general-simulate-keys ('evil-yank "a[")))
+                    "a C-k" (my-no-dot (general-simulate-keys ('evil-yank "a]")))
                     ))
 
 ;; For some reason these need to be explicitly added to visual map

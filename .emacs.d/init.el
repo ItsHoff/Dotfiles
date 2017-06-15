@@ -109,6 +109,9 @@
 
 (use-package glsl-mode)
 
+;; Octave / Matlab
+(add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
+
 ;; Rust
 
 (use-package cargo
@@ -126,7 +129,8 @@
 
 ;; Tex
 (use-package tex-site
-  :ensure auctex)
+  :ensure auctex
+  :bind ("C-c e" . TeX-next-error))
 
 (load "keybindings")
 

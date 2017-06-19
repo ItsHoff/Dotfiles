@@ -92,8 +92,8 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
         ;; Bigger Movement
         "H" 'evil-first-non-blank-of-visual-line
         "L" 'evil-end-of-visual-line
-        "J" 'my-scroll-page-down
-        "K" 'my-scroll-page-up
+        "J" 'golden-ratio-scroll-screen-up
+        "K" 'golden-ratio-scroll-screen-down
         ;; Window Movement
         "C-j" 'evil-window-down
         "C-k" 'evil-window-up
@@ -102,6 +102,21 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
         )
 
 (load "easy-brackets")
+
+;; Org
+(general-define-key :keymaps 'org-mode-map
+                    :states '(normal visual)
+                    "J" 'outline-next-visible-heading
+                    "K" 'outline-previous-visible-heading
+                    "o" 'org-meta-return
+                    "M-h" 'org-metaleft
+                    "M-l" 'org-metaright
+                    "M-j" 'org-metadown
+                    "M-k" 'org-metaup
+                    )
+
+
+(evil-make-overriding-map org-mode-map 'normal)
 
 (provide 'keybindings)
 ;;; keybindings.el ends here

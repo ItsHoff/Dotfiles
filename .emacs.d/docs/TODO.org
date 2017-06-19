@@ -10,6 +10,11 @@
      * window-configuration-to-register
      * jump-to-register
    * some unix / emacs style commands in insert mode
+* Possibilities
+** Custom evil-states or hydra
+   * only have to press prefix for set of related commands once
+*** hydra
+   * https://github.com/abo-abo/hydra
 * Packages to checkout
 ** Org
    * http://orgmode.org/worg/
@@ -20,27 +25,20 @@
 ** Helm
    * https://emacs-helm.github.io/helm/
    * https://tuhdo.github.io/helm-intro.html
-** elscreen
-   * https://github.com/knu/elscreen
-** hydra
-   * https://github.com/abo-abo/hydra
-** better-defaults
-   * https://github.com/technomancy/better-defaults
 ** evil-smartparens
    * https://github.com/expez/evil-smartparens
-** MultiTerm
-   * https://www.emacswiki.org/emacs/MultiTerm
 ** Spacemacs
    * http://spacemacs.org/
 ** Auctex
    * https://www.gnu.org/software/auctex/index.html
-** Golden Ratio
-   * https://github.com/jixiuf/golden-ratio-scroll-screen
+** Projectile
+   * https://github.com/bbatsov/projectile
 * Resources
   * https://masteringemacs.org/
   * https://juanjoalvarez.net/es/detail/2014/sep/19/vim-emacsevil-chaotic-migration-guide/
   * https://blog.aaronbieber.com/2015/05/24/from-vim-to-emacs-in-fourteen-days.html
   * http://www.cachestocaches.com/2016/12/vim-within-emacs-anecdotal-guide/
+  * https://github.com/noctuid/evil-guide
   * https://www.reddit.com/r/emacs/comments/60nb8b/favorite_builtin_emacs_commands/
 ** Python
    * http://www.jesshamrick.com/2012/09/18/emacs-as-a-python-ide/

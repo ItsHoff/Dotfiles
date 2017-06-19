@@ -338,3 +338,15 @@
    | Old Key | Function       | Status | Ideas |
    |---------+----------------+--------+-------|
    | c-k     | insert-digraph |        |       |
+* Org
+    | Key     | State  | Function                         | Comment                      |
+    |---------+--------+----------------------------------+------------------------------|
+    | <tab>   | global | org-cycle                        |                              |
+    | S-<tab> | global | org-shifttab                     |                              |
+    | J       | normal | outline-next-visible-heading     |                              |
+    | K       | normal | outline-previous-visible-heading |                              |
+    | o       | normal | org-meta-return                  | Make this not kidnap text    |
+    | M-h     | normal | org-metaleft                     | Sticky modifier instead of M |
+    | M-l     | normal | org-metaright                    | Sticky modifier instead of M |
+    | M-j     | normal | org-metadown                     | Sticky modifier instead of M |
+    | M-k     | normal | org-metaup                       | Sticky modifier instead of M |

@@ -91,6 +91,8 @@
 (use-package general
   :init (general-evil-setup))
 
+(use-package golden-ratio-scroll-screen)
+
 (use-package org)
 
 (use-package spaceline-config

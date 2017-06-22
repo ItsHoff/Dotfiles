@@ -1,46 +1,86 @@
 * TODO
-** Create minimal combability mode
-  * hjkl movement
-  * control-hjkl split movement
-** Learn and map Org
-** Learn and map Flycheck
-** Learn and map Undotree
+** Fix
+*** Move emacs state
+*** Fix org c-i
+** Improve
+*** Improve window controls
+   * Make use of hydras
+   * separate or combined movement and viewpoint control?
+   * evil-scroll-down/-up
+*** Recenter after n and N
+*** Make H goto hard bol if at bol
+*** U vs C-r
+** Learn
+*** Learn and map helm
+*** Learn and map Org
+*** Learn and or remap paste history (c-p, c-n)
+  * Also repeat history (c-., evil-repeat-pop-next)
+** Change
+***  prefix g: go
+  * G as reverse?
+  * j eof, k bof
+  * These here:
+    - G
+      [ (  evil-previous-open-paren
+      [ [  evil-backward-section-begin
+      [ ]  evil-backward-section-end
+      ] s  evil-prev-flyspell-error
+      [ {  evil-previous-open-brace
+    - g
+      ] )  evil-next-close-paren
+      ] [  evil-forward-section-end
+      ] ]  evil-forward-section-begin
+      ] s  evil-next-flyspell-error
+      ] }  evil-next-close-brace
+*** Rethink folding
+*** Rework marks
 * Ideas
    * (c-x r [w/j]) workspace management
-     * window-configuration-to-register
-     * jump-to-register
+     - window-configuration-to-register
+     - jump-to-register
    * some unix / emacs style commands in insert mode
+   * Create minimal combability mode
+     - hjkl movement
+     - window movement
 * Possibilities
-** Custom evil-states or hydra
-   * only have to press prefix for set of related commands once
-*** hydra
-   * https://github.com/abo-abo/hydra
 * Packages to checkout
+** Rust-mode
+** Undotree
+** Flycheck
+** Helm
+   * https://emacs-helm.github.io/helm/
+   * https://tuhdo.github.io/helm-intro.html
 ** Org
    * http://orgmode.org/worg/
    * http://doc.norang.ca/org-mode.html
    * http://ehneilsen.net/notebook/orgExamples/org-examples.html
+   * https://github.com/Somelauw/evil-org-mode
+** Hydra
+   * https://github.com/abo-abo/hydra
+   * https://github.com/abo-abo/hydra/wiki/Helm
 ** Magit
    * https://magit.vc/
-** Helm
-   * https://emacs-helm.github.io/helm/
-   * https://tuhdo.github.io/helm-intro.html
 ** evil-smartparens
    * https://github.com/expez/evil-smartparens
-** Spacemacs
-   * http://spacemacs.org/
 ** Auctex
    * https://www.gnu.org/software/auctex/index.html
 ** Projectile
    * https://github.com/bbatsov/projectile
+   * http://projectile.readthedocs.io/en/latest/
 * Resources
+  * http://spacemacs.org/
   * https://masteringemacs.org/
   * https://juanjoalvarez.net/es/detail/2014/sep/19/vim-emacsevil-chaotic-migration-guide/
   * https://blog.aaronbieber.com/2015/05/24/from-vim-to-emacs-in-fourteen-days.html
   * http://www.cachestocaches.com/2016/12/vim-within-emacs-anecdotal-guide/
   * https://github.com/noctuid/evil-guide
   * https://www.reddit.com/r/emacs/comments/60nb8b/favorite_builtin_emacs_commands/
+  * https://stackoverflow.com/questions/8483182/evil-mode-best-practice
+  * https://melpa.org/#/
+  * http://pages.sachachua.com/.emacs.d/Sacha.html#orgdda953f
 ** Python
    * http://www.jesshamrick.com/2012/09/18/emacs-as-a-python-ide/
 ** Rust
    * http://julienblanchard.com/2016/fancy-rust-development-with-emacs/
+** Eshell
+  * https://www.masteringemacs.org/article/complete-guide-mastering-eshell

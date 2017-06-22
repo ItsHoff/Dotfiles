@@ -1,21 +1,34 @@
-;;; package --- Summary
+;;; bind --- bind all my keys
 ;;; Commentary:
-;;; My .emacs
+;;; My keybindings
 
 ;;; Code:
 (require 'general)
 (require 'evil)
 
+; Make C-i different from <tab>
+(setq local-function-key-map (delq '(kp-tab . [9]) local-function-key-map))
+
 ;; UNBIND --------------------------------------------------------------------------------------
 
-(general-define-key "C-<backspace>" nil) ; Mistyped often with i-mode brackets
+(general-define-key "C-<backspace>" nil)    ; Mistyped often with i-mode brackets
+(general-define-key :keymaps '(motion normal visual global emacs)
+                    "C-z" nil)              ; Move emacs state
+
+; Unbind old window movements until replaced
+(general-define-key "C-h" nil)
+(general-define-key "C-j" nil)
+(general-define-key "C-k" nil)
+(general-define-key "C-l" nil)
 
 ;; MY FUNCTIONS --------------------------------------------------------------------------------
 
-(defun my-yank-eol ()
+(evil-define-operator my-yank-eol (beg end type register yank-handler)
   "Yank from point to end of line."
-  (interactive)
-  (evil-yank-line (point) (point-at-eol)))
+  :motion evil-end-of-line
+  :move-point nil
+  (interactive "<R><x><y>")
+  (evil-yank (point) (point-at-eol) type register yank-handler))
 
 (defun my-scroll-page-down (n)
   "Scroll down N pages and place cursor at bottom."
@@ -61,45 +74,40 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 ;; BINDINGS -----------------------------------------------------------------------------------
 
-(general-define-key "M-+" help-map) ; Remap help
+(general-define-key "M-+" help-map)                 ; Remap help
+(general-define-key "M-<dead-acute>" 'describe-key) ; Map key help (next to +)
 
 (general-define-key :keymaps '(evil-normal-state-map evil-visual-state-map)
-        ;; Make Y function sensibly
-        "Y" 'my-yank-eol
-        ;; Swap , and ;
-        "," 'evil-repeat-find-char
-        ";" 'evil-repeat-find-char-reverse
-        ;; Join + split
-        "<backspace>" 'evil-join
-        "<return>" 'my-split-line
-        ;; Make ¤ be forward #
-        "¤" 'evil-search-word-forward
-        ;; Undo tree
-        "U" 'undo-tree-redo
-        "C-u" 'undo-tree-visualizer-relative-timestamps
-        ; TODO edit undo tree bindings
+                    ; Make j and k move visual lines
+                    "j" 'evil-next-visual-line
+                    "k" 'evil-previous-visual-line
+                    ; Bigger movement
+                    "H" 'evil-first-non-blank-of-visual-line
+                    "L" 'evil-end-of-line
+                    "J" 'golden-ratio-scroll-screen-up
+                    "K" 'golden-ratio-scroll-screen-down
+                    ; Make Y function sensibly
+                    "Y" 'my-yank-eol
+                    ; Swap , and ;
+                    "," 'evil-repeat-find-char
+                    ";" 'evil-repeat-find-char-reverse
+                    ; Join + split
+                    "<backspace>" 'evil-join
+                    "<return>" 'my-split-line
+                    ; Make ¤ be forward #
+                    "¤" 'evil-search-word-forward
+                    ; Move sentence object
+                    "s" 'evil-forward-sentence-begin
+                    "S" 'evil-backward-sentence-begin
+                    ; Move paragraph object
+                    "q" 'evil-forward-paragraph
+                    "Q" 'evil-backward-paragraph
+                    ; Move emacs state
+                    "M-z" 'evil-emacs-state
+                    )
 
-        ;; Move sentence object
-        "s" 'evil-forward-sentence-begin
-        "S" 'evil-backward-sentence-begin
-        ;; Move paragraph object
-        "q" 'evil-forward-paragraph
-        "Q" 'evil-backward-paragraph
-
-        ;; Make j and k move visual lines
-        "j" 'evil-next-visual-line
-        "k" 'evil-previous-visual-line
-        ;; Bigger Movement
-        "H" 'evil-first-non-blank-of-visual-line
-        "L" 'evil-end-of-visual-line
-        "J" 'golden-ratio-scroll-screen-up
-        "K" 'golden-ratio-scroll-screen-down
-        ;; Window Movement
-        "C-j" 'evil-window-down
-        "C-k" 'evil-window-up
-        "C-h" 'evil-window-left
-        "C-l" 'evil-window-right
-        )
+(general-define-key :keymaps 'evil-emacs-state-map
+                    "M-z" 'evil-exit-emacs-state)
 
 (load "easy-brackets")
 
@@ -115,8 +123,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     "M-k" 'org-metaup
                     )
 
-
 (evil-make-overriding-map org-mode-map 'normal)
 
-(provide 'keybindings)
-;;; keybindings.el ends here
+(provide 'bind)
+;;; bind.el ends here

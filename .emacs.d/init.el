@@ -1,4 +1,4 @@
-;;; package --- Summary
+;;; init.el --- My emacs config
 ;;; Commentary:
 ;;; My .emacs
 
@@ -28,6 +28,7 @@
 (modify-syntax-entry ?_ "w")        ; _ is now part of a word
 (modify-syntax-entry ?- "w")        ; aswell as -
 (setq x-select-enable-clipboard nil)    ; Disable emacs clipboard and rely on evil
+(setq truncate-lines t)             ; Disable wrap by default
 
 ;; Smooth scrolling
 (setq scroll-step 1)
@@ -93,7 +94,11 @@
 
 (use-package golden-ratio-scroll-screen)
 
-(use-package org)
+(use-package helm-config
+  :ensure helm)
+
+(use-package org
+  :config (setq org-M-RET-may-split-line '(default . nil))) ; Don't split line automatically
 
 (use-package spaceline-config
   :ensure spaceline
@@ -134,21 +139,7 @@
   :ensure auctex
   :bind ("C-c e" . TeX-next-error))
 
-(load "keybindings")
+(load "bind")
 
 (provide 'init)
 ;;; init.el ends here
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (use-package spaceline solarized-theme smart-mode-line-powerline-theme racer powerline-evil glsl-mode flycheck-rust company cargo auctex))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

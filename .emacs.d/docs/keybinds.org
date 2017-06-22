@@ -1,5 +1,4 @@
 * Normal
-** Free Keys
 ** Complete Package
   * ö
   * ä
@@ -9,335 +8,324 @@
   * +
   * z?
 ** Unmodified
-    | Key         | Function                  | Status  | Ideas                    |
-    |-------------+---------------------------+---------+--------------------------|
-    | <esc>       | esc                       | core    |                          |
-    | 1-0         | num modifier              | core    |                          |
-    | +           | next non-blank line       | replace |                          |
-    | ´           | -                         | avoid   |                          |
-    | <backspace> | join line                 | useful  |                          |
-    | <tab>       | cycling / completion      | core    |                          |
-    | q           | paragraph                 | useful  |                          |
-    | w           | word                      | core    |                          |
-    | e           | end                       | core    |                          |
-    | r           | replace char              | core    |                          |
-    | t           | till                      | core    |                          |
-    | y           | yank                      | core    |                          |
-    | u           | undo                      | core    |                          |
-    | i           | insert                    | core    |                          |
-    | o           | open below                | core    |                          |
-    | p           | paste                     | core    |                          |
-    | å           | -                         | use     |                          |
-    | ¨           | -                         | avoid   |                          |
-    | a           | append                    | core    |                          |
-    | s           | sentence                  | useful  |                          |
-    | d           | delete                    | core    |                          |
-    | f           | find                      | core    |                          |
-    | g           | prefix: "go"              | core    |                          |
-    | h           | left                      | core    |                          |
-    | j           | down                      | core    |                          |
-    | k           | up                        | core    |                          |
-    | l           | right                     | core    |                          |
-    | ö           | -                         | use     |                          |
-    | ä           | -                         | use     |                          |
-    | '           | goto mark line            | move    | move marks behind leader |
-    | <           | unindent                  | core    |                          |
-    | z           | prefix: view manipulation | core    |                          |
-    | x           | delete char               | core    |                          |
-    | c           | change                    | core    |                          |
-    | v           | visual                    | core    |                          |
-    | b           | back                      | core    |                          |
-    | n           | next (find)               | useful  |                          |
-    | m           | set mark                  | move    | move marks behind leader |
-    | ,           | repeat find               | core    |                          |
-    | .           | repeat                    | core    |                          |
-    | -           | previous non-blank line   | replace |                          |
-    | <space>     | prefix: leader            | core    |                          |
-    | <enter>     | split line                | useful  |                          |
-    | <up>        | -                         | use     |                          |
-    | <down>      | -                         | use     |                          |
-    | <left>      | -                         | use     |                          |
-    | <right>     | -                         | use     |                          |
+    | Key         | Function                           | Comment                      |
+    |-------------+------------------------------------+------------------------------|
+    | <esc>       | keyboard-quit                      |                              |
+    | 1-0         | digit-argument                     |                              |
+    | +           | evil-next-line-first-non-blank     | TODO: replace                |
+    | ´           | -                                  | requires double tap          |
+    | <backspace> | evil-join                          |                              |
+    | <tab>       | -                                  |                              |
+    | q           | evil-forward-paragraph             |                              |
+    | w           | evil-forward-word-begin            |                              |
+    | e           | evil-forward-word-end              |                              |
+    | r           | evil-replace                       | includes easy-brackets hacks |
+    | t           | evil-find-char-to                  | includes easy-brackets hacks |
+    | y           | evil-yank                          | includes easy-brackets hacks |
+    | u           | undo-tree-undo                     |                              |
+    | i           | evil-insert                        |                              |
+    | o           | evil-open-below                    |                              |
+    | p           | evil-paste-after                   |                              |
+    | å           | -                                  | TODO: use                    |
+    | ¨           | -                                  | requires double tap          |
+    | a           | evil-append                        |                              |
+    | s           | evil-forward-sentence-begin        | hasnt had much use yet       |
+    | d           | evil-delete                        | includes easy-brackets hacks |
+    | f           | evil-find-char                     | includes easy-brackets hacks |
+    | g           | prefix: "go"                       |                              |
+    | h           | evil-backward-char                 |                              |
+    | j           | evil-next-visual-line              |                              |
+    | k           | evil-previous-visual-line          |                              |
+    | l           | evil-forward-char                  |                              |
+    | ö           | -                                  | TODO: use                    |
+    | ä           | -                                  | TODO: use                    |
+    | '           | evil-goto-mark-line                | TODO: redo marks             |
+    | <           | evil-shift-left                    |                              |
+    | z           | prefix: view manipulation          |                              |
+    | x           | evil-delete-char                   |                              |
+    | c           | evil-change                        | includes easy-brackets hacks |
+    | v           | evil-visual-char                   |                              |
+    | b           | evil-backward-word-begin           |                              |
+    | n           | evil-search-next                   |                              |
+    | m           | evil-set-marker                    | TODO: redo marks             |
+    | ,           | evil-repeat-find-char              |                              |
+    | .           | evil-repeat                        |                              |
+    | -           | evil-previous-line-first-non-blank | TODO: replace                |
+    | <space>     |                                    | TODO: use                    |
+    | <enter>     | my-split-line                      |                              |
+    | <up>        | -                                  | TODO: use                    |
+    | <down>      | -                                  | TODO: use                    |
+    | <left>      | -                                  | TODO: use                    |
+    | <right>     | -                                  | TODO: use                    |
 ** Shift
-    | Key         | Function                  | Status          | Ideas                               |
-    |-------------+---------------------------+-----------------+-------------------------------------|
-    | <esc>       | -                         | potential       |                                     |
-    | !           | shell cmd                 | think / replace |                                     |
-    | "           | access register           | core / move     |                                     |
-    | #           | search word back          | useful          |                                     |
-    | ¤           | search word forward       | useful          |                                     |
-    | %           | goto match                | useful          |                                     |
-    | &           | repeat substitute         | learn / replace |                                     |
-    | /           | find forward              | core            |                                     |
-    | (           | (sentence back)           | moved           |                                     |
-    | )           | (sentence forward)        | moved           |                                     |
-    | =           | auto indent               | learn / replace |                                     |
-    | ?           | find back                 | think / replace |                                     |
-    | `           | goto mark                 | avoid           |                                     |
-    | <backspace> | del                       | replace         |                                     |
-    | <tab>       | backwards tab             | core            |                                     |
-    | Q           | paragraph backwards       | useful          |                                     |
-    | W           | WORD                      | core            |                                     |
-    | E           | END                       | core            |                                     |
-    | R           | -                         | use             |                                     |
-    | T           | back till                 | core            |                                     |
-    | Y           | yank eol                  | core            |                                     |
-    | U           | redo                      | core            |                                     |
-    | I           | insert bol                | core            |                                     |
-    | O           | open above                | core            |                                     |
-    | P           | paste before              | core            |                                     |
-    | Å           | -                         | use             |                                     |
-    | ^           | first non-blank char      | avoid           |                                     |
-    | A           | append eol                | core            |                                     |
-    | S           | sentence backwards        | useful          |                                     |
-    | D           | delete eol                | core            |                                     |
-    | F           | find back                 | core            |                                     |
-    | G           | eof / goto line           | useful / remap  | reverse go                          |
-    | H           | bol                       | core            | should go to hard bol if at bol     |
-    | J           | down a page               | core            | should use constant cursor position |
-    | K           | up a page                 | core            | should use constant cursor position |
-    | L           | eol                       | core            |                                     |
-    | Ö           | -                         | use             |                                     |
-    | Ä           | -                         | use             |                                     |
-    | *           | search word forward       | remap / useful  |                                     |
-    | >           | indent                    | core            |                                     |
-    | Z           | prefix: quit              | replace         |                                     |
-    | X           | -                         | use             |                                     |
-    | C           | change eol                | core            |                                     |
-    | V           | visual line               | core            |                                     |
-    | B           | BACK                      | core            |                                     |
-    | N           | previous (find)           | useful          | should use constant cursor position |
-    | M           | window middle             | replace         |                                     |
-    | ;           | reverse repeat find       | core            |                                     |
-    | :           | cmd line                  | core            |                                     |
-    | _           | next line first non-blank | replace         |                                     |
-    | <space>     | -                         | replace         |                                     |
-    | <enter>     | enter                     | replace         |                                     |
+   | Key         | Function                            | Comment                               |
+   |-------------+-------------------------------------+---------------------------------------|
+   | <esc>       | -                                   |                                       |
+   | !           | evil-shell-command                  | very niche                            |
+   | "           | evil-use-register                   | potential move                        |
+   | #           | evil-search-word-backward           |                                       |
+   | ¤           | evil-search-word-forward            |                                       |
+   | %           | evil-jump-item                      |                                       |
+   | &           | evil-repeat-substitute              | Don't see much point over visual mode |
+   | /           | evil-search-forward                 |                                       |
+   | (           | evil-backward-sentence-begin        | ALSO S                                |
+   | )           | evil-forward-sentence-begin         | ALSO s                                |
+   | =           | evil-indent                         |                                       |
+   | ?           | evil-search-backward                | rarely needed with /                  |
+   | `           | evil-goto-mark                      | similar to ', TODO marks              |
+   | <backspace> | -                                   |                                       |
+   | <tab>       | -                                   |                                       |
+   | Q           | evil-backward-paragraph             |                                       |
+   | W           | evil-forward-WORD-begin             |                                       |
+   | E           | evil-forward-WORD-end               |                                       |
+   | R           | evil-replace-state                  | TODO: replace                         |
+   | T           | evil-find-char-to-backward          | includes easy-brackets hacks          |
+   | Y           | my-yank-eol                         | TODO: fix registers                   |
+   | U           | -                                   | TODO: use as redo                     |
+   | I           | evil-insert-line                    |                                       |
+   | O           | evil-open-above                     |                                       |
+   | P           | evil-paste-before                   |                                       |
+   | Å           | -                                   | use                                   |
+   | ^           | evil-first-non-blank                | requires double tap                   |
+   | A           | evil-append-line                    |                                       |
+   | S           | evil-backward-sentence-begin        | hasnt had much use yet                |
+   | D           | evil-delete-line                    |                                       |
+   | F           | evil-find-char-backward             | includes easy-brackets hacks          |
+   | G           | evil-goto-line                      | TODO: improve g                       |
+   | H           | evil-first-non-blank-of-visual-line | TODO: should go to hard bol if at bol |
+   | J           | golden-ratio-scroll-screen-up       |                                       |
+   | K           | golden-ratio-scroll-screen-down     |                                       |
+   | L           | evil-end-of-line                    |                                       |
+   | Ö           | -                                   |                                       |
+   | Ä           | -                                   |                                       |
+   | *           | evil-search-word-forward            | ALSO ¤                                |
+   | >           | evil-shift-right                    |                                       |
+   | Z           | prefix: quit                        | TODO: replace                         |
+   | X           | evil-delete-backward-char           | TODO: replace                         |
+   | C           | evil-change-line                    |                                       |
+   | V           | evil-visual-line                    |                                       |
+   | B           | evil-backward-WORD-begin            |                                       |
+   | N           | evild-search-previous               | TODO: should recenter                 |
+   | M           | evil-window-middle                  | TODO: replace                         |
+   | ;           | evil-repeat-find-char-reverse       |                                       |
+   | :           | evil-ex                             |                                       |
+   | _           | next line first non-blank           | replace                               |
+   | <space>     | -                                   |                                       |
+   | <enter>     | -                                   |                                       |
 ** Control
-    | Key         | Function           | Status    | Ideas          |
-    |-------------+--------------------+-----------+----------------|
-    | 1-0         | -                  | potential |                |
-    | +           | -                  | potential |                |
-    | ´           | -                  | avoid     |                |
-    | <backspace> | -                  | potential |                |
-    | <tab>       | -                  | potential |                |
-    | q           | random             | potential |                |
-    | w           | prefix: window     | core      |                |
-    | e           | scroll window down | move      | meta?          |
-    | r           | (redo)             | moved     |                |
-    | t           | random             | potential |                |
-    | y           | scroll window up   | move      |                |
-    | u           | undo-tree          | useful    |                |
-    | i           | jump forward       | core      |                |
-    | o           | jump backwards     | core      |                |
-    | p           | paste pop          | potential |                |
-    | å           | -                  | potential |                |
-    | ¨           | -                  | avoid     |                |
-    | a           | -                  | potential |                |
-    | s           | emacs search       | potential |                |
-    | d           | scroll down        | replace   |                |
-    | f           | (page down)        | moved     |                |
-    | g           | emacs quit         | potential |                |
-    | h           | left split         | core      |                |
-    | j           | down split         | core      |                |
-    | k           | up split           | core      |                |
-    | l           | right split        | core      |                |
-    | ö           | -                  | potential |                |
-    | ä           | -                  | potential |                |
-    | '           | -                  | potential |                |
-    | <           | -                  | potential |                |
-    | z           | emacs state        | move      | meta           |
-    | x           | emacs prefix       | no idea   |                |
-    | c           | emacs prefix       | replace   | compile prefix |
-    | v           | visual block       | core      |                |
-    | b           | (page up)          | moved     |                |
-    | n           | paste pop          | potential |                |
-    | m           | enter?             | potential |                |
-    | ,           | -                  | potential |                |
-    | .           | repeat pop         | potential |                |
-    | -           | negative argument  | potential |                |
-    | <space>     | emacs selection    | potential |                |
-    | <enter>     | -                  | potential |                |
+   | Key         | Function                          | Comment                 |
+   |-------------+-----------------------------------+-------------------------|
+   | 1-0         | -                                 |                         |
+   | +           | -                                 |                         |
+   | ´           | -                                 |                         |
+   | <backspace> | -                                 |                         |
+   | <tab>       | -                                 |                         |
+   | q           | quoted-insert                     |                         |
+   | w           | PREFIX: window                    |                         |
+   | e           | evil-scroll-line-down             |                         |
+   | r           | undo-tree-redo                    | TODO: move to U         |
+   | t           | pop-tag-mark                      |                         |
+   | y           | evil-scroll-line-up               |                         |
+   | u           | universal-argument                |                         |
+   | i           | evil-jump-forward                 | TAB in emacs (!= <tab>) |
+   | o           | evil-jump-backward                |                         |
+   | p           | evil-paste-pop                    | LEARN                   |
+   | å           | -                                 |                         |
+   | ¨           | -                                 |                         |
+   | a           | move-beginning-of-line            |                         |
+   | s           | isearch-forward                   | TODO: replace           |
+   | d           | evil-scroll-down                  |                         |
+   | f           | evil-scroll-page-down             | sortof J                |
+   | g           | keyboard-quit                     | probable should be kept |
+   | h           | help-map                          | TODO: replace           |
+   | j           | electric-newline-and-maybe-indent | TODO: replace           |
+   | k           | kill-line                         | TODO: replace           |
+   | l           | recenter-top-bottom               | TODO: replace           |
+   | ö           | -                                 |                         |
+   | ä           | -                                 |                         |
+   | '           | -                                 |                         |
+   | <           | -                                 |                         |
+   | z           | terminal background               |                         |
+   | x           | emacs prefix                      | TODO: replace           |
+   | c           | emacs prefix                      | TODO: replace           |
+   | v           | evil-visual-block                 |                         |
+   | b           | evil-scroll-page-up               | sortof K                |
+   | n           | evil-paste-pop-next               | LEARN                   |
+   | m           | enter?                            | RET (!= <return>)       |
+   | ,           | -                                 |                         |
+   | .           | evil-repeat-pop                   |                         |
+   | -           | negative-argument                 |                         |
+   | <space>     | set-mark-command                  |                         |
+   | <enter>     | -                                 |                         |
 ** Alt - Emacs
-*** Ideas
-    * m-z for emacs state
-*** Keys
-    | Key   | Function      | Status |
-    |-------+---------------+--------|
-    | x     | emacs execute | core   |
-    | + (?) | help          |        |
+   | Key | Function                 | Comment |
+   |-----+--------------------------+---------|
+   | x   | execute-extended-command |         |
+   | +   | help-map                 |         |
+   | ´   | describe-key             |         |
+   | z   | evil-emacs-state         |         |
 ** Alt Gr
-| Key   | Function         | Status          | Ideas                     |
-|-------+------------------+-----------------+---------------------------|
-| @     | execute macro    | promote         | move macros behind leader |
-| £     | -                | avoid           |                           |
-| $     | eol              | avoid           |                           |
-| €     | -                | avoid           |                           |
-| {     | back paragraph   | promote         | r would make most sence   |
-| [     | prefix: objects  | promote         | move behind g             |
-| ]     | prefix: objects  | promote         | ^                         |
-| }     | paragraph        | promote         |                           |
-| \     | execute in emacs | niche / promote |                           |
-| e     | open emacs       | avoid           |                           |
-| t     | open terminal    | avoid           |                           |
-| ~     | toggle case      | avoid           |                           |
-| \vert | goto column      | avoid           |                           |
-| µ     | -                | avoid           |                           |
+   | Key   | Function                    | Status           Ideas       |
+   |-------+-----------------------------+------------------------------|
+   | @     | evil-execute-macro          | TODO: redo macros            |
+   | £     | -                           |                              |
+   | $     | evil-end-of-line            | ALSO L                       |
+   | €     | -                           |                              |
+   | {     | evil-backward-paragraph     | ALSO Q                       |
+   | [     | prefix: objects             | TODO: move behind g          |
+   | ]     | prefix: objects             | TODO: move behind g          |
+   | }     | evil-forward-paragraph      | ALSO q                       |
+   | \     | evil-execute-in-emacs-state | TODO: move behind alt        |
+   | e     | open emacs                  |                              |
+   | t     | open terminal               |                              |
+   | ~     | evil-invert-char            | prolly not needed with g u/U |
+   | \vert | evil-goto-column            |                              |
+   | µ     | -                           |                              |
 ** Prefix: g - Go
-***  Ideas
-    * G as reverse?
-    * j eof, k bof
-    * These here:
-    - G
-    [ (             evil-previous-open-paren
-    [ [             evil-backward-section-begin
-    [ ]             evil-backward-section-end
-    [ {             evil-previous-open-brace
-    - g
-    ] )             evil-next-close-paren
-    ] [             evil-forward-section-end
-    ] ]             evil-forward-section-begin
-    ] }             evil-next-close-brace
-*** Keys
-| Key | Function                       | Status       | Ideas                 |
-|-----+--------------------------------+--------------+-----------------------|
-| &   | repeat global substitute       |              |                       |
-| ,   | last change reverse            | promote      | move to spammable key |
-| 8   | print cursor position          |              |                       |
-| ;   | last change                    | promote      | move to spammable key |
-| ?   | rot-13                         | replace      |                       |
-| F   | file with line                 |              |                       |
-| J   | join whitespace                |              |                       |
-| U   | upper case                     |              |                       |
-| a   | print cursor position          |              |                       |
-| f   | file                           |              |                       |
-| i   | insert resume                  |              |                       |
-| q   | fill and move                  |              |                       |
-| u   | lower case                     |              |                       |
-| w   | fill text                      |              |                       |
-| ~   | toggle case                    | avoid        |                       |
-| c-] | find tag                       | doesnt work? |                       |
-| #   | search back                    |              |                       |
-| $   | end of visual line             |              |                       |
-| *   | search forward                 |              |                       |
-| 0   | beginning of visual line       |              |                       |
-| E   | backwards WORD end             |              |                       |
-| N   | select next match              |              |                       |
-| ^   | first non blank of visual line | avoid        |                       |
-| _   | last non-blank                 |              |                       |
-| d   | definition                     |              |                       |
-| e   | backwards word end             |              |                       |
-| g   | first line                     |              |                       |
-| j   | down visual line               | remap        | replace hjkl          |
-| k   | up visual line                 | remap        | ^                     |
-| m   | middle of visual line          |              |                       |
-| n   | select next match              |              |                       |
-| v   | restore visual selection       | useful       |                       |
+   | Key | Function                            | Comment                     |
+   |-----+-------------------------------------+-----------------------------|
+   | &   | evil-ex-repeat-global-substitute    |                             |
+   | ,   | goto-last-change-reverse            | TODO: move to spammable key |
+   | 8   | what-cursor-position                |                             |
+   | a   | what-cursor-position                |                             |
+   | ;   | goto-last-change                    | TODO: move to spammable key |
+   | ?   | evil-rot13                          |                             |
+   | F   | evil-find-file-at-point-with-line   |                             |
+   | J   | evil-join-whitespace                |                             |
+   | U   | evil-upcase                         |                             |
+   | u   | evil-downcase                       |                             |
+   | f   | find-file-at-point                  |                             |
+   | i   | evil-insert-resume                  |                             |
+   | q   | evil-fill-and-move                  |                             |
+   | w   | evil-fill                           |                             |
+   | ~   | evil-invert-case                    |                             |
+   | c-] | find-tag                            | doesnt work?                |
+   | #   | evil-search-unbounded-word-backward |                             |
+   | $   | evil-end-of-visual-line             |                             |
+   | *   | evil-search-unbounded-word-forward  | TODO: move to ¤             |
+   | 0   | evil-beginning-of-visual-line       |                             |
+   | e   | evil-backwards-word-end             |                             |
+   | E   | evil-backwards-WORD-end             |                             |
+   | n   | evil-next-match                     |                             |
+   | N   | evil-previous-match                 |                             |
+   | ^   | evil-first-non-blank-of-visual-line | ALSO H                      |
+   | _   | evil-last-non-blank                 |                             |
+   | d   | evil-goto-definition                |                             |
+   | g   | evil-goto-first-line                |                             |
+   | j   | evil-next-visual-line               | ALSO j                      |
+   | k   | evil-previous-visual-line           | ALSO k                      |
+   | m   | evil-middle-of-visual-line          |                             |
+   | v   | evil-visual-restore                 |                             |
 ** Prefix: z - Folding
-*** Ideas
-    * TODO: Should rethink folding
-*** Keys
-    | Key     | Function           | Status |
-    |---------+--------------------+--------|
-    | =       | spelling           |        |
-    | O       | recursive open     |        |
-    | a       | toggle fold        |        |
-    | c       | close fold         |        |
-    | m       | close folds        |        |
-    | o       | open folds         |        |
-    | r       | open folds         |        |
-    | <enter> | keyboard macro     |        |
-    | +       | bottom line to top |        |
-    | -       | keyboard macro     |        |
-    | .       | keyboard macro     |        |
-    | H       | scroll left        |        |
-    | L       | scroll right       |        |
-    | ^       | top line to bottom |        |
-    | b       | line to bottom     |        |
-    | h       | column left        |        |
-    | l       | column right       |        |
-    | t       | line to top        |        |
-    | z       | line to center     |        |
-    | <left>  | keyboard macro     |        |
-    | <right> | keyboard macro     |        |
-    |         |                    |        |
+   | Key     | Function                       | Comment      |
+   |---------+--------------------------------+--------------|
+   | =       | ispell-word                    |              |
+   | O       | evil-open-fold-rec             |              |
+   | a       | evil-toggle-fold               |              |
+   | c       | evil-close-fold                |              |
+   | m       | evil-close-folds               |              |
+   | o       | evil-open-fold                 |              |
+   | r       | evil-open-folds                |              |
+   | <enter> | keyboard macro (top bol)       | Macro: z t ^ |
+   | +       | evil-scroll-bottom-line-to-top |              |
+   | -       | keyboard macro (bottom bol)    | Macro: z b ^ |
+   | .       | keyboard macro (center bol)    | Macro: z z ^ |
+   | H       | evil-scroll-left               |              |
+   | L       | evil-scroll-right              |              |
+   | ^       | evil-scroll-top-line-to-bottom |              |
+   | b       | evil-scroll-line-to-bottom     |              |
+   | h       | evil-scroll-column-left        |              |
+   | l       | evil-scroll-column-right       |              |
+   | t       | evil-scroll-line-to-top        |              |
+   | z       | evil-scroll-line-to-center     |              |
+   | <left>  | keyboard macro (column left)   | Macro: z h   |
+   | <right> | keyboard macro (column right)  | Macro: z l   |
+** Prefix: Z
+   | Key | Function                     | Comment |
+   |-----+------------------------------+---------|
+   | Q   | evil-quit                    |         |
+   | Z   | evil-save-modified-and-close |         |
 ** Prefix: C-w - Window
-*** Keys
-    | Key   | Function          | Status |
-    |-------+-------------------+--------|
-    | C-b   | bottom right      |        |
-    | C-c   | delete            |        |
-    | C-f   | ffap-other-widow? |        |
-    | C-n   | new               |        |
-    | C-o   | delete other      |        |
-    | c-p   | mru?              |        |
-    | c-r   | rotate down       |        |
-    | c-s   | split             |        |
-    | c-t   | top left          |        |
-    | c-v   | vsplit            |        |
-    | c-w   | next              |        |
-    | c-_   | set height        |        |
-    | +     | increase height   |        |
-    | -     | decrease height   |        |
-    | <     | decrease width    |        |
-    | =     | balance windows   |        |
-    | >     | increase width    |        |
-    | H     | far left          |        |
-    | J     | very bottom       |        |
-    | K     | very top          |        |
-    | L     | far right         |        |
-    | R     | rotate upwards    |        |
-    | S     | split             |        |
-    | W     | previous          |        |
-    | _     | set height        |        |
-    | b     | bottom right      |        |
-    | c     | delete            |        |
-    | h     | left              |        |
-    | j     | down              |        |
-    | k     | up                |        |
-    | l     | right             |        |
-    | n     | new               |        |
-    | \vbar | set width         |        |
-    | c-H   | far left          |        |
-    | c-J   | very bottom       |        |
-    | c-K   | very top          |        |
-    | c-L   | far right         |        |
-    | c-R   | rotate upwards    |        |
-    | c-S   | split             |        |
-    | c-W   | previous          |        |
-** Prefix: <space> - Leader
+   | Key   | Function                     | Comment                |
+   |-------+------------------------------+------------------------|
+   | C-b   | evil-window-bottom-right     |                        |
+   | b     | evil-window-bottom-right     |                        |
+   | C-c   | evil-window-delete           |                        |
+   | c     | evil-window-delete           |                        |
+   | C-f   | ffap-other-widow (undefined) |                        |
+   | C-n   | evil-window-new              |                        |
+   | n     | evil-window-new              |                        |
+   | C-o   | delete-other-windows         |                        |
+   | o     | delete-other-windows         |                        |
+   | c-p   | evil-window-mru              | previously used window |
+   | p     | evil-window-mru              | previously used window |
+   | c-r   | evil-window-rotate-downwards |                        |
+   | r     | evil-window-rotate-downwards |                        |
+   | c-R   | evil-window-rotate-upwards   |                        |
+   | R     | evil-window-rotate-upwards   |                        |
+   | c-s   | evil-window-split            |                        |
+   | c-S   | evil-window-split            |                        |
+   | s     | evil-window-split            |                        |
+   | S     | evil-window-split            |                        |
+   | c-t   | evil-window-top-left         |                        |
+   | t     | evil-window-top-left         |                        |
+   | c-v   | evil-window-vsplit           |                        |
+   | v     | evil-window-vsplit           |                        |
+   | c-w   | evil-window-next             |                        |
+   | w     | evil-window-next             |                        |
+   | c-_   | evil-window-set-height       |                        |
+   | _     | evil-window-set-height       |                        |
+   | \vbar | evil-window-set-width        |                        |
+   | +     | evil-window-increase-height  |                        |
+   | -     | evil-window-decrease-height  |                        |
+   | <     | evil-window-decrease-width   |                        |
+   | =     | balance-windows              |                        |
+   | >     | evil-window-increase-width   |                        |
+   | c-H   | evil-window-move-far-left    |                        |
+   | H     | evil-window-move-far-left    |                        |
+   | c-J   | evil-window-move-very-bottom |                        |
+   | J     | evil-window-move-very-bottom |                        |
+   | c-K   | evil-window-move-very-top    |                        |
+   | K     | evil-window-move-very-top    |                        |
+   | c-L   | evil-window-move-far-right   |                        |
+   | L     | evil-window-move-far-right   |                        |
+   | c-W   | evil-window-prev             |                        |
+   | W     | evil-window-prev             |                        |
+   | h     | evil-window-left             | TODO: add c variant    |
+   | j     | evil-window-down             | TODO: add c variant    |
+   | k     | evil-window-up               | TODO: add c variant    |
+   | l     | evil-window-right            | TODO: add c variant    |
 ** Overwritten
-   | Old Key | Function               | Status  | Ideas                     |
-   |---------+------------------------+---------+---------------------------|
-   | s       | evil-substitute        | useless |                           |
-   | S       | evil-change-whole-line | useless |                           |
-   | R       | evil-replace-state     | useless |                           |
-   | q       | evil-record-macro      | remap   | move macros behind leader |
-   | K       | evil-lookup (man)      | maybe   |                           |
-   | c-u     | universal-argument     | remap   | m-u                       |
+   | Old Key | Function               | Comment             |
+   |---------+------------------------+---------------------|
+   | s       | evil-substitute        | useless             |
+   | S       | evil-change-whole-line | useless             |
+   | q       | evil-record-macro      | TODO: rework macros |
+   | K       | evil-lookup (man)      | TODO: remap         |
 * Insert
 ** Keys
-    | Key | Function            | Status |
-    |-----+---------------------+--------|
-    | c-a | paste last insert   |        |
-    | c-d | shift line left     |        |
-    | c-e | copy from below     |        |
-    | c-h | insert {            | useful |
-    | c-j | insert [            | useful |
-    | c-k | insert ]            | useful |
-    | c-l | insert }            | useful |
-    | c-n | complete next       |        |
-    | c-o | complete previous   |        |
-    | c-r | paste from register |        |
-    | c-t | shift line right    |        |
-    | c-v | quoted insert       |        |
-    | c-w | delete word back    |        |
-    | c-y | copy from above     |        |
-    | c-z | emacs state         |        |
+   | Key | Function                     | Comment             |
+   |-----+------------------------------+---------------------|
+   | c-a | evil-paste-last-insertion    |                     |
+   | c-d | evil-shift-left-line         |                     |
+   | c-t | evil-shift-right-line        |                     |
+   | c-e | evil-copy-from-below         |                     |
+   | c-y | evil-copy-from-above         |                     |
+   | c-h | insert {                     | easy-brackets.el    |
+   | c-j | insert [                     | easy-brackets.el    |
+   | c-k | insert ]                     | easy-brackets.el    |
+   | c-l | insert }                     | easy-brackets.el    |
+   | c-n | evil-complete-next           | overshadowed by tab |
+   | c-p | evil-complete-previous       | overshadowed by tab |
+   | c-o | evil-execute-in-normal-state | LEARN               |
+   | c-r | evil-paste-from-register     | TODO: maybe c-p     |
+   | c-v | quoted-insert                |                     |
+   | c-w | evil-delete-backward-word    | LEARN               |
+   | c-z | evil-emacs-state             | TODO: move to m-z   |
 ** Overwritten
-   | Old Key | Function       | Status | Ideas |
-   |---------+----------------+--------+-------|
-   | c-k     | insert-digraph |        |       |
+   | Old Key | Function       | Comment |
+   |---------+----------------+---------|
+   | c-k     | insert-digraph | useless |
 * Org
     | Key     | State  | Function                         | Comment                      |
     |---------+--------+----------------------------------+------------------------------|

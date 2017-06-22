@@ -1,7 +1,7 @@
 * TODO
 ** Fix
-*** Move emacs state
-*** Fix org c-i
+*** dot with general-dispatch
+  * easy-brackets
 ** Improve
 *** Improve window controls
    * Make use of hydras
@@ -9,16 +9,16 @@
    * evil-scroll-down/-up
 *** Recenter after n and N
 *** Make H goto hard bol if at bol
-*** U vs C-r
 ** Learn
-*** Learn and map helm
-*** Learn and map Org
-*** Learn and or remap paste history (c-p, c-n)
-  * Also repeat history (c-., evil-repeat-pop-next)
+*** Helm
+*** Org
+*** paste history (c-p, c-n)
+*** repeat history (c-., evil-repeat-pop-next)
 ** Change
 ***  prefix g: go
   * G as reverse?
   * j eof, k bof
+  * C-t pop-tag-mark
   * These here:
     - G
       [ (  evil-previous-open-paren
@@ -34,15 +34,16 @@
       ] }  evil-next-close-brace
 *** Rethink folding
 *** Rework marks
-* Ideas
-   * (c-x r [w/j]) workspace management
-     - window-configuration-to-register
-     - jump-to-register
-   * some unix / emacs style commands in insert mode
-   * Create minimal combability mode
-     - hjkl movement
-     - window movement
-* Possibilities
+*** U vs C-r
+** Create
+***  workspace management
+  * c-x r [w/j]
+  * window-configuration-to-register
+  * jump-to-register
+*** some unix / emacs style commands in insert mode
+*** combability mode
+  * hjkl movement
+  * window movement
 * Packages to checkout
 ** Rust-mode
 ** Undotree

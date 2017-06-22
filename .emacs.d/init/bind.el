@@ -77,6 +77,15 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (general-define-key "M-+" help-map)                 ; Remap help
 (general-define-key "M-<dead-acute>" 'describe-key) ; Map key help (next to +)
 
+; Window commands
+(general-define-key :keymaps 'evil-window-map
+                    ; Control variants of movement
+                    "C-h" 'evil-window-left
+                    "C-j" 'evil-window-down
+                    "C-k" 'evil-window-up
+                    "C-l" 'evil-window-right
+                    )
+
 (general-define-key :keymaps '(evil-normal-state-map evil-visual-state-map)
                     ; Make j and k move visual lines
                     "j" 'evil-next-visual-line
@@ -112,6 +121,9 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (load "easy-brackets")
 
 ;; Org
+(general-define-key :keymaps 'org-mode-map
+                    "TAB" nil)  ; Otherwise org overrides C-i
+
 (general-define-key :keymaps 'org-mode-map
                     :states '(normal visual)
                     "J" 'outline-next-visible-heading

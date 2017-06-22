@@ -12,8 +12,8 @@
 ;; UNBIND --------------------------------------------------------------------------------------
 
 (general-define-key "C-<backspace>" nil)    ; Mistyped often with i-mode brackets
-(general-define-key :keymaps '(motion normal visual global emacs)
-                    "C-z" nil)              ; Move emacs state
+(general-define-key :keymaps '(motion normal visual global emacs insert)
+                    "C-z" 'suspend-emacs)
 
 ; Unbind old window movements until replaced
 (general-define-key "C-h" nil)

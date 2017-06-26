@@ -27,8 +27,11 @@
 (show-paren-mode 1)                 ; Show matching parenthesis
 (modify-syntax-entry ?_ "w")        ; _ is now part of a word
 (modify-syntax-entry ?- "w")        ; aswell as -
-(setq x-select-enable-clipboard nil)    ; Disable emacs clipboard and rely on evil
+(setq x-select-enable-clipboard nil)  ; Disable emacs clipboard and rely on evil
 (setq truncate-lines t)             ; Disable wrap by default
+(put 'dired-find-alternate-file 'disabled nil)  ; Allow dired to use the same buffer
+(setq completion-styles '(basic initials emacs22 partial-completion substring))  ; Better completion
+(global-auto-revert-mode t)         ; Automatically reload changed files
 
 ;; Smooth scrolling
 (setq scroll-step 1)
@@ -95,7 +98,13 @@
 (use-package golden-ratio-scroll-screen)
 
 (use-package helm-config
-  :ensure helm)
+  :ensure helm
+  :general
+  ("M-x" #'helm-M-x)
+  (:prefix "C-h"
+           "f" #'helm-find-files
+           "m" #'helm-mini
+           "a" #'helm-apropos))
 
 (use-package org
   :config (setq org-M-RET-may-split-line '(default . nil))) ; Don't split line automatically
@@ -122,7 +131,7 @@
 ;; Rust
 
 (use-package cargo
-  :config (add-hook 'rust-mode-hook 'cargo-minor-mode))
+  :config (add-hook 'rust-mode-hook #'cargo-minor-mode))
 
 (use-package flycheck-rust
   :config (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))

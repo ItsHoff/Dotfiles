@@ -158,12 +158,12 @@
    | <space>     | set-mark-command       |                         |
    | <enter>     | -                      |                         |
 ** Alt - Emacs
-   | Key | Function                 | Comment |
-   |-----+--------------------------+---------|
-   | x   | execute-extended-command |         |
-   | +   | help-map                 |         |
-   | ´   | describe-key             |         |
-   | z   | evil-emacs-state         |         |
+   | Key | Function         | Comment |
+   |-----+------------------+---------|
+   | x   | helm-M-x         |         |
+   | +   | help-map         |         |
+   | ´   | describe-key     |         |
+   | z   | evil-emacs-state |         |
 ** Alt Gr
    | Key   | Function                    | Status           Ideas       |
    |-------+-----------------------------+------------------------------|
@@ -299,6 +299,12 @@
    | C-k   | evil-window-up               |                        |
    | l     | evil-window-right            |                        |
    | C-l   | evil-window-right            |                        |
+** Prefix: C-h - Helm
+   | Key | Function        | Comment |
+   |-----+-----------------+---------|
+   | f   | helm-find-files |         |
+   | a   | helm-apropos    |         |
+   | m   | helm-mini       |         |
 ** Overwritten
    | Old Key | Function               | Comment             |
    |---------+------------------------+---------------------|

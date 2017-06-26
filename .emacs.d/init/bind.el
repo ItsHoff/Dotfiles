@@ -16,7 +16,6 @@
                     "C-z" 'suspend-emacs)
 
 ; Unbind old window movements until replaced
-(general-define-key "C-h" nil)
 (general-define-key "C-j" nil)
 (general-define-key "C-k" nil)
 (general-define-key "C-l" nil)

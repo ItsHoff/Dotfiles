@@ -8,7 +8,6 @@
    * separate or combined movement and viewpoint control?
    * evil-scroll-down/-up
 *** Recenter after n and N
-*** Make H goto hard bol if at bol
 ** Learn
 *** Helm
 *** Org

@@ -95,7 +95,10 @@
 (use-package general
   :init (general-evil-setup))
 
-(use-package golden-ratio-scroll-screen)
+(use-package golden-ratio-scroll-screen
+  :config
+  (evil-declare-not-repeat #'golden-ratio-scroll-screen-down)
+  (evil-declare-not-repeat #'golden-ratio-scroll-screen-up))
 
 (use-package helm-config
   :ensure helm

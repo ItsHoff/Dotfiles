@@ -79,43 +79,43 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 ; Window commands
 (general-define-key :keymaps 'evil-window-map
                     ; Control variants of movement
-                    "C-h" 'evil-window-left
-                    "C-j" 'evil-window-down
-                    "C-k" 'evil-window-up
-                    "C-l" 'evil-window-right
+                    "C-h" #'evil-window-left
+                    "C-j" #'evil-window-down
+                    "C-k" #'evil-window-up
+                    "C-l" #'evil-window-right
                     )
 
 (general-define-key :keymaps '(evil-normal-state-map evil-visual-state-map)
                     ; Make j and k move visual lines
-                    "j" 'evil-next-visual-line
-                    "k" 'evil-previous-visual-line
+                    "j" #'evil-next-visual-line
+                    "k" #'evil-previous-visual-line
                     ; Bigger movement
-                    "H" 'evil-first-non-blank-of-visual-line
-                    "L" 'evil-end-of-line
-                    "J" 'golden-ratio-scroll-screen-up
-                    "K" 'golden-ratio-scroll-screen-down
+                    "H" #'evil-first-non-blank-of-visual-line
+                    "L" #'evil-end-of-line
+                    "J" #'golden-ratio-scroll-screen-up
+                    "K" #'golden-ratio-scroll-screen-down
                     ; Make Y function sensibly
-                    "Y" 'my-yank-eol
+                    "Y" #'my-yank-eol
                     ; Swap , and ;
-                    "," 'evil-repeat-find-char
-                    ";" 'evil-repeat-find-char-reverse
+                    "," #'evil-repeat-find-char
+                    ";" #'evil-repeat-find-char-reverse
                     ; Join + split
-                    "<backspace>" 'evil-join
-                    "<return>" 'my-split-line
+                    "<backspace>" #'evil-join
+                    "<return>" #'my-split-line
                     ; Make ¤ be forward #
-                    "¤" 'evil-search-word-forward
+                    "¤" #'evil-search-word-forward
                     ; Move sentence object
-                    "s" 'evil-forward-sentence-begin
-                    "S" 'evil-backward-sentence-begin
+                    "s" #'evil-forward-sentence-begin
+                    "S" #'evil-backward-sentence-begin
                     ; Move paragraph object
-                    "q" 'evil-forward-paragraph
-                    "Q" 'evil-backward-paragraph
+                    "q" #'evil-forward-paragraph
+                    "Q" #'evil-backward-paragraph
                     ; Move emacs state
-                    "M-z" 'evil-emacs-state
+                    "M-z" #'evil-emacs-state
                     )
 
 (general-define-key :keymaps 'evil-emacs-state-map
-                    "M-z" 'evil-exit-emacs-state)
+                    "M-z" #'evil-exit-emacs-state)
 
 (load "easy-brackets")
 
@@ -125,13 +125,12 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (general-define-key :keymaps 'org-mode-map
                     :states '(normal visual)
-                    "J" 'outline-next-visible-heading
-                    "K" 'outline-previous-visible-heading
-                    "o" 'org-meta-return
-                    "M-h" 'org-metaleft
-                    "M-l" 'org-metaright
-                    "M-j" 'org-metadown
-                    "M-k" 'org-metaup
+                    "J" #'outline-next-visible-heading
+                    "K" #'outline-previous-visible-heading
+                    "M-h" #'org-metaleft
+                    "M-l" #'org-metaright
+                    "M-j" #'org-metadown
+                    "M-k" #'org-metaup
                     )
 
 (evil-make-overriding-map org-mode-map 'normal)

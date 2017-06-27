@@ -28,9 +28,9 @@
 (modify-syntax-entry ?_ "w")        ; _ is now part of a word
 (modify-syntax-entry ?- "w")        ; aswell as -
 (setq x-select-enable-clipboard nil)  ; Disable emacs clipboard and rely on evil
-(setq truncate-lines t)             ; Disable wrap by default
 (put 'dired-find-alternate-file 'disabled nil)  ; Allow dired to use the same buffer
-(setq completion-styles '(basic initials emacs22 partial-completion substring))  ; Better completion
+(setq completion-styles '(basic initials emacs22 partial-completion
+                                substring))  ; Better completion
 (global-auto-revert-mode t)         ; Automatically reload changed files
 
 ;; Smooth scrolling

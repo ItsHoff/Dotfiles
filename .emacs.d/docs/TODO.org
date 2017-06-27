@@ -50,6 +50,7 @@
 ** Flycheck
 ** Helm
    * https://emacs-helm.github.io/helm/
+   * https://github.com/emacs-helm/helm-descbinds
    * https://tuhdo.github.io/helm-intro.html
 ** Org
    * http://orgmode.org/worg/

@@ -103,8 +103,15 @@
   ("M-x" #'helm-M-x)
   (:prefix "C-h"
            "f" #'helm-find-files
+           "C-f" #'helm-find-files
            "m" #'helm-mini
-           "a" #'helm-apropos))
+           "C-m" #'helm-mini
+           "o" #'helm-occur
+           "C-o" #'helm-occur
+           "k" #'helm-man-woman
+           "C-k" #'helm-man-woman
+           "a" #'helm-apropos
+           "C-a" #'helm-apropos))
 
 (use-package org
   :config (setq org-M-RET-may-split-line '(default . nil))) ; Don't split line automatically

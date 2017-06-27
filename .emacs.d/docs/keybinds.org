@@ -300,11 +300,13 @@
    | l     | evil-window-right            |                        |
    | C-l   | evil-window-right            |                        |
 ** Prefix: C-h - Helm
-   | Key | Function        | Comment |
-   |-----+-----------------+---------|
-   | f   | helm-find-files |         |
-   | a   | helm-apropos    |         |
-   | m   | helm-mini       |         |
+   | Key   | Function        | Comment |
+   |-------+-----------------+---------|
+   | (C-)f | helm-find-files |         |
+   | (C-)a | helm-apropos    |         |
+   | (C-)m | helm-mini       |         |
+   | (C-)o | helm-occur      |         |
+   | (C-)k | helm-man-woman  |         |
 ** Overwritten
    | Old Key | Function               | Comment             |
    |---------+------------------------+---------------------|

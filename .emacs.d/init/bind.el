@@ -21,16 +21,6 @@
 (general-define-key "C-l" nil)
 
 ;; MY FUNCTIONS --------------------------------------------------------------------------------
-
-(evil-define-operator my-yank-eol (beg end type register yank-handler)
-  "Yank from point to end of line."
-  :motion evil-end-of-line
-  :move-point nil
-  (interactive "<R><x><y>")
-  (evil-yank (point) (point-at-eol) type register yank-handler))
-
-(evil-declare-not-repeat #'my-yank-eol)
-
 (defun my-beginning-of-line ()
   "Go to the first non blank char of line unless already at or in front of it.
 In which case go to hard bol."
@@ -111,8 +101,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     "L" #'evil-end-of-line
                     "J" #'golden-ratio-scroll-screen-up
                     "K" #'golden-ratio-scroll-screen-down
-                    ; Make Y function sensibly
-                    "Y" #'my-yank-eol
                     ; Swap , and ;
                     "," #'evil-repeat-find-char
                     ";" #'evil-repeat-find-char-reverse

@@ -77,34 +77,55 @@
 ;; Install all packages automatically
 (setq use-package-always-ensure t)
 
-;; General
+(use-package general
+  :init (general-evil-setup))
+
 (use-package company
   :init (global-company-mode)
   :config
   (setq company-idle-delay 0.2)
-  (setq company-minimum-prefix-length 2))
+  (setq company-minimum-prefix-length 2)
+  (setq company-selection-wrap-around t)
+  (setq company-show-numbers t)
+  (setq company-require-match nil)
+  (dotimes (i 10)
+    (general-define-key :keymaps 'company-active-map
+                        (format "C-%d" i) #'company-complete-number))
+  :general
+  (:keymaps 'company-active-map
+            "C-m" nil   ; Not <return>
+            "C-i" nil   ; Not <tab>
+            "C-n" #'company-select-next
+            "C-p" #'company-select-previous))
 
 (use-package evil
-  :init (evil-mode t)
+  :init
+  (setq evil-want-Y-yank-to-eol t)
+  (setq evil-want-C-w-in-emacs-state t) ; Window commands should always work
   :config
-  (setq evil-ex-substitute-global t)) ; substitute replaces all occurences in line
+  (setq evil-ex-substitute-global t) ; substitute replaces all occurences in line
+  (evil-mode t))
 
 (use-package flycheck
   :init (global-flycheck-mode))
-
-(use-package general
-  :init (general-evil-setup))
 
 (use-package golden-ratio-scroll-screen
   :config
   (evil-declare-not-repeat #'golden-ratio-scroll-screen-down)
   (evil-declare-not-repeat #'golden-ratio-scroll-screen-up))
 
-(use-package helm-config
-  :ensure helm
+(use-package helm
+  :diminish helm-mode
+  :config
+  (require 'helm-config)
+  (helm-autoresize-mode t)
   :general
-  ("M-x" #'helm-M-x)
-  (:prefix "C-h"
+  (:keymaps 'motion
+            "M-x" #'helm-M-x
+            "C-m" #'helm-mini
+            "C-f" #'helm-find-files)
+  (:keymaps 'motion
+   :prefix "C-h"
            "f" #'helm-find-files
            "C-f" #'helm-find-files
            "m" #'helm-mini

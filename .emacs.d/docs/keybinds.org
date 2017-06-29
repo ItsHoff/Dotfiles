@@ -80,7 +80,7 @@
    | E           | evil-forward-WORD-end               |                                       |
    | R           | evil-replace-state                  | TODO: replace                         |
    | T           | evil-find-char-to-backward          | includes easy-brackets hacks          |
-   | Y           | my-yank-eol                         | TODO: fix registers                   |
+   | Y           | evil-yank-line                      |                                       |
    | U           | -                                   | TODO: use as redo                     |
    | I           | evil-insert-line                    |                                       |
    | O           | evil-open-above                     |                                       |
@@ -135,9 +135,9 @@
    | a           | move-beginning-of-line |                         |
    | s           | isearch-forward        | TODO: replace           |
    | d           | evil-scroll-down       |                         |
-   | f           | evil-scroll-page-down  | sortof J                |
+   | f           | helm-find-files        |                         |
    | g           | keyboard-quit          | probable should be kept |
-   | h           | -                      | TODO: use               |
+   | h           | helm prefix            |                         |
    | j           | -                      | TODO: use               |
    | k           | -                      | TODO: use               |
    | l           | -                      | TODO: use               |
@@ -151,7 +151,7 @@
    | v           | evil-visual-block      |                         |
    | b           | evil-scroll-page-up    | sortof K                |
    | n           | evil-paste-pop-next    | LEARN                   |
-   | m           | enter?                 | RET (!= <return>)       |
+   | m           | helm-mini              |                         |
    | ,           | -                      |                         |
    | .           | evil-repeat-pop        |                         |
    | -           | negative-argument      |                         |
@@ -317,14 +317,26 @@
    |---------+----------------+---------|
    | c-k     | insert-digraph | useless |
 * Org
-    | Key     | State  | Function                         | Comment                      |
-    |---------+--------+----------------------------------+------------------------------|
-    | <tab>   | global | org-cycle                        |                              |
-    | S-<tab> | global | org-shifttab                     |                              |
-    | J       | normal | outline-next-visible-heading     |                              |
-    | K       | normal | outline-previous-visible-heading |                              |
-    | o       | normal | org-meta-return                  | Make this not kidnap text    |
-    | M-h     | normal | org-metaleft                     | Sticky modifier instead of M |
-    | M-l     | normal | org-metaright                    | Sticky modifier instead of M |
-    | M-j     | normal | org-metadown                     | Sticky modifier instead of M |
-    | M-k     | normal | org-metaup                       | Sticky modifier instead of M |
+  | Key     | State  | Function                         | Comment                      |
+  |---------+--------+----------------------------------+------------------------------|
+  | <tab>   | global | org-cycle                        |                              |
+  | S-<tab> | global | org-shifttab                     |                              |
+  | J       | normal | outline-next-visible-heading     |                              |
+  | K       | normal | outline-previous-visible-heading |                              |
+  | o       | normal | org-meta-return                  | Make this not kidnap text    |
+  | M-h     | normal | org-metaleft                     | Sticky modifier instead of M |
+  | M-l     | normal | org-metaright                    | Sticky modifier instead of M |
+  | M-j     | normal | org-metadown                     | Sticky modifier instead of M |
+  | M-k     | normal | org-metaup                       | Sticky modifier instead of M |
+* Company
+  | Key         | Function                   | Comment |
+  |-------------+----------------------------+---------|
+  | (C/M)-n     | company-select-next        |         |
+  | (C/M)-p     | company-select-previous    |         |
+  | (C/M)-(1-0) | company-complete-number    |         |
+  | C-g         | company-abort              |         |
+  | C-h         | company-show-doc-buffer    |         |
+  | <tab>       | company-complete-common    |         |
+  | <return>    | company-complete-selection |         |
+  | C-s         | company-search-canditates  |         |
+  | C-w         | company-show-location      |         |

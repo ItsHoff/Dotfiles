@@ -143,7 +143,7 @@
                     "a C-k" (my-no-dot (general-simulate-keys ('evil-yank "a]")))
                     ))
 
-;; For some reason these need to be explicitly added to visual map
+;; These need to be overriden in visual-map since normal-map also affects visual-state
 (general-vmap "d" 'evil-delete
               "c" 'evil-change
               "y" 'evil-yank)

@@ -92,7 +92,13 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     "C-l" #'evil-window-right
                     )
 
-(general-define-key :keymaps '(evil-normal-state-map evil-visual-state-map)
+; Emacs state
+(general-define-key :keymaps 'emacs
+                    ;":" #'evil-ex
+                    "M-z" #'evil-exit-emacs-state)
+
+; Motions (normal, visual and some special buffers)
+(general-define-key :keymaps 'motion
                     ; Make j and k move visual lines
                     "j" #'evil-next-visual-line
                     "k" #'evil-previous-visual-line
@@ -104,28 +110,31 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     ; Swap , and ;
                     "," #'evil-repeat-find-char
                     ";" #'evil-repeat-find-char-reverse
-                    ; Join + split
-                    "<backspace>" #'evil-join
-                    "<return>" #'my-split-line
                     ; Make ¤ be forward #
                     "¤" #'evil-search-word-forward
                     ; Move sentence object
                     "s" #'evil-forward-sentence-begin
                     "S" #'evil-backward-sentence-begin
-                    ; Move paragraph object
-                    "q" #'evil-forward-paragraph
-                    "Q" #'evil-backward-paragraph
-                    ; Move emacs state
-                    "M-z" #'evil-emacs-state
                     )
 
-(general-define-key :keymaps 'evil-emacs-state-map
-                    "M-z" #'evil-exit-emacs-state)
+; Define separately to avoid overriding some buffers q quit
+(general-define-key :keymaps '(normal visual)
+                    ; Move paragraph object
+                    "q" #'evil-forward-paragraph
+                    "Q" #'evil-backward-paragraph)
+
+(general-define-key :keymaps 'normal
+                    ; Move emacs state
+                    "M-z" #'evil-emacs-state
+                    ; Join + split
+                    "<backspace>" #'evil-join
+                    "<return>" #'my-split-line)
 
 (load "easy-brackets")
 
 ;; Org
 (general-define-key :keymaps 'org-mode-map
+                    "RET" nil   ; Otherwise org overrides C-m
                     "TAB" nil)  ; Otherwise org overrides C-i
 
 (general-define-key :keymaps 'org-mode-map

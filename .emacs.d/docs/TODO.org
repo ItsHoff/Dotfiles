@@ -2,19 +2,19 @@
 ** Fix
 *** dot with general-dispatch
   * easy-brackets
+  * Probably requires fix from general
 ** Improve
 *** Improve window controls
-   * Make use of hydras
-   * separate or combined movement and viewpoint control?
-   * evil-scroll-down/-up
-*** Recenter after n and N
+  * Make use of hydras
+  * separate or combined movement and viewpoint control?
+  * evil-scroll-down/-up
 ** Learn
 *** Helm
 *** Org
 *** paste history (c-p, c-n)
 *** repeat history (c-., evil-repeat-pop-next)
 ** Change
-***  prefix g: go
+*** prefix g: go
   * G as reverse?
   * j eof, k bof
   * C-t pop-tag-mark
@@ -35,14 +35,14 @@
 *** Rework marks
 *** U vs C-r
 ** Create
-***  workspace management
+*** workspace management
   * c-x r [w/j]
   * window-configuration-to-register
   * jump-to-register
 *** some unix / emacs style commands in insert mode
 *** combability mode
-  * hjkl movement
-  * window movement
+  * Incombatible modes:
+    * None currently
 * Packages to checkout
 ** Rust-mode
 ** Undotree

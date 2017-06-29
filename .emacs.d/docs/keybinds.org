@@ -1,4 +1,4 @@
-* Normal
+* Normal-state
 ** Complete Package
   * ö
   * ä
@@ -285,6 +285,7 @@
    | (C-)m | helm-mini       |         |
    | (C-)o | helm-occur      |         |
    | (C-)k | helm-man-woman  |         |
+   | (C-)r | helm-resume     |         |
 ** Overwritten
    | Old Key | Function               | Comment             |
    |---------+------------------------+---------------------|
@@ -292,7 +293,7 @@
    | S       | evil-change-whole-line | useless             |
    | q       | evil-record-macro      | TODO: rework macros |
    | K       | evil-lookup (man)      | TODO: remap         |
-* Insert
+* Insert-state
 ** Keys
    | Key | Function                     | Comment             |
    |-----+------------------------------+---------------------|
@@ -316,7 +317,16 @@
    | Old Key | Function       | Comment |
    |---------+----------------+---------|
    | c-k     | insert-digraph | useless |
-* Org
+* Emacs-state
+  | Key | Function              | Comment |
+  |-----+-----------------------+---------|
+  | :   | evil-ex               |         |
+  | M-z | evil-exit-emacs-state |         |
+** Overwritten
+   | Old Key | Function    | Comment |
+   |---------+-------------+---------|
+   | M-z     | zap-to-char |         |
+* Org-mode
   | Key     | State  | Function                         | Comment                      |
   |---------+--------+----------------------------------+------------------------------|
   | <tab>   | global | org-cycle                        |                              |
@@ -328,7 +338,7 @@
   | M-l     | normal | org-metaright                    | Sticky modifier instead of M |
   | M-j     | normal | org-metadown                     | Sticky modifier instead of M |
   | M-k     | normal | org-metaup                       | Sticky modifier instead of M |
-* Company
+* Company-mode
   | Key         | Function                   | Comment |
   |-------------+----------------------------+---------|
   | (C/M)-n     | company-select-next        |         |

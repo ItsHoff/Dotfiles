@@ -81,13 +81,14 @@
   :init (general-evil-setup))
 
 (use-package company
-  :init (global-company-mode)
+  :diminish company-mode
   :config
   (setq company-idle-delay 0.2)
   (setq company-minimum-prefix-length 2)
   (setq company-selection-wrap-around t)
   (setq company-show-numbers t)
   (setq company-require-match nil)
+  (global-company-mode)
   (dotimes (i 10)
     (general-define-key :keymaps 'company-active-map
                         (format "C-%d" i) #'company-complete-number))
@@ -134,6 +135,8 @@
            "C-o" #'helm-occur
            "k" #'helm-man-woman
            "C-k" #'helm-man-woman
+           "r" #'helm-resume
+           "C-r" #'helm-resume
            "a" #'helm-apropos
            "C-a" #'helm-apropos))
 
@@ -151,6 +154,9 @@
   :config
   (setq x-underline-at-descent-line t)
   (load-theme 'solarized-dark t))
+
+(use-package undo-tree
+  :diminish undo-tree-mode)
 
 ;; GLSL
 

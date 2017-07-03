@@ -136,7 +136,7 @@
    | s           | isearch-forward        | TODO: replace           |
    | d           | evil-scroll-down       |                         |
    | f           | helm-find-files        |                         |
-   | g           | keyboard-quit          | probable should be kept |
+   | g           | keyboard-quit          | probably should be kept |
    | h           | helm prefix            |                         |
    | j           | -                      | TODO: use               |
    | k           | -                      | TODO: use               |

@@ -99,13 +99,25 @@
             "C-n" #'company-select-next
             "C-p" #'company-select-previous))
 
+(use-package counsel
+  :diminish ivy-mode
+  :init (ivy-mode 1)
+  :config
+  (setq ivy-use-virtual-buffers t)
+  (setq ivy-count-format "%d/%d ")
+  :general
+  (:keymaps '(motion normal)
+            "SPC" #'counsel-M-x)
+  (:keymaps 'ivy-minibuffer-map
+            "<escape>" #'minibuffer-keyboard-quit))
+
+
 (use-package evil
   :init
   (setq evil-want-Y-yank-to-eol t)
   (setq evil-want-C-w-in-emacs-state t) ; Window commands should always work
-  :config
   (setq evil-ex-substitute-global t) ; substitute replaces all occurences in line
-  (evil-mode t))
+  (evil-mode 1))
 
 (use-package flycheck
   :init (global-flycheck-mode))

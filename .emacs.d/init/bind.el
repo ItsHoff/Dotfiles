@@ -12,8 +12,6 @@
 ;; UNBIND --------------------------------------------------------------------------------------
 
 (general-define-key "C-<backspace>" nil)    ; Mistyped often with i-mode brackets
-(general-define-key :keymaps '(motion normal visual global emacs insert)
-                    "C-z" 'suspend-emacs)
 
 ; Unbind old window movements until replaced
 (general-define-key "C-j" nil)
@@ -76,6 +74,8 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (define-key minibuffer-local-completion-map [escape] #'minibuffer-keyboard-quit)
 (define-key minibuffer-local-must-match-map [escape] #'minibuffer-keyboard-quit)
 (define-key minibuffer-local-isearch-map [escape] #'minibuffer-keyboard-quit)
+(define-key minibuffer-local-isearch-map [escape] #'minibuffer-keyboard-quit)
+(define-key minibuffer-inactive-mode-map [escape] #'minibuffer-keyboard-quit)
 (global-set-key [escape] #'evil-exit-emacs-state)
 
 ;; BINDINGS -----------------------------------------------------------------------------------
@@ -92,13 +92,19 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     "C-l" #'evil-window-right
                     )
 
+; Everywhere
+(general-define-key :keymaps '(motion normal visual global emacs insert)
+                    "C-z" 'suspend-emacs
+                    )
+
 ; Emacs state
 (general-define-key :keymaps 'emacs
-                    ;":" #'evil-ex
-                    "M-z" #'evil-exit-emacs-state)
+                    ":" #'evil-ex
+                    "M-z" #'evil-exit-emacs-state
+                    )
 
 ; Motions (normal, visual and some special buffers)
-(general-define-key :keymaps 'motion
+(general-define-key :keymaps '(motion normal visual)
                     ; Make j and k move visual lines
                     "j" #'evil-next-visual-line
                     "k" #'evil-previous-visual-line
@@ -121,14 +127,21 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (general-define-key :keymaps '(normal visual)
                     ; Move paragraph object
                     "q" #'evil-forward-paragraph
-                    "Q" #'evil-backward-paragraph)
+                    "Q" #'evil-backward-paragraph
+                    )
 
 (general-define-key :keymaps 'normal
                     ; Move emacs state
                     "M-z" #'evil-emacs-state
                     ; Join + split
                     "<backspace>" #'evil-join
-                    "<return>" #'my-split-line)
+                    "<return>" #'my-split-line
+                    )
+; Ex-mode
+(general-define-key :keymaps 'evil-ex-map
+                    "e" #'counsel-find-file
+                    "b" #'ivy-switch-buffer
+                    )
 
 (load "easy-brackets")
 

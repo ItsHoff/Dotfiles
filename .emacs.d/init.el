@@ -82,13 +82,13 @@
 
 (use-package company
   :diminish company-mode
+  :init (global-company-mode)
   :config
   (setq company-idle-delay 0.2)
   (setq company-minimum-prefix-length 2)
   (setq company-selection-wrap-around t)
   (setq company-show-numbers t)
   (setq company-require-match nil)
-  (global-company-mode)
   (dotimes (i 10)
     (general-define-key :keymaps 'company-active-map
                         (format "C-%d" i) #'company-complete-number))

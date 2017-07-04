@@ -4,12 +4,19 @@
   * easy-brackets
   * Probably requires fix from general
 ** Improve
+*** Switch np to jk
+  * Helm
+  * Ivy
+  * Magit
+  * Company
+  * paste and repeat history
 *** Improve window controls
   * Make use of hydras
   * separate or combined movement and viewpoint control?
   * evil-scroll-down/-up
 ** Learn
-*** Helm
+*** Magit
+*** Ivy
 *** Org
 *** paste history (c-p, c-n)
 *** repeat history (c-., evil-repeat-pop-next)

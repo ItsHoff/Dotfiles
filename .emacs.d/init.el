@@ -152,6 +152,13 @@
            "a" #'helm-apropos
            "C-a" #'helm-apropos))
 
+(use-package magit
+  :general
+  (:keymaps 'motion
+            "C-g" #'magit-status)
+  (:keymaps 'magit-mode-map))
+
+
 (use-package org
   :config (setq org-M-RET-may-split-line '(default . nil))) ; Don't split line automatically
 

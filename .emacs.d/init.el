@@ -150,7 +150,10 @@
            "r" #'helm-resume
            "C-r" #'helm-resume
            "a" #'helm-apropos
-           "C-a" #'helm-apropos))
+           "C-a" #'helm-apropos)
+  (:keymaps 'helm-map
+            "<tab>" #'helm-execute-persistent-action
+            "C-j" #'helm-select-action))
 
 (use-package magit
   :general

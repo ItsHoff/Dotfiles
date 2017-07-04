@@ -39,6 +39,7 @@
   * c-x r [w/j]
   * window-configuration-to-register
   * jump-to-register
+  * https://github.com/wasamasa/eyebrowse
 *** some unix / emacs style commands in insert mode
 *** combability mode
   * Incombatible modes:

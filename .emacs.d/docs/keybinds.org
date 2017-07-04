@@ -51,7 +51,7 @@
     | ,           | evil-repeat-find-char              |                              |
     | .           | evil-repeat                        |                              |
     | -           | evil-previous-line-first-non-blank | TODO: replace                |
-    | <space>     |                                    | TODO: use                    |
+    | <space>     | counsel-M-x                        |                              |
     | <enter>     | my-split-line                      |                              |
     | <up>        | -                                  | TODO: use                    |
     | <down>      | -                                  | TODO: use                    |
@@ -136,7 +136,7 @@
    | s           | isearch-forward        | TODO: replace           |
    | d           | evil-scroll-down       |                         |
    | f           | helm-find-files        |                         |
-   | g           | keyboard-quit          | probably should be kept |
+   | g           | magit-status           |                         |
    | h           | helm prefix            |                         |
    | j           | -                      | TODO: use               |
    | k           | -                      | TODO: use               |
@@ -145,7 +145,7 @@
    | ä           | -                      |                         |
    | '           | -                      |                         |
    | <           | -                      |                         |
-   | z           | terminal background    |                         |
+   | z           | suspend-emacs          |                         |
    | x           | emacs prefix           | TODO: replace           |
    | c           | emacs prefix           | TODO: replace           |
    | v           | evil-visual-block      |                         |
@@ -157,6 +157,10 @@
    | -           | negative-argument      |                         |
    | <space>     | set-mark-command       |                         |
    | <enter>     | -                      |                         |
+*** Overwritten
+   | Key | Function      | Comment |
+   |-----+---------------+---------|
+   | g   | keyboard-quit |         |
 ** Alt - Emacs
    | Key | Function         | Comment |
    |-----+------------------+---------|
@@ -164,6 +168,7 @@
    | +   | help-map         |         |
    | ´   | describe-key     |         |
    | z   | evil-emacs-state |         |
+   | g   | keyboard-quit    |         |
 ** Alt Gr
    | Key   | Function                    | Status           Ideas       |
    |-------+-----------------------------+------------------------------|
@@ -326,6 +331,11 @@
    | Old Key | Function    | Comment |
    |---------+-------------+---------|
    | M-z     | zap-to-char |         |
+* Ex-mode
+  | Key | Function          | Comment |
+  |-----+-------------------+---------|
+  | b   | ivy-switch-buffer |         |
+  | e   | counsel-find-file |         |
 * Org-mode
   | Key     | State  | Function                         | Comment                      |
   |---------+--------+----------------------------------+------------------------------|
@@ -338,6 +348,10 @@
   | M-l     | normal | org-metaright                    | Sticky modifier instead of M |
   | M-j     | normal | org-metadown                     | Sticky modifier instead of M |
   | M-k     | normal | org-metaup                       | Sticky modifier instead of M |
+* Magit
+  | Key | State | Function | Comment |
+  |-----+-------+----------+---------|
+  |     |       |          |         |
 * Company-mode
   | Key         | Function                   | Comment |
   |-------------+----------------------------+---------|

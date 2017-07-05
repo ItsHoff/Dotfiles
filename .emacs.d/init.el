@@ -101,10 +101,10 @@
 
 (use-package counsel
   :diminish ivy-mode
-  :init (ivy-mode 1)
-  :config
+  :init
   (setq ivy-use-virtual-buffers t)
   (setq ivy-count-format "%d/%d ")
+  (ivy-mode 1)
   :general
   (:keymaps '(motion normal)
             "SPC" #'counsel-M-x)

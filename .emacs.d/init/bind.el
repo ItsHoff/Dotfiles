@@ -105,6 +105,8 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 ; Motions (normal, visual and some special buffers)
 (general-define-key :keymaps '(motion normal visual)
+                    ; Move emacs state
+                    "M-z" #'evil-emacs-state
                     ; Make j and k move visual lines
                     "j" #'evil-next-visual-line
                     "k" #'evil-previous-visual-line
@@ -131,8 +133,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     )
 
 (general-define-key :keymaps 'normal
-                    ; Move emacs state
-                    "M-z" #'evil-emacs-state
                     ; Join + split
                     "<backspace>" #'evil-join
                     "<return>" #'my-split-line

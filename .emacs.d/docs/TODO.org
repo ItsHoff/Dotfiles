@@ -53,10 +53,11 @@
     * None currently
 * Packages to checkout
 ** Ivy
- * http://oremacs.com/swiper/
- * https://github.com/abo-abo/swiper
- * https://oremacs.com/2015/04/16/ivy-mode/
- * https://www.reddit.com/r/emacs/comments/52lnad/from_helm_to_ivy_a_user_perspective/
+   * http://oremacs.com/swiper/
+   * https://github.com/abo-abo/swiper
+   * https://oremacs.com/2015/04/16/ivy-mode/
+   * https://writequit.org/denver-emacs/presentations/2017-04-11-ivy.html
+   * https://www.reddit.com/r/emacs/comments/52lnad/from_helm_to_ivy_a_user_perspective/
 ** Helm
    * https://emacs-helm.github.io/helm/
    * https://github.com/emacs-helm/helm-descbinds

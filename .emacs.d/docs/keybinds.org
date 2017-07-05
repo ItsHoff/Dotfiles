@@ -158,17 +158,19 @@
    | <space>     | set-mark-command       |                         |
    | <enter>     | -                      |                         |
 *** Overwritten
-   | Key | Function      | Comment |
-   |-----+---------------+---------|
-   | g   | keyboard-quit |         |
+   | Key | Function           | Comment |
+   |-----+--------------------+---------|
+   | g   | keyboard-quit      |         |
+   | u   | universal-argument |         |
 ** Alt - Emacs
-   | Key | Function         | Comment |
-   |-----+------------------+---------|
-   | x   | helm-M-x         |         |
-   | +   | help-map         |         |
-   | ´   | describe-key     |         |
-   | z   | evil-emacs-state |         |
-   | g   | keyboard-quit    |         |
+   | Key | Function           | Comment |
+   |-----+--------------------+---------|
+   | x   | helm-M-x           |         |
+   | +   | help-map           |         |
+   | ´   | describe-key       |         |
+   | z   | evil-emacs-state   |         |
+   | g   | keyboard-quit      |         |
+   | u   | universal-argument |         |
 ** Alt Gr
    | Key   | Function                    | Status           Ideas       |
    |-------+-----------------------------+------------------------------|

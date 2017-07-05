@@ -80,8 +80,12 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 ;; BINDINGS -----------------------------------------------------------------------------------
 
-(general-define-key "M-+" help-map)                 ; Remap help
-(general-define-key "M-<dead-acute>" #'describe-key) ; Map key help (next to +)
+(general-define-key :keymaps 'global
+                    "M-+" help-map  ; Remap help
+                    "M-<dead-acute>" #'describe-key  ; Map key help (next to +)
+                    "M-u" #'universal-argument
+                    "M-g" #'keyboard-quit
+                    )
 
 ; Window commands
 (general-define-key :keymaps 'evil-window-map

@@ -1,4 +1,5 @@
 backups/
+undos/
 elpa/
 eshell/
 auto-save-list/

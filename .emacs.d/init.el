@@ -208,6 +208,7 @@
   :bind ("C-c e" . TeX-next-error))
 
 (load "bind")
+(load "local-conf" t)  ; No error if missing
 
 (provide 'init)
 ;;; init.el ends here

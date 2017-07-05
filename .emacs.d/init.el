@@ -46,6 +46,9 @@
 (defvar backup-directory (concat user-emacs-directory "backups"))
 (if (not (file-exists-p backup-directory))
         (make-directory backup-directory t))
+(defvar undo-directory (concat user-emacs-directory "undos"))
+(if (not (file-exists-p undo-directory))
+        (make-directory undo-directory t))
 (setq backup-directory-alist `(("." . ,backup-directory)))
 
 (setq create-lockfiles nil)         ; Don't create lockfiles
@@ -178,7 +181,27 @@
   (load-theme 'solarized-dark t))
 
 (use-package undo-tree
-  :diminish undo-tree-mode)
+  :diminish undo-tree-mode
+  :init
+  (setq undo-tree-save-history t)
+  (setq undo-tree-history-directory-alist '(("." . undo-directory)))
+  (setq undo-tree-visualizer-diff t)
+  (setq undo-tree-visualizer-timestamps t)
+  (setq undo-tree-visualizer-lazy-drawing 1000)
+  :config
+  (evil-make-overriding-map undo-tree-visualizer-mode-map 'motion)
+  :general
+  (:keymaps '(normal visual)
+            "C-u" #'undo-tree-visualize
+            )
+  (:keymaps 'undo-tree-visualizer-mode-map
+            "j" #'undo-tree-visualize-redo
+            "J" #'undo-tree-visualize-redo-to-x
+            "k" #'undo-tree-visualize-undo
+            "K" #'undo-tree-visualize-undo-to-x
+            "h" #'undo-tree-visualize-switch-branch-left
+            "l" #'undo-tree-visualize-switch-branch-right
+            ))
 
 ;; GLSL
 

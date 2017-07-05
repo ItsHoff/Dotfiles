@@ -126,7 +126,7 @@
    | r           | undo-tree-redo         | TODO: maybe to U        |
    | t           | pop-tag-mark           | TODO: maybe in history  |
    | y           | evil-scroll-line-up    |                         |
-   | u           | universal-argument     |                         |
+   | u           | undo-tree-visualize    |                         |
    | i           | evil-jump-forward      | TAB in emacs (!= <tab>) |
    | o           | evil-jump-backward     |                         |
    | p           | evil-paste-pop         | LEARN                   |
@@ -364,3 +364,12 @@
   | <return>    | company-complete-selection |         |
   | C-s         | company-search-canditates  |         |
   | C-w         | company-show-location      |         |
+* Undo-tree
+  | Key | Function                                | Comment |
+  |-----+-----------------------------------------+---------|
+  | j   | undo-tree-visualize-redo                |         |
+  | k   | undo-tree-visualize-undo                |         |
+  | h   | undo-tree-visualize-switch-branch-left  |         |
+  | l   | undo-tree-visualize-switch-branch-right |         |
+  | J   | undo-tree-visualize-redo-to-x           |         |
+  | K   | undo-tree-visualize-undo-to-x           |         |

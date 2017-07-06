@@ -63,7 +63,7 @@
   )
 
 ;; Tabs & Spaces
-(setq-default tab-always-indent nil)    ; Allow tabbing outside of indent
+(setq tab-always-indent nil)            ; Allow tabbing outside of indent
 (setq-default indent-tabs-mode nil)     ; Use spaces instead of tabs
 (setq-default tab-width 4)              ; Tab = 4 spaces
 
@@ -220,8 +220,20 @@
             "l" #'undo-tree-visualize-switch-branch-right
             ))
 
-;; GLSL
+(use-package whitespace
+  :init
+  ; Hightlight tabs and trailing whitespace
+  (setq whitespace-style '(face trailing empty tabs space-before-tab tab-mark))
+  (setq whitespace-tab 'highlight)
+  ; Change tab mark (this removes space and newline marks)
+  (setq whitespace-display-mappings '((tab-mark ?\t [?▸ ?\t] [?› ?\t] [?> ?\t])))
+  (global-whitespace-mode t))
 
+;; C
+(setq c-default-style "stroustrup")
+(setq c-tab-always-indent nil)
+
+;; GLSL
 (use-package glsl-mode)
 
 ;; Octave / Matlab

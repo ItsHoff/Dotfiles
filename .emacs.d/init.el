@@ -29,9 +29,9 @@
 (modify-syntax-entry ?- "w")        ; aswell as -
 (setq x-select-enable-clipboard nil)  ; Disable emacs clipboard and rely on evil
 (put 'dired-find-alternate-file 'disabled nil)  ; Allow dired to use the same buffer
-(setq completion-styles '(basic initials emacs22 partial-completion
-                                substring))  ; Better completion
+(setq completion-styles '(basic initials partial substring))  ; Better completion
 (global-auto-revert-mode t)         ; Automatically reload changed files
+(setq gc-cons-threshold 20000000)   ; This should reduce emacs gc time
 
 ;; Smooth scrolling
 (setq scroll-step 1)
@@ -102,18 +102,27 @@
             "C-n" #'company-select-next
             "C-p" #'company-select-previous))
 
+(use-package company-flx
+  :config (company-flx-mode t))
+
 (use-package counsel
   :diminish ivy-mode
   :init
   (setq ivy-use-virtual-buffers t)
   (setq ivy-count-format "%d/%d ")
+  (setq ivy-re-builders-alist '((t . ivy--regex-fuzzy)))
   (ivy-mode 1)
   :general
   (:keymaps '(motion normal)
-            "SPC" #'counsel-M-x)
+            "SPC" nil)
+  (:keymaps '(motion normal)
+            :prefix "SPC"
+            "SPC" #'counsel-M-x
+            "e" #'counsel-find-file
+            "b" #'ivy-switch-buffer
+            )
   (:keymaps 'ivy-minibuffer-map
             "<escape>" #'minibuffer-keyboard-quit))
-
 
 (use-package evil
   :init
@@ -125,6 +134,8 @@
 (use-package flycheck
   :init (global-flycheck-mode))
 
+(use-package flx)
+
 (use-package golden-ratio-scroll-screen
   :config
   (evil-declare-not-repeat #'golden-ratio-scroll-screen-down)
@@ -134,6 +145,10 @@
   :diminish helm-mode
   :config
   (require 'helm-config)
+  (setq helm-recentf-fuzzy-match t)
+  (setq helm-buffers-fuzzy-matching t)
+  (setq helm-M-x-fuzzy-match t)
+  (setq helm-apropos-fuzzy-match t)
   (helm-autoresize-mode t)
   :general
   (:keymaps 'motion
@@ -164,9 +179,11 @@
             "C-g" #'magit-status)
   (:keymaps 'magit-mode-map))
 
-
 (use-package org
   :config (setq org-M-RET-may-split-line '(default . nil))) ; Don't split line automatically
+
+(use-package recentf
+  :init (setq recentf-max-saved-items 50))
 
 (use-package spaceline-config
   :ensure spaceline

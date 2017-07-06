@@ -141,11 +141,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     "<backspace>" #'evil-join
                     "<return>" #'my-split-line
                     )
-; Ex-mode
-(general-define-key :keymaps 'evil-ex-map
-                    "e" #'counsel-find-file
-                    "b" #'ivy-switch-buffer
-                    )
 
 (load "easy-brackets")
 

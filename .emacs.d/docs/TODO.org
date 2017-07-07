@@ -66,6 +66,7 @@
    * http://orgmode.org/worg/
    * http://doc.norang.ca/org-mode.html
    * http://ehneilsen.net/notebook/orgExamples/org-examples.html
+   * http://thagomizer.com/blog/2017/03/16/five-useful-org-mode-features.html
    * https://github.com/Somelauw/evil-org-mode
 ** Magit
    * https://magit.vc/

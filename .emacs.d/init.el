@@ -19,6 +19,7 @@
 
 ;; GENERAL SETTINGS ----------------------------------------------------------------------------
 
+(prefer-coding-system 'utf-8)       ; UTF-8 please
 (setq visible-bell 1)               ; No error beep
 (tool-bar-mode -1)                  ; No toolbar
 (scroll-bar-mode -1)                ; No scrollbar
@@ -32,6 +33,7 @@
 (setq completion-styles '(basic initials partial substring))  ; Better completion
 (global-auto-revert-mode t)         ; Automatically reload changed files
 (setq gc-cons-threshold 20000000)   ; This should reduce emacs gc time
+(fset 'yes-or-no-p 'y-or-n-p)       ; y or n should suffice
 
 ;; Smooth scrolling
 (setq scroll-step 1)

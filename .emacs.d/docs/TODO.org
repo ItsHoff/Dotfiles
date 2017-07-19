@@ -76,11 +76,15 @@
 ** Projectile
    * https://github.com/bbatsov/projectile
    * http://projectile.readthedocs.io/en/latest/
+** nlinum
+   * http://elpa.gnu.org/packages/nlinum.html
 ** evil-smartparens
    * https://github.com/expez/evil-smartparens
 ** Undotree
 ** Flycheck
 ** Rust-mode
+** Which-key
+   * https://github.com/justbur/emacs-which-key
 ** Auctex
    * https://www.gnu.org/software/auctex/index.html
 * Resources

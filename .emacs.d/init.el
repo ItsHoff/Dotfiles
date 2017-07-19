@@ -131,6 +131,11 @@
   (setq evil-want-Y-yank-to-eol t)
   (setq evil-want-C-w-in-emacs-state t) ; Window commands should always work
   (setq evil-ex-substitute-global t) ; substitute replaces all occurences in line
+  (setq evil-normal-state-tag "NORM")
+  (setq evil-visual-state-tag "VIS")
+  (setq evil-motion-state-tag "MOT")
+  (setq evil-insert-state-tag "INS")
+  (setq evil-emacs-state-tag "EMACS")
   (evil-mode 1))
 
 (use-package flycheck
@@ -190,7 +195,8 @@
 (use-package spaceline-config
   :ensure spaceline
   :config
-  (setq powerline-default-separator "wave")
+  (setq powerline-height 25)
+  (setq powerline-default-separator "bar")
   (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
   (spaceline-spacemacs-theme))
 

@@ -238,8 +238,14 @@
   (global-whitespace-mode t))
 
 ;; C
-(setq c-default-style "stroustrup")
-(setq c-tab-always-indent nil)
+(use-package cc-mode
+  :init
+  (setq c-default-style "stroustrup")
+  (setq c-tab-always-indent nil)
+  :config
+  (modify-syntax-entry ?_ "w" c-mode-syntax-table)  ; _ is now part of a word
+  (modify-syntax-entry ?- "w" c-mode-syntax-table)  ; aswell as -
+  )
 
 ;; GLSL
 (use-package glsl-mode)

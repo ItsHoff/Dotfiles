@@ -263,7 +263,12 @@
             "l" #'undo-tree-visualize-switch-branch-right
             ))
 
+(use-package which-key
+  :diminish which-key-mode
+  :init (which-key-mode))
+
 (use-package whitespace
+  :diminish global-whitespace-mode
   :init
   ; Hightlight tabs and trailing whitespace
   (setq whitespace-style '(face trailing empty tabs space-before-tab tab-mark))

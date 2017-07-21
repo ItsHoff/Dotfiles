@@ -6,10 +6,12 @@
 ** Improve
 *** Switch np to jk
   * Helm
-  * Ivy
   * Magit
   * Company
   * paste and repeat history
+*** Org
+    * heading navigation
+    * item insertion
 *** Improve window controls
   * Make use of hydras
   * separate or combined movement and viewpoint control?
@@ -51,7 +53,7 @@
 *** combability mode
   * Incombatible modes:
     * None currently
-* Packages to checkout
+* Packages to check out
 ** Ivy
    * http://oremacs.com/swiper/
    * https://github.com/abo-abo/swiper

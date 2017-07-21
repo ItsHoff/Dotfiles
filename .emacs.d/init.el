@@ -198,6 +198,8 @@
 (use-package recentf
   :init (setq recentf-max-saved-items 50))
 
+(use-package smex)
+
 (use-package spaceline-config
   :ensure spaceline
   :config

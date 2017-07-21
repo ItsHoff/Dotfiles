@@ -210,8 +210,35 @@
 
 (use-package solarized-theme
   :config
+  (setq solarized-high-contrast-mode-line t)
   (setq x-underline-at-descent-line t)
-  (load-theme 'solarized-dark t))
+  (load-theme 'solarized-dark t)
+  (solarized-with-color-variables
+    'dark
+    (let ((active-line base02) (inactive-line base02))
+      (set-face-attribute 'mode-line nil
+                          :overline active-line
+                          :underline active-line
+                          :box `(:line-width 1 :color ,active-line)
+                          :background base02
+                          :foreground base1)
+      (set-face-attribute 'mode-line-inactive nil
+                          :overline inactive-line
+                          :underline inactive-line
+                          :box `(:line-width 1 :color ,inactive-line)
+                          :background base02
+                          :foreground base1))
+    (custom-theme-set-faces
+     'solarized-dark
+     `(powerline-active1 ((t (:background ,base03 :foreground ,base1))))
+     `(powerline-active2 ((t (:background ,base02 :foreground ,base1))))
+     `(powerline-inactive1 ((t (:background ,base02 :foreground ,base1))))
+     `(powerline-inactive2 ((t (:background ,base02 :foreground ,base1))))
+    )
+    )
+  )
+
+
 
 (use-package undo-tree
   :diminish undo-tree-mode

@@ -334,10 +334,10 @@
    |---------+-------------+---------|
    | M-z     | zap-to-char |         |
 * Ex-mode
-  | Key | Function          | Comment |
-  |-----+-------------------+---------|
-  | b   | ivy-switch-buffer |         |
-  | e   | counsel-find-file |         |
+  | Key   | Function          | Comment                       |
+  |-------+-------------------+-------------------------------|
+  | b SPC | ivy-switch-buffer | Should be superior to default |
+  | e SPC | counsel-find-file | Should be superior to default |
 * Org-mode
   | Key     | State  | Function                         | Comment                      |
   |---------+--------+----------------------------------+------------------------------|
@@ -366,6 +366,12 @@
   | <return>    | company-complete-selection |         |
   | C-s         | company-search-canditates  |         |
   | C-w         | company-show-location      |         |
+* Ivy-mode
+  | Key | Function          | Comment |
+  |-----+-------------------+---------|
+  | C-j | ivy-next-line     |         |
+  | C-k | ivy-previous-line |         |
+  | C-h | ivy-alt-done      |         |
 * Undo-tree
   | Key | Function                                | Comment |
   |-----+-----------------------------------------+---------|

@@ -123,7 +123,13 @@
             "e" #'counsel-find-file
             "b" #'ivy-switch-buffer
             )
+  (:keymaps 'evil-ex-map
+            "b SPC" #'ivy-switch-buffer
+            "e SPC" #'counsel-find-file)
   (:keymaps 'ivy-minibuffer-map
+            "C-h" #'ivy-alt-done
+            "C-j" #'ivy-next-line
+            "C-k" #'ivy-previous-line
             "<escape>" #'minibuffer-keyboard-quit))
 
 (use-package evil

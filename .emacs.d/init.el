@@ -94,6 +94,7 @@
   (setq company-selection-wrap-around t)
   (setq company-show-numbers t)
   (setq company-require-match nil)
+  (setq company-dabbrev-downcase nil)
   (dotimes (i 10)
     (general-define-key :keymaps 'company-active-map
                         (format "C-%d" i) #'company-complete-number))
@@ -101,8 +102,8 @@
   (:keymaps 'company-active-map
             "C-m" nil   ; Not <return>
             "C-i" nil   ; Not <tab>
-            "C-n" #'company-select-next
-            "C-p" #'company-select-previous))
+            "C-j" #'company-select-next
+            "C-k" #'company-select-previous))
 
 (use-package company-flx
   :config (company-flx-mode t))

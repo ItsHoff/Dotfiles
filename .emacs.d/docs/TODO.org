@@ -53,6 +53,34 @@
     * https://www.reddit.com/r/emacs/comments/6lgwme/how_do_you_handle_multiple_projectsworkspaces/
 *** some unix / emacs style commands in insert mode
 * Packages to check out
+** Hydra
+   * https://github.com/abo-abo/hydra
+   * https://github.com/abo-abo/hydra/wiki/Helm
+** Projectile
+   * https://github.com/bbatsov/projectile
+   * http://projectile.readthedocs.io/en/latest/
+** Vimish-fold
+   * https://github.com/alexmurray/evil-vimish-fold
+** spacemacs evil plugins
+   * http://spacemacs.org/doc/DOCUMENTATION.html#evil-plugins
+** evil-smartparens
+   * https://github.com/expez/evil-smartparens
+** Flycheck
+** Rust-mode
+** Auctex
+   * https://www.gnu.org/software/auctex/index.html
+* Resources
+  * http://spacemacs.org/
+  * https://masteringemacs.org/
+  * https://juanjoalvarez.net/es/detail/2014/sep/19/vim-emacsevil-chaotic-migration-guide/
+  * https://blog.aaronbieber.com/2015/05/24/from-vim-to-emacs-in-fourteen-days.html
+  * http://www.cachestocaches.com/2016/12/vim-within-emacs-anecdotal-guide/
+  * https://github.com/noctuid/evil-guide
+  * https://www.reddit.com/r/emacs/comments/60nb8b/favorite_builtin_emacs_commands/
+  * https://stackoverflow.com/questions/8483182/evil-mode-best-practice
+  * https://melpa.org/#/
+  * http://pages.sachachua.com/.emacs.d/Sacha.html#orgdda953f
+  * http://mp.vv.si/blog/emacs/emacs-init-performance-analysis/
 ** Ivy
    * http://oremacs.com/swiper/
    * https://github.com/abo-abo/swiper
@@ -69,41 +97,9 @@
    * http://ehneilsen.net/notebook/orgExamples/org-examples.html
    * http://thagomizer.com/blog/2017/03/16/five-useful-org-mode-features.html
    * https://github.com/Somelauw/evil-org-mode
+   * https://www.reddit.com/r/orgmode/comments/6mfvb1/syncing_org_files_to_android_orgzly_with_tasker/
 ** Magit
    * https://magit.vc/
-** Hydra
-   * https://github.com/abo-abo/hydra
-   * https://github.com/abo-abo/hydra/wiki/Helm
-** Projectile
-   * https://github.com/bbatsov/projectile
-   * http://projectile.readthedocs.io/en/latest/
-** Vimish-fold
-   * https://github.com/alexmurray/evil-vimish-fold
-** nlinum
-   * http://elpa.gnu.org/packages/nlinum.html
-** spacemacs evil plugins
-   * http://spacemacs.org/doc/DOCUMENTATION.html#evil-plugins
-** evil-smartparens
-   * https://github.com/expez/evil-smartparens
-** Undotree
-** Flycheck
-** Rust-mode
-** Which-key
-   * https://github.com/justbur/emacs-which-key
-** Auctex
-   * https://www.gnu.org/software/auctex/index.html
-* Resources
-  * http://spacemacs.org/
-  * https://masteringemacs.org/
-  * https://juanjoalvarez.net/es/detail/2014/sep/19/vim-emacsevil-chaotic-migration-guide/
-  * https://blog.aaronbieber.com/2015/05/24/from-vim-to-emacs-in-fourteen-days.html
-  * http://www.cachestocaches.com/2016/12/vim-within-emacs-anecdotal-guide/
-  * https://github.com/noctuid/evil-guide
-  * https://www.reddit.com/r/emacs/comments/60nb8b/favorite_builtin_emacs_commands/
-  * https://stackoverflow.com/questions/8483182/evil-mode-best-practice
-  * https://melpa.org/#/
-  * http://pages.sachachua.com/.emacs.d/Sacha.html#orgdda953f
-  * http://mp.vv.si/blog/emacs/emacs-init-performance-analysis/
 ** Python
    * http://www.jesshamrick.com/2012/09/18/emacs-as-a-python-ide/
 ** Rust

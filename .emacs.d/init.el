@@ -212,7 +212,9 @@
   :config (setq org-M-RET-may-split-line '(default . nil))) ; Don't split line automatically
 
 (use-package recentf
-  :init (setq recentf-max-saved-items 50))
+  :init
+  (setq recentf-max-saved-items 50)
+  (recentf-mode 1))
 
 (use-package smex)
 

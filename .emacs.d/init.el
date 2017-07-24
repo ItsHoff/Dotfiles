@@ -187,10 +187,21 @@
             "C-j" #'helm-select-action))
 
 (use-package magit
+  :init
+  (use-package evil-magit)
+  (require 'evil-magit)
   :general
   (:keymaps 'motion
             "C-g" #'magit-status)
-  (:keymaps 'magit-mode-map))
+  (:keymaps 'magit-mode-map
+            "J" #'magit-section-forward
+            "K" #'magit-section-backward
+            "C-j" #'magit-section-forward-sibling
+            "C-k" #'magit-section-backward-sibling
+            "<return>" #'magit-visit-thing
+            )
+  )
+
 (use-package nlinum-relative
   :init
   (setq nlinum-relative-redisplay-delay 0.01)

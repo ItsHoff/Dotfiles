@@ -3,8 +3,8 @@
 ;;; My .emacs
 
 ;;; Code:
-(add-to-list 'load-path "~/.emacs.d/init/")
 (require 'package)
+(add-to-list 'load-path "~/.emacs.d/init/")
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/")
@@ -24,7 +24,6 @@
 (tool-bar-mode -1)                  ; No toolbar
 (scroll-bar-mode -1)                ; No scrollbar
 (setq inhibit-startup-screen t)     ; No message at startup
-(global-linum-mode 1)               ; Show line numbers
 (show-paren-mode 1)                 ; Show matching parenthesis
 (modify-syntax-entry ?_ "w")        ; _ is now part of a word
 (modify-syntax-entry ?- "w")        ; aswell as -
@@ -192,6 +191,11 @@
   (:keymaps 'motion
             "C-g" #'magit-status)
   (:keymaps 'magit-mode-map))
+(use-package nlinum-relative
+  :init
+  (setq nlinum-relative-redisplay-delay 0.01)
+  (nlinum-relative-setup-evil)
+  (add-hook 'prog-mode-hook #'nlinum-relative-mode))
 
 (use-package org
   :config (setq org-M-RET-may-split-line '(default . nil))) ; Don't split line automatically

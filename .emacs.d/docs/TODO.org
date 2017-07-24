@@ -4,18 +4,19 @@
   * easy-brackets
   * Probably requires fix from general
 ** Improve
+*** Tabbing
+    * https://emacs.stackexchange.com/questions/27869/how-to-make-evil-mode-tab-key-indent-not-re-indent-based-on-context
 *** Switch np to jk
   * Helm
-  * Magit
-  * Company
   * paste and repeat history
 *** Org
     * heading navigation
     * item insertion
-*** Improve window controls
+*** Window controls
   * Make use of hydras
   * separate or combined movement and viewpoint control?
   * evil-scroll-down/-up
+  * resizing
 ** Learn
 *** Magit
 *** Ivy
@@ -45,14 +46,12 @@
 *** U vs C-r
 ** Create
 *** workspace management
-  * c-x r [w/j]
-  * window-configuration-to-register
-  * jump-to-register
-  * https://github.com/wasamasa/eyebrowse
+    * c-x r [w/j]
+    * window-configuration-to-register
+    * jump-to-register
+    * https://github.com/wasamasa/eyebrowse
+    * https://www.reddit.com/r/emacs/comments/6lgwme/how_do_you_handle_multiple_projectsworkspaces/
 *** some unix / emacs style commands in insert mode
-*** combability mode
-  * Incombatible modes:
-    * None currently
 * Packages to check out
 ** Ivy
    * http://oremacs.com/swiper/
@@ -78,8 +77,12 @@
 ** Projectile
    * https://github.com/bbatsov/projectile
    * http://projectile.readthedocs.io/en/latest/
+** Vimish-fold
+   * https://github.com/alexmurray/evil-vimish-fold
 ** nlinum
    * http://elpa.gnu.org/packages/nlinum.html
+** spacemacs evil plugins
+   * http://spacemacs.org/doc/DOCUMENTATION.html#evil-plugins
 ** evil-smartparens
    * https://github.com/expez/evil-smartparens
 ** Undotree
@@ -100,9 +103,12 @@
   * https://stackoverflow.com/questions/8483182/evil-mode-best-practice
   * https://melpa.org/#/
   * http://pages.sachachua.com/.emacs.d/Sacha.html#orgdda953f
+  * http://mp.vv.si/blog/emacs/emacs-init-performance-analysis/
 ** Python
    * http://www.jesshamrick.com/2012/09/18/emacs-as-a-python-ide/
 ** Rust
    * http://julienblanchard.com/2016/fancy-rust-development-with-emacs/
+** C and C++
+   * https://www.reddit.com/r/emacs/comments/6lnwaz/c_in_gnu_emacs/
 ** Eshell
-  * https://www.masteringemacs.org/article/complete-guide-mastering-eshell
+   * https://www.masteringemacs.org/article/complete-guide-mastering-eshell

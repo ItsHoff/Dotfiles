@@ -68,7 +68,7 @@
   )
 
 ;; Tabs & Spaces
-(setq tab-always-indent nil)            ; Allow tabbing outside of indent
+(setq-default tab-always-indent nil)    ; Allow tabbing outside of indent
 (setq-default indent-tabs-mode nil)     ; Use spaces instead of tabs
 (setq-default tab-width 4)              ; Tab = 4 spaces
 

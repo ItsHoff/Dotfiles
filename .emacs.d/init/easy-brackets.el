@@ -8,11 +8,18 @@
   (evil-declare-not-repeat func)
   func)
 
-(general-imap "C-h" (kbd "{")
+(defun my-indent-if-first ()
+  "Indent the line if the point is at first character."
+  (when (>= (+ (current-indentation) 1) (- (point) (point-at-bol)))
+    (save-excursion
+      (evil-indent-line (point-at-bol) (point-at-eol)))))
+
+(general-imap "C-h" (lambda () (interactive)
+                      (insert "{")
+                      (my-indent-if-first))
               "C-l" (lambda () (interactive)
                       (insert "}")
-                      (save-excursion ; Indent aswell
-                        (evil-indent-line (point-at-bol) (point-at-eol))))
+                      (my-indent-if-first))
               "C-j" (kbd "[")
               "C-k" (kbd "]"))
 

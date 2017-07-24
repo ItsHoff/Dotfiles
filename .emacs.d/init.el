@@ -275,18 +275,24 @@
   (setq undo-tree-history-directory-alist `(("." . ,undo-directory)))
   (setq undo-tree-visualizer-diff t)
   (setq undo-tree-visualizer-timestamps t)
-  (setq undo-tree-visualizer-lazy-drawing 1000)
+  (setq undo-tree-visualizer-lazy-drawing nil) ; Change this to improve perf
   :config
   (evil-make-overriding-map undo-tree-visualizer-mode-map 'motion)
   :general
   (:keymaps '(normal visual)
             "C-u" #'undo-tree-visualize
             )
+  (:keymaps 'visual
+            "u" #'undo-tree-undo
+            "C-r" #'undo-tree-redo
+            )
   (:keymaps 'undo-tree-visualizer-mode-map
-            "j" #'undo-tree-visualize-redo
-            "J" #'undo-tree-visualize-redo-to-x
-            "k" #'undo-tree-visualize-undo
-            "K" #'undo-tree-visualize-undo-to-x
+            "q" #'undo-tree-visualizer-abort
+            "<return>" #'undo-tree-visualizer-quit
+            "j" #'my-visualize-redo
+            "J" #'my-visualize-redo-to-x
+            "k" #'my-visualize-undo
+            "K" #'my-visualize-undo-to-x
             "h" #'undo-tree-visualize-switch-branch-left
             "l" #'undo-tree-visualize-switch-branch-right
             ))

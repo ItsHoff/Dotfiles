@@ -204,7 +204,7 @@
   :ensure spaceline
   :config
   (setq powerline-height 25)
-  (setq powerline-default-separator "bar")
+  (setq powerline-default-separator "slant")
   (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
   (spaceline-spacemacs-theme))
 
@@ -216,29 +216,20 @@
   (solarized-with-color-variables
     'dark
     (let ((active-line base02) (inactive-line base02))
-      (set-face-attribute 'mode-line nil
-                          :overline active-line
-                          :underline active-line
-                          :box `(:line-width 1 :color ,active-line)
-                          :background base02
-                          :foreground base1)
-      (set-face-attribute 'mode-line-inactive nil
-                          :overline inactive-line
-                          :underline inactive-line
-                          :box `(:line-width 1 :color ,inactive-line)
-                          :background base02
-                          :foreground base1))
-    (custom-theme-set-faces
-     'solarized-dark
-     `(powerline-active1 ((t (:background ,base03 :foreground ,base1))))
-     `(powerline-active2 ((t (:background ,base02 :foreground ,base1))))
-     `(powerline-inactive1 ((t (:background ,base02 :foreground ,base1))))
-     `(powerline-inactive2 ((t (:background ,base02 :foreground ,base1))))
-    )
-    )
-  )
-
-
+      (custom-theme-set-faces
+       'solarized-dark
+       `(mode-line ((t (:overline ,active-line :underline ,active-line
+                                  :box (:line-width 1 :color ,active-line)
+                                  :background ,base02 :foreground ,base1))))
+       `(mode-line-inactive ((t (:overline ,inactive-line :underline ,inactive-line
+                                           :box (:line-width 1 :color ,inactive-line)
+                                           :background ,base02 :foreground ,base1))))
+       `(powerline-active1 ((t (:background ,base03 :foreground ,base1))))
+       `(powerline-active2 ((t (:background ,base02 :foreground ,base1))))
+       `(powerline-inactive1 ((t (:background ,base02 :foreground ,base1))))
+       `(powerline-inactive2 ((t (:background ,base02 :foreground ,base1))))
+       `(nlinum-relative-current-face ((t (:inherit linum :foreground ,base1))))
+       ))))
 
 (use-package undo-tree
   :diminish undo-tree-mode

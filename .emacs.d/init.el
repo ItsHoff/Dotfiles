@@ -209,7 +209,27 @@
   (add-hook 'prog-mode-hook #'nlinum-relative-mode))
 
 (use-package org
-  :config (setq org-M-RET-may-split-line '(default . nil))) ; Don't split line automatically
+  :init
+  (require 'my-functions)
+  :config
+  (setq org-M-RET-may-split-line '(default . nil)) ; Don't split line automatically
+  (evil-make-overriding-map org-mode-map 'normal)
+  :general
+  (:keymaps 'org-mode-map
+            "RET" nil   ; Otherwise org overrides C-m
+            "TAB" nil)  ; Otherwise org overrides C-i
+  (:keymaps 'org-mode-map
+            :states '(normal visual)
+            "J" #'outline-next-visible-heading
+            "K" #'outline-previous-visible-heading
+            "C-j" #'my-org-down-heading
+            "C-k" #'my-org-up-heading
+            "M-h" #'org-metaleft
+            "M-l" #'org-metaright
+            "M-j" #'org-metadown
+            "M-k" #'org-metaup
+            ))
+
 
 (use-package recentf
   :init

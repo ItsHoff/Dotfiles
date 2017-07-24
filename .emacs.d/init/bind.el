@@ -5,6 +5,7 @@
 ;;; Code:
 (require 'general)
 (require 'evil)
+(require 'my-functions)
 
 ; Make C-i different from <tab>
 (setq local-function-key-map (delq '(kp-tab . [9]) local-function-key-map))
@@ -17,45 +18,6 @@
 (general-define-key "C-j" nil)
 (general-define-key "C-k" nil)
 (general-define-key "C-l" nil)
-
-;; MY FUNCTIONS --------------------------------------------------------------------------------
-(defun my-beginning-of-line ()
-  "Go to the first non blank char of line unless already at or in front of it.
-In which case go to hard bol."
-  (interactive)
-  (let ((save-point (point)))
-    (evil-first-non-blank-of-visual-line)
-    (if (<= save-point (point))
-        (evil-beginning-of-visual-line))))
-
-(evil-declare-not-repeat #'my-beginning-of-line)
-
-(defun my-scroll-page-down (n)
-  "Scroll down N pages and place cursor at bottom."
-  (interactive "P")
-  (if n
-      (evil-scroll-page-down n)
-    (evil-scroll-page-down 1))
-  (evil-window-bottom))
-
-(evil-declare-not-repeat #'my-scroll-page-down)
-
-(defun my-scroll-page-up (n)
-  "Scroll up N pages and place cursor at top."
-  (interactive "P")
-  (if n
-      (evil-scroll-page-up n)
-    (evil-scroll-page-up 1))
-  (evil-window-top))
-
-(evil-declare-not-repeat #'my-scroll-page-up)
-
-(defun my-split-line ()
-  "Split line at current cursor position."
-  (interactive)
-  (let ((save-point (point)))
-    (newline-and-indent)
-    (goto-char (- save-point 1))))
 
 ;; esc quits
 (defun minibuffer-keyboard-quit ()
@@ -143,23 +105,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     )
 
 (load "easy-brackets")
-
-;; Org
-(general-define-key :keymaps 'org-mode-map
-                    "RET" nil   ; Otherwise org overrides C-m
-                    "TAB" nil)  ; Otherwise org overrides C-i
-
-(general-define-key :keymaps 'org-mode-map
-                    :states '(normal visual)
-                    "J" #'outline-next-visible-heading
-                    "K" #'outline-previous-visible-heading
-                    "M-h" #'org-metaleft
-                    "M-l" #'org-metaright
-                    "M-j" #'org-metadown
-                    "M-k" #'org-metaup
-                    )
-
-(evil-make-overriding-map org-mode-map 'normal)
 
 (provide 'bind)
 ;;; bind.el ends here

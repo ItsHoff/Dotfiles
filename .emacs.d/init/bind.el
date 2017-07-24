@@ -7,9 +7,6 @@
 (require 'evil)
 (require 'my-functions)
 
-; Make C-i different from <tab>
-(setq local-function-key-map (delq '(kp-tab . [9]) local-function-key-map))
-
 ;; UNBIND --------------------------------------------------------------------------------------
 
 (general-define-key "C-<backspace>" nil)    ; Mistyped often with i-mode brackets
@@ -71,6 +68,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 ; Motions (normal, visual and some special buffers)
 (general-define-key :keymaps '(motion normal visual)
+                    "<C-i>" #'evil-jump-forward
                     ; Move emacs state
                     "M-z" #'evil-emacs-state
                     ; Make j and k move visual lines

@@ -34,6 +34,10 @@
 (setq gc-cons-threshold 20000000)   ; This should reduce emacs gc time
 (fset 'yes-or-no-p 'y-or-n-p)       ; y or n should suffice
 
+; Make C-i and C-m different from <tab> and <return>
+(define-key input-decode-map [?\C-i] [C-i])
+(define-key input-decode-map [?\C-m] [C-m])
+
 ;; Smooth scrolling
 (setq scroll-step 1)
 (setq scroll-margin 5)
@@ -99,8 +103,6 @@
                         (format "C-%d" i) #'company-complete-number))
   :general
   (:keymaps 'company-active-map
-            "C-m" nil   ; Not <return>
-            "C-i" nil   ; Not <tab>
             "C-j" #'company-select-next
             "C-k" #'company-select-previous))
 
@@ -166,14 +168,14 @@
   :general
   (:keymaps 'motion
             "M-x" #'helm-M-x
-            "C-m" #'helm-mini
+            "<C-m>" #'helm-mini
             "C-f" #'helm-find-files)
   (:keymaps 'motion
    :prefix "C-h"
            "f" #'helm-find-files
            "C-f" #'helm-find-files
            "m" #'helm-mini
-           "C-m" #'helm-mini
+           "<C-m>" #'helm-mini
            "o" #'helm-occur
            "C-o" #'helm-occur
            "k" #'helm-man-woman
@@ -215,9 +217,6 @@
   (setq org-M-RET-may-split-line '(default . nil)) ; Don't split line automatically
   (evil-make-overriding-map org-mode-map 'normal)
   :general
-  (:keymaps 'org-mode-map
-            "RET" nil   ; Otherwise org overrides C-m
-            "TAB" nil)  ; Otherwise org overrides C-i
   (:keymaps 'org-mode-map
             :states '(normal visual)
             "J" #'outline-next-visible-heading

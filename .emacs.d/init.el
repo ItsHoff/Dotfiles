@@ -278,6 +278,8 @@
   (setq undo-tree-visualizer-lazy-drawing nil) ; Change this to improve perf
   :config
   (evil-make-overriding-map undo-tree-visualizer-mode-map 'motion)
+  (advice-add #'undo-tree-undo-1 :filter-args #'my-advice-preserve-timestamps)
+  (advice-add #'undo-tree-redo-1 :filter-args #'my-advice-preserve-timestamps)
   :general
   (:keymaps '(normal visual)
             "C-u" #'undo-tree-visualize
@@ -289,10 +291,10 @@
   (:keymaps 'undo-tree-visualizer-mode-map
             "q" #'undo-tree-visualizer-abort
             "<return>" #'undo-tree-visualizer-quit
-            "j" #'my-visualize-redo
-            "J" #'my-visualize-redo-to-x
-            "k" #'my-visualize-undo
-            "K" #'my-visualize-undo-to-x
+            "j" #'undo-tree-visualize-redo
+            "J" #'undo-tree-visualize-redo-to-x
+            "k" #'undo-tree-visualize-undo
+            "K" #'undo-tree-visualize-undo-to-x
             "h" #'undo-tree-visualize-switch-branch-left
             "l" #'undo-tree-visualize-switch-branch-right
             ))

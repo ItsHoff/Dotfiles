@@ -383,11 +383,11 @@
   | C-k | ivy-previous-line |         |
   | C-h | ivy-alt-done      |         |
 * Undo-tree
-  | Key | Function                         | Comment               |
-  |-----+----------------------------------+-----------------------|
-  | j   | my-visualize-redo                | preserves time stamps |
-  | k   | my-visualize-undo                | preserves time stamps |
-  | h   | my-visualize-switch-branch-left  | preserves time stamps |
-  | l   | my-visualize-switch-branch-right | preserves time stamps |
-  | J   | undo-tree-visualize-redo-to-x    |                       |
-  | K   | undo-tree-visualize-undo-to-x    |                       |
+  | Key | Function                                | Comment |
+  |-----+-----------------------------------------+---------|
+  | j   | undo-tree-visualize-redo                |         |
+  | k   | undo-tree-visualize-undo                |         |
+  | h   | undo-tree-visualize-switch-branch-left  |         |
+  | l   | undo-tree-visualize-switch-branch-right |         |
+  | J   | undo-tree-visualize-redo-to-x           |         |
+  | K   | undo-tree-visualize-undo-to-x           |         |

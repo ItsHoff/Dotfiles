@@ -11,10 +11,23 @@ In which case go to hard bol."
   (interactive)
   (let ((save-point (point)))
     (evil-first-non-blank-of-visual-line)
-    (if (<= save-point (point))
+    (when (<= save-point (point))
         (evil-beginning-of-visual-line))))
 
 (evil-declare-not-repeat #'my-beginning-of-line)
+
+; https://stackoverflow.com/a/9597612
+(defun my-end-of-line ()
+  "Move to the last non-whitespace character in the current line.
+If point is at or ahead of it move to last character."
+  (interactive)
+  (let ((save-point (point)))
+    (move-end-of-line nil)
+    (re-search-backward "^\\|[^[:space:]]")
+    (when (>= save-point (point))
+        (evil-end-of-line))))
+
+(evil-declare-not-repeat #'my-end-of-line)
 
 (defun my-split-line ()
   "Split line at current cursor position."

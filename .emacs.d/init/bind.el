@@ -76,7 +76,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     "k" #'evil-previous-visual-line
                     ; Bigger movement
                     "H" #'my-beginning-of-line
-                    "L" #'evil-end-of-line
+                    "L" #'my-end-of-line
                     "J" #'golden-ratio-scroll-screen-up
                     "K" #'golden-ratio-scroll-screen-down
                     ; Swap , and ;

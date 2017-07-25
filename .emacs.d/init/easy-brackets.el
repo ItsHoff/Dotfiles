@@ -54,69 +54,71 @@
                     "C-k" (general-simulate-keys ('evil-replace "]"))
                     ))
 
-(general-nmap "d" (general-key-dispatch 'evil-delete
-                    "f C-h" (general-simulate-keys ('evil-delete "f{"))
-                    "f C-l" (general-simulate-keys ('evil-delete "f}"))
-                    "f C-j" (general-simulate-keys ('evil-delete "f["))
-                    "f C-k" (general-simulate-keys ('evil-delete "f]"))
-
-                    "F C-h" (general-simulate-keys ('evil-delete "F{"))
-                    "F C-l" (general-simulate-keys ('evil-delete "F}"))
-                    "F C-j" (general-simulate-keys ('evil-delete "F["))
-                    "F C-k" (general-simulate-keys ('evil-delete "F]"))
-
-                    "t C-h" (general-simulate-keys ('evil-delete "t{"))
-                    "t C-l" (general-simulate-keys ('evil-delete "t}"))
-                    "t C-j" (general-simulate-keys ('evil-delete "t["))
-                    "t C-k" (general-simulate-keys ('evil-delete "t]"))
-
-                    "T C-h" (general-simulate-keys ('evil-delete "T{"))
-                    "T C-l" (general-simulate-keys ('evil-delete "T}"))
-                    "T C-j" (general-simulate-keys ('evil-delete "T["))
-                    "T C-k" (general-simulate-keys ('evil-delete "T]"))
-
-                    "i C-h" (general-simulate-keys ('evil-delete "i{"))
-                    "i C-l" (general-simulate-keys ('evil-delete "i}"))
-                    "i C-j" (general-simulate-keys ('evil-delete "i["))
-                    "i C-k" (general-simulate-keys ('evil-delete "i]"))
-
-                    "a C-h" (general-simulate-keys ('evil-delete "a{"))
-                    "a C-l" (general-simulate-keys ('evil-delete "a}"))
-                    "a C-j" (general-simulate-keys ('evil-delete "a["))
-                    "a C-k" (general-simulate-keys ('evil-delete "a]"))
-                    )
-
-              "c" (general-key-dispatch 'evil-change
-                    "f C-h" (general-simulate-keys ('evil-change "f{"))
-                    "f C-l" (general-simulate-keys ('evil-change "f}"))
-                    "f C-j" (general-simulate-keys ('evil-change "f["))
-                    "f C-k" (general-simulate-keys ('evil-change "f]"))
-
-                    "F C-h" (general-simulate-keys ('evil-change "F{"))
-                    "F C-l" (general-simulate-keys ('evil-change "F}"))
-                    "F C-j" (general-simulate-keys ('evil-change "F["))
-                    "F C-k" (general-simulate-keys ('evil-change "F]"))
-
-                    "t C-h" (general-simulate-keys ('evil-change "t{"))
-                    "t C-l" (general-simulate-keys ('evil-change "t}"))
-                    "t C-j" (general-simulate-keys ('evil-change "t["))
-                    "t C-k" (general-simulate-keys ('evil-change "t]"))
-
-                    "T C-h" (general-simulate-keys ('evil-change "T{"))
-                    "T C-l" (general-simulate-keys ('evil-change "T}"))
-                    "T C-j" (general-simulate-keys ('evil-change "T["))
-                    "T C-k" (general-simulate-keys ('evil-change "T]"))
-
-                    "i C-h" (general-simulate-keys ('evil-change "i{"))
-                    "i C-l" (general-simulate-keys ('evil-change "i}"))
-                    "i C-j" (general-simulate-keys ('evil-change "i["))
-                    "i C-k" (general-simulate-keys ('evil-change "i]"))
-
-                    "a C-h" (general-simulate-keys ('evil-change "a{"))
-                    "a C-l" (general-simulate-keys ('evil-change "a}"))
-                    "a C-j" (general-simulate-keys ('evil-change "a["))
-                    "a C-k" (general-simulate-keys ('evil-change "a]"))
-                    )
+(general-nmap
+ ;; UNCOMMENT when general fixes dispatch dot
+ ;"d" (general-key-dispatch 'evil-delete
+                    ;"f C-h" (general-simulate-keys ('evil-delete "f{"))
+                    ;"f C-l" (general-simulate-keys ('evil-delete "f}"))
+                    ;"f C-j" (general-simulate-keys ('evil-delete "f["))
+                    ;"f C-k" (general-simulate-keys ('evil-delete "f]"))
+;
+                    ;"F C-h" (general-simulate-keys ('evil-delete "F{"))
+                    ;"F C-l" (general-simulate-keys ('evil-delete "F}"))
+                    ;"F C-j" (general-simulate-keys ('evil-delete "F["))
+                    ;"F C-k" (general-simulate-keys ('evil-delete "F]"))
+;
+                    ;"t C-h" (general-simulate-keys ('evil-delete "t{"))
+                    ;"t C-l" (general-simulate-keys ('evil-delete "t}"))
+                    ;"t C-j" (general-simulate-keys ('evil-delete "t["))
+                    ;"t C-k" (general-simulate-keys ('evil-delete "t]"))
+;
+                    ;"T C-h" (general-simulate-keys ('evil-delete "T{"))
+                    ;"T C-l" (general-simulate-keys ('evil-delete "T}"))
+                    ;"T C-j" (general-simulate-keys ('evil-delete "T["))
+                    ;"T C-k" (general-simulate-keys ('evil-delete "T]"))
+;
+                    ;"i C-h" (general-simulate-keys ('evil-delete "i{"))
+                    ;"i C-l" (general-simulate-keys ('evil-delete "i}"))
+                    ;"i C-j" (general-simulate-keys ('evil-delete "i["))
+                    ;"i C-k" (general-simulate-keys ('evil-delete "i]"))
+;
+                    ;"a C-h" (general-simulate-keys ('evil-delete "a{"))
+                    ;"a C-l" (general-simulate-keys ('evil-delete "a}"))
+                    ;"a C-j" (general-simulate-keys ('evil-delete "a["))
+                    ;"a C-k" (general-simulate-keys ('evil-delete "a]"))
+                    ;)
+;
+              ;"c" (general-key-dispatch 'evil-change
+                    ;"f C-h" (general-simulate-keys ('evil-change "f{"))
+                    ;"f C-l" (general-simulate-keys ('evil-change "f}"))
+                    ;"f C-j" (general-simulate-keys ('evil-change "f["))
+                    ;"f C-k" (general-simulate-keys ('evil-change "f]"))
+;
+                    ;"F C-h" (general-simulate-keys ('evil-change "F{"))
+                    ;"F C-l" (general-simulate-keys ('evil-change "F}"))
+                    ;"F C-j" (general-simulate-keys ('evil-change "F["))
+                    ;"F C-k" (general-simulate-keys ('evil-change "F]"))
+;
+                    ;"t C-h" (general-simulate-keys ('evil-change "t{"))
+                    ;"t C-l" (general-simulate-keys ('evil-change "t}"))
+                    ;"t C-j" (general-simulate-keys ('evil-change "t["))
+                    ;"t C-k" (general-simulate-keys ('evil-change "t]"))
+;
+                    ;"T C-h" (general-simulate-keys ('evil-change "T{"))
+                    ;"T C-l" (general-simulate-keys ('evil-change "T}"))
+                    ;"T C-j" (general-simulate-keys ('evil-change "T["))
+                    ;"T C-k" (general-simulate-keys ('evil-change "T]"))
+;
+                    ;"i C-h" (general-simulate-keys ('evil-change "i{"))
+                    ;"i C-l" (general-simulate-keys ('evil-change "i}"))
+                    ;"i C-j" (general-simulate-keys ('evil-change "i["))
+                    ;"i C-k" (general-simulate-keys ('evil-change "i]"))
+;
+                    ;"a C-h" (general-simulate-keys ('evil-change "a{"))
+                    ;"a C-l" (general-simulate-keys ('evil-change "a}"))
+                    ;"a C-j" (general-simulate-keys ('evil-change "a["))
+                    ;"a C-k" (general-simulate-keys ('evil-change "a]"))
+                    ;)
 
               "y" (general-key-dispatch 'evil-yank
                     "f C-h" (my-no-dot (general-simulate-keys ('evil-yank "f{")))

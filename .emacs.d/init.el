@@ -134,6 +134,22 @@
             "C-k" #'ivy-previous-line
             "<escape>" #'minibuffer-keyboard-quit))
 
+(use-package dashboard
+  :init
+  (setq dashboard-items '((recents . 10)))
+  (dashboard-setup-startup-hook)
+  :config
+  (require 'evil)
+  (evil-make-overriding-map dashboard-mode-map 'normal)
+  :general
+  (:keymaps 'dashboard-mode-map
+            "j" #'widget-forward
+            "k" #'widget-backward
+            "J" #'dashboard-next-section
+            "K" #'dashboard-previous-section
+            "<return>" #'widget-button-press
+            ))
+
 (use-package evil
   :init
   (setq evil-want-Y-yank-to-eol t)

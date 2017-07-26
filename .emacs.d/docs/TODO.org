@@ -4,8 +4,6 @@
   * easy-brackets
   * Probably requires fix from general
 ** Improve
-*** Autoindent pasted text
-    * https://www.emacswiki.org/emacs/AutoIndentation
 *** Tabbing
     * https://www.emacswiki.org/emacs/TabStopList
     * https://stackoverflow.com/questions/4006005/how-can-i-set-emacs-tab-settings-by-file-type
@@ -13,8 +11,9 @@
     * https://www.emacswiki.org/emacs/IndentationBasics
     * https://www.gnu.org/software/emacs/manual/html_node/emacs/Indentation.html#Indentation
     * https://emacs.stackexchange.com/questions/27869/how-to-make-evil-mode-tab-key-indent-not-re-indent-based-on-context
+*** Autoindent pasted text
+    * https://www.emacswiki.org/emacs/AutoIndentation
 *** Switch np to jk
-  * Helm
   * paste and repeat history
 *** Org
     * heading navigation

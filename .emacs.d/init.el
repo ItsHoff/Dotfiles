@@ -205,7 +205,12 @@
            "C-a" #'helm-apropos)
   (:keymaps 'helm-map
             "<tab>" #'helm-execute-persistent-action
-            "C-j" #'helm-select-action))
+            "C-h" #'helm-execute-persistent-action
+            "C-p" #'helm-select-action
+            "C-j" #'helm-next-line
+            "C-k" #'helm-previous-line
+            "C-n" #'helm-delete-minibuffer-contents
+            ))
 
 (use-package magit
   :init

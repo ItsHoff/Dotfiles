@@ -101,10 +101,7 @@
   (dotimes (i 10)
     (general-define-key :keymaps 'company-active-map
                         (format "C-%d" i) #'company-complete-number))
-  :general
-  (:keymaps 'company-active-map
-            "C-j" #'company-select-next
-            "C-k" #'company-select-previous))
+  )
 
 (use-package company-flx
   :config (company-flx-mode t))

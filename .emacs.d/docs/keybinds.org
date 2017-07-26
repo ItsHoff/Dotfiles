@@ -367,8 +367,8 @@
 * Company-mode
   | Key         | Function                   | Comment |
   |-------------+----------------------------+---------|
-  | (C/M)-n     | company-select-next        |         |
-  | (C/M)-p     | company-select-previous    |         |
+  | M-n         | company-select-next        |         |
+  | M-p         | company-select-previous    |         |
   | (C/M)-(1-0) | company-complete-number    |         |
   | C-g         | company-abort              |         |
   | C-h         | company-show-doc-buffer    |         |

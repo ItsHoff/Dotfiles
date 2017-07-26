@@ -4,7 +4,14 @@
   * easy-brackets
   * Probably requires fix from general
 ** Improve
+*** Autoindent pasted text
+    * https://www.emacswiki.org/emacs/AutoIndentation
 *** Tabbing
+    * https://www.emacswiki.org/emacs/TabStopList
+    * https://stackoverflow.com/questions/4006005/how-can-i-set-emacs-tab-settings-by-file-type
+    * https://www.emacswiki.org/emacs/BackspaceWhitespaceToTabStop
+    * https://www.emacswiki.org/emacs/IndentationBasics
+    * https://www.gnu.org/software/emacs/manual/html_node/emacs/Indentation.html#Indentation
     * https://emacs.stackexchange.com/questions/27869/how-to-make-evil-mode-tab-key-indent-not-re-indent-based-on-context
 *** Switch np to jk
   * Helm
@@ -19,7 +26,6 @@
   * resizing
 ** Learn
 *** Magit
-*** Ivy
 *** Org
 *** paste history (c-p, c-n)
 *** repeat history (c-., evil-repeat-pop-next)
@@ -51,6 +57,7 @@
     * jump-to-register
     * https://github.com/wasamasa/eyebrowse
     * https://www.reddit.com/r/emacs/comments/6lgwme/how_do_you_handle_multiple_projectsworkspaces/
+*** folding
 *** some unix / emacs style commands in insert mode
 * Packages to check out
 ** Hydra
@@ -70,6 +77,7 @@
 ** Auctex
    * https://www.gnu.org/software/auctex/index.html
 * Resources
+** Global
   * http://spacemacs.org/
   * https://masteringemacs.org/
   * https://juanjoalvarez.net/es/detail/2014/sep/19/vim-emacsevil-chaotic-migration-guide/
@@ -81,6 +89,7 @@
   * https://melpa.org/#/
   * http://pages.sachachua.com/.emacs.d/Sacha.html#orgdda953f
   * http://mp.vv.si/blog/emacs/emacs-init-performance-analysis/
+  * http://ergoemacs.org/emacs/emacs.html
 ** Ivy
    * http://oremacs.com/swiper/
    * https://github.com/abo-abo/swiper

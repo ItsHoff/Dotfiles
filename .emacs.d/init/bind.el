@@ -102,6 +102,14 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     "<return>" #'my-split-line
                     )
 
+; Insert state
+(general-define-key :keymaps 'insert
+                    "<backspace>" #'my-backspace-whitespace-to-tab-stop
+                    "<return>" #'newline-and-indent
+                    "<C-i>" #'indent-according-to-mode
+                    )
+
+
 (load "easy-brackets")
 
 (provide 'bind)

@@ -23,6 +23,7 @@
 (setq visible-bell 1)               ; No error beep
 (tool-bar-mode -1)                  ; No toolbar
 (scroll-bar-mode -1)                ; No scrollbar
+(electric-indent-mode -1)           ; Handle indendation elsewhere
 (setq inhibit-startup-screen t)     ; No message at startup
 (show-paren-mode 1)                 ; Show matching parenthesis
 (modify-syntax-entry ?_ "w")        ; _ is now part of a word

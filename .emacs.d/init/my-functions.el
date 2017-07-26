@@ -36,6 +36,21 @@ If point is at or ahead of it move to last character."
     (newline-and-indent)
     (goto-char (- save-point 1))))
 
+; https://www.emacswiki.org/emacs/BackspaceWhitespaceToTabStop
+(defun my-backspace-whitespace-to-tab-stop ()
+  "Delete whitespace backwards to the next tab-stop, otherwise delete one character."
+  (interactive)
+  (let ((movement (% (current-column) tab-width))
+        (p (point)))
+    (when (= movement 0) (setq movement tab-width))
+    ;; Account for edge case near beginning of buffer
+    (setq movement (min (- p 1) movement))
+    (save-match-data
+      (if (string-match "[^\t ]*\\([\t ]+\\)$" (buffer-substring-no-properties
+                                                (- p movement) p))
+          (backward-delete-char (- (match-end 1) (match-beginning 1)))
+        (call-interactively 'backward-delete-char)))))
+
 (defun my-org-up-heading ()
   "Go up to the parent heading.
 If already at top heading go to the next heading above."

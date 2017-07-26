@@ -312,28 +312,33 @@
    | u       | evil-downcase | still available with g u |
 * Insert-state
 ** Keys
-   | Key | Function                     | Comment             |
-   |-----+------------------------------+---------------------|
-   | c-a | evil-paste-last-insertion    |                     |
-   | c-d | evil-shift-left-line         |                     |
-   | c-t | evil-shift-right-line        |                     |
-   | c-e | evil-copy-from-below         |                     |
-   | c-y | evil-copy-from-above         |                     |
-   | c-h | insert {                     | easy-brackets.el    |
-   | c-j | insert [                     | easy-brackets.el    |
-   | c-k | insert ]                     | easy-brackets.el    |
-   | c-l | insert }                     | easy-brackets.el    |
-   | c-n | evil-complete-next           | overshadowed by tab |
-   | c-p | evil-complete-previous       | overshadowed by tab |
-   | c-o | evil-execute-in-normal-state | LEARN               |
-   | c-r | evil-paste-from-register     | TODO: maybe c-p     |
-   | c-v | quoted-insert                |                     |
-   | c-w | evil-delete-backward-word    | LEARN               |
-   | c-z | evil-emacs-state             | TODO: move to m-z   |
+   | Key         | Function                            | Comment             |
+   |-------------+-------------------------------------+---------------------|
+   | c-a         | evil-paste-last-insertion           |                     |
+   | c-d         | evil-shift-left-line                |                     |
+   | c-t         | evil-shift-right-line               |                     |
+   | c-e         | evil-copy-from-below                |                     |
+   | c-y         | evil-copy-from-above                |                     |
+   | c-i         | evil-indent                         |                     |
+   | c-h         | insert {                            | easy-brackets.el    |
+   | c-j         | insert [                            | easy-brackets.el    |
+   | c-k         | insert ]                            | easy-brackets.el    |
+   | c-l         | insert }                            | easy-brackets.el    |
+   | c-n         | evil-complete-next                  | overshadowed by tab |
+   | c-p         | evil-complete-previous              | overshadowed by tab |
+   | c-o         | evil-execute-in-normal-state        | LEARN               |
+   | c-r         | evil-paste-from-register            | TODO: maybe c-p     |
+   | c-v         | quoted-insert                       |                     |
+   | c-w         | evil-delete-backward-word           | LEARN               |
+   | c-z         | evil-emacs-state                    | TODO: move to m-z   |
+   | <backspace> | my-backspace-whitespace-to-tab-stop |                     |
+   | <return>    | newline-and-indent                  |                     |
 ** Overwritten
-   | Old Key | Function       | Comment |
-   |---------+----------------+---------|
-   | c-k     | insert-digraph | useless |
+   | Old Key | Function                           | Comment |
+   |---------+------------------------------------+---------|
+   | c-k     | insert-digraph                     | useless |
+   | DEL     | evil-delete-backward-char-and-join |         |
+   | RET     | newline                            |         |
 * Emacs-state
   | Key | Function              | Comment |
   |-----+-----------------------+---------|

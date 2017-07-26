@@ -26,11 +26,11 @@
 (electric-indent-mode -1)           ; Handle indendation elsewhere
 (setq inhibit-startup-screen t)     ; No message at startup
 (show-paren-mode 1)                 ; Show matching parenthesis
-(modify-syntax-entry ?_ "w")        ; _ is now part of a word
-(modify-syntax-entry ?- "w")        ; aswell as -
 (setq x-select-enable-clipboard nil)  ; Disable emacs clipboard and rely on evil
 (put 'dired-find-alternate-file 'disabled nil)  ; Allow dired to use the same buffer
 (setq completion-styles '(basic initials partial substring))  ; Better completion
+(modify-syntax-entry ?_ "w" (standard-syntax-table)) ; _ is now part of a word
+(modify-syntax-entry ?- "w" (standard-syntax-table)) ; aswell as -
 (global-auto-revert-mode t)         ; Automatically reload changed files
 (setq gc-cons-threshold 20000000)   ; This should reduce emacs gc time
 (fset 'yes-or-no-p 'y-or-n-p)       ; y or n should suffice
@@ -339,6 +339,15 @@
 
 ;; GLSL
 (use-package glsl-mode)
+
+;; ELisp
+(use-package lisp-mode
+  :ensure nil
+  :commands emacs-lisp-mode
+  :config
+  (modify-syntax-entry ?_ "w" emacs-lisp-mode-syntax-table) ; _ is now part of a word
+  (modify-syntax-entry ?- "w" emacs-lisp-mode-syntax-table) ; aswell as -
+  )
 
 ;; Octave / Matlab
 (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))

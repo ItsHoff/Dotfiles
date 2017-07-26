@@ -26,11 +26,11 @@
 (electric-indent-mode -1)           ; Handle indendation elsewhere
 (setq inhibit-startup-screen t)     ; No message at startup
 (show-paren-mode 1)                 ; Show matching parenthesis
-(setq x-select-enable-clipboard nil)  ; Disable emacs clipboard and rely on evil
-(put 'dired-find-alternate-file 'disabled nil)  ; Allow dired to use the same buffer
-(setq completion-styles '(basic initials partial substring))  ; Better completion
 (modify-syntax-entry ?_ "w" (standard-syntax-table)) ; _ is now part of a word
 (modify-syntax-entry ?- "w" (standard-syntax-table)) ; aswell as -
+(setq x-select-enable-clipboard nil) ; Disable emacs clipboard and rely on evil
+(put 'dired-find-alternate-file 'disabled nil) ; Allow dired to use the same buffer
+(setq completion-styles '(basic initials partial substring)) ; Better completion
 (global-auto-revert-mode t)         ; Automatically reload changed files
 (setq gc-cons-threshold 20000000)   ; This should reduce emacs gc time
 (fset 'yes-or-no-p 'y-or-n-p)       ; y or n should suffice
@@ -89,6 +89,10 @@
 (use-package general
   :init (general-evil-setup))
 
+(use-package autorevert
+  :ensure nil
+  :diminish auto-revert-mode)
+
 (use-package company
   :diminish company-mode
   :init (global-company-mode)
@@ -108,12 +112,13 @@
   :config (company-flx-mode t))
 
 (use-package counsel
-  :diminish ivy-mode
   :init
   (setq ivy-use-virtual-buffers t)
   (setq ivy-count-format "%d/%d ")
   (setq ivy-re-builders-alist '((t . ivy--regex-fuzzy)))
-  (ivy-mode 1)
+  (use-package ivy
+    :diminish ivy-mode
+    :init (ivy-mode 1))
   :general
   (:keymaps '(motion normal)
             "SPC" nil)
@@ -245,6 +250,7 @@
 
 
 (use-package recentf
+  :ensure nil
   :init
   (setq recentf-max-saved-items 50)
   (recentf-mode 1))
@@ -318,6 +324,7 @@
   :init (which-key-mode))
 
 (use-package whitespace
+  :ensure nil
   :diminish global-whitespace-mode
   :init
   ; Hightlight tabs and trailing whitespace
@@ -327,14 +334,19 @@
   (setq whitespace-display-mappings '((tab-mark ?\t [?▸ ?\t] [?› ?\t] [?> ?\t])))
   (global-whitespace-mode t))
 
+
+;; PROGRAMMING MODES ---------------------------------------------------------------------------
+
 ;; C
 (use-package cc-mode
+  :ensure nil
+  :commands c-mode
   :init
   (setq c-default-style "stroustrup")
   (setq c-tab-always-indent nil)
   :config
-  (modify-syntax-entry ?_ "w" c-mode-syntax-table)  ; _ is now part of a word
-  (modify-syntax-entry ?- "w" c-mode-syntax-table)  ; aswell as -
+  (modify-syntax-entry ?_ "w" c-mode-syntax-table) ; _ is now part of a word
+  (modify-syntax-entry ?- "w" c-mode-syntax-table) ; aswell as -
   )
 
 ;; GLSL
@@ -350,22 +362,23 @@
   )
 
 ;; Octave / Matlab
-(add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
+(use-package octave-mode
+  :ensure nil
+  :mode "\\.m\\'")
 
 ;; Rust
+(use-package rust-mode
+  :init
+  (use-package cargo
+    :init (add-hook 'rust-mode-hook #'cargo-minor-mode))
 
-(use-package cargo
-  :config (add-hook 'rust-mode-hook #'cargo-minor-mode))
+  (use-package flycheck-rust
+    :init (add-hook 'rust-mode-hook #'flycheck-rust-setup))
 
-(use-package flycheck-rust
-  :config (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
-
-(use-package racer
-  :config
-  (add-hook 'rust-mode-hook #'racer-mode)
-  (add-hook 'racer-mode-hook #'eldoc-mode))
-
-(use-package rust-mode)
+  (use-package racer
+    :init
+    (add-hook 'rust-mode-hook #'racer-mode)
+    (add-hook 'racer-mode-hook #'eldoc-mode)))
 
 ;; Tex
 (use-package tex-site
@@ -373,7 +386,7 @@
   :bind ("C-c e" . TeX-next-error))
 
 (load "bind")
-(load "local-conf" t)  ; No error if missing
+(load "local-conf" t) ; No error if missing
 
 (provide 'init)
 ;;; init.el ends here

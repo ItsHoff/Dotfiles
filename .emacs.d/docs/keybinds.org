@@ -129,7 +129,7 @@
    | u           | undo-tree-visualize          |                         |
    | i           | evil-jump-forward            | TAB in emacs (!= <tab>) |
    | o           | evil-jump-backward           |                         |
-   | p           | evil-paste-pop               | LEARN                   |
+   | p           | evil-paste-pop               | included in C-k         |
    | å           | -                            |                         |
    | ¨           | -                            |                         |
    | a           | move-beginning-of-line       |                         |
@@ -150,7 +150,7 @@
    | c           | emacs prefix                 | TODO: replace           |
    | v           | evil-visual-block            |                         |
    | b           | evil-scroll-page-up          | sortof K                |
-   | n           | evil-paste-pop-next          | LEARN                   |
+   | n           | evil-paste-pop-next          | included in C-j         |
    | m           | helm-mini                    |                         |
    | ,           | -                            |                         |
    | .           | evil-repeat-pop              |                         |

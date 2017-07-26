@@ -4,13 +4,6 @@
   * easy-brackets
   * Probably requires fix from general
 ** Improve
-*** Tabbing
-    * https://www.emacswiki.org/emacs/TabStopList
-    * https://stackoverflow.com/questions/4006005/how-can-i-set-emacs-tab-settings-by-file-type
-    * https://www.emacswiki.org/emacs/BackspaceWhitespaceToTabStop
-    * https://www.emacswiki.org/emacs/IndentationBasics
-    * https://www.gnu.org/software/emacs/manual/html_node/emacs/Indentation.html#Indentation
-    * https://emacs.stackexchange.com/questions/27869/how-to-make-evil-mode-tab-key-indent-not-re-indent-based-on-context
 *** Autoindent pasted text
     * https://www.emacswiki.org/emacs/AutoIndentation
 *** Org
@@ -24,8 +17,6 @@
 ** Learn
 *** Magit
 *** Org
-*** paste history (c-p, c-n)
-*** repeat history (c-., evil-repeat-pop-next)
 ** Change
 *** prefix g: go
   * G as reverse?
@@ -50,12 +41,23 @@
 ** Create
 *** workspace management
     * c-x r [w/j]
-    * window-configuration-to-register
-    * jump-to-register
+        - window-configuration-to-register
+        - jump-to-register
     * https://github.com/wasamasa/eyebrowse
     * https://www.reddit.com/r/emacs/comments/6lgwme/how_do_you_handle_multiple_projectsworkspaces/
+    * https://github.com/nex3/perspective-el
 *** folding
 *** some unix / emacs style commands in insert mode
+** Evaluate
+*** Tabbing
+    * https://www.emacswiki.org/emacs/TabStopList
+    * https://stackoverflow.com/questions/4006005/how-can-i-set-emacs-tab-settings-by-file-type
+    * https://www.emacswiki.org/emacs/BackspaceWhitespaceToTabStop
+    * https://www.emacswiki.org/emacs/IndentationBasics
+    * https://www.gnu.org/software/emacs/manual/html_node/emacs/Indentation.html#Indentation
+    * https://emacs.stackexchange.com/questions/27869/how-to-make-evil-mode-tab-key-indent-not-re-indent-based-on-context
+*** paste history (c-p, c-n)
+*** repeat history (c-., evil-repeat-pop-next)
 * Packages to check out
 ** Hydra
    * https://github.com/abo-abo/hydra

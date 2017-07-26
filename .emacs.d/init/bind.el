@@ -102,6 +102,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 ; Insert state
 (general-define-key :keymaps 'insert
+                    "<tab>" #'tab-to-tab-stop
                     "<backspace>" #'my-backspace-whitespace-to-tab-stop
                     "<return>" #'newline-and-indent
                     "<C-i>" #'indent-according-to-mode

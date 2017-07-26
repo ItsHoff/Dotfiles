@@ -333,12 +333,14 @@
    | c-z         | evil-emacs-state                    | TODO: move to m-z   |
    | <backspace> | my-backspace-whitespace-to-tab-stop |                     |
    | <return>    | newline-and-indent                  |                     |
+   | <tab>       | tab-to-tab-stop                     |                     |
 ** Overwritten
    | Old Key | Function                           | Comment |
    |---------+------------------------------------+---------|
    | c-k     | insert-digraph                     | useless |
    | DEL     | evil-delete-backward-char-and-join |         |
    | RET     | newline                            |         |
+   | TAB     | indent-for-tab-command             |         |
 * Emacs-state
   | Key | Function              | Comment |
   |-----+-----------------------+---------|

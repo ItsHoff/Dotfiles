@@ -13,8 +13,6 @@
     * https://emacs.stackexchange.com/questions/27869/how-to-make-evil-mode-tab-key-indent-not-re-indent-based-on-context
 *** Autoindent pasted text
     * https://www.emacswiki.org/emacs/AutoIndentation
-*** Switch np to jk
-  * paste and repeat history
 *** Org
     * heading navigation
     * item insertion

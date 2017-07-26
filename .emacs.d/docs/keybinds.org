@@ -113,50 +113,50 @@
    | <space>     | -                                   |                                       |
    | <enter>     | -                                   |                                       |
 ** Control
-   | Key         | Function               | Comment                 |
-   |-------------+------------------------+-------------------------|
-   | 1-0         | -                      |                         |
-   | +           | -                      |                         |
-   | ´           | -                      |                         |
-   | <backspace> | -                      |                         |
-   | <tab>       | -                      |                         |
-   | q           | quoted-insert          |                         |
-   | w           | PREFIX: window         |                         |
-   | e           | evil-scroll-line-down  |                         |
-   | r           | undo-tree-redo         | TODO: maybe to U        |
-   | t           | pop-tag-mark           | TODO: maybe in history  |
-   | y           | evil-scroll-line-up    |                         |
-   | u           | undo-tree-visualize    |                         |
-   | i           | evil-jump-forward      | TAB in emacs (!= <tab>) |
-   | o           | evil-jump-backward     |                         |
-   | p           | evil-paste-pop         | LEARN                   |
-   | å           | -                      |                         |
-   | ¨           | -                      |                         |
-   | a           | move-beginning-of-line |                         |
-   | s           | isearch-forward        | TODO: replace           |
-   | d           | evil-scroll-down       |                         |
-   | f           | helm-find-files        |                         |
-   | g           | magit-status           |                         |
-   | h           | helm prefix            |                         |
-   | j           | -                      | TODO: use               |
-   | k           | -                      | TODO: use               |
-   | l           | -                      | TODO: use               |
-   | ö           | -                      |                         |
-   | ä           | -                      |                         |
-   | '           | -                      |                         |
-   | <           | -                      |                         |
-   | z           | suspend-emacs          |                         |
-   | x           | emacs prefix           | TODO: replace           |
-   | c           | emacs prefix           | TODO: replace           |
-   | v           | evil-visual-block      |                         |
-   | b           | evil-scroll-page-up    | sortof K                |
-   | n           | evil-paste-pop-next    | LEARN                   |
-   | m           | helm-mini              |                         |
-   | ,           | -                      |                         |
-   | .           | evil-repeat-pop        |                         |
-   | -           | negative-argument      |                         |
-   | <space>     | set-mark-command       |                         |
-   | <enter>     | -                      |                         |
+   | Key         | Function                     | Comment                 |
+   |-------------+------------------------------+-------------------------|
+   | 1-0         | -                            |                         |
+   | +           | -                            |                         |
+   | ´           | -                            |                         |
+   | <backspace> | -                            |                         |
+   | <tab>       | -                            |                         |
+   | q           | quoted-insert                |                         |
+   | w           | PREFIX: window               |                         |
+   | e           | evil-scroll-line-down        |                         |
+   | r           | undo-tree-redo               | TODO: maybe to U        |
+   | t           | pop-tag-mark                 | TODO: maybe in history  |
+   | y           | evil-scroll-line-up          |                         |
+   | u           | undo-tree-visualize          |                         |
+   | i           | evil-jump-forward            | TAB in emacs (!= <tab>) |
+   | o           | evil-jump-backward           |                         |
+   | p           | evil-paste-pop               | LEARN                   |
+   | å           | -                            |                         |
+   | ¨           | -                            |                         |
+   | a           | move-beginning-of-line       |                         |
+   | s           | isearch-forward              | TODO: replace           |
+   | d           | evil-scroll-down             |                         |
+   | f           | helm-find-files              |                         |
+   | g           | magit-status                 |                         |
+   | h           | helm prefix                  |                         |
+   | j           | my-paste-and-repeat-pop-next |                         |
+   | k           | my-paste-and-repeat-pop      |                         |
+   | l           | -                            | TODO: use               |
+   | ö           | -                            |                         |
+   | ä           | -                            |                         |
+   | '           | -                            |                         |
+   | <           | -                            |                         |
+   | z           | suspend-emacs                |                         |
+   | x           | emacs prefix                 | TODO: replace           |
+   | c           | emacs prefix                 | TODO: replace           |
+   | v           | evil-visual-block            |                         |
+   | b           | evil-scroll-page-up          | sortof K                |
+   | n           | evil-paste-pop-next          | LEARN                   |
+   | m           | helm-mini                    |                         |
+   | ,           | -                            |                         |
+   | .           | evil-repeat-pop              |                         |
+   | -           | negative-argument            |                         |
+   | <space>     | set-mark-command             |                         |
+   | <enter>     | -                            |                         |
 *** Overwritten
    | Key | Function           | Comment |
    |-----+--------------------+---------|

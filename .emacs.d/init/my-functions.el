@@ -51,6 +51,40 @@ If point is at or ahead of it move to last character."
           (backward-delete-char (- (match-end 1) (match-beginning 1)))
         (call-interactively 'backward-delete-char)))))
 
+(evil-define-command my-paste-and-repeat-pop (count &optional save-point)
+  "Select paste or repeat pop depending on last command and do COUNT times."
+  :repeat nil
+  :suppress-operator t
+  (interactive (list (prefix-numeric-value current-prefix-arg)
+                     (not evil-repeat-move-cursor)))
+  (cond ((and (memq last-command '(evil-paste-after
+                              evil-paste-before
+                              evil-visual-paste))
+             evil-last-paste)
+         (evil-paste-pop count))
+        ((and (eq last-command #'evil-repeat)
+              evil-last-repeat)
+         (evil-repeat-pop count save-point))
+        (t (message "Last command was not paste or repeat"))
+        ))
+
+(evil-define-command my-paste-and-repeat-pop-next (count &optional save-point)
+  "Select paste or repeat pop next depending on last command and do COUNT times."
+  :repeat nil
+  :suppress-operator t
+  (interactive (list (prefix-numeric-value current-prefix-arg)
+                     (not evil-repeat-move-cursor)))
+  (cond ((and (memq last-command '(evil-paste-after
+                              evil-paste-before
+                              evil-visual-paste))
+             evil-last-paste)
+         (evil-paste-pop-next count))
+        ((and (eq last-command #'evil-repeat)
+              evil-last-repeat)
+         (evil-repeat-pop-next count save-point))
+        (t (message "Last command was not paste or repeat"))
+        ))
+
 (defun my-org-up-heading ()
   "Go up to the parent heading.
 If already at top heading go to the next heading above."
@@ -67,6 +101,8 @@ If already at top heading go to the next heading above."
           (outline-previous-visible-heading 1)
           (setq level (outline-level))))
     )))
+
+(evil-declare-not-repeat #'my-org-up-heading)
 
 (defun my-org-down-heading ()
   "Go down to heading of higher level.
@@ -85,6 +121,8 @@ Goto end if no lower higher level headings."
           (outline-next-visible-heading 1)
           (setq level (outline-level))))
     )))
+
+(evil-declare-not-repeat #'my-org-down-heading)
 
 (defun my-advice-preserve-timestamps (args)
   "Change preserve-timestamps in ARGS to t.

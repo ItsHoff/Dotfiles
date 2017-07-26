@@ -11,11 +11,6 @@
 
 (general-define-key "C-<backspace>" nil)    ; Mistyped often with i-mode brackets
 
-; Unbind old window movements until replaced
-(general-define-key "C-j" nil)
-(general-define-key "C-k" nil)
-(general-define-key "C-l" nil)
-
 ;; esc quits
 (defun minibuffer-keyboard-quit ()
   "Abort recursive edit.
@@ -100,6 +95,9 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     ; Join + split
                     "<backspace>" #'evil-join
                     "<return>" #'my-split-line
+                    ; Pops
+                    "C-k" #'my-paste-and-repeat-pop
+                    "C-j" #'my-paste-and-repeat-pop-next
                     )
 
 ; Insert state

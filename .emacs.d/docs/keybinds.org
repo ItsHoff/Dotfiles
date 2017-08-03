@@ -252,38 +252,37 @@
    |-----+------------------------------+---------|
    | Q   | evil-quit                    |         |
    | Z   | evil-save-modified-and-close |         |
-** Prefix: C-w - Window
-   | Key   | Function                     | Comment   |
-   |-------+------------------------------+-----------|
-   | (C-)b | evil-window-bottom-right     |           |
-   | (C-)c | evil-window-delete           |           |
-   | C-f   | ffap-other-widow             | undefined |
-   | (C-)n | evil-window-new              |           |
-   | (C-)o | delete-other-windows         |           |
-   | (C-)p | evil-window-mru              |           |
-   | (C-)r | evil-window-rotate-downwards |           |
-   | (C-)R | evil-window-rotate-upwards   |           |
-   | (C-)s | evil-window-split            |           |
-   | (C-)S | evil-window-split            |           |
-   | (C-)t | evil-window-top-left         |           |
-   | (C-)v | evil-window-vsplit           |           |
-   | (C-)w | evil-window-next             |           |
-   | (C-)_ | evil-window-set-height       |           |
-   | \vbar | evil-window-set-width        |           |
-   | +     | evil-window-increase-height  |           |
-   | -     | evil-window-decrease-height  |           |
-   | <     | evil-window-decrease-width   |           |
-   | =     | balance-windows              |           |
-   | >     | evil-window-increase-width   |           |
-   | (C-)H | evil-window-move-far-left    |           |
-   | (C-)J | evil-window-move-very-bottom |           |
-   | (C-)K | evil-window-move-very-top    |           |
-   | (C-)L | evil-window-move-far-right   |           |
-   | (C-)W | evil-window-prev             |           |
-   | (C-)h | evil-window-left             |           |
-   | (C-)j | evil-window-down             |           |
-   | (C-)k | evil-window-up               |           |
-   | (C-)l | evil-window-right            |           |
+** Prefix: C-w - Window hydra
+   | Key     | Function                     | Comment   |
+   |---------+------------------------------+-----------|
+   | b       | evil-window-bottom-right     |           |
+   | c       | evil-window-delete           |           |
+   | o       | delete-other-windows         |           |
+   | s       | evil-window-split            |           |
+   | t       | evil-window-top-left         |           |
+   | v       | evil-window-vsplit           |           |
+   | <up>    | evil-window-increase-height  |           |
+   | <down>  | evil-window-decrease-height  |           |
+   | <left>  | evil-window-decrease-width   |           |
+   | <right> | evil-window-increase-width   |           |
+   | =       | balance-windows              |           |
+   | h       | evil-window-left             |           |
+   | j       | evil-window-down             |           |
+   | k       | evil-window-up               |           |
+   | l       | evil-window-right            |           |
+   | H       | evil-window-move-far-left    |           |
+   | J       | evil-window-move-very-bottom |           |
+   | K       | evil-window-move-very-top    |           |
+   | L       | evil-window-move-far-right   |           |
+   | r       | evil-window-rotate-downwards |           |
+   | R       | evil-window-rotate-upwards   |           |
+   | \vbar   | evil-window-set-width        |           |
+   | _       | evil-window-set-height       |           |
+   | p       | evil-window-mru              |           |
+   |         | evil-window-next             |           |
+   |         | evil-window-prev             |           |
+   |         | evil-window-new              |           |
+   |         | ffap-other-widow             | undefined |
 ** Prefix: C-h - Helm
    | Key   | Function        | Comment |
    |-------+-----------------+---------|

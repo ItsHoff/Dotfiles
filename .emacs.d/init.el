@@ -237,6 +237,8 @@
             "C-n" #'helm-delete-minibuffer-contents
             ))
 
+(use-package hydra)
+
 (use-package magit
   :init
   (use-package evil-magit)

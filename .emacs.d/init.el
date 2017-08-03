@@ -386,6 +386,7 @@
 (use-package lisp-mode
   :ensure nil
   :commands emacs-lisp-mode
+  :init (add-hook 'emacs-lisp-mode-hook (lambda () (setq tab-width 2)))
   :config
   (modify-syntax-entry ?_ "w" emacs-lisp-mode-syntax-table) ; _ is now part of a word
   (modify-syntax-entry ?- "w" emacs-lisp-mode-syntax-table) ; aswell as -

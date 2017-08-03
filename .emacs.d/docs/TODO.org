@@ -17,6 +17,9 @@
 ** Learn
 *** Magit
 *** Org
+*** Hydra
+    * https://github.com/abo-abo/hydra
+    * https://github.com/abo-abo/hydra/wiki/Helm
 ** Change
 *** prefix g: go
   * G as reverse?
@@ -59,9 +62,6 @@
 *** paste history (c-p, c-n)
 *** repeat history (c-., evil-repeat-pop-next)
 * Packages to check out
-** Hydra
-   * https://github.com/abo-abo/hydra
-   * https://github.com/abo-abo/hydra/wiki/Helm
 ** Projectile
    * https://github.com/bbatsov/projectile
    * http://projectile.readthedocs.io/en/latest/
@@ -77,18 +77,20 @@
    * https://www.gnu.org/software/auctex/index.html
 * Resources
 ** Global
-  * http://spacemacs.org/
-  * https://masteringemacs.org/
-  * https://juanjoalvarez.net/es/detail/2014/sep/19/vim-emacsevil-chaotic-migration-guide/
-  * https://blog.aaronbieber.com/2015/05/24/from-vim-to-emacs-in-fourteen-days.html
-  * http://www.cachestocaches.com/2016/12/vim-within-emacs-anecdotal-guide/
-  * https://github.com/noctuid/evil-guide
-  * https://www.reddit.com/r/emacs/comments/60nb8b/favorite_builtin_emacs_commands/
-  * https://stackoverflow.com/questions/8483182/evil-mode-best-practice
-  * https://melpa.org/#/
-  * http://pages.sachachua.com/.emacs.d/Sacha.html#orgdda953f
-  * http://mp.vv.si/blog/emacs/emacs-init-performance-analysis/
-  * http://ergoemacs.org/emacs/emacs.html
+    * https://github.com/emacs-tw/awesome-emacs
+    * http://spacemacs.org/
+    * https://masteringemacs.org/
+    * https://juanjoalvarez.net/es/detail/2014/sep/19/vim-emacsevil-chaotic-migration-guide/
+    * https://blog.aaronbieber.com/2015/05/24/from-vim-to-emacs-in-fourteen-days.html
+    * http://www.cachestocaches.com/2016/12/vim-within-emacs-anecdotal-guide/
+    * https://github.com/noctuid/evil-guide
+    * https://www.reddit.com/r/emacs/comments/60nb8b/favorite_builtin_emacs_commands/
+    * https://stackoverflow.com/questions/8483182/evil-mode-best-practice
+    * https://melpa.org/#/
+    * http://pages.sachachua.com/.emacs.d/Sacha.html#orgdda953f
+    * http://mp.vv.si/blog/emacs/emacs-init-performance-analysis/
+    * http://ergoemacs.org/emacs/emacs.html
+    * https://cestlaz.github.io/stories/emacs/
 ** Ivy
    * http://oremacs.com/swiper/
    * https://github.com/abo-abo/swiper

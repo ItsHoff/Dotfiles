@@ -125,8 +125,6 @@
   (:keymaps '(motion normal)
             :prefix "SPC"
             "SPC" #'counsel-M-x
-            "e" #'counsel-find-file
-            "b" #'ivy-switch-buffer
             )
   (:keymaps 'evil-ex-map
             "b SPC" #'ivy-switch-buffer

@@ -78,7 +78,8 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     "," #'evil-repeat-find-char
                     ";" #'evil-repeat-find-char-reverse
                     ; Make ¤ be forward #
-                    "¤" #'evil-search-word-forward
+                    "#" #'evil-search-word-forward
+                    "¤" #'evil-search-word-backward
                     ; Move sentence object
                     "s" #'evil-forward-sentence-begin
                     "S" #'evil-backward-sentence-begin

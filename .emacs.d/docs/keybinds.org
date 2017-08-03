@@ -63,8 +63,8 @@
    | <esc>       | -                                   |                                       |
    | !           | evil-shell-command                  | very niche                            |
    | "           | evil-use-register                   | potential move                        |
-   | #           | evil-search-word-backward           |                                       |
-   | ¤           | evil-search-word-forward            |                                       |
+   | #           | evil-search-word-forward            |                                       |
+   | ¤           | evil-search-word-backward           |                                       |
    | %           | evil-jump-item                      |                                       |
    | &           | evil-repeat-substitute              | Don't see much point over visual mode |
    | /           | evil-search-forward                 |                                       |

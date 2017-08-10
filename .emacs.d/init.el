@@ -431,7 +431,7 @@
   (setq c-tab-always-indent nil)
   :config
   (modify-syntax-entry ?_ "w" c-mode-syntax-table) ; _ is now part of a word
-  (modify-syntax-entry ?- "w" c-mode-syntax-table) ; aswell as -
+  (modify-syntax-entry ?_ "w" c++-mode-syntax-table) ; _ is now part of a word
   )
 
 ;; GLSL

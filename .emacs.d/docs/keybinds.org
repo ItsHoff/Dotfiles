@@ -51,12 +51,17 @@
     | ,           | evil-repeat-find-char              |                              |
     | .           | evil-repeat                        |                              |
     | -           | evil-previous-line-first-non-blank | TODO: replace                |
-    | <space>     | counsel-M-x                        |                              |
+    | <space>     | prefix                             |                              |
     | <enter>     | my-split-line                      |                              |
     | <up>        | -                                  | TODO: use                    |
     | <down>      | -                                  | TODO: use                    |
     | <left>      | -                                  | TODO: use                    |
     | <right>     | -                                  | TODO: use                    |
+*** Overwritten
+    | Old Key | Function               | Comment             |
+    |---------+------------------------+---------------------|
+    | s       | evil-substitute        | useless             |
+    | q       | evil-record-macro      | TODO: rework macros |
 ** Shift
    | Key         | Function                            | Comment                               |
    |-------------+-------------------------------------+---------------------------------------|
@@ -112,6 +117,11 @@
    | _           | next line first non-blank           | replace                               |
    | <space>     | -                                   |                                       |
    | <enter>     | -                                   |                                       |
+*** Overwritten
+    | Old Key | Function               | Comment             |
+    |---------+------------------------+---------------------|
+    | S       | evil-change-whole-line | useless             |
+    | K       | evil-lookup (man)      | TODO: remap         |
 ** Control
    | Key         | Function                     | Comment                 |
    |-------------+------------------------------+-------------------------|
@@ -135,9 +145,9 @@
    | a           | move-beginning-of-line       |                         |
    | s           | isearch-forward              | TODO: replace           |
    | d           | evil-scroll-down             |                         |
-   | f           | helm-find-files              |                         |
-   | g           | magit-status                 |                         |
-   | h           | helm prefix                  |                         |
+   | f           | counsel-find-file            |                         |
+   | g           | keyboard-quit                |                         |
+   | h           | help prefix                  |                         |
    | j           | my-paste-and-repeat-pop-next |                         |
    | k           | my-paste-and-repeat-pop      |                         |
    | l           | -                            | TODO: use               |
@@ -149,7 +159,7 @@
    | x           | emacs prefix                 | TODO: replace           |
    | c           | emacs prefix                 | TODO: replace           |
    | v           | evil-visual-block            |                         |
-   | b           | evil-scroll-page-up          | sortof K                |
+   | b           | ivy-switch-buffer            |                         |
    | n           | evil-paste-pop-next          | included in C-j         |
    | m           | helm-mini                    |                         |
    | ,           | -                            |                         |
@@ -158,21 +168,21 @@
    | <space>     | set-mark-command             |                         |
    | <enter>     | -                            |                         |
 *** Overwritten
-   | Key | Function           | Comment |
-   |-----+--------------------+---------|
-   | g   | keyboard-quit      |         |
-   | u   | universal-argument |         |
+   | Key | Function              | Comment  |
+   |-----+-----------------------+----------|
+   | u   | universal-argument    |          |
+   | b   | evil-scroll-page-up   | sortof K |
 ** Alt - Emacs
    | Key | Function           | Comment |
    |-----+--------------------+---------|
-   | x   | helm-M-x           |         |
+   | x   | counsel-M-x        |         |
    | +   | help-map           |         |
    | ´   | describe-key       |         |
    | z   | evil-emacs-state   |         |
    | g   | keyboard-quit      |         |
    | u   | universal-argument |         |
 ** Alt Gr
-   | Key   | Function                    | Status           Ideas       |
+   | Key   | Function                    | Comment                      |
    |-------+-----------------------------+------------------------------|
    | @     | evil-execute-macro          | TODO: redo macros            |
    | £     | -                           |                              |
@@ -188,6 +198,12 @@
    | ~     | evil-invert-char            | prolly not needed with g u/U |
    | \vert | evil-goto-column            |                              |
    | µ     | -                           |                              |
+** Prefix: SPC - Leader
+   | Key | Function     | Comment |
+   |-----+--------------+---------|
+   | h   | helm prefix  |         |
+   | g   | magit-status |         |
+   | SPC | counsel-M-x  |         |
 ** Prefix: g - Go
    | Key | Function                            | Comment                     |
    |-----+-------------------------------------+-----------------------------|
@@ -283,22 +299,6 @@
    |         | evil-window-prev             |           |
    |         | evil-window-new              |           |
    |         | ffap-other-widow             | undefined |
-** Prefix: C-h - Helm
-   | Key   | Function        | Comment |
-   |-------+-----------------+---------|
-   | (C-)f | helm-find-files |         |
-   | (C-)a | helm-apropos    |         |
-   | (C-)m | helm-mini       |         |
-   | (C-)o | helm-occur      |         |
-   | (C-)k | helm-man-woman  |         |
-   | (C-)r | helm-resume     |         |
-** Overwritten
-   | Old Key | Function               | Comment             |
-   |---------+------------------------+---------------------|
-   | s       | evil-substitute        | useless             |
-   | S       | evil-change-whole-line | useless             |
-   | q       | evil-record-macro      | TODO: rework macros |
-   | K       | evil-lookup (man)      | TODO: remap         |
 * Visual-state
 ** Keys
    | Key | Function       | Comment |

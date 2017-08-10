@@ -128,7 +128,11 @@
     :init (ivy-mode 1))
   :general
   (:keymaps '(motion normal)
-            "SPC" nil)
+            "SPC" nil
+            "C-f" #'counsel-find-file
+            "C-b" #'ivy-switch-buffer
+            "M-x" #'counsel-M-x
+            )
   (:keymaps '(motion normal)
             :prefix "SPC"
             "SPC" #'counsel-M-x
@@ -218,23 +222,19 @@
   (helm-autoresize-mode t)
   :general
   (:keymaps 'motion
-            "M-x" #'helm-M-x
             "<C-m>" #'helm-mini
-            "C-f" #'helm-find-files)
+            "SPC" nil
+            )
   (:keymaps 'motion
-   :prefix "C-h"
-           "f" #'helm-find-files
-           "C-f" #'helm-find-files
-           "m" #'helm-mini
-           "<C-m>" #'helm-mini
-           "o" #'helm-occur
-           "C-o" #'helm-occur
-           "k" #'helm-man-woman
-           "C-k" #'helm-man-woman
-           "r" #'helm-resume
-           "C-r" #'helm-resume
-           "a" #'helm-apropos
-           "C-a" #'helm-apropos)
+   :prefix "SPC h"
+   "x" #'helm-M-x
+   "f" #'helm-find-files
+   "m" #'helm-mini
+   "o" #'helm-occur
+   "k" #'helm-man-woman
+   "r" #'helm-resume
+   "a" #'helm-apropos
+   )
   (:keymaps 'helm-map
             "<tab>" #'helm-execute-persistent-action
             "C-h" #'helm-execute-persistent-action
@@ -252,7 +252,7 @@
   (require 'evil-magit)
   :general
   (:keymaps 'motion
-            "C-g" #'magit-status)
+            "SPC g" #'magit-status)
   (:keymaps 'magit-mode-map
             "J" #'magit-section-forward
             "K" #'magit-section-backward

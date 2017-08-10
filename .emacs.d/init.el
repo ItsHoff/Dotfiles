@@ -6,9 +6,10 @@
 (require 'package)
 (add-to-list 'load-path "~/.emacs.d/init/")
 (setq package-enable-at-startup nil)
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/")
-             '("org" . "http://orgmode.org/elpa/"))
+(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+                         ("melpa" . "https://melpa.org/packages/")
+                         ("org" . "https://orgmode.org/elpa/")
+                         ("melpa-stable" . "https://stable.melpa.org/packages/")))
 
 (package-initialize)
 

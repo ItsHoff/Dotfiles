@@ -429,6 +429,11 @@
   :init
   (setq c-default-style "stroustrup")
   (setq c-tab-always-indent nil)
+  (add-hook 'c-mode-common-hook
+            (lambda ()
+              ;; Preferred comment style
+              (setq comment-start "// "
+                    comment-end "")))
   :config
   (modify-syntax-entry ?_ "w" c-mode-syntax-table) ; _ is now part of a word
   (modify-syntax-entry ?_ "w" c++-mode-syntax-table) ; _ is now part of a word

@@ -191,15 +191,34 @@
 (use-package flx)
 
 (use-package golden-ratio
+  :diminish golden-ratio-mode
   :init (golden-ratio-mode 1)
   :config
   (setq golden-ratio-auto-scale t)
   (setq golden-ratio-extra-commands
         (append golden-ratio-extra-commands
-                '(evil-window-left
-                  evil-window-right
-                  evil-window-up
+                '(evil-window-bottom-right
+                  evil-window-delete
+                  delete-other-windows
+                  evil-window-split
+                  evil-window-top-left
+                  evil-window-vsplit
+                  evil-window-left
                   evil-window-down
+                  evil-window-up
+                  evil-window-right
+                  evil-window-move-far-left
+                  evil-window-move-very-bottom
+                  evil-window-move-very-top
+                  evil-window-move-far-right
+                  evil-window-rotate-downwards
+                  evil-window-rotate-upwards
+                  evil-window-set-width
+                  evil-window-set-height
+                  evil-window-mru
+                  evil-window-next
+                  evil-window-prev
+                  evil-window-new
                   buf-move-left
                   buf-move-right
                   buf-move-up

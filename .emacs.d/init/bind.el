@@ -8,8 +8,12 @@
 (require 'my-functions)
 
 ;; UNBIND --------------------------------------------------------------------------------------
+(general-define-key "C-<backspace>" nil) ; Mistyped often with i-mode brackets
+(general-define-key :keymaps 'evil-read-key-map
+                    "C-k" nil) ; Conflicts with easy-brackets
 
-(general-define-key "C-<backspace>" nil)    ; Mistyped often with i-mode brackets
+
+;; BINDINGS -----------------------------------------------------------------------------------
 
 ;; esc quits
 (defun minibuffer-keyboard-quit ()
@@ -31,8 +35,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (define-key minibuffer-local-isearch-map [escape] #'minibuffer-keyboard-quit)
 (define-key minibuffer-inactive-mode-map [escape] #'minibuffer-keyboard-quit)
 (global-set-key [escape] #'evil-exit-emacs-state)
-
-;; BINDINGS -----------------------------------------------------------------------------------
 
 (general-define-key :keymaps 'global
                     "M-+" help-map  ; Remap help

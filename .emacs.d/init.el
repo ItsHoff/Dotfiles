@@ -148,7 +148,9 @@
 
 (use-package dashboard
   :init
-  (setq dashboard-items '((recents . 10)))
+  (setq dashboard-items '((recents . 10)
+                          (projects . 10)
+                          (bookmarks . 10)))
   (dashboard-setup-startup-hook)
   :config
   (require 'evil)
@@ -296,6 +298,22 @@
             "M-k" #'org-metaup
             ))
 
+(use-package projectile
+  :init
+  (projectile-mode)
+  (use-package counsel-projectile)
+  :config
+  (counsel-projectile-on)
+  (setq projectile-completion-system 'ivy)
+  (setq projectile-enable-caching t)
+  :general
+  (:keymaps 'projectile-command-map
+            "A" (lambda () (interactive) (projectile-add-known-project (projectile-project-p)))
+            )
+  (:keymaps 'motion
+            "SPC p" #'projectile-command-map
+            )
+  )
 
 (use-package recentf
   :ensure nil

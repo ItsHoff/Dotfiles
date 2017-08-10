@@ -8,3 +8,5 @@ recentf
 *~
 local-conf.el
 smex-items
+projectile.cache
+projectile-bookmarks.eld

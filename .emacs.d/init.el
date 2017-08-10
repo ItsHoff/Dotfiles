@@ -90,6 +90,21 @@
 (use-package general
   :init (general-evil-setup))
 
+(use-package evil
+  :init
+  (setq evil-want-Y-yank-to-eol t)
+  (setq evil-want-C-w-in-emacs-state t) ; Window commands should always work
+  (evil-mode 1)
+  :config
+  (setq evil-ex-substitute-global t) ; substitute replaces all occurences in line
+  (setq evil-normal-state-tag "NORM")
+  (setq evil-visual-state-tag "VIS")
+  (setq evil-motion-state-tag "MOT")
+  (setq evil-insert-state-tag "INS")
+  (setq evil-operator-state-tag "OP")
+  (setq evil-emacs-state-tag "EMACS")
+  )
+
 (use-package autorevert
   :ensure nil
   :diminish auto-revert-mode)
@@ -163,18 +178,6 @@
             "K" #'dashboard-previous-section
             "<return>" #'widget-button-press
             ))
-
-(use-package evil
-  :init
-  (setq evil-want-Y-yank-to-eol t)
-  (setq evil-want-C-w-in-emacs-state t) ; Window commands should always work
-  (setq evil-ex-substitute-global t) ; substitute replaces all occurences in line
-  (setq evil-normal-state-tag "NORM")
-  (setq evil-visual-state-tag "VIS")
-  (setq evil-motion-state-tag "MOT")
-  (setq evil-insert-state-tag "INS")
-  (setq evil-emacs-state-tag "EMACS")
-  (evil-mode 1))
 
 (use-package evil-nerd-commenter
   :config

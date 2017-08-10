@@ -107,6 +107,10 @@
   (dotimes (i 10)
     (general-define-key :keymaps 'company-active-map
                         (format "C-%d" i) #'company-complete-number))
+  :general
+  (:keymaps 'company-active-map
+            "<return>" nil
+            "C-<return>" #'company-complete-selection)
   )
 
 (use-package company-flx

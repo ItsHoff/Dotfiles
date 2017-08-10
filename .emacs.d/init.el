@@ -174,6 +174,15 @@
   (setq evil-emacs-state-tag "EMACS")
   (evil-mode 1))
 
+(use-package evil-nerd-commenter
+  :config
+  (define-key evil-inner-text-objects-map "c" 'evilnc-inner-comment)
+  (define-key evil-outer-text-objects-map "c" 'evilnc-outer-commenter)
+  :general
+  (:keymaps 'normal
+            "ö c" #'evilnc-comment-or-uncomment-lines
+            ))
+
 (use-package flycheck
   :init (global-flycheck-mode))
 

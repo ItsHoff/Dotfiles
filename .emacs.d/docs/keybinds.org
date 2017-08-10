@@ -37,7 +37,7 @@
     | j           | evil-next-visual-line              |                              |
     | k           | evil-previous-visual-line          |                              |
     | l           | evil-forward-char                  |                              |
-    | ö           | -                                  | TODO: use                    |
+    | ö           | prefix                             |                              |
     | ä           | -                                  | TODO: use                    |
     | '           | evil-goto-mark-line                | TODO: redo marks             |
     | <           | evil-shift-left                    |                              |
@@ -204,6 +204,10 @@
    | h   | helm prefix  |         |
    | g   | magit-status |         |
    | SPC | counsel-M-x  |         |
+** Prefix: ö - ?
+   | Key | Function                          | Comment |
+   |-----+-----------------------------------+---------|
+   | c   | evilnc-comment-or-uncomment-lines |         |
 ** Prefix: g - Go
    | Key | Function                            | Comment                     |
    |-----+-------------------------------------+-----------------------------|

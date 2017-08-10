@@ -1,8 +1,5 @@
 * TODO
 ** Fix
-*** dot with general-dispatch
-  * easy-brackets
-  * Probably requires fix from general
 ** Improve
 *** Autoindent pasted text
     * https://www.emacswiki.org/emacs/AutoIndentation
@@ -59,16 +56,33 @@
     * https://www.emacswiki.org/emacs/IndentationBasics
     * https://www.gnu.org/software/emacs/manual/html_node/emacs/Indentation.html#Indentation
     * https://emacs.stackexchange.com/questions/27869/how-to-make-evil-mode-tab-key-indent-not-re-indent-based-on-context
+*** nerd-commenter
 *** paste history (c-p, c-n)
 *** repeat history (c-., evil-repeat-pop-next)
+*** Projectile
+    * https://github.com/bbatsov/projectile
+    * http://projectile.readthedocs.io/en/latest/
 * Packages to check out
-** Projectile
-   * https://github.com/bbatsov/projectile
-   * http://projectile.readthedocs.io/en/latest/
 ** Vimish-fold
    * https://github.com/alexmurray/evil-vimish-fold
-** spacemacs evil plugins
-   * http://spacemacs.org/doc/DOCUMENTATION.html#evil-plugins
+** evil-indent-textobject
+   * https://github.com/cofi/evil-indent-textobject
+** evil-args
+   * https://github.com/wcsmith/evil-args
+** emacs-neotree
+   * https://github.com/jaypei/emacs-neotree
+** evil-visualstar
+   * https://github.com/bling/evil-visualstar
+** evil-numbers
+   * https://github.com/cofi/evil-numbers
+** evil-ediff
+   * https://github.com/emacs-evil/evil-ediff
+** evil-surround
+   * https://github.com/emacs-evil/evil-surround
+** evil-exchange
+   * https://github.com/Dewdrops/evil-exchange
+** evil-matchit
+   * https://github.com/redguardtoo/evil-matchit
 ** evil-smartparens
    * https://github.com/expez/evil-smartparens
 ** Flycheck

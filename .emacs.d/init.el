@@ -304,6 +304,7 @@
 (use-package org
   :init
   (require 'my-functions)
+  (add-hook 'org-mode-hook (lambda () (setq tab-width 2)))
   :config
   (setq org-M-RET-may-split-line '(default . nil)) ; Don't split line automatically
   (evil-make-overriding-map org-mode-map 'normal)

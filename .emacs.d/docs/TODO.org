@@ -65,17 +65,19 @@
 *** emacs-neotree
     * https://github.com/jaypei/emacs-neotree
     * https://www.emacswiki.org/emacs/NeoTree
+*** evil-numbers
+    * https://github.com/cofi/evil-numbers
+*** evil-visualstar
+    * https://github.com/bling/evil-visualstar
 * Packages to check out
 ** Vimish-fold
    * https://github.com/alexmurray/evil-vimish-fold
+** perpective-el
+   * https://github.com/nex3/perspective-el
 ** evil-indent-textobject
    * https://github.com/cofi/evil-indent-textobject
 ** evil-args
    * https://github.com/wcsmith/evil-args
-** evil-visualstar
-   * https://github.com/bling/evil-visualstar
-** evil-numbers
-   * https://github.com/cofi/evil-numbers
 ** evil-ediff
    * https://github.com/emacs-evil/evil-ediff
 ** evil-surround

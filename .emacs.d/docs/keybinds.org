@@ -204,10 +204,12 @@
    | h   | helm prefix  |         |
    | g   | magit-status |         |
    | SPC | counsel-M-x  |         |
-** Prefix: ö - ?
+** Prefix: ö - Specific edits
    | Key | Function                          | Comment |
    |-----+-----------------------------------+---------|
    | c   | evilnc-comment-or-uncomment-lines |         |
+   | i   | evil-numbers/inc-at-pt            |         |
+   | d   | evil-numbers/dec-at-pt            |         |
 ** Prefix: g - Go
    | Key | Function                            | Comment                     |
    |-----+-------------------------------------+-----------------------------|

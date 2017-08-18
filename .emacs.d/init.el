@@ -188,6 +188,20 @@
             "ö c" #'evilnc-comment-or-uncomment-lines
             ))
 
+(use-package evil-numbers
+  :general
+  (:keymaps 'normal
+            "ö i" #'evil-numbers/inc-at-pt
+            "ö d" #'evil-numbers/dec-at-pt
+            ))
+
+(use-package evil-visualstar
+  :init (global-evil-visualstar-mode)
+  :general
+  (:keymaps 'visual
+            "#" #'evil-visualstar/begin-search-forward
+            "¤" #'evil-visualstar/begin-search-backward))
+
 (use-package flycheck
   :init (global-flycheck-mode))
 

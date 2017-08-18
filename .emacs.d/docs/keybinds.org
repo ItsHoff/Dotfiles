@@ -160,7 +160,7 @@
    | c           | emacs prefix                 | TODO: replace           |
    | v           | evil-visual-block            |                         |
    | b           | ivy-switch-buffer            |                         |
-   | n           | evil-paste-pop-next          | included in C-j         |
+   | n           | neotree-toggle               |                         |
    | m           | helm-mini                    |                         |
    | ,           | -                            |                         |
    | .           | evil-repeat-pop              |                         |

@@ -295,6 +295,19 @@
             )
   )
 
+(use-package neotree
+  :config
+  (setq neo-auto-indent-point t)
+  (setq neo-smart-open t)
+  (require 'evil)
+  (evil-make-overriding-map neotree-mode-map 'normal)
+  :general
+  (:keymaps '(motion normal)
+            "C-n" #'neotree-toggle)
+  (:keymaps 'neotree-mode-map
+            "C-n" #'neotree-toggle)
+  )
+
 (use-package nlinum-relative
   :init
   (setq nlinum-relative-redisplay-delay 0.01)

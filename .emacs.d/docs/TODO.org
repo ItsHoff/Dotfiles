@@ -62,6 +62,9 @@
 *** Projectile
     * https://github.com/bbatsov/projectile
     * http://projectile.readthedocs.io/en/latest/
+*** emacs-neotree
+    * https://github.com/jaypei/emacs-neotree
+    * https://www.emacswiki.org/emacs/NeoTree
 * Packages to check out
 ** Vimish-fold
    * https://github.com/alexmurray/evil-vimish-fold
@@ -69,8 +72,6 @@
    * https://github.com/cofi/evil-indent-textobject
 ** evil-args
    * https://github.com/wcsmith/evil-args
-** emacs-neotree
-   * https://github.com/jaypei/emacs-neotree
 ** evil-visualstar
    * https://github.com/bling/evil-visualstar
 ** evil-numbers

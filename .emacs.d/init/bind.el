@@ -131,7 +131,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (general-define-key :keymaps 'normal
                     ; Join + split
                     "<backspace>" #'evil-join
-                    "<return>" #'my-split-line
+                    "RET" #'my-split-line
                     ; Pops
                     "C-k" #'my-paste-and-repeat-pop
                     "C-j" #'my-paste-and-repeat-pop-next

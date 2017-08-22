@@ -40,6 +40,9 @@
 (define-key input-decode-map [?\C-i] [C-i])
 (define-key input-decode-map [?\C-m] [C-m])
 
+; Just define § as escape so things are sensible on bigger keyboards
+(define-key input-decode-map [?§] [escape])
+
 ;; Smooth scrolling
 (setq scroll-step 1)
 (setq scroll-margin 5)

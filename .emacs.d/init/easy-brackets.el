@@ -51,5 +51,18 @@
 
 (advice-add #'evil-find-char :filter-args #'my-advice-easy-brackets)
 
+(general-define-key :keymaps 'evil-inner-text-objects-map
+                    "C-h" #'evil-inner-curly
+                    "C-l" #'evil-inner-curly
+                    "C-j" #'evil-inner-bracket
+                    "C-k" #'evil-inner-bracket
+                    )
+(general-define-key :keymaps 'evil-outer-text-objects-map
+                    "C-h" #'evil-a-curly
+                    "C-l" #'evil-a-curly
+                    "C-j" #'evil-a-bracket
+                    "C-k" #'evil-a-bracket
+                    )
+
 (provide 'easy-brackets)
 ;;; easy-brackets ends here

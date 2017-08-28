@@ -182,6 +182,9 @@
             "<return>" #'widget-button-press
             ))
 
+(use-package evil-matchit
+  :init (global-evil-matchit-mode 1))
+
 (use-package evil-nerd-commenter
   :config
   (define-key evil-inner-text-objects-map "c" 'evilnc-inner-comment)

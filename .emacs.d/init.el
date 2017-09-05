@@ -138,7 +138,7 @@
   :init
   (setq ivy-use-virtual-buffers t)
   (setq ivy-count-format "%d/%d ")
-  (setq ivy-re-builders-alist '((t . ivy--regex-fuzzy)))
+  (setq ivy-re-builders-alist '((t . ivy--regex-plus)))
   (setq ivy-initial-inputs-alist nil)
   (setq ivy-flx-limit 10000)
   (use-package ivy

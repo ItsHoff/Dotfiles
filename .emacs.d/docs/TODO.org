@@ -125,6 +125,7 @@
    * http://thagomizer.com/blog/2017/03/16/five-useful-org-mode-features.html
    * https://github.com/Somelauw/evil-org-mode
    * https://www.reddit.com/r/orgmode/comments/6mfvb1/syncing_org_files_to_android_orgzly_with_tasker/
+   * https://www.reddit.com/r/orgmode/comments/6t7ufq/what_are_the_best_packages_plugins_for_org_mode/
 ** Magit
    * https://magit.vc/
 ** Python

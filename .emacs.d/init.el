@@ -182,6 +182,12 @@
             "<return>" #'widget-button-press
             ))
 
+(use-package evil-exchange
+  :init
+  (setq evil-exchange-key (kbd "öx"))
+  (evil-exchange-install))
+
+
 (use-package evil-matchit
   :init (global-evil-matchit-mode 1))
 

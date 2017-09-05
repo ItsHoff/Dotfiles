@@ -63,6 +63,7 @@ set splitbelow
 set splitright
 set autowrite
 set autoread
+set autochdir
 set gdefault
 set textwidth=0
 set foldmethod=syntax

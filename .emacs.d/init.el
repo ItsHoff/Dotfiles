@@ -76,6 +76,7 @@
 (setq-default tab-always-indent nil)    ; Allow tabbing outside of indent
 (setq-default indent-tabs-mode nil)     ; Use spaces instead of tabs
 (setq-default tab-width 4)              ; Tab = 4 spaces
+(setq-default evil-shift-width tab-width)
 
 ;; HOOKS ---------------------------------------------------------------------------------------
 
@@ -144,6 +145,9 @@
   (use-package ivy
     :diminish ivy-mode
     :init (ivy-mode 1))
+  :config
+  (evil-declare-not-repeat #'ivy-switch-buffer)
+  (evil-declare-not-repeat #'counsel-find-file)
   :general
   (:keymaps '(motion normal)
             "SPC" nil
@@ -343,7 +347,10 @@
 (use-package org
   :init
   (require 'my-functions)
-  (add-hook 'org-mode-hook (lambda () (setq tab-width 2)))
+  (add-hook 'org-mode-hook (lambda ()
+                             (setq tab-width 2)
+                             (setq evil-shift-width tab-width)
+                             ))
   :config
   (setq org-M-RET-may-split-line '(default . nil)) ; Don't split line automatically
   (evil-make-overriding-map org-mode-map 'normal)
@@ -489,7 +496,10 @@
 (use-package lisp-mode
   :ensure nil
   :commands emacs-lisp-mode
-  :init (add-hook 'emacs-lisp-mode-hook (lambda () (setq tab-width 2)))
+  :init (add-hook 'emacs-lisp-mode-hook (lambda ()
+                                          (setq tab-width 2)
+                                          (setq evil-shift-width tab-width)
+                                          ))
   :config
   (modify-syntax-entry ?_ "w" emacs-lisp-mode-syntax-table) ; _ is now part of a word
   (modify-syntax-entry ?- "w" emacs-lisp-mode-syntax-table) ; aswell as -

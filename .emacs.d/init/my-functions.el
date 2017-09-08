@@ -6,13 +6,16 @@
 (require 'org)
 
 (defun my-beginning-of-line ()
-  "Go to the first non blank char of line unless already at or in front of it.
-In which case go to hard bol."
+  "First go to beginning of visual line.
+Then to the beginning of line and finally
+to the hard beginning of line."
   (interactive)
   (let ((save-point (point)))
     (evil-first-non-blank-of-visual-line)
     (when (<= save-point (point))
-        (evil-beginning-of-visual-line))))
+        (evil-first-non-blank))
+    (when (<= save-point (point))
+        (evil-beginning-of-line))))
 
 (evil-declare-not-repeat #'my-beginning-of-line)
 
@@ -22,7 +25,9 @@ In which case go to hard bol."
 If point is at or ahead of it move to last character."
   (interactive)
   (let ((save-point (point)))
-    (move-end-of-line nil)
+    (if truncate-lines
+        (evil-end-of-line)
+      (evil-end-of-visual-line))
     (re-search-backward "^\\|[^[:space:]]")
     (when (>= save-point (point))
         (evil-end-of-line))))

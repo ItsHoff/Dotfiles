@@ -124,9 +124,15 @@ Goto end if no lower higher level headings."
 
 (evil-declare-not-repeat #'my-org-down-heading)
 
+(defun my-org-indent-advice ()
+  "Align indent with 'tab-width'.
+Advice type: after."
+  (backward-delete-char (% (current-column) tab-width)))
+
 (defun my-advice-preserve-timestamps (args)
   "Change preserve-timestamps in ARGS to t.
-Filters arguments for undo-tree-undo-1 and undo-tree-redo-1."
+Filters arguments for undo-tree-undo-1 and undo-tree-redo-1.
+Advice type: filter-args."
   (list (nth 0 args) (nth 1 args) t))
 
 (provide 'my-functions)

@@ -354,6 +354,7 @@
   :config
   (setq org-M-RET-may-split-line '(default . nil)) ; Don't split line automatically
   (evil-make-overriding-map org-mode-map 'normal)
+  (advice-add #'org-indent-line :after #'my-org-indent-advice)
   :general
   (:keymaps 'org-mode-map
             :states '(normal visual)

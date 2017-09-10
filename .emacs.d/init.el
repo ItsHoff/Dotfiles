@@ -530,6 +530,10 @@
   :ensure auctex
   :bind ("C-c e" . TeX-next-error))
 
+;; Vimrc
+(use-package vimrc-mode
+  :mode "\\.vim\\(rc\\)?\\'")
+
 (load "bind")
 (load "local-conf" t) ; No error if missing
 

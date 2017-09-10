@@ -269,6 +269,8 @@ nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
 " Map esc to something else
 imap å <Esc>
 vmap å <Esc>
+imap § <Esc>
+vmap § <Esc>
 
 " Make Y work like C and D
 map Y y$

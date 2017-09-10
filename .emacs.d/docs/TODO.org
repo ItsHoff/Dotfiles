@@ -7,10 +7,10 @@
     * heading navigation
     * item insertion
 *** Window controls
-  * Make use of hydras
-  * separate or combined movement and viewpoint control?
-  * evil-scroll-down/-up
-  * resizing
+    * Make use of hydras
+    * separate or combined movement and viewpoint control?
+    * evil-scroll-down/-up
+    * resizing
 ** Learn
 *** Magit
 *** Org
@@ -19,22 +19,22 @@
     * https://github.com/abo-abo/hydra/wiki/Helm
 ** Change
 *** prefix g: go
-  * G as reverse?
-  * j eof, k bof
-  * C-t pop-tag-mark
-  * These here:
-    - G
-      [ (  evil-previous-open-paren
-      [ [  evil-backward-section-begin
-      [ ]  evil-backward-section-end
-      ] s  evil-prev-flyspell-error
-      [ {  evil-previous-open-brace
-    - g
-      ] )  evil-next-close-paren
-      ] [  evil-forward-section-end
-      ] ]  evil-forward-section-begin
-      ] s  evil-next-flyspell-error
-      ] }  evil-next-close-brace
+    * G as reverse?
+    * j eof, k bof
+    * C-t pop-tag-mark
+    * These here:
+      - G
+        [ (  evil-previous-open-paren
+        [ [  evil-backward-section-begin
+        [ ]  evil-backward-section-end
+        ] s  evil-prev-flyspell-error
+        [ {  evil-previous-open-brace
+      - g
+        ] )  evil-next-close-paren
+        ] [  evil-forward-section-end
+        ] ]  evil-forward-section-begin
+        ] s  evil-next-flyspell-error
+        ] }  evil-next-close-brace
 *** Rethink folding
 *** Rework marks
 *** U vs C-r
@@ -71,68 +71,68 @@
     * https://github.com/bling/evil-visualstar
 * Packages to check out
 ** Vimish-fold
-   * https://github.com/alexmurray/evil-vimish-fold
+  * https://github.com/alexmurray/evil-vimish-fold
 ** perpective-el
-   * https://github.com/nex3/perspective-el
+  * https://github.com/nex3/perspective-el
 ** evil-indent-textobject
-   * https://github.com/cofi/evil-indent-textobject
+  * https://github.com/cofi/evil-indent-textobject
 ** evil-args
-   * https://github.com/wcsmith/evil-args
+  * https://github.com/wcsmith/evil-args
 ** evil-ediff
-   * https://github.com/emacs-evil/evil-ediff
+  * https://github.com/emacs-evil/evil-ediff
 ** evil-surround
-   * https://github.com/emacs-evil/evil-surround
+  * https://github.com/emacs-evil/evil-surround
 ** evil-exchange
-   * https://github.com/Dewdrops/evil-exchange
+  * https://github.com/Dewdrops/evil-exchange
 ** evil-matchit
-   * https://github.com/redguardtoo/evil-matchit
+  * https://github.com/redguardtoo/evil-matchit
 ** evil-smartparens
-   * https://github.com/expez/evil-smartparens
+  * https://github.com/expez/evil-smartparens
 ** Flycheck
 ** Rust-mode
 ** Auctex
-   * https://www.gnu.org/software/auctex/index.html
+  * https://www.gnu.org/software/auctex/index.html
 * Resources
 ** Global
-    * https://github.com/emacs-tw/awesome-emacs
-    * http://spacemacs.org/
-    * https://masteringemacs.org/
-    * https://juanjoalvarez.net/es/detail/2014/sep/19/vim-emacsevil-chaotic-migration-guide/
-    * https://blog.aaronbieber.com/2015/05/24/from-vim-to-emacs-in-fourteen-days.html
-    * http://www.cachestocaches.com/2016/12/vim-within-emacs-anecdotal-guide/
-    * https://github.com/noctuid/evil-guide
-    * https://www.reddit.com/r/emacs/comments/60nb8b/favorite_builtin_emacs_commands/
-    * https://stackoverflow.com/questions/8483182/evil-mode-best-practice
-    * https://melpa.org/#/
-    * http://pages.sachachua.com/.emacs.d/Sacha.html#orgdda953f
-    * http://mp.vv.si/blog/emacs/emacs-init-performance-analysis/
-    * http://ergoemacs.org/emacs/emacs.html
-    * https://cestlaz.github.io/stories/emacs/
+  * https://github.com/emacs-tw/awesome-emacs
+  * http://spacemacs.org/
+  * https://masteringemacs.org/
+  * https://juanjoalvarez.net/es/detail/2014/sep/19/vim-emacsevil-chaotic-migration-guide/
+  * https://blog.aaronbieber.com/2015/05/24/from-vim-to-emacs-in-fourteen-days.html
+  * http://www.cachestocaches.com/2016/12/vim-within-emacs-anecdotal-guide/
+  * https://github.com/noctuid/evil-guide
+  * https://www.reddit.com/r/emacs/comments/60nb8b/favorite_builtin_emacs_commands/
+  * https://stackoverflow.com/questions/8483182/evil-mode-best-practice
+  * https://melpa.org/#/
+  * http://pages.sachachua.com/.emacs.d/Sacha.html#orgdda953f
+  * http://mp.vv.si/blog/emacs/emacs-init-performance-analysis/
+  * http://ergoemacs.org/emacs/emacs.html
+  * https://cestlaz.github.io/stories/emacs/
 ** Ivy
-   * http://oremacs.com/swiper/
-   * https://github.com/abo-abo/swiper
-   * https://oremacs.com/2015/04/16/ivy-mode/
-   * https://writequit.org/denver-emacs/presentations/2017-04-11-ivy.html
-   * https://www.reddit.com/r/emacs/comments/52lnad/from_helm_to_ivy_a_user_perspective/
+  * http://oremacs.com/swiper/
+  * https://github.com/abo-abo/swiper
+  * https://oremacs.com/2015/04/16/ivy-mode/
+  * https://writequit.org/denver-emacs/presentations/2017-04-11-ivy.html
+  * https://www.reddit.com/r/emacs/comments/52lnad/from_helm_to_ivy_a_user_perspective/
 ** Helm
-   * https://emacs-helm.github.io/helm/
-   * https://github.com/emacs-helm/helm-descbinds
-   * https://tuhdo.github.io/helm-intro.html
+  * https://emacs-helm.github.io/helm/
+  * https://github.com/emacs-helm/helm-descbinds
+  * https://tuhdo.github.io/helm-intro.html
 ** Org
-   * http://orgmode.org/worg/
-   * http://doc.norang.ca/org-mode.html
-   * http://ehneilsen.net/notebook/orgExamples/org-examples.html
-   * http://thagomizer.com/blog/2017/03/16/five-useful-org-mode-features.html
-   * https://github.com/Somelauw/evil-org-mode
-   * https://www.reddit.com/r/orgmode/comments/6mfvb1/syncing_org_files_to_android_orgzly_with_tasker/
-   * https://www.reddit.com/r/orgmode/comments/6t7ufq/what_are_the_best_packages_plugins_for_org_mode/
+  * http://orgmode.org/worg/
+  * http://doc.norang.ca/org-mode.html
+  * http://ehneilsen.net/notebook/orgExamples/org-examples.html
+  * http://thagomizer.com/blog/2017/03/16/five-useful-org-mode-features.html
+  * https://github.com/Somelauw/evil-org-mode
+  * https://www.reddit.com/r/orgmode/comments/6mfvb1/syncing_org_files_to_android_orgzly_with_tasker/
+  * https://www.reddit.com/r/orgmode/comments/6t7ufq/what_are_the_best_packages_plugins_for_org_mode/
 ** Magit
-   * https://magit.vc/
+  * https://magit.vc/
 ** Python
-   * http://www.jesshamrick.com/2012/09/18/emacs-as-a-python-ide/
+  * http://www.jesshamrick.com/2012/09/18/emacs-as-a-python-ide/
 ** Rust
-   * http://julienblanchard.com/2016/fancy-rust-development-with-emacs/
+  * http://julienblanchard.com/2016/fancy-rust-development-with-emacs/
 ** C and C++
-   * https://www.reddit.com/r/emacs/comments/6lnwaz/c_in_gnu_emacs/
+  * https://www.reddit.com/r/emacs/comments/6lnwaz/c_in_gnu_emacs/
 ** Eshell
-   * https://www.masteringemacs.org/article/complete-guide-mastering-eshell
+  * https://www.masteringemacs.org/article/complete-guide-mastering-eshell

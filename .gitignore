@@ -1,12 +1,4 @@
-backups/
-undos/
-elpa/
-eshell/
-auto-save-list/
-tramp
-recentf
-*~
-local-conf.el
-smex-items
-projectile.cache
-projectile-bookmarks.eld
+.emacs.d/*
+!.emacs.d/init.el
+!.emacs.d/init/
+!.emacs.d/docs/

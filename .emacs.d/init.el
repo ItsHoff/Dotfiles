@@ -372,8 +372,8 @@
   :init
   (projectile-mode)
   :config
+  (setq projectile-indexing-method 'alien) ; Required tools should be installed on windows aswell
   (setq projectile-completion-system 'ivy)
-  (setq projectile-enable-caching t)
   :general
   (:keymaps 'projectile-command-map
             "A" (lambda () (interactive) (projectile-add-known-project (projectile-project-p)))

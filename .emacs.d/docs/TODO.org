@@ -108,6 +108,7 @@
   * http://mp.vv.si/blog/emacs/emacs-init-performance-analysis/
   * http://ergoemacs.org/emacs/emacs.html
   * https://cestlaz.github.io/stories/emacs/
+  * http://ergoemacs.org/emacs/emacs_hyper_super_keys.html
 ** Ivy
   * http://oremacs.com/swiper/
   * https://github.com/abo-abo/swiper

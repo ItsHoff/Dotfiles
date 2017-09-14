@@ -78,6 +78,10 @@
 (setq-default tab-width 4)              ; Tab = 4 spaces
 (setq-default evil-shift-width tab-width)
 
+;; Make windows app key hyper
+(setq w32-pass-apps-to-system nil)
+(setq w32-apps-modifier 'hyper)
+
 ;; HOOKS ---------------------------------------------------------------------------------------
 
 ; Auto-save on focus lost

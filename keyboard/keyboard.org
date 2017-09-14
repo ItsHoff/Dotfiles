@@ -1,0 +1,5 @@
+* Implemented
+** AHK
+  * shifts as brackets
+  * caps as hyper (mapped from menu key) in emacs
+  * caps hjkl as arrows

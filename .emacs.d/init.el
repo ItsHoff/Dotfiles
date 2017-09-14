@@ -371,9 +371,7 @@
 (use-package projectile
   :init
   (projectile-mode)
-  (use-package counsel-projectile)
   :config
-  (counsel-projectile-on)
   (setq projectile-completion-system 'ivy)
   (setq projectile-enable-caching t)
   :general

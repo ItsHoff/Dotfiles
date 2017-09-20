@@ -511,7 +511,11 @@
 ;; Octave / Matlab
 (use-package octave-mode
   :ensure nil
-  :mode "\\.m\\'")
+  :mode "\\.m\\'"
+  :init (add-hook 'octave-mode-hook (lambda ()
+                                      (setq tab-width 2)
+                                      (setq evil-shift-width tab-width)))
+  )
 
 ;; Rust
 (use-package rust-mode

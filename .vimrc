@@ -36,12 +36,11 @@ Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'lervag/vimtex'
-
-" Plugins to checkout
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+
+" Plugins to checkout
 Plugin 'unblevable/quick-scope'
-Plugin 'christoomey/vim-tmux-navigator'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -278,6 +277,10 @@ noremap <Down> :bp<CR>
 noremap <Right> gt
 noremap <Left> gT
 
+" Change working directory
+noremap <leader>cd :cd %:p:h<CR>
+noremap <localleader>cd :lcd %:p:h<CR>
+
 " Clear highlight
 noremap <leader>f :nohlsearch<CR>
 
@@ -296,11 +299,11 @@ nnoremap <leader>S ^vg_y:execute @@<cr>:echo 'Sourced line.'<cr>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>et :vsplit ~/.tmux.conf<cr>
 
-" Easier split commands (Not needed with tmux-navigator)
-" noremap <leader>sh <C-w>v
-" noremap <leader>sv <C-w>s
-" nnoremap <leader>so :only<CR>
-" nnoremap <leader>sc :close<CR>
+" Easier split commands
+noremap <leader>sh <C-w>v
+noremap <leader>sv <C-w>s
+nnoremap <leader>so :only<CR>
+nnoremap <leader>sc :close<CR>
 
 " Easier tab commands
 nnoremap <leader>tc :tabclose<CR>

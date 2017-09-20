@@ -3,3 +3,8 @@
   * shifts as brackets
   * caps as hyper (mapped from menu key) in emacs
   * caps hjkl as arrows
+* Linux notes
+  * should enable hyper:
+setxkbmap -option "caps:hyper"
+xmodmap -e "remove Mod4 = Hyper_L" -e "add Mod3 = Hyper_L"
+  * https://superuser.com/questions/528341/in-linux-how-can-i-map-shift-l-shift-r-when-pressed-without-additional-key

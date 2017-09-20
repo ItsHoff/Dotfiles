@@ -17,18 +17,16 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
 Plugin 'sjl/gundo.vim'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'klen/python-mode'
-Plugin 'wting/rust.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
@@ -37,19 +35,17 @@ Plugin 'scrooloose/syntastic'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'lervag/vimtex'
 
 " Plugins to checkout
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'lervag/vimtex'
 Plugin 'unblevable/quick-scope'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-
-" WHEN YCM SHITS ITSELF---------------------------------------------------------¨
-" let g:ycm_server_keep_logfiles=1
 
 " BASIC SETTINGS----------------------------------------------------------------
 
@@ -108,6 +104,9 @@ set sidescroll=1
 " Allow motions and back-spacing over line-endings etc
 set backspace=indent,eol,start
 set whichwrap=b,<,>,~,[,]
+" Command line completion
+set wildmode=longest,list,full
+set wildmenu
 
 " TABS, INDENTATION AND LINES
 
@@ -200,6 +199,9 @@ let g:pymode_rope = 0
 let g:pymode_rope_completion = 0
 let g:pymode_run_bind = ''
 
+" Quick-Scope
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
 " Syntastic
 nnoremap <leader>le :Errors<CR>
 nnoremap <localleader>ss :SyntasticCheck<CR>
@@ -279,6 +281,9 @@ noremap <Left> gT
 " Clear highlight
 noremap <leader>f :nohlsearch<CR>
 
+" Toggle paste
+set pastetoggle=<leader>p
+
 " Split line (sister to [J]oin lines)
 " The normal use of S is covered by cc, so don't worry about shadowing it.
 nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
@@ -289,10 +294,13 @@ nnoremap <leader>S ^vg_y:execute @@<cr>:echo 'Sourced line.'<cr>
 
 " Quick editing
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>et :vsplit ~/.tmux.conf<cr>
 
-" Easier split commands
-nnoremap <leader>so :only<CR>
-nnoremap <leader>sc :close<CR>
+" Easier split commands (Not needed with tmux-navigator)
+" noremap <leader>sh <C-w>v
+" noremap <leader>sv <C-w>s
+" nnoremap <leader>so :only<CR>
+" nnoremap <leader>sc :close<CR>
 
 " Easier tab commands
 nnoremap <leader>tc :tabclose<CR>
@@ -334,12 +342,10 @@ noremap L $
 noremap gL g$
 
 " Heresy
-inoremap <c-a> <esc>I
-inoremap <c-e> <esc>A
 cnoremap <c-a> <home>
 cnoremap <c-e> <end>
 
-" It's 2013.
+" Proper movement with wrapped lines
 noremap j gj
 noremap k gk
 noremap gj j
@@ -350,8 +356,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
-noremap <leader>v <C-w>v
-noremap <leader>h <C-w>s
 
 " Location list movement
 nnoremap <leader>ll :ll<CR>
@@ -385,7 +389,7 @@ augroup cline
 augroup END
 
 " Trailing whitespace {{{
-" Only shown when not in insert mode so I don't go insane.
+" Only shown when not in insert mode
 augroup trailing
     au!
     au InsertEnter * :set listchars-=trail:⌴
@@ -400,33 +404,6 @@ fun! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfun
 autocmd FileType c,cpp,java,php,ruby,python,tex autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
-
-" Highlight possible options with f, F, t and T when pressed
-" Insert into your .vimrc after quick-scope is loaded.
-" Obviously depends on <https://github.com/unblevable/quick-scope> being installed.
-
-" Thanks to @VanLaser for cleaning the code up and expanding capabilities to include e.g. `df`
-
-let g:qs_enable = 0
-let g:qs_enable_char_list = [ 'f', 'F', 't', 'T' ]
-
-function! Quick_scope_selective(movement)
-    let needs_disabling = 0
-    if !g:qs_enable
-        QuickScopeToggle
-        redraw
-        let needs_disabling = 1
-    endif
-    let letter = nr2char(getchar())
-    if needs_disabling
-        QuickScopeToggle
-    endif
-    return a:movement . letter
-endfunction
-
-for i in g:qs_enable_char_list
-	execute 'noremap <expr> <silent>' . i . " Quick_scope_selective('". i . "')"
-endfor
 
 " FILETYPES
 

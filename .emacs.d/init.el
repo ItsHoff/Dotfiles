@@ -491,6 +491,17 @@
   :init (add-hook 'octave-mode-hook (lambda () (my-set-tab-width 2)))
   )
 
+;; Python
+(use-package anaconda-mode
+  :init
+  (add-hook 'python-mode-hook 'anaconda-mode)
+  (add-hook 'python-mode-hook (lambda () (my-set-tab-width 4)))
+  )
+
+(use-package company-anaconda
+  :init
+  (add-to-list 'company-backends '(company-anaconda :with company-capf)))
+
 ;; Rust
 (use-package rust-mode
   :init

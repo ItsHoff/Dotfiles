@@ -14,8 +14,6 @@ SetCapslockState, AlwaysOff
 ~Capslock & k:: Send {Blind}{Up}
 ~Capslock & j:: Send {Blind}{Down}
 
-;; Emacs specifics
-#IfWinActive emacs
 ;; AppsKey can be mapped to hyper in emacs
 ~Capslock::
     Send {Blind}{AppsKey DownTemp}

@@ -4,7 +4,6 @@
 *** Autoindent pasted text
     * https://www.emacswiki.org/emacs/AutoIndentation
 *** Org
-    * heading navigation
     * item insertion
 *** Window controls
     * Make use of hydras
@@ -12,11 +11,7 @@
     * evil-scroll-down/-up
     * resizing
 ** Learn
-*** Magit
 *** Org
-*** Hydra
-    * https://github.com/abo-abo/hydra
-    * https://github.com/abo-abo/hydra/wiki/Helm
 ** Change
 *** prefix g: go
     * G as reverse?
@@ -35,7 +30,6 @@
         ] ]  evil-forward-section-begin
         ] s  evil-next-flyspell-error
         ] }  evil-next-close-brace
-*** Rethink folding
 *** Rework marks
 *** U vs C-r
 ** Create
@@ -137,3 +131,7 @@
   * https://www.reddit.com/r/emacs/comments/6lnwaz/c_in_gnu_emacs/
 ** Eshell
   * https://www.masteringemacs.org/article/complete-guide-mastering-eshell
+** Latex
+  * https://www.reddit.com/r/emacs/comments/6ymf57/latex_tweaks_for_emacs/
+  * https://piotrkazmierczak.com/2010/emacs-as-the-ultimate-latex-editor/
+  * https://tex.stackexchange.com/questions/50827/a-simpletons-guide-to-tex-workflow-with-emacs

@@ -506,9 +506,11 @@
     (add-hook 'racer-mode-hook #'eldoc-mode)))
 
 ;; Tex
-(use-package tex-site
-  :ensure auctex
-  :bind ("C-c e" . TeX-next-error))
+(use-package auctex
+  :bind ("C-c e" . TeX-next-error)
+  :config
+  (setq TeX-auto-save t)
+  (setq TeX-parse-self t))
 
 ;; Vimrc
 (use-package vimrc-mode

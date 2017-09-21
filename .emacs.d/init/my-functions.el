@@ -5,6 +5,11 @@
 (require 'evil)
 (require 'org)
 
+(defun my-set-tab-width (width)
+  "Set 'tab-width' to WIDTH."
+  (setq tab-width width)
+  (setq evil-shift-width width))
+
 (defun my-beginning-of-line ()
   "First go to beginning of visual line.
 Then to the beginning of line and finally

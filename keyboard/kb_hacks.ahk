@@ -13,8 +13,16 @@ SetCapslockState, AlwaysOff
 ~Capslock & l:: Send {Blind}{Right}
 ~Capslock & k:: Send {Blind}{Up}
 ~Capslock & j:: Send {Blind}{Down}
+; Plain Caps sends esc
+~Capslock::
+    KeyWait, Capslock
+    if (A_PriorKey = "Capslock") {
+        Send {Blind}{Esc}
+    }
+return
 
 ;; AppsKey can be mapped to hyper in emacs
+#IfWinActive Emacs
 ~Capslock::
     Send {Blind}{AppsKey DownTemp}
     KeyWait, Capslock

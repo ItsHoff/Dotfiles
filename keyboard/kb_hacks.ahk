@@ -13,6 +13,8 @@ SetCapslockState, AlwaysOff
 ~Capslock & l:: Send {Blind}{Right}
 ~Capslock & k:: Send {Blind}{Up}
 ~Capslock & j:: Send {Blind}{Down}
+
+~Capslock & BS:: Send {Blind}{Del}
 ; Plain Caps sends esc
 ~Capslock::
     KeyWait, Capslock

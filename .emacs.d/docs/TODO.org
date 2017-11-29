@@ -133,6 +133,7 @@
   * http://julienblanchard.com/2016/fancy-rust-development-with-emacs/
 ** C and C++
   * https://www.reddit.com/r/emacs/comments/6lnwaz/c_in_gnu_emacs/
+  * https://www.reddit.com/r/emacs/comments/7fp6jk/beginners_guide_to_setting_up_a_basic_emacs_c/
 ** Eshell
   * https://www.masteringemacs.org/article/complete-guide-mastering-eshell
   * https://www.reddit.com/r/emacs/comments/7a14cp/fishlike_autosuggestions_in_eshell/

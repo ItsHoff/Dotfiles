@@ -81,6 +81,30 @@
           ]
         }
       ]
+    },
+    {
+      "description": "Caps layer",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "delete_or_backspace",
+            "modifiers": {
+                "mandatory": [
+                    "left_shift",
+                    "left_command",
+                    "left_control",
+                    "left_option"
+                ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_forward"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

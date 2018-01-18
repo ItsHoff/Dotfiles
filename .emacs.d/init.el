@@ -553,7 +553,7 @@
   :mode "\\.vim\\(rc\\)?\\'")
 
 (load "bind")
-(load "local-conf" t) ; No error if missing
+(load "local-conf" 'noerror) ; No error if missing
 
 (provide 'init)
 ;;; init.el ends here

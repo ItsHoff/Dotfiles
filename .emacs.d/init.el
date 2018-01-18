@@ -117,6 +117,10 @@
   (setq evil-emacs-state-tag "EMACS")
   )
 
+(use-package abbrev
+  :ensure nil
+  :diminish abbrev-mode)
+
 (use-package autorevert
   :ensure nil
   :diminish auto-revert-mode)
@@ -175,6 +179,11 @@
             "C-j" #'ivy-next-line
             "C-k" #'ivy-previous-line
             "<escape>" #'minibuffer-keyboard-quit))
+
+(use-package diminish)
+
+(use-package eldoc
+  :diminish eldoc-mode)
 
 (use-package evil-exchange
   :init
@@ -455,6 +464,8 @@
   (setq whitespace-display-mappings '((tab-mark ?\t [?▸ ?\t] [?› ?\t] [?> ?\t])))
   (global-whitespace-mode t))
 
+(use-package yasnippet
+  :diminish yas-minor-mode)
 
 ;; PROGRAMMING MODES ---------------------------------------------------------------------------
 

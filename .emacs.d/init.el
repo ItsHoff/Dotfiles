@@ -484,6 +484,7 @@
   :config
   (modify-syntax-entry ?_ "w" c-mode-syntax-table) ; _ is now part of a word
   (modify-syntax-entry ?_ "w" c++-mode-syntax-table) ; _ is now part of a word
+  (modify-syntax-entry ?_ "w" java-mode-syntax-table) ; _ is now part of a word
   )
 
 ;; GLSL

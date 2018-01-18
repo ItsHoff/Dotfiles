@@ -1,5 +1,6 @@
 * TODO
 ** Fix
+  * Manually install general since otherwise use-package will fail due to ':general' sections
 ** Improve
 *** Autoindent pasted text
     * https://www.emacswiki.org/emacs/AutoIndentation
@@ -86,6 +87,8 @@
 ** Rust-mode
 ** Auctex
   * https://www.gnu.org/software/auctex/index.html
+** RealGUD
+  * https://github.com/realgud/realgud
 * Resources
 ** Global
   * https://github.com/emacs-tw/awesome-emacs
@@ -104,8 +107,7 @@
   * https://cestlaz.github.io/stories/emacs/
   * http://ergoemacs.org/emacs/emacs_hyper_super_keys.html
 ** Evil everywhere
-  * https://github.com/jojojames/evil-integrations
-  * https://github.com/Ambrevar/evil-special-modes
+  * https://github.com/jojojames/evil-collection
   * https://www.reddit.com/r/emacs/comments/7akqy3/evil_everywhere_the_rest_of_emacs/
 ** Ivy
   * http://oremacs.com/swiper/

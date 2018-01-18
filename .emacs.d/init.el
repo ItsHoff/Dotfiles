@@ -487,7 +487,8 @@
   )
 
 ;; GLSL
-(use-package glsl-mode)
+(use-package glsl-mode
+  :mode "\\.shader\\'")
 
 ;; ELisp
 (use-package lisp-mode

@@ -82,6 +82,10 @@
 (setq w32-pass-apps-to-system nil)
 (setq w32-apps-modifier 'hyper)
 
+;; Save custom settings to another file and load it
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file 'noerror)
+
 ;; HOOKS ---------------------------------------------------------------------------------------
 
 ; Auto-save on focus lost

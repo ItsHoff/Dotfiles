@@ -501,6 +501,14 @@
   (modify-syntax-entry ?- "w" emacs-lisp-mode-syntax-table) ; aswell as -
   )
 
+;; Java
+(use-package meghanada
+  :diminish meghanada-mode
+  :init
+  (setq meghanada-use-flycheck nil)
+  (add-hook 'java-mode-hook #'meghanada-mode)
+  )
+
 ;; Octave / Matlab
 (use-package octave-mode
   :ensure nil

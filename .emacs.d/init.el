@@ -140,8 +140,7 @@
                         (format "C-%d" i) #'company-complete-number))
   :general
   (:keymaps 'company-active-map
-            "<return>" nil
-            "C-<return>" #'company-complete-selection)
+            "C-<return>" #'newline-and-indent)
   )
 
 (use-package company-flx

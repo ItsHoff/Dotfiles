@@ -39,6 +39,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (general-define-key :keymaps 'global
                     "M-+" help-map  ; Remap help
                     "M-<dead-acute>" #'describe-key  ; Map key help (next to +)
+                    "M-/" help-map  ; Remap help for ansi
                     "M-u" #'universal-argument
                     "M-g" #'keyboard-quit
                     )

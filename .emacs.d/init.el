@@ -198,7 +198,7 @@
   (define-key evil-inner-text-objects-map "c" 'evilnc-inner-comment)
   (define-key evil-outer-text-objects-map "c" 'evilnc-outer-commenter)
   :general
-  (:keymaps 'normal
+  (:keymaps '(normal visual)
             "; c" #'evilnc-comment-or-uncomment-lines
             ))
 

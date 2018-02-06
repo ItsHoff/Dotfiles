@@ -87,6 +87,8 @@
 ** Rust-mode
 ** Auctex
   * https://www.gnu.org/software/auctex/index.html
+** Org-ref
+  * https://github.com/jkitchin/org-ref
 ** RealGUD
   * https://github.com/realgud/realgud
 * Resources

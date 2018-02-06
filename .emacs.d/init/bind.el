@@ -40,6 +40,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     "M-+" help-map  ; Remap help
                     "M-<dead-acute>" #'describe-key  ; Map key help (next to +)
                     "M-/" help-map  ; Remap help for ansi
+                    "M-;" #'describe-key  ; Map key help (next to +)
                     "M-u" #'universal-argument
                     "M-g" #'keyboard-quit
                     )
@@ -112,13 +113,10 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     "L" #'my-end-of-line
                     "J" #'golden-ratio-scroll-screen-up
                     "K" #'golden-ratio-scroll-screen-down
-                    ; Make ¤ be forward #
-                    "#" #'evil-search-word-forward
-                    "¤" #'evil-search-word-backward
                     ; Move sentence object
                     "s" #'evil-forward-sentence-begin
                     "S" #'evil-backward-sentence-begin
-                    ; ; is leader so use ' instead
+                    ; _;_ is leader so use ' instead
                     "'" #'evil-repeat-find-char
                     )
 

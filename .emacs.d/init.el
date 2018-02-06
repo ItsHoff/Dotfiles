@@ -186,7 +186,7 @@
 
 (use-package evil-exchange
   :init
-  (setq evil-exchange-key (kbd "öx"))
+  (setq evil-exchange-key (kbd ";x"))
   (evil-exchange-install))
 
 
@@ -199,14 +199,14 @@
   (define-key evil-outer-text-objects-map "c" 'evilnc-outer-commenter)
   :general
   (:keymaps 'normal
-            "ö c" #'evilnc-comment-or-uncomment-lines
+            "; c" #'evilnc-comment-or-uncomment-lines
             ))
 
 (use-package evil-numbers
   :general
   (:keymaps 'normal
-            "ö i" #'evil-numbers/inc-at-pt
-            "ö d" #'evil-numbers/dec-at-pt
+            "; i" #'evil-numbers/inc-at-pt
+            "; d" #'evil-numbers/dec-at-pt
             ))
 
 (use-package evil-visualstar

@@ -81,6 +81,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
          '("q" nil "quit" :column nil))
 
       ))
+; Define the hydras with the macro
 (my-window-hydra-macro nil)
 (my-window-hydra-macro t)
 (evil-declare-not-repeat #'my-window-hydra/body)
@@ -111,15 +112,14 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     "L" #'my-end-of-line
                     "J" #'golden-ratio-scroll-screen-up
                     "K" #'golden-ratio-scroll-screen-down
-                    ; Swap , and ;
-                    "," #'evil-repeat-find-char
-                    ";" #'evil-repeat-find-char-reverse
                     ; Make ¤ be forward #
                     "#" #'evil-search-word-forward
                     "¤" #'evil-search-word-backward
                     ; Move sentence object
                     "s" #'evil-forward-sentence-begin
                     "S" #'evil-backward-sentence-begin
+                    ; ; is leader so use ' instead
+                    "'" #'evil-repeat-find-char
                     )
 
 ; Define separately to avoid overriding some buffers q quit

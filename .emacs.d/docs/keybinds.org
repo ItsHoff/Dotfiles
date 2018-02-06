@@ -39,7 +39,7 @@
     | l           | evil-forward-char                  |                              |
     | ö           | prefix                             |                              |
     | ä           | -                                  | TODO: use                    |
-    | '           | evil-goto-mark-line                | TODO: redo marks             |
+    | '           | evil-repeat-find-char              |                              |
     | <           | evil-shift-left                    |                              |
     | z           | prefix: view manipulation          |                              |
     | x           | evil-delete-char                   |                              |
@@ -48,7 +48,7 @@
     | b           | evil-backward-word-begin           |                              |
     | n           | evil-search-next                   |                              |
     | m           | evil-set-marker                    | TODO: redo marks             |
-    | ,           | evil-repeat-find-char              |                              |
+    | ,           | evil-repeat-find-char-reverse      |                              |
     | .           | evil-repeat                        |                              |
     | -           | evil-previous-line-first-non-blank | TODO: replace                |
     | <space>     | prefix                             |                              |
@@ -112,7 +112,7 @@
    | B           | evil-backward-WORD-begin            |                                       |
    | N           | evild-search-previous               | TODO: should recenter                 |
    | M           | evil-window-middle                  | TODO: replace                         |
-   | ;           | evil-repeat-find-char-reverse       |                                       |
+   | ;           | prefix                              |                                       |
    | :           | evil-ex                             |                                       |
    | _           | next line first non-blank           | replace                               |
    | <space>     | -                                   |                                       |
@@ -204,7 +204,7 @@
    | h   | helm prefix  |         |
    | g   | magit-status |         |
    | SPC | counsel-M-x  |         |
-** Prefix: ö - Specific edits
+** Prefix: ; - Specific edits
    | Key | Function                          | Comment |
    |-----+-----------------------------------+---------|
    | c   | evilnc-comment-or-uncomment-lines |         |
@@ -306,6 +306,7 @@
    |         | evil-window-prev             |           |
    |         | evil-window-new              |           |
    |         | ffap-other-widow             | undefined |
+   |         |                              |           |
 * Visual-state
 ** Keys
    | Key | Function       | Comment |

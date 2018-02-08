@@ -11,7 +11,7 @@ NumpadAdd & Numpad4:: Send {Media_Prev}
 NumpadAdd & Numpad6:: Send {Media_Next}
 
 ; Change audio source
-NumpadAdd & Numpad0::
+F24::
     Run, c:\windows\system32\control.exe mmsys.cpl
     WinWaitActive, Sound
     WinSet, AlwaysOnTop, On, Sound

@@ -323,6 +323,7 @@
             "C-j" #'magit-section-forward-sibling
             "C-k" #'magit-section-backward-sibling
             "<return>" #'magit-visit-thing
+            "SPC" nil
             )
   )
 

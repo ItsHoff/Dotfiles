@@ -291,9 +291,9 @@ noremap <leader>f :nohlsearch<CR>
 " Toggle paste
 set pastetoggle=<leader>p
 
-" Split line (sister to [J]oin lines)
-" The normal use of S is covered by cc, so don't worry about shadowing it.
-nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
+" Split and join line
+nnoremap <Enter> i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
+nnoremap <BS> J
 
 " Source selection or line
 vnoremap <leader>S y:execute @@<cr>:echo 'Sourced selection.'<cr>
@@ -347,6 +347,9 @@ noremap H ^
 noremap gH g^
 noremap L $
 noremap gL g$
+" J and K down and up
+noremap J <c-d>
+noremap K <c-u>
 
 " Heresy
 cnoremap <c-a> <home>

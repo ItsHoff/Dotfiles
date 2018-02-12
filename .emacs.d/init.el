@@ -115,6 +115,9 @@
   (setq evil-insert-state-tag "INS")
   (setq evil-operator-state-tag "OP")
   (setq evil-emacs-state-tag "EMACS")
+  ; Open new splits right or below
+  (setq evil-vsplit-window-right 1)
+  (setq evil-split-window-below 1)
   )
 
 (use-package abbrev

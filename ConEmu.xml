@@ -411,7 +411,7 @@
 			<value name="ClipboardConfirmEnter" type="hex" data="01"/>
 			<value name="ClipboardConfirmLonger" type="ulong" data="200"/>
 			<value name="FarGotoEditorOpt" type="hex" data="01"/>
-			<value name="FarGotoEditorPath" type="string" data="far.exe /e%1:%2 &quot;%3&quot;"/>
+			<value name="FarGotoEditorPath" type="string" data='far.exe /e%1:%2 "%3"'/>
 			<value name="HighlightMouseRow" type="hex" data="00"/>
 			<value name="HighlightMouseCol" type="hex" data="00"/>
 			<value name="FixFarBorders" type="hex" data="01"/>
@@ -607,7 +607,7 @@
 					<value name="Flags" type="dword" data="00000002"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
-					<value name="Cmd1" type="string" data="cmd.exe /k &quot;%ConEmuBaseDir%\CmdInit.cmd&quot;"/>
+					<value name="Cmd1" type="string" data='cmd.exe /k "%ConEmuBaseDir%\CmdInit.cmd"'/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
@@ -616,7 +616,7 @@
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
-					<value name="Cmd1" type="string" data="cmd.exe /k &quot;%ConEmuBaseDir%\CmdInit.cmd&quot; -new_console:a"/>
+					<value name="Cmd1" type="string" data='cmd.exe /k "%ConEmuBaseDir%\CmdInit.cmd" -new_console:a'/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
@@ -625,7 +625,7 @@
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
-					<value name="Cmd1" type="string" data="&quot;%windir%\syswow64\cmd.exe&quot; /k &quot;%ConEmuBaseDir%\CmdInit.cmd&quot;"/>
+					<value name="Cmd1" type="string" data='"%windir%\syswow64\cmd.exe" /k "%ConEmuBaseDir%\CmdInit.cmd"'/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
@@ -634,8 +634,8 @@
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
-					<value name="Cmd1" type="string" data="&gt; &quot;%windir%\system32\cmd.exe&quot; /k &quot;&quot;%ConEmuBaseDir%\CmdInit.cmd&quot; &amp; echo This is Native cmd.exe&quot;"/>
-					<value name="Cmd2" type="string" data="&quot;%windir%\syswow64\cmd.exe&quot; /k &quot;&quot;%ConEmuBaseDir%\CmdInit.cmd&quot; &amp; echo This is 32 bit cmd.exe -new_console:s50V&quot;"/>
+					<value name="Cmd1" type="string" data='&gt; "%windir%\system32\cmd.exe" /k ""%ConEmuBaseDir%\CmdInit.cmd" &amp; echo This is Native cmd.exe"'/>
+					<value name="Cmd2" type="string" data='"%windir%\syswow64\cmd.exe" /k ""%ConEmuBaseDir%\CmdInit.cmd" &amp; echo This is 32 bit cmd.exe -new_console:s50V"'/>
 					<value name="Active" type="long" data="1"/>
 					<value name="Count" type="long" data="2"/>
 				</key>
@@ -662,7 +662,7 @@
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
-					<value name="Cmd1" type="string" data="set &quot;PATH=%ConEmuDir%\..\Git\usr\bin;%PATH%&quot; &amp; &quot;%ConEmuDir%\..\Git\git-cmd.exe&quot; --no-cd --command=%ConEmuBaseDirShort%\conemu-msys2-64.exe /usr/bin/bash.exe -l -i -new_console:p"/>
+					<value name="Cmd1" type="string" data='set "PATH=%ConEmuDir%\..\Git\usr\bin;%PATH%" &amp; "%ConEmuDir%\..\Git\git-cmd.exe" --no-cd --command=%ConEmuBaseDirShort%\conemu-msys2-64.exe /usr/bin/bash.exe -l -i -new_console:p'/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
@@ -671,7 +671,7 @@
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
-					<value name="Cmd1" type="string" data="set &quot;PATH=%ConEmuDir%\..\Git\usr\bin;%PATH%&quot; &amp; &quot;%ConEmuDir%\..\Git\git-cmd.exe&quot; --no-cd --command=%ConEmuBaseDirShort%\conemu-msys2-64.exe /usr/bin/bash.exe -l -i -new_console:a"/>
+					<value name="Cmd1" type="string" data='set "PATH=%ConEmuDir%\..\Git\usr\bin;%PATH%" &amp; "%ConEmuDir%\..\Git\git-cmd.exe" --no-cd --command=%ConEmuBaseDirShort%\conemu-msys2-64.exe /usr/bin/bash.exe -l -i -new_console:a'/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
@@ -680,7 +680,7 @@
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
-					<value name="Cmd1" type="string" data="cmd.exe /k type &quot;%ConEmuBaseDir%\Addons\AnsiColors16t.ans&quot; -cur_console:n"/>
+					<value name="Cmd1" type="string" data='cmd.exe /k type "%ConEmuBaseDir%\Addons\AnsiColors16t.ans" -cur_console:n'/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
@@ -689,7 +689,7 @@
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
-					<value name="Cmd1" type="string" data="*cmd.exe /k Title Chocolatey &amp; &quot;%ConEmuBaseDir%\Addons\ChocolateyAbout.cmd&quot;"/>
+					<value name="Cmd1" type="string" data='*cmd.exe /k Title Chocolatey &amp; "%ConEmuBaseDir%\Addons\ChocolateyAbout.cmd"'/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
@@ -703,3 +703,4 @@
 		</key>
 	</key>
 </key>
+

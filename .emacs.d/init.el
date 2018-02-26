@@ -78,7 +78,10 @@
 (setq-default tab-width 4)              ; Tab = 4 spaces
 (setq-default evil-shift-width tab-width)
 
-;; Make windows app key hyper
+;; Windows key is super
+(setq w32-lwindow-modifier 'super)
+(setq w32-rwindow-modifier 'super)
+;; and windows app key hyper
 (setq w32-pass-apps-to-system nil)
 (setq w32-apps-modifier 'hyper)
 

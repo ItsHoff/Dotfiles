@@ -93,6 +93,8 @@
   * https://github.com/realgud/realgud
 ** Org-chef
   * https://github.com/Chobbes/org-chef
+** Refactoring
+  * http://manuel-uberti.github.io/emacs/2018/02/10/occur/
 * Resources
 ** Global
   * https://github.com/emacs-tw/awesome-emacs
@@ -140,6 +142,7 @@
 ** C and C++
   * https://www.reddit.com/r/emacs/comments/6lnwaz/c_in_gnu_emacs/
   * https://www.reddit.com/r/emacs/comments/7fp6jk/beginners_guide_to_setting_up_a_basic_emacs_c/
+  * https://www.reddit.com/r/emacs/comments/7wzstc/emacs_as_a_c_ide_martin_sosics_blog/
 ** Eshell
   * https://www.masteringemacs.org/article/complete-guide-mastering-eshell
   * https://www.reddit.com/r/emacs/comments/7a14cp/fishlike_autosuggestions_in_eshell/

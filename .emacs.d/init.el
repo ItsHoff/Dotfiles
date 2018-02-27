@@ -515,6 +515,9 @@
   (add-hook 'java-mode-hook #'meghanada-mode)
   )
 
+;; Kotlin
+(use-package kotlin-mode)
+
 ;; Octave / Matlab
 (use-package octave-mode
   :ensure nil

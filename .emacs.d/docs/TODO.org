@@ -91,6 +91,8 @@
   * https://github.com/jkitchin/org-ref
 ** RealGUD
   * https://github.com/realgud/realgud
+** Org-chef
+  * https://github.com/Chobbes/org-chef
 * Resources
 ** Global
   * https://github.com/emacs-tw/awesome-emacs

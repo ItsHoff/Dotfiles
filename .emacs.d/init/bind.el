@@ -46,52 +46,38 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     )
 
 ; Window commands
-(defmacro my-window-hydra-macro (exit)
-  "Make hydra :exit match EXIT."
-    `(defhydra ,(if exit
-                    (intern "my-window-hydra")
-                  (intern "my-window-hydra-persistant"))
-                  (:exit ,exit :hint nil)
-      "Window"
-      ("h" evil-window-left :column "jump")
-      ("j" evil-window-down)
-      ("k" evil-window-up)
-      ("l" evil-window-right)
-      ("t" evil-window-top-left "top left")
-      ("b" evil-window-bottom-right "bottom right")
-      ("p" evil-window-mru "previous")
-      ("s" evil-window-split "h-split" :column "split")
-      ("v" evil-window-vsplit "v-split")
-      ("c" evil-window-delete "close this" :column "close")
-      ("o" delete-other-windows "close others" :exit t)
-      ("H" evil-window-move-far-left "far left" :column "move")
-      ("J" evil-window-move-very-bottom "very bottom")
-      ("K" evil-window-move-very-top "very top")
-      ("L" evil-window-move-far-right "far right")
-      ("r" evil-window-rotate-downwards "rotate down")
-      ("R" evil-window-rotate-upwards "rotate up")
-      ;("_" evil-window-set-height "set height" :column "resize")
-      ;("|" evil-window-set-height "set width")
-      ;("<up>" evil-window-increase-height "+ height")
-      ;("<down>" evil-window-decrease-height "- height")
-      ;("<right>" evil-window-increase-width "+ width")
-      ;("<left>" evil-window-decrease-width "- width")
-      ;("=" balance-windows "equalize")
-      ,(if exit
-           '("w" my-window-hydra-persistant/body "sticky" :column nil)
-         '("q" nil "quit" :column nil))
+(defhydra my/window-hydra (:hint nil :timeout 2)
+  "Window"
+  ("C-h" evil-window-left :column "jump")
+  ("C-j" evil-window-down)
+  ("C-k" evil-window-up)
+  ("C-l" evil-window-right)
+  ("C-p" evil-window-mru "previous")
+  ("C-s" evil-window-split "h-split" :column "split")
+  ("s" evil-window-split "h-split" :exit t)
+  ("C-v" evil-window-vsplit "v-split")
+  ("v" evil-window-vsplit "v-split" :exit t)
+  ("C-c" evil-window-delete "close this" :column "close")
+  ("c" evil-window-delete "close this" :exit t)
+  ("C-o" delete-other-windows "close others")
+  ("o" delete-other-windows "close others" :exit t)
+  ("C-r" evil-window-rotate-downwards "rotate down" :column "reorder")
+  ("r" evil-window-rotate-downwards "rotate down" :exit t))
 
-      ))
-; Define the hydras with the macro
-(my-window-hydra-macro nil)
-(my-window-hydra-macro t)
-(evil-declare-not-repeat #'my-window-hydra/body)
-(evil-declare-not-repeat #'my-window-hydra-persistant/body)
+(evil-declare-not-repeat #'my/window-hydra/body)
 
 ; Everywhere except insert
 (general-define-key :keymaps '(motion normal visual global emacs)
                     "C-z" #'suspend-emacs
-                    "C-w" #'my-window-hydra/body
+                    "C-w" #'my/window-hydra/body
+                    "C-h" (lambda (count) (interactive "p") (evil-window-left count)
+                            (golden-ratio)(my/window-hydra/body))
+                    "C-j" (lambda (count) (interactive "p") (evil-window-down count)
+                            (golden-ratio)(my/window-hydra/body))
+                    "C-k" (lambda (count) (interactive "p") (evil-window-up count)
+                            (golden-ratio)(my/window-hydra/body))
+                    "C-l" (lambda (count) (interactive "p") (evil-window-right count)
+                            (golden-ratio)(my/window-hydra/body))
                     )
 
 ; Emacs state

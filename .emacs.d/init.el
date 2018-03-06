@@ -192,8 +192,8 @@
             "e SPC" #'counsel-find-file)
   (:keymaps 'ivy-minibuffer-map
             "C-h" #'ivy-alt-done
-            "C-j" #'ivy-next-line
-            "C-k" #'ivy-previous-line
+            ;; "C-j" #'ivy-next-line
+            ;; "C-k" #'ivy-previous-line
             "<escape>" #'minibuffer-keyboard-quit))
 
 (use-package diminish)
@@ -321,8 +321,8 @@
             "<tab>" #'helm-execute-persistent-action
             "C-h" #'helm-execute-persistent-action
             "C-p" #'helm-select-action
-            "C-j" #'helm-next-line
-            "C-k" #'helm-previous-line
+            ;; "C-j" #'helm-next-line
+            ;; "C-k" #'helm-previous-line
             "C-n" #'helm-delete-minibuffer-contents
             ))
 
@@ -338,8 +338,10 @@
   (:keymaps 'magit-mode-map
             "J" #'magit-section-forward
             "K" #'magit-section-backward
-            "C-j" #'magit-section-forward-sibling
-            "C-k" #'magit-section-backward-sibling
+            ;; "C-j" #'magit-section-forward-sibling
+            "C-j" nil
+            ;; "C-k" #'magit-section-backward-sibling
+            "C-k" nil
             "<return>" #'magit-visit-thing
             "SPC" nil
             )
@@ -377,8 +379,8 @@
             :states '(normal visual)
             "J" #'outline-next-visible-heading
             "K" #'outline-previous-visible-heading
-            "C-j" #'my-org-down-heading
-            "C-k" #'my-org-up-heading
+            ;; "C-j" #'my/org-down-heading
+            ;; "C-k" #'my/org-up-heading
             "M-h" #'org-metaleft
             "M-l" #'org-metaright
             "M-j" #'org-metadown

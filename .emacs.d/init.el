@@ -78,16 +78,27 @@
 (setq-default tab-width 4)              ; Tab = 4 spaces
 (setq-default evil-shift-width tab-width)
 
-;; Windows key is super
-(setq w32-lwindow-modifier 'super)
-(setq w32-rwindow-modifier 'super)
-;; and windows app key hyper
-(setq w32-pass-apps-to-system nil)
-(setq w32-apps-modifier 'hyper)
-
 ;; Save custom settings to another file and load it
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file 'noerror)
+
+;; OS Specifics--------------------------------------------------------------------------------
+
+; Windows
+(when (eq system-type '(ms-dos windows-nt cygwin))
+  ;; Windows key is super
+  (setq w32-lwindow-modifier 'super)
+  (setq w32-rwindow-modifier 'super)
+  ;; and windows app key hyper
+  (setq w32-pass-apps-to-system nil)
+  (setq w32-apps-modifier 'hyper))
+
+; Mac
+(when (eq system-type 'darwin)
+  ; Get the shell path
+  (use-package exec-path-from-shell)
+  (exec-path-from-shell-initialize)
+  )
 
 ;; HOOKS ---------------------------------------------------------------------------------------
 

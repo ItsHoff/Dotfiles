@@ -27,10 +27,10 @@
               "C-k" (kbd "]"))
 
 (general-nvmap "r" (general-key-dispatch 'evil-replace
-                    "C-h" (general-simulate-keys ('evil-replace "{"))
-                    "C-l" (general-simulate-keys ('evil-replace "}"))
-                    "C-j" (general-simulate-keys ('evil-replace "["))
-                    "C-k" (general-simulate-keys ('evil-replace "]"))
+                    "C-h" (general-simulate-key ('evil-replace "{"))
+                    "C-l" (general-simulate-key ('evil-replace "}"))
+                    "C-j" (general-simulate-key ('evil-replace "["))
+                    "C-k" (general-simulate-key ('evil-replace "]"))
                     ))
 
 (defun my-advice-easy-brackets (args)

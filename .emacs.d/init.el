@@ -29,7 +29,7 @@
 (show-paren-mode 1)                 ; Show matching parenthesis
 (modify-syntax-entry ?_ "w" (standard-syntax-table)) ; _ is now part of a word
 (modify-syntax-entry ?- "w" (standard-syntax-table)) ; aswell as -
-(setq x-select-enable-clipboard nil) ; Disable emacs clipboard and rely on evil
+(setq select-enable-clipboard nil) ; Disable emacs clipboard and rely on evil
 (put 'dired-find-alternate-file 'disabled nil) ; Allow dired to use the same buffer
 (setq completion-styles '(basic initials partial substring)) ; Better completion
 (global-auto-revert-mode t)         ; Automatically reload changed files

@@ -132,6 +132,8 @@
   ; Open new splits right or below
   (setq evil-vsplit-window-right 1)
   (setq evil-split-window-below 1)
+  ; Allow c-o and c-i to jump to buffers matching the regexp
+  (setq evil--jumps-buffer-targets "\\`magit")
   )
 
 (use-package abbrev
@@ -332,6 +334,8 @@
   :init
   (use-package evil-magit)
   (require 'evil-magit)
+  :config
+  (evil-add-command-properties #'magit-diff-visit-file :jump t)
   :general
   (:keymaps 'motion
             "SPC g" #'magit-status)

@@ -127,53 +127,52 @@
     | S       | evil-change-whole-line | useless             |
     | K       | evil-lookup (man)      | TODO: remap         |
 ** Control
-   | Key         | Function                     | Comment                 |
-   |-------------+------------------------------+-------------------------|
-   | `           | -                            |                         |
-   | 1-0         | digit-argument               |                         |
-   | -           | negative-argument            |                         |
-   | =           | -                            |                         |
-   | <backspace> | -                            |                         |
-   |-------------+------------------------------+-------------------------|
-   | <tab>       | -                            |                         |
-   | q           | quoted-insert                |                         |
-   | w           | PREFIX: window               |                         |
-   | e           | evil-scroll-line-down        |                         |
-   | r           | undo-tree-redo               | TODO: maybe to U        |
-   | t           | pop-tag-mark                 | TODO: maybe in history  |
-   | y           | evil-scroll-line-up          |                         |
-   | u           | undo-tree-visualize          |                         |
-   | i           | evil-jump-forward            | TAB in emacs (!= <tab>) |
-   | o           | evil-jump-backward           |                         |
-   | p           | evil-paste-pop               | included in C-k         |
-   | å           | -                            |                         |
-   | ¨           | -                            |                         |
-   |-------------+------------------------------+-------------------------|
-   | a           | move-beginning-of-line       |                         |
-   | s           | isearch-forward              | TODO: replace           |
-   | d           | evil-scroll-down             |                         |
-   | f           | counsel-find-file            |                         |
-   | g           | keyboard-quit                |                         |
-   | h           | help prefix                  |                         |
-   | j           | my-paste-and-repeat-pop-next |                         |
-   | k           | my-paste-and-repeat-pop      |                         |
-   | l           | -                            | TODO: use               |
-   | ;           | -                            | TODO: use               |
-   | '           | -                            | TODO: use               |
-   |-------------+------------------------------+-------------------------|
-   | z           | suspend-emacs                |                         |
-   | x           | emacs prefix                 | TODO: replace           |
-   | c           | emacs prefix                 | TODO: replace           |
-   | v           | evil-visual-block            |                         |
-   | b           | ivy-switch-buffer            |                         |
-   | n           | neotree-toggle               |                         |
-   | m           | helm-mini                    |                         |
-   | ,           | -                            |                         |
-   | .           | evil-repeat-pop              |                         |
-   | .           | evil-repeat-pop              |                         |
-   | <enter>     | -                            |                         |
-   |-------------+------------------------------+-------------------------|
-   | <space>     | set-mark-command             |                         |
+   | Key         | Function               | Comment                 |
+   |-------------+------------------------+-------------------------|
+   | `           | -                      |                         |
+   | 1-0         | digit-argument         |                         |
+   | -           | negative-argument      |                         |
+   | =           | -                      |                         |
+   | <backspace> | -                      |                         |
+   |-------------+------------------------+-------------------------|
+   | <tab>       | -                      |                         |
+   | q           | quoted-insert          |                         |
+   | w           | my/window-hydra        |                         |
+   | e           | evil-scroll-line-down  |                         |
+   | r           | undo-tree-redo         | TODO: maybe to U        |
+   | t           | pop-tag-mark           | TODO: maybe in history  |
+   | y           | evil-scroll-line-up    |                         |
+   | u           | undo-tree-visualize    |                         |
+   | i           | evil-jump-forward      | TAB in emacs (!= <tab>) |
+   | o           | evil-jump-backward     |                         |
+   | p           | evil-paste-pop         |                         |
+   | [           | <escape>               |                         |
+   | ]           | evil-jump-to-tag       |                         |
+   |-------------+------------------------+-------------------------|
+   | a           | move-beginning-of-line |                         |
+   | s           | isearch-forward        | TODO: replace           |
+   | d           | evil-scroll-down       |                         |
+   | f           | counsel-find-file      |                         |
+   | g           | keyboard-quit          |                         |
+   | h           | evil-window-left       | Starts window hydra     |
+   | j           | evil-window-down       | Starts window hydra     |
+   | k           | evil-window-up         | Starts window hydra     |
+   | l           | evil-window-right      | Starts window hydra     |
+   | ;           | -                      | TODO: use               |
+   | '           | -                      | TODO: use               |
+   |-------------+------------------------+-------------------------|
+   | z           | suspend-emacs          |                         |
+   | x           | emacs prefix           | TODO: replace           |
+   | c           | emacs prefix           | TODO: replace           |
+   | v           | evil-visual-block      |                         |
+   | b           | ivy-switch-buffer      |                         |
+   | n           | neotree-toggle         |                         |
+   | m           | helm-mini              |                         |
+   | ,           | -                      |                         |
+   | .           | evil-repeat-pop        |                         |
+   | <enter>     | -                      |                         |
+   |-------------+------------------------+-------------------------|
+   | <space>     | set-mark-command       |                         |
 *** Overwritten
    | Key | Function              | Comment  |
    |-----+-----------------------+----------|
@@ -265,37 +264,6 @@
    |-----+------------------------------+---------|
    | Q   | evil-quit                    |         |
    | Z   | evil-save-modified-and-close |         |
-** Prefix: C-w - Window hydra
-   | Key     | Function                     | Comment   |
-   |---------+------------------------------+-----------|
-   | b       | evil-window-bottom-right     |           |
-   | c       | evil-window-delete           |           |
-   | o       | delete-other-windows         |           |
-   | s       | evil-window-split            |           |
-   | t       | evil-window-top-left         |           |
-   | v       | evil-window-vsplit           |           |
-   | <up>    | evil-window-increase-height  |           |
-   | <down>  | evil-window-decrease-height  |           |
-   | <left>  | evil-window-decrease-width   |           |
-   | <right> | evil-window-increase-width   |           |
-   | =       | balance-windows              |           |
-   | h       | evil-window-left             |           |
-   | j       | evil-window-down             |           |
-   | k       | evil-window-up               |           |
-   | l       | evil-window-right            |           |
-   | H       | evil-window-move-far-left    |           |
-   | J       | evil-window-move-very-bottom |           |
-   | K       | evil-window-move-very-top    |           |
-   | L       | evil-window-move-far-right   |           |
-   | r       | evil-window-rotate-downwards |           |
-   | R       | evil-window-rotate-upwards   |           |
-   | \vbar   | evil-window-set-width        |           |
-   | _       | evil-window-set-height       |           |
-   | p       | evil-window-mru              |           |
-   |         | evil-window-next             |           |
-   |         | evil-window-prev             |           |
-   |         | evil-window-new              |           |
-   |         | ffap-other-widow             | undefined |
 ** Caps layer
    | Key     | Function                  | Comment             |
    |---------+---------------------------+---------------------|
@@ -376,46 +344,3 @@
   |-------+-------------------+-------------------------------|
   | b SPC | ivy-switch-buffer | Should be superior to default |
   | e SPC | counsel-find-file | Should be superior to default |
-* Org-mode
-  | Key     | State  | Function                         | Comment                      |
-  |---------+--------+----------------------------------+------------------------------|
-  | <tab>   | global | org-cycle                        |                              |
-  | S-<tab> | global | org-shifttab                     |                              |
-  | J       | normal | outline-next-visible-heading     |                              |
-  | K       | normal | outline-previous-visible-heading |                              |
-  | o       | normal | org-meta-return                  | Make this not kidnap text    |
-  | M-h     | normal | org-metaleft                     | Sticky modifier instead of M |
-  | M-l     | normal | org-metaright                    | Sticky modifier instead of M |
-  | M-j     | normal | org-metadown                     | Sticky modifier instead of M |
-  | M-k     | normal | org-metaup                       | Sticky modifier instead of M |
-* Magit
-  | Key | State | Function | Comment |
-  |-----+-------+----------+---------|
-  |     |       |          |         |
-* Company-mode
-  | Key         | Function                   | Comment |
-  |-------------+----------------------------+---------|
-  | M-n         | company-select-next        |         |
-  | M-p         | company-select-previous    |         |
-  | (C/M)-(1-0) | company-complete-number    |         |
-  | C-g         | company-abort              |         |
-  | C-h         | company-show-doc-buffer    |         |
-  | <tab>       | company-complete-common    |         |
-  | <return>    | company-complete-selection |         |
-  | C-s         | company-search-canditates  |         |
-  | C-w         | company-show-location      |         |
-* Ivy-mode
-  | Key | Function          | Comment |
-  |-----+-------------------+---------|
-  | C-j | ivy-next-line     |         |
-  | C-k | ivy-previous-line |         |
-  | C-h | ivy-alt-done      |         |
-* Undo-tree
-  | Key | Function                                | Comment |
-  |-----+-----------------------------------------+---------|
-  | j   | undo-tree-visualize-redo                |         |
-  | k   | undo-tree-visualize-undo                |         |
-  | h   | undo-tree-visualize-switch-branch-left  |         |
-  | l   | undo-tree-visualize-switch-branch-right |         |
-  | J   | undo-tree-visualize-redo-to-x           |         |
-  | K   | undo-tree-visualize-undo-to-x           |         |

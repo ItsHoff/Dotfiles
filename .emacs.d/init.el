@@ -202,15 +202,17 @@
   :diminish eldoc-mode)
 
 (use-package evil-exchange
+  :after evil
   :init
   (setq evil-exchange-key (kbd ";x"))
   (evil-exchange-install))
 
-
 (use-package evil-matchit
+  :after evil
   :init (global-evil-matchit-mode 1))
 
 (use-package evil-nerd-commenter
+  :after evil
   :config
   (define-key evil-inner-text-objects-map "c" 'evilnc-inner-comment)
   (define-key evil-outer-text-objects-map "c" 'evilnc-outer-commenter)
@@ -220,6 +222,7 @@
             ))
 
 (use-package evil-numbers
+  :after evil
   :general
   (:keymaps 'normal
             "; i" #'evil-numbers/inc-at-pt
@@ -227,6 +230,7 @@
             ))
 
 (use-package evil-visualstar
+  :after evil
   :init (global-evil-visualstar-mode)
   :general
   (:keymaps 'visual

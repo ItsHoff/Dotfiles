@@ -70,6 +70,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (general-define-key :keymaps '(motion normal visual global emacs)
                     "C-z" #'suspend-emacs
                     "C-w" #'my/window-hydra/body
+                    "C-q" #'my/quit-extra-windows
                     "C-h" (lambda (count) (interactive "p") (evil-window-left count)
                             (golden-ratio)(my/window-hydra/body))
                     "C-j" (lambda (count) (interactive "p") (evil-window-down count)

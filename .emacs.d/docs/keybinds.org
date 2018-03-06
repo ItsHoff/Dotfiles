@@ -136,7 +136,7 @@
    | <backspace> | -                      |                         |
    |-------------+------------------------+-------------------------|
    | <tab>       | -                      |                         |
-   | q           | quoted-insert          |                         |
+   | q           | my/quit-extra-windows  |                         |
    | w           | my/window-hydra        |                         |
    | e           | evil-scroll-line-down  |                         |
    | r           | undo-tree-redo         | TODO: maybe to U        |
@@ -174,10 +174,11 @@
    |-------------+------------------------+-------------------------|
    | <space>     | set-mark-command       |                         |
 *** Overwritten
-   | Key | Function              | Comment  |
-   |-----+-----------------------+----------|
-   | u   | universal-argument    |          |
-   | b   | evil-scroll-page-up   | sortof K |
+   | Key | Function            | Comment  |
+   |-----+---------------------+----------|
+   | u   | universal-argument  |          |
+   | b   | evil-scroll-page-up | sortof K |
+   | q   | quoted-insert       |          |
 ** Alt - Emacs
    | Key | Function           | Comment |
    |-----+--------------------+---------|

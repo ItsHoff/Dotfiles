@@ -61,6 +61,36 @@ If point is at or ahead of it move to last character."
           (backward-delete-char (- (match-end 1) (match-beginning 1)))
         (call-interactively 'backward-delete-char)))))
 
+; https://stackoverflow.com/questions/36506141/emacs-dispatch-help-window-from-original-buffer
+(defvar my/extra-window-names
+  '(;; Ubiquitous help buffers
+    "*Help*"
+    "*Apropos*"
+    "*Messages*"
+    "*Completions*"
+    ;; Other general buffers
+    "*Command History*"
+    "*Compile-Log*"
+    "*disabled command*")
+  "Names of buffers that `my/quit-extra-windows' should quit.")
+
+(defun my/quit-extra-windows (&optional kill frame)
+  "Quit all windows with help-like buffers.
+
+Call `quit-windows-on' for every buffer named in
+`my/help-windows-name'.  The optional parameters KILL and FRAME
+are just as in `quit-windows-on', except FRAME defaults to t (so
+that only windows on the selected frame are considered).
+
+Note that a nil value for FRAME cannot be distinguished from an
+omitted parameter and will be ignored; use some other value if
+you want to quit windows on all frames."
+  (interactive)
+  (let ((frame (or frame t)))
+    (dolist (name my/extra-window-names)
+      (ignore-errors
+        (quit-windows-on name kill frame)))))
+
 (evil-define-command my/paste-and-repeat-pop (count &optional save-point)
   "Select paste or repeat pop depending on last command and do COUNT times."
   :repeat nil

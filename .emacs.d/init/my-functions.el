@@ -5,12 +5,12 @@
 (require 'evil)
 (require 'org)
 
-(defun my-set-tab-width (width)
+(defun my/set-tab-width (width)
   "Set 'tab-width' to WIDTH."
   (setq tab-width width)
   (setq evil-shift-width width))
 
-(defun my-beginning-of-line ()
+(defun my/beginning-of-line ()
   "First go to beginning of visual line.
 Then to the beginning of line and finally
 to the hard beginning of line."
@@ -22,10 +22,10 @@ to the hard beginning of line."
     (when (<= save-point (point))
         (evil-beginning-of-line))))
 
-(evil-declare-not-repeat #'my-beginning-of-line)
+(evil-declare-not-repeat #'my/beginning-of-line)
 
 ; https://stackoverflow.com/a/9597612
-(defun my-end-of-line ()
+(defun my/end-of-line ()
   "Move to the last non-whitespace character in the current line.
 If point is at or ahead of it move to last character."
   (interactive)
@@ -37,9 +37,9 @@ If point is at or ahead of it move to last character."
     (when (>= save-point (point))
         (evil-end-of-line))))
 
-(evil-declare-not-repeat #'my-end-of-line)
+(evil-declare-not-repeat #'my/end-of-line)
 
-(defun my-split-line ()
+(defun my/split-line ()
   "Split line at current cursor position."
   (interactive)
   (let ((save-point (point)))
@@ -47,7 +47,7 @@ If point is at or ahead of it move to last character."
     (goto-char (- save-point 1))))
 
 ; https://www.emacswiki.org/emacs/BackspaceWhitespaceToTabStop
-(defun my-backspace-whitespace-to-tab-stop ()
+(defun my/backspace-whitespace-to-tab-stop ()
   "Delete whitespace backwards to the next tab-stop, otherwise delete one character."
   (interactive)
   (let ((movement (% (current-column) tab-width))
@@ -61,7 +61,7 @@ If point is at or ahead of it move to last character."
           (backward-delete-char (- (match-end 1) (match-beginning 1)))
         (call-interactively 'backward-delete-char)))))
 
-(evil-define-command my-paste-and-repeat-pop (count &optional save-point)
+(evil-define-command my/paste-and-repeat-pop (count &optional save-point)
   "Select paste or repeat pop depending on last command and do COUNT times."
   :repeat nil
   :suppress-operator t
@@ -78,7 +78,7 @@ If point is at or ahead of it move to last character."
         (t (message "Last command was not paste or repeat"))
         ))
 
-(evil-define-command my-paste-and-repeat-pop-next (count &optional save-point)
+(evil-define-command my/paste-and-repeat-pop-next (count &optional save-point)
   "Select paste or repeat pop next depending on last command and do COUNT times."
   :repeat nil
   :suppress-operator t
@@ -95,7 +95,7 @@ If point is at or ahead of it move to last character."
         (t (message "Last command was not paste or repeat"))
         ))
 
-(defun my-org-up-heading ()
+(defun my/org-up-heading ()
   "Go up to the parent heading.
 If already at top heading go to the next heading above."
   (interactive)
@@ -112,9 +112,9 @@ If already at top heading go to the next heading above."
           (setq level (outline-level))))
     )))
 
-(evil-declare-not-repeat #'my-org-up-heading)
+(evil-declare-not-repeat #'my/org-up-heading)
 
-(defun my-org-down-heading ()
+(defun my/org-down-heading ()
   "Go down to heading of higher level.
 If already at top heading go to the next heading below.
 Goto end if no lower higher level headings."
@@ -132,14 +132,14 @@ Goto end if no lower higher level headings."
           (setq level (outline-level))))
     )))
 
-(evil-declare-not-repeat #'my-org-down-heading)
+(evil-declare-not-repeat #'my/org-down-heading)
 
-(defun my-org-indent-advice ()
+(defun my/org-indent-advice ()
   "Align indent with 'tab-width'.
 Advice type: after."
   (backward-delete-char (% (current-column) tab-width)))
 
-(defun my-advice-preserve-timestamps (args)
+(defun my/advice-preserve-timestamps (args)
   "Change preserve-timestamps in ARGS to t.
 Filters arguments for undo-tree-undo-1 and undo-tree-redo-1.
 Advice type: filter-args."

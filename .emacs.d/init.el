@@ -369,11 +369,11 @@
 (use-package org
   :init
   (require 'my-functions)
-  (add-hook 'org-mode-hook (lambda () (my-set-tab-width 2)))
+  (add-hook 'org-mode-hook (lambda () (my/set-tab-width 2)))
   :config
   (setq org-M-RET-may-split-line '(default . nil)) ; Don't split line automatically
   (evil-make-overriding-map org-mode-map 'normal)
-  (advice-add #'org-indent-line :after #'my-org-indent-advice)
+  (advice-add #'org-indent-line :after #'my/org-indent-advice)
   :general
   (:keymaps 'org-mode-map
             :states '(normal visual)
@@ -451,8 +451,8 @@
   (setq undo-tree-visualizer-lazy-drawing nil) ; Change this to improve perf
   :config
   (evil-make-overriding-map undo-tree-visualizer-mode-map 'motion)
-  (advice-add #'undo-tree-undo-1 :filter-args #'my-advice-preserve-timestamps)
-  (advice-add #'undo-tree-redo-1 :filter-args #'my-advice-preserve-timestamps)
+  (advice-add #'undo-tree-undo-1 :filter-args #'my/advice-preserve-timestamps)
+  (advice-add #'undo-tree-redo-1 :filter-args #'my/advice-preserve-timestamps)
   :general
   (:keymaps '(normal visual)
             "C-u" #'undo-tree-visualize
@@ -518,7 +518,7 @@
 (use-package lisp-mode
   :ensure nil
   :commands emacs-lisp-mode
-  :init (add-hook 'emacs-lisp-mode-hook (lambda () (my-set-tab-width 2)))
+  :init (add-hook 'emacs-lisp-mode-hook (lambda () (my/set-tab-width 2)))
   :config
   (modify-syntax-entry ?_ "w" emacs-lisp-mode-syntax-table) ; _ is now part of a word
   (modify-syntax-entry ?- "w" emacs-lisp-mode-syntax-table) ; aswell as -
@@ -531,14 +531,14 @@
 (use-package octave-mode
   :ensure nil
   :mode "\\.m\\'"
-  :init (add-hook 'octave-mode-hook (lambda () (my-set-tab-width 2)))
+  :init (add-hook 'octave-mode-hook (lambda () (my/set-tab-width 2)))
   )
 
 ;; Python
 (use-package anaconda-mode
   :init
   (add-hook 'python-mode-hook 'anaconda-mode)
-  (add-hook 'python-mode-hook (lambda () (my-set-tab-width 4)))
+  (add-hook 'python-mode-hook (lambda () (my/set-tab-width 4)))
   )
 
 (use-package company-anaconda

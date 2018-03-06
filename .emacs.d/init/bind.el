@@ -95,8 +95,8 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     "j" #'evil-next-visual-line
                     "k" #'evil-previous-visual-line
                     ; Bigger movement
-                    "H" #'my-beginning-of-line
-                    "L" #'my-end-of-line
+                    "H" #'my/beginning-of-line
+                    "L" #'my/end-of-line
                     "J" #'golden-ratio-scroll-screen-up
                     "K" #'golden-ratio-scroll-screen-down
                     ; Move sentence object
@@ -116,16 +116,13 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (general-define-key :keymaps 'normal
                     ; Join + split
                     "<backspace>" #'evil-join
-                    "RET" #'my-split-line
-                    ; Pops
-                    "C-k" #'my-paste-and-repeat-pop
-                    "C-j" #'my-paste-and-repeat-pop-next
+                    "RET" #'my/split-line
                     )
 
 ; Insert state
 (general-define-key :keymaps 'insert
                     "<tab>" #'tab-to-tab-stop
-                    "<backspace>" #'my-backspace-whitespace-to-tab-stop
+                    "<backspace>" #'my/backspace-whitespace-to-tab-stop
                     "<return>" #'newline-and-indent
                     "<C-i>" #'indent-according-to-mode
                     )

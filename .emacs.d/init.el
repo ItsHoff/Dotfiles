@@ -518,14 +518,6 @@
   (modify-syntax-entry ?- "w" emacs-lisp-mode-syntax-table) ; aswell as -
   )
 
-;; Java
-(use-package meghanada
-  :diminish meghanada-mode
-  :init
-  (setq meghanada-use-flycheck nil)
-  (add-hook 'java-mode-hook #'meghanada-mode)
-  )
-
 ;; Kotlin
 (use-package kotlin-mode)
 

@@ -18,6 +18,9 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+;; Install all packages automatically
+(setq use-package-always-ensure t)
+
 ;; GENERAL SETTINGS ----------------------------------------------------------------------------
 
 (prefer-coding-system 'utf-8)       ; UTF-8 please
@@ -96,8 +99,9 @@
 ; Mac
 (when (eq system-type 'darwin)
   ; Get the shell path
-  (use-package exec-path-from-shell)
-  (exec-path-from-shell-initialize)
+  (use-package exec-path-from-shell
+    :config
+    (exec-path-from-shell-initialize))
   )
 
 ;; HOOKS ---------------------------------------------------------------------------------------
@@ -109,9 +113,6 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; PACKAGES ------------------------------------------------------------------------------------
-
-;; Install all packages automatically
-(setq use-package-always-ensure t)
 
 (use-package general
   :init (general-evil-setup))

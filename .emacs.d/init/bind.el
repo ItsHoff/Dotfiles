@@ -59,8 +59,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
   ("v" evil-window-vsplit "v-split" :exit t)
   ("C-c" evil-window-delete "close this" :column "close")
   ("c" evil-window-delete "close this" :exit t)
-  ("C-o" delete-other-windows "close others")
-  ("o" delete-other-windows "close others" :exit t)
+  ("C-o" delete-other-windows "close others" :exit t)
   ("C-r" evil-window-rotate-downwards "rotate down" :column "reorder")
   ("r" evil-window-rotate-downwards "rotate down" :exit t))
 

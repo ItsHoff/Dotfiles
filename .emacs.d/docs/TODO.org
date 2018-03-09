@@ -11,6 +11,8 @@
     * separate or combined movement and viewpoint control?
     * evil-scroll-down/-up
     * resizing
+*** Simplify golden ratio rules
+  * https://github.com/roman/golden-ratio.el/issues/77
 ** Learn
 *** Org
 ** Change

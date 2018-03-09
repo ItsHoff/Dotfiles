@@ -68,9 +68,11 @@ If point is at or ahead of it move to last character."
     "*Apropos*"
     "*Messages*"
     "*Completions*"
+    "*Warnings*"
     ;; Other general buffers
     "*Command History*"
     "*Compile-Log*"
+    "*grep*"
     "*disabled command*")
   "Names of buffers that `my/quit-extra-windows' should quit.")
 

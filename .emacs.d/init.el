@@ -118,6 +118,7 @@
 
 (use-package evil
   :init
+  (setq evil-want-integration nil) ; Use evil-collection for integration
   (setq evil-want-Y-yank-to-eol t)
   (setq evil-want-C-w-in-emacs-state t) ; Window commands should always work
   (evil-mode 1)
@@ -202,6 +203,12 @@
 
 (use-package eldoc
   :diminish eldoc-mode)
+
+(use-package evil-collection
+  :after evil
+  :config
+  (delete 'company evil-collection-mode-list)
+  (evil-collection-init))
 
 (use-package evil-exchange
   :after evil

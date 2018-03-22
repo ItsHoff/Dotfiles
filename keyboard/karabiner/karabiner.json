@@ -15,7 +15,7 @@
                 },
                 "rules": [
                     {
-                        "description": "Change caps_lock key to command+control+option+shift. (Post escape key when pressed alone)",
+                        "description": "Change caps_lock key to control+option. (Post escape key when pressed alone)",
                         "manipulators": [
                             {
                                 "from": {
@@ -28,10 +28,8 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "left_shift",
+                                        "key_code": "left_control",
                                         "modifiers": [
-                                            "left_command",
-                                            "left_control",
                                             "left_option"
                                         ]
                                     }
@@ -53,8 +51,6 @@
                                     "key_code": "h",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_shift",
-                                            "left_command",
                                             "left_control",
                                             "left_option"
                                         ]
@@ -72,8 +68,6 @@
                                     "key_code": "j",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_shift",
-                                            "left_command",
                                             "left_control",
                                             "left_option"
                                         ]
@@ -91,8 +85,6 @@
                                     "key_code": "k",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_shift",
-                                            "left_command",
                                             "left_control",
                                             "left_option"
                                         ]
@@ -110,8 +102,6 @@
                                     "key_code": "l",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_shift",
-                                            "left_command",
                                             "left_control",
                                             "left_option"
                                         ]
@@ -134,8 +124,6 @@
                                     "key_code": "delete_or_backspace",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_shift",
-                                            "left_command",
                                             "left_control",
                                             "left_option"
                                         ]
@@ -144,6 +132,37 @@
                                 "to": [
                                     {
                                         "key_code": "delete_forward"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Change tab key to command+control+option+shift when held.",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "tab",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_shift",
+                                        "modifiers": [
+                                            "left_command",
+                                            "left_control",
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "tab"
                                     }
                                 ],
                                 "type": "basic"

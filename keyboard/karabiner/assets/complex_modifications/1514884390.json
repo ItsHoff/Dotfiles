@@ -2,7 +2,7 @@
   "title": "Change caps_lock key",
   "rules": [
     {
-      "description": "Change caps_lock key to command+control+option+shift. (Post escape key when pressed alone)",
+      "description": "Change caps_lock key to control+option. (Post escape key when pressed alone)",
       "manipulators": [
         {
           "type": "basic",
@@ -16,10 +16,8 @@
           },
           "to": [
             {
-              "key_code": "left_shift",
+              "key_code": "left_control",
               "modifiers": [
-                "left_command",
-                "left_control",
                 "left_option"
               ]
             }

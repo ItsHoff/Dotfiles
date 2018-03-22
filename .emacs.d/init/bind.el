@@ -43,6 +43,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     "M-;" #'describe-key  ; Map key help (next to +)
                     "M-u" #'universal-argument
                     "M-g" #'keyboard-quit
+                    "C-S-w" (lambda ()(interactive) (message "test"))
                     )
 
 ; Window commands

@@ -14,6 +14,10 @@
 *** Simplify golden ratio rules
   * https://github.com/roman/golden-ratio.el/issues/77
 ** Learn
+*** Flycheck
+*** Rust-mode
+*** Auctex
+   * https://www.gnu.org/software/auctex/index.html
 *** Org
 ** Change
 *** prefix g: go
@@ -46,26 +50,15 @@
 *** folding
 *** some unix / emacs style commands in insert mode
 ** Evaluate
-*** Tabbing
-    * https://www.emacswiki.org/emacs/TabStopList
-    * https://stackoverflow.com/questions/4006005/how-can-i-set-emacs-tab-settings-by-file-type
-    * https://www.emacswiki.org/emacs/BackspaceWhitespaceToTabStop
-    * https://www.emacswiki.org/emacs/IndentationBasics
-    * https://www.gnu.org/software/emacs/manual/html_node/emacs/Indentation.html#Indentation
-    * https://emacs.stackexchange.com/questions/27869/how-to-make-evil-mode-tab-key-indent-not-re-indent-based-on-context
-*** nerd-commenter
 *** paste history (c-p, c-n)
 *** repeat history (c-., evil-repeat-pop-next)
-*** Projectile
-    * https://github.com/bbatsov/projectile
-    * http://projectile.readthedocs.io/en/latest/
 *** emacs-neotree
     * https://github.com/jaypei/emacs-neotree
     * https://www.emacswiki.org/emacs/NeoTree
 *** evil-numbers
     * https://github.com/cofi/evil-numbers
-*** evil-visualstar
-    * https://github.com/bling/evil-visualstar
+*** evil-exchange
+   * https://github.com/Dewdrops/evil-exchange
 * Packages to check out
 ** Vimish-fold
   * https://github.com/alexmurray/evil-vimish-fold
@@ -79,16 +72,8 @@
   * https://github.com/emacs-evil/evil-ediff
 ** evil-surround
   * https://github.com/emacs-evil/evil-surround
-** evil-exchange
-  * https://github.com/Dewdrops/evil-exchange
-** evil-matchit
-  * https://github.com/redguardtoo/evil-matchit
 ** evil-smartparens
   * https://github.com/expez/evil-smartparens
-** Flycheck
-** Rust-mode
-** Auctex
-  * https://www.gnu.org/software/auctex/index.html
 ** Org-ref
   * https://github.com/jkitchin/org-ref
 ** RealGUD
@@ -114,6 +99,13 @@
   * http://ergoemacs.org/emacs/emacs.html
   * https://cestlaz.github.io/stories/emacs/
   * http://ergoemacs.org/emacs/emacs_hyper_super_keys.html
+** Tabbing
+    * https://www.emacswiki.org/emacs/TabStopList
+    * https://stackoverflow.com/questions/4006005/how-can-i-set-emacs-tab-settings-by-file-type
+    * https://www.emacswiki.org/emacs/BackspaceWhitespaceToTabStop
+    * https://www.emacswiki.org/emacs/IndentationBasics
+    * https://www.gnu.org/software/emacs/manual/html_node/emacs/Indentation.html#Indentation
+    * https://emacs.stackexchange.com/questions/27869/how-to-make-evil-mode-tab-key-indent-not-re-indent-based-on-context
 ** Evil everywhere
   * https://github.com/jojojames/evil-collection
   * https://www.reddit.com/r/emacs/comments/7akqy3/evil_everywhere_the_rest_of_emacs/
@@ -135,8 +127,6 @@
   * https://github.com/Somelauw/evil-org-mode
   * https://www.reddit.com/r/orgmode/comments/6mfvb1/syncing_org_files_to_android_orgzly_with_tasker/
   * https://www.reddit.com/r/orgmode/comments/6t7ufq/what_are_the_best_packages_plugins_for_org_mode/
-** Magit
-  * https://magit.vc/
 ** Python
   * http://www.jesshamrick.com/2012/09/18/emacs-as-a-python-ide/
 ** Rust
@@ -153,3 +143,4 @@
   * https://www.reddit.com/r/emacs/comments/6ymf57/latex_tweaks_for_emacs/
   * https://piotrkazmierczak.com/2010/emacs-as-the-ultimate-latex-editor/
   * https://tex.stackexchange.com/questions/50827/a-simpletons-guide-to-tex-workflow-with-emacs
+  * ftp://ftp.gnu.org/gnu/auctex/11.89-extra/tex-ref.pdf

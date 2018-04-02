@@ -88,7 +88,7 @@
 ;; OS Specifics--------------------------------------------------------------------------------
 
 ; Windows
-(when (eq system-type '(ms-dos windows-nt cygwin))
+(when (member system-type '(ms-dos windows-nt cygwin))
   ;; Windows key is super
   (setq w32-lwindow-modifier 'super)
   (setq w32-rwindow-modifier 'super)

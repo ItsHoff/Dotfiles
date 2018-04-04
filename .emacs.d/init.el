@@ -572,7 +572,8 @@
     (add-hook 'racer-mode-hook #'eldoc-mode)))
 
 ;; Tex
-(use-package auctex
+(use-package tex
+  :ensure auctex
   :bind ("C-c e" . TeX-next-error)
   :config
   (setq TeX-auto-save t)

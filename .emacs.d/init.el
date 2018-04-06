@@ -200,8 +200,6 @@
             "e SPC" #'counsel-find-file)
   (:keymaps 'ivy-minibuffer-map
             "C-h" #'ivy-alt-done
-            ;; "C-j" #'ivy-next-line
-            ;; "C-k" #'ivy-previous-line
             "<escape>" #'minibuffer-keyboard-quit))
 
 (use-package diminish)
@@ -349,8 +347,6 @@
             "<tab>" #'helm-execute-persistent-action
             "C-h" #'helm-execute-persistent-action
             "C-p" #'helm-select-action
-            ;; "C-j" #'helm-next-line
-            ;; "C-k" #'helm-previous-line
             "C-n" #'helm-delete-minibuffer-contents
             ))
 

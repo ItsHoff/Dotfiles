@@ -413,6 +413,12 @@
             "M-k" #'org-metaup
             ))
 
+(use-package package
+  :after evil-collection
+  :ensure nil
+  :config
+  (evil-collection-package-menu-setup))
+
 (use-package projectile
   :init
   (projectile-mode)

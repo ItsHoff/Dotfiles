@@ -73,6 +73,7 @@ If point is at or ahead of it move to last character."
     "*Command History*"
     "*Compile-Log*"
     "*grep*"
+    "*compilation*"
     "*disabled command*")
   "Names of buffers that `my/quit-extra-windows' should quit.")
 

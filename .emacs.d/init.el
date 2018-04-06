@@ -419,6 +419,12 @@
   :config
   (evil-collection-package-menu-setup))
 
+(use-package pdf-tools
+  :after evil-collection
+  :config
+  (pdf-tools-install)
+  (evil-collection-pdf-setup))
+
 (use-package projectile
   :init
   (projectile-mode)

@@ -600,10 +600,23 @@
 ;; Tex
 (use-package tex
   :ensure auctex
+  :custom
+  (TeX-source-correlate-mode t)
+  (TeX-source-correlate-start-server t)
+  (TeX-auto-save t)
+  (TeX-parse-self t)
+  (TeX-save-query nil)
+  (TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view)))
+  (TeX-view-program-selection '((output-pdf "PDF Tools")))
   :bind ("C-c e" . TeX-next-error)
-  :config
-  (setq TeX-auto-save t)
-  (setq TeX-parse-self t))
+  :hook (TeX-after-compilation-finished-functions . TeX-revert-document-buffer))
+
+(use-package ivy-bibtex
+  :custom
+  (bibtex-completion-notes-path "~/thesis/bibliography/notes.org")
+  (bibtex-completion-bibliography "~/thesis/bibliography/bibliography.bib")
+  (bibtex-completion-library-path "~/Google Drive File Stream/My Drive/papers")
+  (bibtex-completion-pdf-open-function #'org-open-file-with-system))
 
 ;; Vimrc
 (use-package vimrc-mode

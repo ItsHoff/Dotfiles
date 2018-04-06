@@ -82,6 +82,11 @@
   * https://github.com/Chobbes/org-chef
 ** Refactoring
   * http://manuel-uberti.github.io/emacs/2018/02/10/occur/
+** Winner Mode
+  * https://www.emacswiki.org/emacs/WinnerMode
+** YASnippet
+  * https://github.com/joaotavora/yasnippet
+** Flyspell
 * Resources
 ** Global
   * https://github.com/emacs-tw/awesome-emacs
@@ -106,9 +111,6 @@
     * https://www.emacswiki.org/emacs/IndentationBasics
     * https://www.gnu.org/software/emacs/manual/html_node/emacs/Indentation.html#Indentation
     * https://emacs.stackexchange.com/questions/27869/how-to-make-evil-mode-tab-key-indent-not-re-indent-based-on-context
-** Evil everywhere
-  * https://github.com/jojojames/evil-collection
-  * https://www.reddit.com/r/emacs/comments/7akqy3/evil_everywhere_the_rest_of_emacs/
 ** Ivy
   * http://oremacs.com/swiper/
   * https://github.com/abo-abo/swiper
@@ -140,7 +142,5 @@
   * https://www.reddit.com/r/emacs/comments/7a14cp/fishlike_autosuggestions_in_eshell/
   * https://www.reddit.com/r/emacs/comments/6y3q4k/yes_eshell_is_my_main_shell/
 ** Latex
-  * https://www.reddit.com/r/emacs/comments/6ymf57/latex_tweaks_for_emacs/
-  * https://piotrkazmierczak.com/2010/emacs-as-the-ultimate-latex-editor/
   * https://tex.stackexchange.com/questions/50827/a-simpletons-guide-to-tex-workflow-with-emacs
   * ftp://ftp.gnu.org/gnu/auctex/11.89-extra/tex-ref.pdf

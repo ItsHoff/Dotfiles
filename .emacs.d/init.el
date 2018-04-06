@@ -211,9 +211,23 @@
 
 (use-package evil-collection
   :after evil
-  :config
-  (delete 'company evil-collection-mode-list)
-  (evil-collection-init))
+  :init
+  (evil-collection-translate-key nil 'evil-motion-state-map
+                                 "H" nil
+                                 "J" nil
+                                 "K" nil
+                                 "L" nil
+                                 )
+  ; Keys that should be left alone always
+  (defun my/evil-collection-ignore (_mode mode-keymaps &rest _rest)
+    (evil-collection-translate-key nil mode-keymaps
+                                   "SPC" nil
+                                   "C-h" nil
+                                   "C-j" nil
+                                   "C-k" nil
+                                   "C-l" nil
+                                   ))
+  (add-hook 'evil-collection-setup-hook #'my/evil-collection-ignore))
 
 (use-package evil-exchange
   :after evil

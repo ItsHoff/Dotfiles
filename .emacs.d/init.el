@@ -39,6 +39,10 @@
 (setq gc-cons-threshold 20000000)   ; This should reduce emacs gc time
 (fset 'yes-or-no-p 'y-or-n-p)       ; y or n should suffice
 
+; Reverse the splitting order from default
+; First try vertical split and only then horizontal split
+(setq split-window-preferred-function 'my/split-window-sensibly)
+
 ; Make C-i and C-m different from <tab> and <return>
 (define-key input-decode-map [?\C-i] [C-i])
 (define-key input-decode-map [?\C-m] [C-m])

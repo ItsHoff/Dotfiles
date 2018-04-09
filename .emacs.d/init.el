@@ -409,12 +409,14 @@
   :after evil-collection
   :ensure nil
   :config
+  (require 'evil-collection-package-menu)
   (evil-collection-package-menu-setup))
 
 (use-package pdf-tools
   :after evil-collection
   :config
   (pdf-tools-install)
+  (require 'evil-collection-pdf)
   (evil-collection-pdf-setup))
 
 (use-package projectile

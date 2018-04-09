@@ -186,14 +186,7 @@
   (evil-declare-not-repeat #'counsel-find-file)
   :general
   (:keymaps '(motion normal)
-            "SPC" nil
             "C-f" #'counsel-find-file
-            "C-b" #'ivy-switch-buffer
-            "M-x" #'counsel-M-x
-            )
-  (:keymaps '(motion normal)
-            :prefix "SPC"
-            "SPC" #'counsel-M-x
             )
   (:keymaps 'evil-ex-map
             "b SPC" #'ivy-switch-buffer
@@ -321,6 +314,9 @@
 
 (use-package helm
   :diminish helm-mode
+  :init
+  (defvar my/helm-command-map (make-sparse-keymap))
+  (fset 'my/helm-command-map my/helm-command-map)
   :config
   (require 'helm-config)
   (setq helm-recentf-fuzzy-match t)
@@ -329,20 +325,18 @@
   (setq helm-apropos-fuzzy-match t)
   (helm-autoresize-mode t)
   :general
-  (:keymaps 'motion
-            "<C-m>" #'helm-mini
-            "SPC" nil
+  (:keymaps 'my/helm-command-map
+            "x" #'helm-M-x
+            "f" #'helm-find-files
+            "m" #'helm-mini
+            "o" #'helm-occur
+            "k" #'helm-man-woman
+            "r" #'helm-resume
+            "a" #'helm-apropos
             )
   (:keymaps 'motion
-   :prefix "SPC h"
-   "x" #'helm-M-x
-   "f" #'helm-find-files
-   "m" #'helm-mini
-   "o" #'helm-occur
-   "k" #'helm-man-woman
-   "r" #'helm-resume
-   "a" #'helm-apropos
-   )
+            "<C-m>" #'helm-mini
+            )
   (:keymaps 'helm-map
             "<tab>" #'helm-execute-persistent-action
             "C-h" #'helm-execute-persistent-action
@@ -359,8 +353,6 @@
   :config
   (evil-add-command-properties #'magit-diff-visit-file :jump t)
   :general
-  (:keymaps 'motion
-            "SPC g" #'magit-status)
   (:keymaps 'magit-mode-map
             "J" #'magit-section-forward
             "K" #'magit-section-backward
@@ -434,9 +426,6 @@
   :general
   (:keymaps 'projectile-command-map
             "A" (lambda () (interactive) (projectile-add-known-project (projectile-project-p)))
-            )
-  (:keymaps 'motion
-            "SPC p" #'projectile-command-map
             )
   )
 

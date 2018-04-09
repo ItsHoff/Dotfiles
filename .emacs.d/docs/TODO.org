@@ -2,6 +2,10 @@
 ** Fix
   * Manually install general since otherwise use-package will fail due to ':general' sections
 ** Improve
+*** Make properly overriding map for global bindings
+  * https://github.com/noctuid/general.el#override-keymaps-and-buffer-local-keybindings
+  * https://github.com/noctuid/evil-guide#what-overrides-evil
+  * https://github.com/noctuid/evil-guide#keymap-precedence
 *** Autoindent pasted text
     * https://www.emacswiki.org/emacs/AutoIndentation
 *** Org

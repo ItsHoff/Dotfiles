@@ -346,6 +346,9 @@
 
 (use-package hydra)
 
+(use-package interaction-log
+  :commands interaction-log-mode)
+
 (use-package magit
   :init
   (use-package evil-magit)

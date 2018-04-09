@@ -8,7 +8,10 @@
 (require 'my-functions)
 
 ;; UNBIND --------------------------------------------------------------------------------------
-(general-define-key "C-<backspace>" nil) ; Mistyped often with i-mode brackets
+(general-define-key
+ "C-<backspace>" nil ; Mistyped often with i-mode brackets
+ "<drag-mouse-1>" nil ; Causes annoying accidental visual modes when clicking
+ )
 (general-define-key :keymaps 'evil-read-key-map
                     "C-k" nil) ; Conflicts with easy-brackets
 

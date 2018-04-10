@@ -133,6 +133,10 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     ; Join + split
                     "<backspace>" #'evil-join
                     "RET" #'my/split-line
+                    ; Clipboard paste and yank
+                    "C-M-p" #'my/paste-clipboard-after
+                    "C-M-S-p" #'my/paste-clipboard-before
+                    "C-M-y" #'my/yank-clipboard
                     )
 
 ; Insert state

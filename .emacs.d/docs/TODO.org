@@ -45,12 +45,14 @@
 *** U vs C-r
 ** Create
 *** workspace management
-    * c-x r [w/j]
-        - window-configuration-to-register
-        - jump-to-register
-    * https://github.com/wasamasa/eyebrowse
-    * https://www.reddit.com/r/emacs/comments/6lgwme/how_do_you_handle_multiple_projectsworkspaces/
-    * https://github.com/nex3/perspective-el
+  * c-x r [w/j]
+      - window-configuration-to-register
+      - jump-to-register
+  * https://github.com/wasamasa/eyebrowse
+  * https://www.reddit.com/r/emacs/comments/6lgwme/how_do_you_handle_multiple_projectsworkspaces/
+  * https://github.com/nex3/perspective-el
+  * https://github.com/knu/elscreen
+  * https://www.emacswiki.org/emacs/WinnerMode
 *** folding
 *** some unix / emacs style commands in insert mode
 ** Evaluate

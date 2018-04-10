@@ -38,6 +38,7 @@
 (global-auto-revert-mode t)         ; Automatically reload changed files
 (setq gc-cons-threshold 20000000)   ; This should reduce emacs gc time
 (fset 'yes-or-no-p 'y-or-n-p)       ; y or n should suffice
+(setq-default fill-column 110)              ; Line wrap column
 
 ; Reverse the splitting order from default
 ; First try vertical split and only then horizontal split

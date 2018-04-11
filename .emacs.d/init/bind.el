@@ -127,22 +127,22 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     "'" #'evil-repeat-find-char
                     )
 
-; Define separately to avoid overriding some buffers q quit
 (general-define-key :keymaps '(normal visual)
                     ; Move paragraph object
+                    ; Define separately to avoid overriding some buffers q quit
                     "q" #'evil-forward-paragraph
                     "Q" #'evil-backward-paragraph
+                    ; Clipboard paste and yank
+                    "C-M-p" #'my/paste-clipboard-after
+                    "C-M-S-p" #'my/paste-clipboard-before
+                    "C-M-y" #'my/yank-clipboard
+                    "C-M-S-y" #'my/yank-line-clipboard
                     )
 
 (general-define-key :keymaps 'normal
                     ; Join + split
                     "<backspace>" #'evil-join
                     "RET" #'my/split-line
-                    ; Clipboard paste and yank
-                    "C-M-p" #'my/paste-clipboard-after
-                    "C-M-S-p" #'my/paste-clipboard-before
-                    "C-M-y" #'my/yank-clipboard
-                    "C-M-S-y" #'my/yank-line-clipboard
                     )
 
 ; Insert state

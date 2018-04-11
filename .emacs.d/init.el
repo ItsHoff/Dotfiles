@@ -380,12 +380,10 @@
   (evil-add-command-properties #'magit-diff-visit-file :jump t)
   :general
   (:keymaps 'magit-mode-map
-            "J" #'magit-section-forward
-            "K" #'magit-section-backward
-            ;; "C-j" #'magit-section-forward-sibling
-            "C-j" nil
-            ;; "C-k" #'magit-section-backward-sibling
-            "C-k" nil
+            "<up>" #'magit-section-forward
+            "<down>" #'magit-section-backward
+            "<left>" #'magit-section-forward-sibling
+            "<right>" #'magit-section-backward-sibling
             "<return>" #'magit-visit-thing
             "SPC" nil
             )
@@ -421,10 +419,10 @@
   :general
   (:keymaps 'org-mode-map
             :states '(normal visual)
-            "J" #'outline-next-visible-heading
-            "K" #'outline-previous-visible-heading
-            ;; "C-j" #'my/org-down-heading
-            ;; "C-k" #'my/org-up-heading
+            "<down>" #'outline-next-visible-heading
+            "<up>" #'outline-previous-visible-heading
+            "<right>" #'org-forward-heading-same-level
+            "<left>" #'org-backward-heading-same-level
             "M-h" #'org-metaleft
             "M-l" #'org-metaright
             "M-j" #'org-metadown

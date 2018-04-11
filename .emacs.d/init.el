@@ -187,6 +187,8 @@
   :config
   (evil-declare-not-repeat #'ivy-switch-buffer)
   (evil-declare-not-repeat #'counsel-find-file)
+  (evil-declare-not-repeat #'ivy-done)
+  (evil-declare-not-repeat #'ivy-alt-done)
   :general
   (:keymaps '(motion normal)
             "C-f" #'counsel-find-file

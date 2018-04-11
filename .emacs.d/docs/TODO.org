@@ -6,6 +6,10 @@
   * https://github.com/noctuid/general.el#override-keymaps-and-buffer-local-keybindings
   * https://github.com/noctuid/evil-guide#what-overrides-evil
   * https://github.com/noctuid/evil-guide#keymap-precedence
+*** Configure spaceline
+  * spaceline-config.el has the current config
+  * https://github.com/TheBB/spaceline
+  * check the available segments
 *** Autoindent pasted text
     * https://www.emacswiki.org/emacs/AutoIndentation
 *** Org
@@ -42,8 +46,18 @@
         ] s  evil-next-flyspell-error
         ] }  evil-next-close-brace
 *** Rework marks
-*** U vs C-r
 ** Create
+*** paste history (c-p, c-n)
+*** repeat history (c-., evil-repeat-pop-next)
+*** folding
+**** Vimish-fold
+    * https://github.com/alexmurray/evil-vimish-fold
+**** Origami
+    * https://github.com/gregsexton/origami.el
+**** Auctex
+    * https://www.gnu.org/software/auctex/manual/auctex.html#Folding
+*** some unix / emacs style commands in insert mode
+** Evaluate
 *** workspace management
   * c-x r [w/j]
       - window-configuration-to-register
@@ -53,23 +67,12 @@
   * https://github.com/nex3/perspective-el
   * https://github.com/knu/elscreen
   * https://www.emacswiki.org/emacs/WinnerMode
-*** folding
-*** some unix / emacs style commands in insert mode
-** Evaluate
-*** paste history (c-p, c-n)
-*** repeat history (c-., evil-repeat-pop-next)
 *** emacs-neotree
     * https://github.com/jaypei/emacs-neotree
     * https://www.emacswiki.org/emacs/NeoTree
-*** evil-numbers
-    * https://github.com/cofi/evil-numbers
 *** evil-exchange
    * https://github.com/Dewdrops/evil-exchange
 * Packages to check out
-** Vimish-fold
-  * https://github.com/alexmurray/evil-vimish-fold
-** perpective-el
-  * https://github.com/nex3/perspective-el
 ** evil-indent-textobject
   * https://github.com/cofi/evil-indent-textobject
 ** evil-args

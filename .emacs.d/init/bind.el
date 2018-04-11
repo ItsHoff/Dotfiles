@@ -95,6 +95,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     "p" #'projectile-command-map
                     "b" #'ivy-bibtex
                     "h" #'my/helm-command-map
+                    "s" #'my/framegroups-command-map
                     )
 
 (general-define-key :keymaps 'override

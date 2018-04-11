@@ -5,6 +5,7 @@
 ;;; Code:
 (require 'package)
 (add-to-list 'load-path "~/.emacs.d/init/")
+(add-to-list 'load-path "~/.emacs.d/manual_packages/")
 (setq package-enable-at-startup nil)
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")
@@ -200,6 +201,9 @@
 
 (use-package diminish)
 
+(use-package desktop
+  :custom (desktop-save-mode t))
+
 (use-package eldoc
   :diminish eldoc-mode)
 
@@ -246,6 +250,39 @@
   :init (global-flycheck-mode))
 
 (use-package flx)
+
+(use-package framegroups
+  :ensure nil
+  :pin manual
+  :commands fg-switch
+  :init
+  (defvar my/framegroups-command-map (make-sparse-keymap))
+  (fset 'my/framegroups-command-map my/framegroups-command-map)
+  (defun my/framegroup-setup (name &rest _)
+    "Set up default framegroup layouts."
+    (interactive)
+    (pcase name
+      ;; emacs configuration
+      ("emacs"
+       (find-file "~/.emacs.d/init/bind.el")
+       (split-window-right)
+       (find-file "~/.emacs.d/init.el")
+       (set-frame-parameter nil 'fullscreen 'maximized))
+      (_
+       (set-frame-parameter nil 'fullscreen 'maximized))
+      ))
+  (add-hook 'fg-create-hook #'my/framegroup-setup)
+  :general
+  (:keymaps 'my/framegroups-command-map
+            "s" #'fg-switch-to-frame
+            "p" #'fg-switch-to-last-frame
+            "e" (fg-switch "emacs")
+            "r" #'fg-rename-frame
+            "c" #'delete-frame
+            "o" #'delete-other-frames
+            "m" #'toggle-frame-maximized
+            "f" #'toggle-frame-fullscreen
+            ))
 
 (use-package golden-ratio
   :diminish golden-ratio-mode
@@ -428,13 +465,18 @@
 
 (use-package smex)
 
-(use-package spaceline-config
-  :ensure spaceline
+(use-package spaceline
+  :after framegroups
   :config
+  (require 'spaceline-config)
   (setq powerline-height 25)
   (setq powerline-default-separator "slant")
   (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
-  (spaceline-spacemacs-theme))
+  (spaceline-define-segment framegroups
+    "Segment for framegroups"
+    (when (fboundp 'fg-mode-line-string)
+      (fg-mode-line-string)))
+  (spaceline-spacemacs-theme '(framegroups :tight t)))
 
 (use-package solarized-theme
   :config

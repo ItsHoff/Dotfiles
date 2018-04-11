@@ -170,6 +170,14 @@ you want to quit windows on all frames."
   (interactive "<R>")
   (evil-yank beg end type ?+ nil))
 
+(evil-define-operator my/yank-line-clipboard (beg end type)
+  "Yank line to the clipboard."
+  :motion evil-line
+  :move-point nil
+  :repeat nil
+  (interactive "<R>")
+  (evil-yank-line beg end type ?+))
+
 (defun my/org-up-heading ()
   "Go up to the parent heading.
 If already at top heading go to the next heading above."

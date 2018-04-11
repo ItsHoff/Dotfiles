@@ -295,8 +295,8 @@
 
 (use-package golden-ratio-scroll-screen
   :config
-  (evil-declare-not-repeat #'golden-ratio-scroll-screen-down)
-  (evil-declare-not-repeat #'golden-ratio-scroll-screen-up))
+  (evil-declare-motion #'golden-ratio-scroll-screen-down)
+  (evil-declare-motion #'golden-ratio-scroll-screen-up))
 
 (use-package helm
   :diminish helm-mode

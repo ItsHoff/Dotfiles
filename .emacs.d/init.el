@@ -102,12 +102,10 @@
   (setq w32-apps-modifier 'hyper))
 
 ; Mac
-(when (eq system-type 'darwin)
-  ; Get the shell path
-  (use-package exec-path-from-shell
-    :config
-    (exec-path-from-shell-initialize))
-  )
+(use-package exec-path-from-shell
+  :if (memq window-system '(ns))
+  :config
+  (exec-path-from-shell-initialize))
 
 ;; HOOKS ---------------------------------------------------------------------------------------
 

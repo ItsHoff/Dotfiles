@@ -155,21 +155,20 @@ you want to quit windows on all frames."
   "Pastes the clipboard before point."
   :suppress-operator t
   (interactive "P")
-  ; I don't know if register 43 is portable solution
-  (evil-paste-before count 43))
+  (evil-paste-before count ?+))
 
 (evil-define-command my/paste-clipboard-after (count)
   "Pastes the clipboard behind point."
   :suppress-operator t
   (interactive "P")
-  (evil-paste-after count 43))
+  (evil-paste-after count ?+))
 
 (evil-define-operator my/yank-clipboard (beg end type)
   "Yank to the clipboard."
   :move-point nil
   :repeat nil
   (interactive "<R>")
-  (evil-yank beg end type 43 nil))
+  (evil-yank beg end type ?+ nil))
 
 (defun my/org-up-heading ()
   "Go up to the parent heading.

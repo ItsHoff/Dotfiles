@@ -69,8 +69,9 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (evil-declare-not-repeat #'my/window-hydra/body)
 
-; Everywhere except insert
-(general-define-key :keymaps  '(motion normal visual emacs)
+; Overrides
+(general-define-key :keymaps 'override
+                    :states  '(motion normal visual emacs)
                     "C-z" #'suspend-emacs
                     "C-w" #'my/window-hydra/body
                     "C-q" #'my/quit-extra-windows
@@ -84,16 +85,25 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                             (golden-ratio)(my/window-hydra/body))
                     "C-b" #'ivy-switch-buffer
                     "M-x" #'counsel-M-x
-                    "SPC" nil
                     )
 
-(general-define-key :keymaps '(motion normal visual emacs)
+(general-define-key :keymaps 'override
+                    :states '(motion normal visual emacs)
                     :prefix "SPC"
                     "SPC" #'counsel-M-x
                     "g" #'magit-status
                     "p" #'projectile-command-map
                     "b" #'ivy-bibtex
                     "h" #'my/helm-command-map
+                    )
+
+(general-define-key :keymaps 'override
+                    :states '(motion normal visual)
+                    ; Bigger movement
+                    "H" #'my/beginning-of-line
+                    "L" #'my/end-of-line
+                    "J" #'golden-ratio-scroll-screen-up
+                    "K" #'golden-ratio-scroll-screen-down
                     )
 
 ; Emacs state
@@ -110,11 +120,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     ; Make j and k move visual lines
                     "j" #'evil-next-visual-line
                     "k" #'evil-previous-visual-line
-                    ; Bigger movement
-                    "H" #'my/beginning-of-line
-                    "L" #'my/end-of-line
-                    "J" #'golden-ratio-scroll-screen-up
-                    "K" #'golden-ratio-scroll-screen-down
                     ; Move sentence object
                     "s" #'evil-forward-sentence-begin
                     "S" #'evil-backward-sentence-begin

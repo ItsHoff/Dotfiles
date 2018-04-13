@@ -634,6 +634,7 @@
 ;; Tex
 (use-package tex
   :ensure auctex
+  :after pdf-tools
   :custom
   (TeX-source-correlate-mode t)
   (TeX-source-correlate-start-server t)
@@ -642,8 +643,23 @@
   (TeX-save-query nil)
   (TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view)))
   (TeX-view-program-selection '((output-pdf "PDF Tools")))
-  :bind ("C-c e" . TeX-next-error)
-  :hook (TeX-after-compilation-finished-functions . TeX-revert-document-buffer))
+  :config
+  (require 'pdf-sync)
+  (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
+  (add-hook 'LaTeX-mode-hook (lambda () (outline-minor-mode)
+                               (setq word-wrap t)))
+  :general
+  (:keymaps 'LaTeX-mode-map
+            :states 'normal
+            "C-c e" #'TeX-next-error
+            "g s" #'pdf-sync-forward-search
+            )
+  )
+
+(use-package reftex
+  :custom
+  (reftex-plug-into-AUCTeX t)
+  (add-hook 'LaTeX-mode-hook #'turn-on-reftex))
 
 (use-package ivy-bibtex
   :custom

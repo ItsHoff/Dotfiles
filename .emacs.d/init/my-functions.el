@@ -5,6 +5,11 @@
 (require 'evil)
 (require 'org)
 
+(defun my/test-function ()
+  "Function for testing things."
+  (interactive)
+  (message "test"))
+
 (defun my/set-tab-width (width)
   "Set 'tab-width' to WIDTH."
   (setq tab-width width)

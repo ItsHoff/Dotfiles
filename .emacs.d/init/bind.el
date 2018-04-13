@@ -39,16 +39,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (define-key minibuffer-inactive-mode-map [escape] #'minibuffer-keyboard-quit)
 (global-set-key [escape] #'evil-exit-emacs-state)
 
-(general-define-key :keymaps 'global
-                    "M-+" help-map  ; Remap help
-                    "M-<dead-acute>" #'describe-key  ; Map key help (next to +)
-                    "M-/" help-map  ; Remap help for ansi
-                    "M-;" #'describe-key  ; Map key help (next to +)
-                    "M-u" #'universal-argument
-                    "M-g" #'keyboard-quit
-                    "C-S-w" (lambda ()(interactive) (message "test"))
-                    )
-
 ; Window commands
 (defhydra my/window-hydra (:hint nil :timeout 2)
   "Window"
@@ -72,6 +62,13 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 ; Overrides
 (general-define-key :keymaps 'override
                     :states  '(motion normal visual emacs)
+                    "C-M-S-s-t" #'my/test-function
+                    "M-+" help-map  ; Remap help
+                    "M-<dead-acute>" #'describe-key  ; Map key help (next to +)
+                    "M-/" help-map  ; Remap help for ansi
+                    "M-;" #'describe-key  ; Map key help (next to +)
+                    "M-u" #'universal-argument
+                    "M-g" #'keyboard-quit
                     "C-z" #'suspend-emacs
                     "C-w" #'my/window-hydra/body
                     "C-q" #'my/quit-extra-windows

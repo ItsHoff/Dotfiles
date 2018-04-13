@@ -414,7 +414,7 @@
   (add-hook 'org-mode-hook (lambda () (my/set-tab-width 2)))
   :config
   (setq org-M-RET-may-split-line '(default . nil)) ; Don't split line automatically
-  (evil-make-overriding-map org-mode-map 'normal)
+  (evil-make-overriding-map org-mode-map 'motion)
   (advice-add #'org-indent-line :after #'my/org-indent-advice)
   :general
   (:keymaps 'org-mode-map

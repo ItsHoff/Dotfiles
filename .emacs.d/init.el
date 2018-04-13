@@ -429,6 +429,20 @@
             "M-k" #'org-metaup
             ))
 
+(use-package outline
+  :ensure nil
+  :init
+  (evil-make-overriding-map outline-minor-mode-map 'motion)
+  :general
+  (:keymaps 'outline-minor-mode-map
+            :states '(normal visual)
+            "<down>" #'outline-next-visible-heading
+            "<up>" #'outline-previous-visible-heading
+            "<right>" #'outline-forward-same-level
+            "<left>" #'outline-backward-same-level
+            "C-c M-<down>" #'outline-next-visible-heading
+            ))
+
 (use-package package
   :after evil-collection
   :ensure nil

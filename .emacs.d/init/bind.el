@@ -113,6 +113,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 ; Motions (normal, visual and some special buffers)
 (general-define-key :keymaps '(motion normal visual)
                     "<C-i>" #'evil-jump-forward
+                    "TAB" #'evil-toggle-fold
                     ; Move emacs state
                     "M-z" #'evil-emacs-state
                     ; Make j and k move visual lines
@@ -127,7 +128,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (general-define-key :keymaps '(normal visual)
                     ; Move paragraph object
-                    ; Define separately to avoid overriding some buffers q quit
                     "q" #'evil-forward-paragraph
                     "Q" #'evil-backward-paragraph
                     ; Clipboard paste and yank

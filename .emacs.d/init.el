@@ -429,6 +429,8 @@
             "M-k" #'org-metaup
             ))
 
+(use-package origami)
+
 (use-package outline
   :ensure nil
   :init

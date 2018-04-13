@@ -77,6 +77,7 @@ If point is at or ahead of it move to last character."
     ;; Other general buffers
     "*Command History*"
     "*Compile-Log*"
+    "*TeX Help*"
     "*grep*"
     "*compilation*"
     "*disabled command*")

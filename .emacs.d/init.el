@@ -453,6 +453,7 @@
   (evil-collection-package-menu-setup))
 
 (use-package pdf-tools
+  :if (memq window-system '(ns))
   :after evil-collection
   :config
   (pdf-tools-install)
@@ -636,7 +637,6 @@
 ;; Tex
 (use-package tex
   :ensure auctex
-  :after pdf-tools
   :custom
   (TeX-source-correlate-mode t)
   (TeX-source-correlate-start-server t)

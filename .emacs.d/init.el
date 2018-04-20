@@ -76,9 +76,9 @@
 ;; Font
 (cond
   ((find-font (font-spec :name "Consolas"))
-   (set-frame-font "Consolas-11"))
+   (add-to-list 'default-frame-alist '(font . "Consolas-11")))
   ((find-font (font-spec :name "DejaVu Sans Mono"))
-   (set-frame-font "DejaVu Sans Mono-11"))
+   (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-11")))
   )
 
 ;; Tabs & Spaces

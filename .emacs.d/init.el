@@ -435,6 +435,11 @@
   :ensure nil
   :init
   (evil-make-overriding-map outline-minor-mode-map 'motion)
+  (dolist (cmd '(outline-next-visible-heading
+                 outline-previous-visible-heading
+                 outline-forward-same-level
+                 outline-backward-same-level))
+    (evil-declare-not-repeat cmd))
   :general
   (:keymaps 'outline-minor-mode-map
             :states '(normal visual)

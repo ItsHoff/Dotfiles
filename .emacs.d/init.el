@@ -380,10 +380,10 @@
   (evil-add-command-properties #'magit-diff-visit-file :jump t)
   :general
   (:keymaps 'magit-mode-map
-            "<up>" #'magit-section-forward
-            "<down>" #'magit-section-backward
-            "<left>" #'magit-section-forward-sibling
-            "<right>" #'magit-section-backward-sibling
+            "<up>" #'magit-section-backward
+            "<down>" #'magit-section-forward
+            "<left>" #'magit-section-backward-sibling
+            "<right>" #'magit-section-forward-sibling
             "<return>" #'magit-visit-thing
             "SPC" nil
             )

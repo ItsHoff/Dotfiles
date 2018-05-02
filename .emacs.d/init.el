@@ -455,6 +455,8 @@
 (use-package pdf-tools
   :if (memq window-system '(ns))
   :after evil-collection
+  :custom
+  (pdf-view-display-size 'fit-page)
   :config
   (pdf-tools-install)
   (require 'evil-collection-pdf)

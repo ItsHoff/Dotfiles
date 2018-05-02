@@ -442,7 +442,6 @@
             "<up>" #'outline-previous-visible-heading
             "<right>" #'outline-forward-same-level
             "<left>" #'outline-backward-same-level
-            "C-c M-<down>" #'outline-next-visible-heading
             ))
 
 (use-package package

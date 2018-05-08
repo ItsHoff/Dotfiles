@@ -663,6 +663,10 @@
             "C-c e" #'TeX-next-error
             "g s" #'pdf-sync-forward-search
             )
+  (:keymaps 'LaTeX-mode-map
+            :states 'insert
+            "C-M-b" #'ivy-bibtex
+            )
   )
 
 (use-package reftex
@@ -675,7 +679,14 @@
   (bibtex-completion-notes-path "~/thesis/bibliography/notes.org")
   (bibtex-completion-bibliography "~/thesis/bibliography/bibliography.bib")
   (bibtex-completion-library-path "~/Google Drive File Stream/My Drive/papers")
-  (bibtex-completion-pdf-open-function #'org-open-file-with-system))
+  (bibtex-completion-pdf-open-function #'org-open-file-with-system)
+  (bibtex-completion-cite-prompt-for-optional-arguments nil)
+  (bibtex-completion-format-citation-functions
+   '((org-mode . bibtex-completion-format-citation-org-link-to-PDF)
+   (latex-mode . bibtex-completion-format-citation-cite)
+   (markdown-mode . bibtex-completion-format-citation-pandoc-citeproc)
+   (default . bibtex-completion-format-citation-default)))
+  )
 
 ;; Vimrc
 (use-package vimrc-mode

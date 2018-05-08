@@ -96,6 +96,8 @@
 ** YASnippet
   * https://github.com/joaotavora/yasnippet
 ** Flyspell
+** Intellij-lsp
+  * https://github.com/Ruin0x11/lsp-intellij
 * Resources
 ** Global
   * https://github.com/emacs-tw/awesome-emacs

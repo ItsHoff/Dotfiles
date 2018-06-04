@@ -2,3 +2,5 @@
 	useConfigOnly = true
 [core]
 	excludesfile = ~/Dotfiles/.gitignore_personal
+	autocrlf = input
+	symlinks = true

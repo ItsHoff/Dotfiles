@@ -36,7 +36,7 @@ Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc.vim'
 "Plugin 'Valloric/YouCompleteMe'
 Plugin 'lervag/vimtex'
-Plugin 'SirVer/ultisnips'
+" Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
 " Plugins to checkout

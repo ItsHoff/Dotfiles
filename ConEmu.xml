@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2018-01-20 14:07:29" build="180114">
+		<key name=".Vanilla" modified="2018-06-04 16:15:48" build="180418">
 			<value name="StartType" type="hex" data="02"/>
 			<value name="CmdLine" type="string" data=""/>
 			<value name="StartTasksFile" type="string" data=""/>
@@ -59,7 +59,7 @@
 			<value name="FontSize" type="ulong" data="14"/>
 			<value name="StatusFontHeight" type="long" data="12"/>
 			<value name="TabFontHeight" type="long" data="13"/>
-			<key name="HotKeys" modified="2017-09-20 11:04:41" build="170819">
+			<key name="HotKeys" modified="2018-06-04 16:15:48" build="180418">
 				<value name="MinimizeRestore" type="dword" data="000011c0"/>
 				<value name="KeyMacroVersion" type="hex" data="02"/>
 				<value name="Multi.Modifier" type="dword" data="000000a2"/>
@@ -244,20 +244,23 @@
 				<value name="KeyMacro31.Text" type="string" data=""/>
 				<value name="KeyMacro32" type="dword" data="00000000"/>
 				<value name="KeyMacro32.Text" type="string" data=""/>
-				<value name="CTS.VkBlock" type="hex" data="a4"/>
-				<value name="CTS.VkText" type="hex" data="a0"/>
+				<value name="CTS.VkBlock" type="hex" data="A4"/>
+				<value name="CTS.VkText" type="hex" data="A0"/>
 				<value name="CTS.VkAct" type="hex" data="00"/>
 				<value name="CTS.VkPrompt" type="hex" data="00"/>
-				<value name="FarGotoEditorVk" type="hex" data="a2"/>
+				<value name="FarGotoEditorVk" type="hex" data="A2"/>
 				<value name="DndLKey" type="hex" data="00"/>
-				<value name="DndRKey" type="hex" data="a2"/>
+				<value name="DndRKey" type="hex" data="A2"/>
 				<value name="WndDragKey" type="dword" data="00121101"/>
+				<value name="CheckUpdates" type="dword" data="00105b55"/>
+				<value name="Multi.NewWndConfirm" type="dword" data="00000000"/>
+				<value name="CloseToRightKey" type="dword" data="00000000"/>
 			</key>
 			<value name="StartCreateDelay" type="ulong" data="100"/>
 			<value name="ExtendFonts" type="hex" data="00"/>
 			<value name="ExtendFontNormalIdx" type="hex" data="01"/>
-			<value name="ExtendFontBoldIdx" type="hex" data="0c"/>
-			<value name="ExtendFontItalicIdx" type="hex" data="0d"/>
+			<value name="ExtendFontBoldIdx" type="hex" data="0C"/>
+			<value name="ExtendFontItalicIdx" type="hex" data="0D"/>
 			<value name="CursorTypeActive" type="dword" data="000232c2"/>
 			<value name="CursorTypeInactive" type="dword" data="00823283"/>
 			<value name="ClipboardDetectLineEnd" type="hex" data="01"/>
@@ -275,7 +278,7 @@
 			<value name="VividColors" type="hex" data="01"/>
 			<value name="FadeInactive" type="hex" data="01"/>
 			<value name="FadeInactiveLow" type="hex" data="00"/>
-			<value name="FadeInactiveHigh" type="hex" data="d0"/>
+			<value name="FadeInactiveHigh" type="hex" data="D0"/>
 			<value name="ConVisible" type="hex" data="00"/>
 			<value name="SetDefaultTerminal" type="hex" data="00"/>
 			<value name="SetDefaultTerminalStartup" type="hex" data="00"/>
@@ -305,9 +308,9 @@
 			<value name="JumpListAutoUpdate" type="hex" data="01"/>
 			<value name="SaveCmdHistory" type="hex" data="01"/>
 			<value name="CmdLineHistory" type="multi">
+				<line data="{Bash::Git bash}"/>
 				<line data="{Bash::Git bash (Admin)}"/>
 				<line data="{Shells::cmd}"/>
-				<line data="{Bash::Git bash}"/>
 				<line data="{Shells::cmd (Admin)}"/>
 			</value>
 			<value name="ShowHelpTooltips" type="hex" data="01"/>
@@ -344,13 +347,13 @@
 			<value name="CompressLongStrings" type="hex" data="01"/>
 			<value name="BackGround Image show" type="hex" data="00"/>
 			<value name="BackGround Image" type="string" data="c:\back.bmp"/>
-			<value name="bgImageDarker" type="hex" data="ff"/>
+			<value name="bgImageDarker" type="hex" data="FF"/>
 			<value name="bgImageColors" type="dword" data="ffffffff"/>
 			<value name="bgOperation" type="hex" data="00"/>
 			<value name="bgPluginAllowed" type="hex" data="01"/>
-			<value name="AlphaValue" type="hex" data="ff"/>
+			<value name="AlphaValue" type="hex" data="FF"/>
 			<value name="AlphaValueSeparate" type="hex" data="00"/>
-			<value name="AlphaValueInactive" type="hex" data="ff"/>
+			<value name="AlphaValueInactive" type="hex" data="FF"/>
 			<value name="UserScreenTransparent" type="hex" data="00"/>
 			<value name="ColorKeyTransparent" type="hex" data="00"/>
 			<value name="ColorKeyValue" type="dword" data="00010101"/>
@@ -371,7 +374,7 @@
 			<value name="HideChildCaption" type="hex" data="01"/>
 			<value name="FocusInChildWindows" type="hex" data="01"/>
 			<value name="HideCaptionAlways" type="hex" data="00"/>
-			<value name="HideCaptionAlwaysFrame" type="hex" data="ff"/>
+			<value name="HideCaptionAlwaysFrame" type="hex" data="FF"/>
 			<value name="HideCaptionAlwaysDelay" type="ulong" data="2000"/>
 			<value name="HideCaptionAlwaysDisappear" type="ulong" data="2000"/>
 			<value name="DownShowHiddenMessage" type="hex" data="00"/>
@@ -407,7 +410,7 @@
 			<value name="CTS.ForceLocale" type="dword" data="00000000"/>
 			<value name="CTS.RBtnAction" type="hex" data="03"/>
 			<value name="CTS.MBtnAction" type="hex" data="00"/>
-			<value name="CTS.ColorIndex" type="hex" data="e0"/>
+			<value name="CTS.ColorIndex" type="hex" data="E0"/>
 			<value name="ClipboardConfirmEnter" type="hex" data="01"/>
 			<value name="ClipboardConfirmLonger" type="ulong" data="200"/>
 			<value name="FarGotoEditorOpt" type="hex" data="01"/>
@@ -420,9 +423,9 @@
 			<value name="ExtendUCharMap" type="hex" data="01"/>
 			<value name="EnhanceGraphics" type="hex" data="01"/>
 			<value name="EnhanceButtons" type="hex" data="00"/>
-			<value name="PartBrush75" type="hex" data="c8"/>
+			<value name="PartBrush75" type="hex" data="C8"/>
 			<value name="PartBrush50" type="hex" data="96"/>
-			<value name="PartBrush25" type="hex" data="5a"/>
+			<value name="PartBrush25" type="hex" data="5A"/>
 			<value name="PartBrushBlack" type="hex" data="20"/>
 			<value name="RightClick opens context menu" type="hex" data="02"/>
 			<value name="RightClickMacro2" type="string" data=""/>
@@ -657,19 +660,19 @@
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
-				<key name="Task7" modified="2017-09-20 11:04:41" build="170819">
+				<key name="Task7" modified="2018-06-04 16:15:48" build="180418">
 					<value name="Name" type="string" data="{Bash::Git bash}"/>
 					<value name="Flags" type="dword" data="00000004"/>
-					<value name="Hotkey" type="dword" data="00000000"/>
+					<value name="Hotkey" type="dword" data="00001154"/>
 					<value name="GuiArgs" type="string" data=""/>
 					<value name="Cmd1" type="string" data='set "PATH=%ConEmuDir%\..\Git\usr\bin;%PATH%" &amp; "%ConEmuDir%\..\Git\git-cmd.exe" --no-cd --command=%ConEmuBaseDirShort%\conemu-msys2-64.exe /usr/bin/bash.exe -l -i -new_console:p'/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
-				<key name="Task8" modified="2017-09-20 11:04:41" build="170819">
+				<key name="Task8" modified="2018-06-04 16:15:48" build="180418">
 					<value name="Name" type="string" data="{Bash::Git bash (Admin)}"/>
 					<value name="Flags" type="dword" data="00000004"/>
-					<value name="Hotkey" type="dword" data="00000000"/>
+					<value name="Hotkey" type="dword" data="00101154"/>
 					<value name="GuiArgs" type="string" data=""/>
 					<value name="Cmd1" type="string" data='set "PATH=%ConEmuDir%\..\Git\usr\bin;%PATH%" &amp; "%ConEmuDir%\..\Git\git-cmd.exe" --no-cd --command=%ConEmuBaseDirShort%\conemu-msys2-64.exe /usr/bin/bash.exe -l -i -new_console:a'/>
 					<value name="Active" type="long" data="0"/>
@@ -700,6 +703,10 @@
 			<key name="Colors" modified="2017-09-20 11:04:41" build="170819">
 				<value name="Count" type="long" data="0"/>
 			</key>
+			<value name="Language" type="string" data="en"/>
+			<value name="RestoreInactive" type="hex" data="00"/>
+			<value name="DynamicBufferHeight" type="hex" data="01"/>
+			<value name="StatusBar.Hide.WMode" type="hex" data="01"/>
 		</key>
 	</key>
 </key>

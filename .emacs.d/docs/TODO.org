@@ -96,8 +96,12 @@
 ** YASnippet
   * https://github.com/joaotavora/yasnippet
 ** Flyspell
-** Intellij-lsp
+** lsp
   * https://github.com/Ruin0x11/lsp-intellij
+  * https://www.reddit.com/r/emacs/comments/8pn2xk/does_anyone_use_emacs_for_enterprise_java/
+  * https://www.reddit.com/r/emacs/comments/8pjpuv/configuring_emacs_lspmode_and_the_python_language/
+** evil-fringe-mark
+  * https://github.com/Andrew-William-Smith/evil-fringe-mark
 * Resources
 ** Global
   * https://github.com/emacs-tw/awesome-emacs

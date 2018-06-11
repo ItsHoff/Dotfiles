@@ -39,26 +39,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (define-key minibuffer-inactive-mode-map [escape] #'minibuffer-keyboard-quit)
 (global-set-key [escape] #'evil-exit-emacs-state)
 
-; Window commands
-(defhydra my/window-hydra (:hint nil :timeout 2)
-  "Window"
-  ("C-h" evil-window-left :column "jump")
-  ("C-j" evil-window-down)
-  ("C-k" evil-window-up)
-  ("C-l" evil-window-right)
-  ("C-p" evil-window-mru "previous")
-  ("C-s" evil-window-split "h-split" :column "split")
-  ("s" evil-window-split "h-split" :exit t)
-  ("C-v" evil-window-vsplit "v-split")
-  ("v" evil-window-vsplit "v-split" :exit t)
-  ("C-c" evil-window-delete "close this" :column "close")
-  ("c" evil-window-delete "close this" :exit t)
-  ("C-o" delete-other-windows "close others" :exit t)
-  ("C-r" evil-window-rotate-downwards "rotate down" :column "reorder")
-  ("r" evil-window-rotate-downwards "rotate down" :exit t))
-
-(evil-declare-not-repeat #'my/window-hydra/body)
-
 ; Overrides
 (general-define-key :keymaps 'override
                     :states  '(motion normal visual emacs)
@@ -70,16 +50,11 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     "M-u" #'universal-argument
                     "M-g" #'keyboard-quit
                     "C-z" #'suspend-emacs
-                    "C-w" #'my/window-hydra/body
                     "C-q" #'my/quit-extra-windows
-                    "C-h" (lambda (count) (interactive "p") (evil-window-left count)
-                            (golden-ratio)(my/window-hydra/body))
-                    "C-j" (lambda (count) (interactive "p") (evil-window-down count)
-                            (golden-ratio)(my/window-hydra/body))
-                    "C-k" (lambda (count) (interactive "p") (evil-window-up count)
-                            (golden-ratio)(my/window-hydra/body))
-                    "C-l" (lambda (count) (interactive "p") (evil-window-right count)
-                            (golden-ratio)(my/window-hydra/body))
+                    "C-h" #'evil-window-left
+                    "C-j" #'evil-window-down
+                    "C-k" #'evil-window-up
+                    "C-l" #'evil-window-right
                     "C-b" #'ivy-switch-buffer
                     "M-x" #'counsel-M-x
                     )

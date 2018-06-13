@@ -663,10 +663,6 @@
             "C-c e" #'TeX-next-error
             "g s" #'pdf-sync-forward-search
             )
-  (:keymaps 'LaTeX-mode-map
-            :states 'insert
-            "C-M-b" #'ivy-bibtex
-            )
   )
 
 (use-package reftex

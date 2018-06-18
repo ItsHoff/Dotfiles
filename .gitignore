@@ -3,3 +3,4 @@
 !.emacs.d/init/
 !.emacs.d/docs/
 !.emacs.d/manual_packages/
+local-conf.el

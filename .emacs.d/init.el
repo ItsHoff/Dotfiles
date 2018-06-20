@@ -653,6 +653,8 @@
   (TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view)))
   (TeX-view-program-selection '((output-pdf "PDF Tools")))
   :config
+  (modify-syntax-entry ?_ "w" TeX-mode-syntax-table) ; _ is now part of a word
+  (modify-syntax-entry ?- "w" TeX-mode-syntax-table) ; - is now part of a word
   (require 'pdf-sync)
   (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
   (add-hook 'LaTeX-mode-hook (lambda () (outline-minor-mode)

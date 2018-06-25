@@ -102,6 +102,8 @@
   * https://www.reddit.com/r/emacs/comments/8pjpuv/configuring_emacs_lspmode_and_the_python_language/
 ** evil-fringe-mark
   * https://github.com/Andrew-William-Smith/evil-fringe-mark
+** helpful
+  * https://github.com/Wilfred/helpful
 * Resources
 ** Global
   * https://github.com/emacs-tw/awesome-emacs

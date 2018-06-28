@@ -90,7 +90,7 @@
 
 ;; Save custom settings to another file and load it
 (setq custom-file "~/.emacs.d/custom.el")
-(load custom-file 'noerror)
+;; (load custom-file 'noerror)
 
 ;; OS Specifics--------------------------------------------------------------------------------
 

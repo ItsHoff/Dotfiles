@@ -70,21 +70,9 @@
 *** emacs-neotree
     * https://github.com/jaypei/emacs-neotree
     * https://www.emacswiki.org/emacs/NeoTree
-*** evil-exchange
-   * https://github.com/Dewdrops/evil-exchange
 * Packages to check out
-** evil-indent-textobject
-  * https://github.com/cofi/evil-indent-textobject
-** evil-args
-  * https://github.com/wcsmith/evil-args
-** evil-ediff
-  * https://github.com/emacs-evil/evil-ediff
-** evil-surround
-  * https://github.com/emacs-evil/evil-surround
 ** evil-smartparens
   * https://github.com/expez/evil-smartparens
-** Org-ref
-  * https://github.com/jkitchin/org-ref
 ** RealGUD
   * https://github.com/realgud/realgud
 ** Org-chef

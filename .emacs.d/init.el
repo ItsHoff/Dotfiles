@@ -428,6 +428,8 @@
 
 (use-package outline
   :ensure nil
+  :init
+  (add-hook 'prog-mode-hook (lambda () (outline-minor-mode)))
   :config
   (evil-make-overriding-map outline-minor-mode-map 'motion)
   (dolist (cmd '(outline-next-visible-heading

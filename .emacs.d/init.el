@@ -211,12 +211,6 @@
 (use-package evil-collection
   :after evil)
 
-(use-package evil-exchange
-  :after evil
-  :init
-  (setq evil-exchange-key (kbd ";x"))
-  (evil-exchange-install))
-
 (use-package evil-matchit
   :after evil
   :init (global-evil-matchit-mode 1))

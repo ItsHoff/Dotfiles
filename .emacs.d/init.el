@@ -367,6 +367,11 @@
 (use-package interaction-log
   :commands interaction-log-mode)
 
+(use-package ispell
+  :ensure nil
+  :custom
+  (ispell-silently-savep t))
+
 (use-package magit
   :init
   (use-package evil-magit)
@@ -655,6 +660,7 @@
   (require 'pdf-sync)
   (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
   (add-hook 'LaTeX-mode-hook (lambda () (outline-minor-mode)
+                               (flyspell-mode)
                                (setq word-wrap t)))
   :general
   (:keymaps 'LaTeX-mode-map

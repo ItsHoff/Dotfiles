@@ -18,7 +18,7 @@
     | <esc>       | keyboard-quit                      |                              |
     |-------------+------------------------------------+------------------------------|
     | <tab>       | -                                  |                              |
-    | q           | evil-forward-paragraph             |                              |
+    | q           | evil-record-macro                  | TODO: rework macros          |
     | w           | evil-forward-word-begin            |                              |
     | e           | evil-forward-word-end              |                              |
     | r           | evil-replace                       | includes easy-brackets hacks |
@@ -34,7 +34,7 @@
     |-------------+------------------------------------+------------------------------|
     | <esc>       | keyboard-quit                      |                              |
     | a           | evil-append                        |                              |
-    | s           | evil-forward-sentence-begin        | hasnt had much use yet       |
+    | s           | evil-substitute                    | TODO: replace                |
     | d           | evil-delete                        | includes easy-brackets hacks |
     | f           | evil-find-char                     | includes easy-brackets hacks |
     | g           | prefix: "go"                       |                              |
@@ -59,10 +59,9 @@
     |-------------+------------------------------------+------------------------------|
     | <space>     | prefix                             |                              |
 *** Overwritten
-    | Old Key | Function               | Comment             |
-    |---------+------------------------+---------------------|
-    | s       | evil-substitute        | useless             |
-    | q       | evil-record-macro      | TODO: rework macros |
+    | Old Key | Function            | Comment             |
+    |---------+---------------------+---------------------|
+    | '       | evil-goto-mark-line |                     |
 ** Shift
    | Key         | Function                            | Comment                               |
    |-------------+-------------------------------------+---------------------------------------|
@@ -82,7 +81,7 @@
    | <backspace> | -                                   |                                       |
    |-------------+-------------------------------------+---------------------------------------|
    | <tab>       | -                                   |                                       |
-   | Q           | evil-backward-paragraph             |                                       |
+   | Q           | -                                   |                                       |
    | W           | evil-forward-WORD-begin             |                                       |
    | E           | evil-forward-WORD-end               |                                       |
    | R           | evil-replace-state                  | TODO: replace                         |
@@ -97,7 +96,7 @@
    | \vert       | evil-goto-column                    |                                       |
    |-------------+-------------------------------------+---------------------------------------|
    | A           | evil-append-line                    |                                       |
-   | S           | evil-backward-sentence-begin        | hasnt had much use yet                |
+   | S           | evil-change-whole-line              | TODO: use                             |
    | D           | evil-delete-line                    |                                       |
    | F           | evil-find-char-backward             | includes easy-brackets hacks          |
    | G           | evil-goto-line                      | TODO: improve g                       |
@@ -124,7 +123,6 @@
 *** Overwritten
     | Old Key | Function               | Comment             |
     |---------+------------------------+---------------------|
-    | S       | evil-change-whole-line | useless             |
     | K       | evil-lookup (man)      | TODO: remap         |
 ** Control
    | Key         | Function               | Comment                 |
@@ -154,10 +152,10 @@
    | d           | evil-scroll-down       |                         |
    | f           | counsel-find-file      |                         |
    | g           | keyboard-quit          |                         |
-   | h           | evil-window-left       | Starts window hydra     |
-   | j           | evil-window-down       | Starts window hydra     |
-   | k           | evil-window-up         | Starts window hydra     |
-   | l           | evil-window-right      | Starts window hydra     |
+   | h           | evil-window-left       |                         |
+   | j           | evil-window-down       |                         |
+   | k           | evil-window-up         |                         |
+   | l           | evil-window-right      |                         |
    | ;           | -                      | TODO: use               |
    | '           | -                      | TODO: use               |
    |-------------+------------------------+-------------------------|
@@ -166,7 +164,7 @@
    | c           | emacs prefix           | TODO: replace           |
    | v           | evil-visual-block      |                         |
    | b           | ivy-switch-buffer      |                         |
-   | n           | neotree-toggle         |                         |
+   | n           | evil-paste-pop-next    |                         |
    | m           | helm-mini              |                         |
    | ,           | -                      |                         |
    | .           | evil-repeat-pop        |                         |

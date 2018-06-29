@@ -244,6 +244,7 @@
 (use-package flycheck
   :init (global-flycheck-mode))
 
+; Fuzzy matching for company
 (use-package flx)
 
 (use-package framegroups
@@ -389,24 +390,26 @@
             )
   )
 
-(use-package neotree
-  :config
-  (setq neo-auto-indent-point t)
-  (setq neo-smart-open t)
-  (require 'evil)
-  (evil-make-overriding-map neotree-mode-map 'normal)
-  :general
-  (:keymaps '(motion normal)
-            "C-n" #'neotree-toggle)
-  (:keymaps 'neotree-mode-map
-            "C-n" #'neotree-toggle)
-  )
+; Removed: 29.6.2018
+;; (use-package neotree
+;;   :config
+;;   (setq neo-auto-indent-point t)
+;;   (setq neo-smart-open t)
+;;   (require 'evil)
+;;   (evil-make-overriding-map neotree-mode-map 'normal)
+;;   :general
+;;   (:keymaps '(motion normal)
+;;             "C-n" #'neotree-toggle)
+;;   (:keymaps 'neotree-mode-map
+;;             "C-n" #'neotree-toggle)
+;;   )
 
-(use-package nlinum-relative
-  :init
-  (setq nlinum-relative-redisplay-delay 0.01)
-  (nlinum-relative-setup-evil)
-  (add-hook 'prog-mode-hook #'nlinum-relative-mode))
+; Removed: 29.6.2018
+;; (use-package nlinum-relative
+;;   :init
+;;   (setq nlinum-relative-redisplay-delay 0.01)
+;;   (nlinum-relative-setup-evil)
+;;   (add-hook 'prog-mode-hook #'nlinum-relative-mode))
 
 (use-package org
   :init
@@ -428,8 +431,6 @@
             "M-j" #'org-metadown
             "M-k" #'org-metaup
             ))
-
-(use-package origami)
 
 (use-package outline
   :ensure nil
@@ -487,6 +488,7 @@
   (setq recentf-max-saved-items 50)
   (recentf-mode 1))
 
+; Used by ivy to improve ordering
 (use-package smex)
 
 (use-package spaceline

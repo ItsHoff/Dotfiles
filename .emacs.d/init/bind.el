@@ -15,7 +15,6 @@
 (general-define-key :keymaps 'evil-read-key-map
                     "C-k" nil) ; Conflicts with easy-brackets
 
-
 ;; BINDINGS -----------------------------------------------------------------------------------
 
 ;; esc quits
@@ -94,17 +93,11 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     ; Make j and k move visual lines
                     "j" #'evil-next-visual-line
                     "k" #'evil-previous-visual-line
-                    ; Move sentence object
-                    "s" #'evil-forward-sentence-begin
-                    "S" #'evil-backward-sentence-begin
                     ; _;_ is leader so use ' instead
                     "'" #'evil-repeat-find-char
                     )
 
 (general-define-key :keymaps '(normal visual)
-                    ; Move paragraph object
-                    "q" #'evil-forward-paragraph
-                    "Q" #'evil-backward-paragraph
                     ; Clipboard paste and yank
                     "C-M-p" #'my/paste-clipboard-after
                     "C-M-S-p" #'my/paste-clipboard-before

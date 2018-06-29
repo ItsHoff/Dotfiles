@@ -14,11 +14,6 @@
     * https://www.emacswiki.org/emacs/AutoIndentation
 *** Org
     * item insertion
-*** Window controls
-    * Make use of hydras
-    * separate or combined movement and viewpoint control?
-    * evil-scroll-down/-up
-    * resizing
 *** Simplify golden ratio rules
   * https://github.com/roman/golden-ratio.el/issues/77
 ** Learn
@@ -27,25 +22,8 @@
 *** Auctex
    * https://www.gnu.org/software/auctex/index.html
 *** Org
+*** Marks
 ** Change
-*** prefix g: go
-    * G as reverse?
-    * j eof, k bof
-    * C-t pop-tag-mark
-    * These here:
-      - G
-        [ (  evil-previous-open-paren
-        [ [  evil-backward-section-begin
-        [ ]  evil-backward-section-end
-        ] s  evil-prev-flyspell-error
-        [ {  evil-previous-open-brace
-      - g
-        ] )  evil-next-close-paren
-        ] [  evil-forward-section-end
-        ] ]  evil-forward-section-begin
-        ] s  evil-next-flyspell-error
-        ] }  evil-next-close-brace
-*** Rework marks
 ** Create
 *** paste history (c-p, c-n)
 *** repeat history (c-., evil-repeat-pop-next)
@@ -56,17 +34,7 @@
     * https://github.com/gregsexton/origami.el
 **** Auctex
     * https://www.gnu.org/software/auctex/manual/auctex.html#Folding
-*** some unix / emacs style commands in insert mode
 ** Evaluate
-*** workspace management
-  * c-x r [w/j]
-      - window-configuration-to-register
-      - jump-to-register
-  * https://github.com/wasamasa/eyebrowse
-  * https://www.reddit.com/r/emacs/comments/6lgwme/how_do_you_handle_multiple_projectsworkspaces/
-  * https://github.com/nex3/perspective-el
-  * https://github.com/knu/elscreen
-  * https://www.emacswiki.org/emacs/WinnerMode
 *** emacs-neotree
     * https://github.com/jaypei/emacs-neotree
     * https://www.emacswiki.org/emacs/NeoTree
@@ -83,7 +51,6 @@
   * https://www.emacswiki.org/emacs/WinnerMode
 ** YASnippet
   * https://github.com/joaotavora/yasnippet
-** Flyspell
 ** lsp
   * https://github.com/Ruin0x11/lsp-intellij
   * https://www.reddit.com/r/emacs/comments/8pn2xk/does_anyone_use_emacs_for_enterprise_java/

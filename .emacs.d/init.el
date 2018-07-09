@@ -242,6 +242,7 @@
             "¤" #'evil-visualstar/begin-search-backward))
 
 (use-package flycheck
+  :diminish flycheck-mode
   :init (global-flycheck-mode))
 
 ; Fuzzy matching for company
@@ -434,6 +435,7 @@
 
 (use-package outline
   :ensure nil
+  :diminish outline-minor-mode
   :init
   (add-hook 'prog-mode-hook (lambda () (outline-minor-mode)))
   :config
@@ -632,18 +634,20 @@
   (add-to-list 'company-backends '(company-anaconda :with company-capf)))
 
 ;; Rust
-(use-package rust-mode
+(use-package rust-mode)
+
+(use-package cargo
+  :diminish cargo-minor-mode
+  :init (add-hook 'rust-mode-hook #'cargo-minor-mode))
+
+(use-package flycheck-rust
+  :init (add-hook 'rust-mode-hook #'flycheck-rust-setup))
+
+(use-package racer
+  :diminish racer-mode
   :init
-  (use-package cargo
-    :init (add-hook 'rust-mode-hook #'cargo-minor-mode))
-
-  (use-package flycheck-rust
-    :init (add-hook 'rust-mode-hook #'flycheck-rust-setup))
-
-  (use-package racer
-    :init
-    (add-hook 'rust-mode-hook #'racer-mode)
-    (add-hook 'racer-mode-hook #'eldoc-mode)))
+  (add-hook 'rust-mode-hook #'racer-mode)
+  (add-hook 'racer-mode-hook #'eldoc-mode))
 
 ;; Tex
 (use-package tex

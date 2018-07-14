@@ -59,6 +59,10 @@
   * https://github.com/Andrew-William-Smith/evil-fringe-mark
 ** helpful
   * https://github.com/Wilfred/helpful
+** volatile-highlights
+  * https://github.com/k-talo/volatile-highlights.el
+** flycheck-tip
+  * https://github.com/yuutayamada/flycheck-tip
 * Resources
 ** Global
   * https://github.com/emacs-tw/awesome-emacs

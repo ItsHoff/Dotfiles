@@ -63,6 +63,11 @@
   * https://github.com/k-talo/volatile-highlights.el
 ** flycheck-tip
   * https://github.com/yuutayamada/flycheck-tip
+** magit-todos
+  * https://github.com/alphapapa/magit-todos
+  * https://www.reddit.com/r/emacs/comments/8y49hv/magittodos_show_source_files_todos_and_fixmes_etc/
+** company-box
+  * https://github.com/sebastiencs/company-box
 * Resources
 ** Global
   * https://github.com/emacs-tw/awesome-emacs

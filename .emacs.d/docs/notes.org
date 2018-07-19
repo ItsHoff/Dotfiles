@@ -125,3 +125,6 @@
 ** Latex
   * https://tex.stackexchange.com/questions/50827/a-simpletons-guide-to-tex-workflow-with-emacs
   * ftp://ftp.gnu.org/gnu/auctex/11.89-extra/tex-ref.pdf
+* Debug commands
+  * toggle-debug-on-quit
+  * interaction-log-mode

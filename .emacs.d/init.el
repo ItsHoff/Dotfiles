@@ -36,7 +36,6 @@
 (setq select-enable-clipboard nil) ; Disable emacs clipboard and rely on evil
 (put 'dired-find-alternate-file 'disabled nil) ; Allow dired to use the same buffer
 (setq completion-styles '(basic initials partial substring)) ; Better completion
-(global-auto-revert-mode t)         ; Automatically reload changed files
 (setq gc-cons-threshold 20000000)   ; This should reduce emacs gc time
 (fset 'yes-or-no-p 'y-or-n-p)       ; y or n should suffice
 (setq-default fill-column 110)      ; Line wrap column
@@ -149,9 +148,13 @@
   :ensure nil
   :diminish abbrev-mode)
 
+; Automatically reload changed files
 (use-package autorevert
   :ensure nil
-  :diminish auto-revert-mode)
+  :diminish auto-revert-mode
+  :config
+  (setq global-auto-revert-ignore-modes '(pdf-view-mode))
+  (global-auto-revert-mode t))
 
 (use-package company
   :diminish company-mode

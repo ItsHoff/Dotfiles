@@ -16,6 +16,9 @@
     * item insertion
 *** Simplify golden ratio rules
   * https://github.com/roman/golden-ratio.el/issues/77
+*** Function movement in unsupported languages (Rust)
+  * end-of-defun
+  * beginning-of-defun
 ** Learn
 *** Flycheck
 *** Rust-mode

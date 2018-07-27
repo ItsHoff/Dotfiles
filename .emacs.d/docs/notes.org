@@ -19,6 +19,8 @@
 *** Function movement in unsupported languages (Rust)
   * end-of-defun
   * beginning-of-defun
+*** Full sized splits with earlier splits
+  * https://emacs.stackexchange.com/questions/585/split-window-at-outermost-border
 ** Learn
 *** Flycheck
 *** Rust-mode
@@ -89,12 +91,12 @@
   * https://cestlaz.github.io/stories/emacs/
   * http://ergoemacs.org/emacs/emacs_hyper_super_keys.html
 ** Tabbing
-    * https://www.emacswiki.org/emacs/TabStopList
-    * https://stackoverflow.com/questions/4006005/how-can-i-set-emacs-tab-settings-by-file-type
-    * https://www.emacswiki.org/emacs/BackspaceWhitespaceToTabStop
-    * https://www.emacswiki.org/emacs/IndentationBasics
-    * https://www.gnu.org/software/emacs/manual/html_node/emacs/Indentation.html#Indentation
-    * https://emacs.stackexchange.com/questions/27869/how-to-make-evil-mode-tab-key-indent-not-re-indent-based-on-context
+  * https://www.emacswiki.org/emacs/TabStopList
+  * https://stackoverflow.com/questions/4006005/how-can-i-set-emacs-tab-settings-by-file-type
+  * https://www.emacswiki.org/emacs/BackspaceWhitespaceToTabStop
+  * https://www.emacswiki.org/emacs/IndentationBasics
+  * https://www.gnu.org/software/emacs/manual/html_node/emacs/Indentation.html#Indentation
+  * https://emacs.stackexchange.com/questions/27869/how-to-make-evil-mode-tab-key-indent-not-re-indent-based-on-context
 ** Ivy
   * http://oremacs.com/swiper/
   * https://github.com/abo-abo/swiper

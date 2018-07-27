@@ -540,11 +540,12 @@
   (setq undo-tree-visualizer-diff t)
   (setq undo-tree-visualizer-timestamps t)
   (setq undo-tree-visualizer-lazy-drawing nil) ; Change this to improve perf
+  ; Disable region undo since it seems to be flaky
+  (setq undo-tree-enable-undo-in-region nil)
   :config
   (evil-make-overriding-map undo-tree-visualizer-mode-map 'motion)
-  ;; Evaluating the effect on these on undo errors. Removed: 19.7.2018
-  ;; (advice-add #'undo-tree-undo-1 :filter-args #'my/advice-preserve-timestamps)
-  ;; (advice-add #'undo-tree-redo-1 :filter-args #'my/advice-preserve-timestamps)
+  (advice-add #'undo-tree-undo-1 :filter-args #'my/advice-preserve-timestamps)
+  (advice-add #'undo-tree-redo-1 :filter-args #'my/advice-preserve-timestamps)
   :general
   (:keymaps '(normal visual)
             "C-u" #'undo-tree-visualize

@@ -8,7 +8,8 @@
 (defun my/test-function ()
   "Function for testing things."
   (interactive)
-  (message "test"))
+  (message "test")
+  (message (auto-revert-active-p)))
 
 (defun my/set-tab-width (width)
   "Set 'tab-width' to WIDTH."

@@ -73,6 +73,8 @@
   * https://www.reddit.com/r/emacs/comments/8y49hv/magittodos_show_source_files_todos_and_fixmes_etc/
 ** company-box
   * https://github.com/sebastiencs/company-box
+** doom-todo-ivy
+  * https://github.com/jsmestad/doom-todo-ivy
 * Resources
 ** Global
   * https://github.com/emacs-tw/awesome-emacs

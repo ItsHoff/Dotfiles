@@ -78,7 +78,6 @@
 * Resources
 ** Global
   * https://github.com/emacs-tw/awesome-emacs
-  * http://spacemacs.org/
   * https://masteringemacs.org/
   * https://juanjoalvarez.net/es/detail/2014/sep/19/vim-emacsevil-chaotic-migration-guide/
   * https://blog.aaronbieber.com/2015/05/24/from-vim-to-emacs-in-fourteen-days.html
@@ -86,7 +85,6 @@
   * https://github.com/noctuid/evil-guide
   * https://www.reddit.com/r/emacs/comments/60nb8b/favorite_builtin_emacs_commands/
   * https://stackoverflow.com/questions/8483182/evil-mode-best-practice
-  * https://melpa.org/#/
   * http://pages.sachachua.com/.emacs.d/Sacha.html#orgdda953f
   * http://mp.vv.si/blog/emacs/emacs-init-performance-analysis/
   * http://ergoemacs.org/emacs/emacs.html
@@ -117,10 +115,6 @@
   * https://github.com/Somelauw/evil-org-mode
   * https://www.reddit.com/r/orgmode/comments/6mfvb1/syncing_org_files_to_android_orgzly_with_tasker/
   * https://www.reddit.com/r/orgmode/comments/6t7ufq/what_are_the_best_packages_plugins_for_org_mode/
-** Python
-  * http://www.jesshamrick.com/2012/09/18/emacs-as-a-python-ide/
-** Rust
-  * http://julienblanchard.com/2016/fancy-rust-development-with-emacs/
 ** C and C++
   * https://www.reddit.com/r/emacs/comments/6lnwaz/c_in_gnu_emacs/
   * https://www.reddit.com/r/emacs/comments/7fp6jk/beginners_guide_to_setting_up_a_basic_emacs_c/

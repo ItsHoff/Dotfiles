@@ -408,13 +408,6 @@
 ;;             "C-n" #'neotree-toggle)
 ;;   )
 
-; Removed: 29.6.2018
-;; (use-package nlinum-relative
-;;   :init
-;;   (setq nlinum-relative-redisplay-delay 0.01)
-;;   (nlinum-relative-setup-evil)
-;;   (add-hook 'prog-mode-hook #'nlinum-relative-mode))
-
 (use-package org
   :init
   (require 'my-functions)

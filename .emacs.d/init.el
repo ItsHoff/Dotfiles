@@ -24,6 +24,7 @@
 
 ;; GENERAL SETTINGS ----------------------------------------------------------------------------
 
+(server-start)                      ; Use server for external programs
 (prefer-coding-system 'utf-8)       ; UTF-8 please
 (setq visible-bell 1)               ; No error beep
 (tool-bar-mode -1)                  ; No toolbar

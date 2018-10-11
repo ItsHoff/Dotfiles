@@ -126,7 +126,7 @@
 
 (use-package evil
   :init
-  (setq evil-want-integration nil) ; Use evil-collection for integration
+  (setq evil-want-keybinding nil) ; Use evil-collection for integration
   (setq evil-want-Y-yank-to-eol t)
   (setq evil-want-C-w-in-emacs-state t) ; Window commands should always work
   (evil-mode 1)

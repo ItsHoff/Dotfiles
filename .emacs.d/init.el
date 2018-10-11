@@ -665,7 +665,6 @@
   (require 'pdf-sync)
   (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
   (add-hook 'LaTeX-mode-hook (lambda () (outline-minor-mode)
-                               (flyspell-mode)
                                (setq word-wrap t)))
   :general
   (:keymaps 'LaTeX-mode-map

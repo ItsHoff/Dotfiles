@@ -415,7 +415,6 @@
 
 (use-package org
   :init
-  (require 'my-functions)
   (add-hook 'org-mode-hook (lambda () (my/set-tab-width 2)))
   :config
   (setq org-M-RET-may-split-line '(default . nil)) ; Don't split line automatically
@@ -701,6 +700,7 @@
 (use-package vimrc-mode
   :mode "\\.vim\\(rc\\)?\\'")
 
+(require 'my-functions)
 (load "bind")
 (load "local-conf" 'noerror) ; No error if missing
 

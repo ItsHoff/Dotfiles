@@ -409,6 +409,10 @@
 ;;             "C-n" #'neotree-toggle)
 ;;   )
 
+(use-package olivetti
+  :custom
+  (olivetti-body-width 80))
+
 (use-package org
   :init
   (require 'my-functions)

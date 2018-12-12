@@ -2,5 +2,6 @@
 !.emacs.d/init.el
 !.emacs.d/init/
 !.emacs.d/docs/
+!.emacs.d/snippets/
 !.emacs.d/manual_packages/
 local-conf.el

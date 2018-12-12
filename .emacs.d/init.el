@@ -571,7 +571,18 @@
   (global-whitespace-mode t))
 
 (use-package yasnippet
-  :diminish yas-minor-mode)
+  :diminish yas-minor-mode
+  :init
+  (defvar my/yas-command-map (make-sparse-keymap))
+  (fset 'my/yas-command-map my/yas-command-map)
+  :config
+  (yas-global-mode)
+  :general
+  (:keymaps 'my/yas-command-map
+            "y" #'yas-insert-snippet
+            "n" #'yas-new-snippet
+            "v" #'yas-visit-snippet-file
+            ))
 
 ;; PROGRAMMING MODES ---------------------------------------------------------------------------
 

@@ -1,0 +1,24 @@
+# -*- mode: snippet -*-
+# name: debug
+# key: debug
+# type: command
+# --
+(let ((yas-good-grace nil)
+      (yas-also-auto-indent-first-line t)
+      (count (read-number "Number of elements: ")))
+  (yas-expand-snippet
+   (concat "$> println!(\""
+           (mapconcat
+            #'identity
+            (mapcar (lambda (num)
+                      (format "${%d:{:?}}" (1+ num) num))
+                    (number-sequence 1 count nil))
+            ", ")
+           "\", "
+           (mapconcat
+            #'identity
+            (mapcar (lambda (num)
+                      (format "$%d" (1+ num) num))
+                    (number-sequence (1+ count) (+ count count) nil))
+            ", ")
+           ");")))

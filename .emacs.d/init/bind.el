@@ -71,6 +71,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     "b" #'ivy-bibtex
                     "h" #'my/helm-command-map
                     "s" #'my/framegroups-command-map
+                    "y" #'my/yas-command-map
                     )
 
 (general-define-key :keymaps 'override

@@ -81,7 +81,9 @@ If point is at or ahead of it move to last character."
     "*TeX Help*"
     "*grep*"
     "*compilation*"
-    "*disabled command*")
+    "*disabled command*"
+    "*Cargo Clippy*"
+    )
   "Names of buffers that `my/quit-extra-windows' should quit.")
 
 (defun my/quit-extra-windows (&optional kill frame)

@@ -206,6 +206,13 @@
 
 (use-package diminish)
 
+(use-package dired
+  :after evil-collection
+  :ensure nil
+  :config
+  (require 'evil-collection-dired)
+  (evil-collection-dired-setup))
+
 (use-package desktop
   :custom (desktop-save-mode t))
 

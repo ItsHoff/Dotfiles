@@ -557,7 +557,7 @@
   :diminish global-whitespace-mode
   :init
   ; Hightlight tabs and trailing whitespace
-  (setq whitespace-style '(face trailing empty tabs space-before-tab tab-mark))
+  (setq whitespace-style '(face trailing tabs space-before-tab tab-mark))
   (setq whitespace-tab 'highlight)
   ; Change tab mark (this removes space and newline marks)
   (setq whitespace-display-mappings '((tab-mark ?\t [?▸ ?\t] [?› ?\t] [?> ?\t])))

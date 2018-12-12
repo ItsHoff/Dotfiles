@@ -40,12 +40,16 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 ; Overrides
 (general-define-key :keymaps 'override
-                    :states  '(motion normal visual emacs)
-                    "C-M-S-s-t" #'my/test-function
+                    :states  '(motion normal visual emacs insert)
                     "M-+" help-map  ; Remap help
                     "M-<dead-acute>" #'describe-key  ; Map key help (next to +)
                     "M-/" help-map  ; Remap help for ansi
                     "M-;" #'describe-key  ; Map key help (next to +)
+                    )
+
+(general-define-key :keymaps 'override
+                    :states  '(motion normal visual emacs)
+                    "C-M-S-s-t" #'my/test-function
                     "M-u" #'universal-argument
                     "M-g" #'keyboard-quit
                     "C-z" #'suspend-emacs

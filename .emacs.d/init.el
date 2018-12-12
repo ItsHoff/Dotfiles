@@ -395,20 +395,6 @@
             )
   )
 
-; Removed: 29.6.2018
-;; (use-package neotree
-;;   :config
-;;   (setq neo-auto-indent-point t)
-;;   (setq neo-smart-open t)
-;;   (require 'evil)
-;;   (evil-make-overriding-map neotree-mode-map 'normal)
-;;   :general
-;;   (:keymaps '(motion normal)
-;;             "C-n" #'neotree-toggle)
-;;   (:keymaps 'neotree-mode-map
-;;             "C-n" #'neotree-toggle)
-;;   )
-
 (use-package olivetti
   :custom
   (olivetti-body-width 80))

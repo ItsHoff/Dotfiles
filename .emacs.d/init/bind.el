@@ -72,6 +72,8 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     "h" #'my/helm-command-map
                     "s" #'my/framegroups-command-map
                     "y" #'my/yas-command-map
+                    "d" #'dired-jump
+                    "o" #'olivetti-mode
                     )
 
 (general-define-key :keymaps 'override

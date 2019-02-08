@@ -213,8 +213,9 @@
   (require 'evil-collection-dired)
   (evil-collection-dired-setup))
 
-(use-package desktop
-  :custom (desktop-save-mode t))
+;; Removed 8.2.2019
+;; (use-package desktop
+;;   :custom (desktop-save-mode t))
 
 (use-package eldoc
   :diminish eldoc-mode)
@@ -270,16 +271,21 @@
     "Set up default framegroup layouts."
     (interactive)
     (pcase name
-      ;; emacs configuration
       ("emacs"
+       (find-file "~/.emacs.d/init/init.el")
+       (set-frame-parameter nil 'fullscreen 'maximized))
+      ("emacs-split"
        (find-file "~/.emacs.d/init/bind.el")
        (split-window-right)
        (find-file "~/.emacs.d/init.el")
        (set-frame-parameter nil 'fullscreen 'maximized))
       (_
+       (switch-to-buffer "*scratch*")
        (set-frame-parameter nil 'fullscreen 'maximized))
       ))
   (add-hook 'fg-create-hook #'my/framegroup-setup)
+  ; Open initial frame
+  (add-hook 'window-setup-hook (fg-switch "emacs"))
   :general
   (:keymaps 'my/framegroups-command-map
             "s" #'fg-switch-to-frame

@@ -322,6 +322,7 @@
    | <backspace> | my-backspace-whitespace-to-tab-stop |                     |
    | <return>    | newline-and-indent                  |                     |
    | <tab>       | tab-to-tab-stop                     |                     |
+   | c-m-y       | yas-insert-snippet                  |                     |
 ** Overwritten
    | Old Key | Function                           | Comment |
    |---------+------------------------------------+---------|

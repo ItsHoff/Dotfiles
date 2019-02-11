@@ -272,7 +272,7 @@
     (interactive)
     (pcase name
       ("emacs"
-       (find-file "~/.emacs.d/init/init.el")
+       (find-file "~/.emacs.d/init.el")
        (set-frame-parameter nil 'fullscreen 'maximized))
       ("emacs-split"
        (find-file "~/.emacs.d/init/bind.el")

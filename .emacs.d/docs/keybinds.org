@@ -1,8 +1,5 @@
 * Normal-state
 ** Complete Package
-  * ö
-  * ä
-  * å
   * m
   * -
   * +

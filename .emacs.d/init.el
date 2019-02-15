@@ -271,10 +271,10 @@
     "Set up default framegroup layouts."
     (interactive)
     (pcase name
-      ("emacs"
+      ("default"
        (find-file "~/.emacs.d/init.el")
        (set-frame-parameter nil 'fullscreen 'maximized))
-      ("emacs-split"
+      ("emacs"
        (find-file "~/.emacs.d/init/bind.el")
        (split-window-right)
        (find-file "~/.emacs.d/init.el")
@@ -285,7 +285,7 @@
       ))
   (add-hook 'fg-create-hook #'my/framegroup-setup)
   ; Open initial frame
-  (add-hook 'window-setup-hook (fg-switch "emacs"))
+  (add-hook 'window-setup-hook (fg-switch "default"))
   :general
   (:keymaps 'my/framegroups-command-map
             "s" #'fg-switch-to-frame

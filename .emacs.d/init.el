@@ -487,7 +487,9 @@
   :ensure nil
   :init
   (setq recentf-max-saved-items 50)
-  (recentf-mode 1))
+  (recentf-mode 1)
+  :config
+  (add-to-list 'recentf-exclude "autoloads\\.el\\'"))
 
 ; Used by ivy to improve ordering
 (use-package smex)

@@ -4,4 +4,5 @@
 !.emacs.d/docs/
 !.emacs.d/snippets/
 !.emacs.d/manual_packages/
+!.emacs.d/.projectile
 local-conf.el

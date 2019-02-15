@@ -180,6 +180,8 @@
 (use-package company-flx
   :config (company-flx-mode t))
 
+(use-package company-lsp)
+
 (use-package counsel
   :init
   (setq ivy-use-virtual-buffers t)
@@ -392,6 +394,21 @@
   :ensure nil
   :custom
   (ispell-silently-savep t))
+
+; TODO: Add binds
+(use-package lsp-mode
+  :commands lsp)
+
+(use-package lsp-ui
+  :commands lsp-ui-mode
+  :custom
+  ; TODO: add toggle for hover and doc
+  (lsp-ui-doc-enable nil)
+  (lsp-ui-sideline-show-hover nil)
+  (lsp-ui-sideline-show-code-actions t)
+  (lsp-ui-sideline-show-diagnostics t)
+  (lsp-ui-sideline-show-symbol t)
+  )
 
 (use-package magit
   :init
@@ -651,20 +668,24 @@
   (add-to-list 'company-backends '(company-anaconda :with company-capf)))
 
 ;; Rust
-(use-package rust-mode)
-
-(use-package cargo
-  :diminish cargo-minor-mode
-  :init (add-hook 'rust-mode-hook #'cargo-minor-mode))
-
-(use-package flycheck-rust
-  :init (add-hook 'rust-mode-hook #'flycheck-rust-setup))
-
-(use-package racer
-  :diminish racer-mode
+(use-package rust-mode
   :init
-  (add-hook 'rust-mode-hook #'racer-mode)
-  (add-hook 'racer-mode-hook #'eldoc-mode))
+  (add-hook 'rust-mode-hook #'lsp)
+  )
+
+; Removed 15.2.19
+;; (use-package cargo
+;;   :diminish cargo-minor-mode
+;;   :init (add-hook 'rust-mode-hook #'cargo-minor-mode))
+
+;; (use-package flycheck-rust
+;;   :init (add-hook 'rust-mode-hook #'flycheck-rust-setup))
+
+;; (use-package racer
+;;   :diminish racer-mode
+;;   :init
+;;   (add-hook 'rust-mode-hook #'racer-mode)
+;;   (add-hook 'racer-mode-hook #'eldoc-mode))
 
 ;; Tex
 (use-package tex

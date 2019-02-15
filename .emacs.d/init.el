@@ -411,6 +411,7 @@
   )
 
 (use-package olivetti
+  :commands olivetti-mode
   :custom
   (olivetti-body-width 80))
 

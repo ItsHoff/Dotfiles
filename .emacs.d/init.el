@@ -268,6 +268,8 @@
 (use-package framegroups
   :ensure nil
   :pin manual
+  ; Needed to load the package (binds) on start-up
+  :commands fg-switch
   :init
   (defvar my/framegroups-command-map (make-sparse-keymap))
   (fset 'my/framegroups-command-map my/framegroups-command-map)

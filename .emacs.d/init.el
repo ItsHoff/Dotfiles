@@ -268,7 +268,6 @@
 (use-package framegroups
   :ensure nil
   :pin manual
-  :commands fg-switch
   :init
   (defvar my/framegroups-command-map (make-sparse-keymap))
   (fset 'my/framegroups-command-map my/framegroups-command-map)
@@ -622,7 +621,6 @@
 ;; C
 (use-package cc-mode
   :ensure nil
-  :commands c-mode
   :init
   (setq c-default-style "stroustrup")
   (setq c-tab-always-indent nil)
@@ -644,7 +642,6 @@
 ;; ELisp
 (use-package lisp-mode
   :ensure nil
-  :commands emacs-lisp-mode
   :init (add-hook 'emacs-lisp-mode-hook (lambda () (my/set-tab-width 2)))
   :config
   (modify-syntax-entry ?_ "w" emacs-lisp-mode-syntax-table) ; _ is now part of a word

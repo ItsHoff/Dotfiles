@@ -75,6 +75,12 @@
   * https://github.com/sebastiencs/company-box
 ** doom-todo-ivy
   * https://github.com/jsmestad/doom-todo-ivy
+** guess-language
+  * https://github.com/tmalsburg/guess-language.el
+** targets
+  * https://github.com/noctuid/targets.el
+** transpose-frame
+  * https://github.com/emacsorphanage/transpose-frame
 * Resources
 ** Global
   * https://github.com/emacs-tw/awesome-emacs

@@ -21,8 +21,6 @@
 
 ; Install all packages automatically
 (setq use-package-always-ensure t)
-; Use melpa-stable by default
-(setq use-package-always-pin "melpa-stable")
 
 ;; GENERAL SETTINGS ----------------------------------------------------------------------------
 

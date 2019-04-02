@@ -14,10 +14,14 @@
 
 (package-initialize)
 
-; bootstrap `use-package'
+; bootstrap use-package
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
+; and general
+(unless (package-installed-p 'general)
+  (package-refresh-contents)
+  (package-install 'general))
 
 ; Install all packages automatically
 (setq use-package-always-ensure t)

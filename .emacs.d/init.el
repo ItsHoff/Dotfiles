@@ -353,6 +353,8 @@
   )
 
 (use-package golden-ratio-scroll-screen
+  :custom
+  (golden-ratio-scroll-recenter nil)
   :config
   (evil-declare-motion #'golden-ratio-scroll-screen-down)
   (evil-declare-motion #'golden-ratio-scroll-screen-up))

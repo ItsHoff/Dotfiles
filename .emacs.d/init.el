@@ -641,17 +641,20 @@
 
 ;; PROGRAMMING MODES ---------------------------------------------------------------------------
 
-;; C
+;; C and C++
 (use-package cc-mode
   :ensure nil
   :init
   (setq c-default-style "stroustrup")
   (setq c-tab-always-indent nil)
+  (add-to-list 'auto-mode-alist '("\\inl\\'" . c++-mode))
   (add-hook 'c-mode-common-hook
             (lambda ()
               ;; Preferred comment style
               (setq comment-start "// "
                     comment-end "")))
+  (add-hook 'c++-mode-hook #'lsp)
+  (add-hook 'c-mode-hook #'lsp)
   :config
   (modify-syntax-entry ?_ "w" c-mode-syntax-table) ; _ is now part of a word
   (modify-syntax-entry ?_ "w" c++-mode-syntax-table) ; _ is now part of a word

@@ -414,7 +414,10 @@
   (lsp-auto-guess-root t)
   (lsp-prefer-flymake nil)
   (lsp-enable-snippet nil)
-  )
+  :general
+  (:keymaps 'lsp-mode-map
+            "C-M-d" #'lsp-find-definition
+            ))
 
 (use-package lsp-ui
   :custom

@@ -530,6 +530,8 @@
   :config
   (add-to-list 'recentf-exclude "autoloads\\.el\\'"))
 
+(use-package ripgrep)
+
 ; Used by ivy to improve ordering
 (use-package smex)
 

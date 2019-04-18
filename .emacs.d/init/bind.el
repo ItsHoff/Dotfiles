@@ -10,10 +10,16 @@
 ;; UNBIND --------------------------------------------------------------------------------------
 (general-define-key
  "C-<backspace>" nil ; Mistyped often with i-mode brackets
- "<drag-mouse-1>" nil ; Causes annoying accidental visual modes when clicking
  )
 (general-define-key :keymaps 'evil-read-key-map
                     "C-k" nil) ; Conflicts with easy-brackets
+; Disable mouse
+(general-define-key :keymaps '(global-map evil-motion-state-map)
+                    ; TODO: focus the buffer with mouse click but don't change point
+                    "<mouse-1>" nil
+                    "<down-mouse-1>" nil
+                    "<drag-mouse-1>" nil ; Causes annoying accidental visual modes when clicking
+                    )
 
 ;; BINDINGS -----------------------------------------------------------------------------------
 

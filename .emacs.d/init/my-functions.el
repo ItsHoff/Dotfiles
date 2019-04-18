@@ -83,6 +83,8 @@ If point is at or ahead of it move to last character."
     "*compilation*"
     "*disabled command*"
     "*Cargo Clippy*"
+    "*xref*"
+    "*ripgrep-search*"
     )
   "Names of buffers that `my/quit-extra-windows' should quit.")
 

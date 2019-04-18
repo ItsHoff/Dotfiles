@@ -611,6 +611,14 @@
   (setq whitespace-display-mappings '((tab-mark ?\t [?▸ ?\t] [?› ?\t] [?> ?\t])))
   (global-whitespace-mode t))
 
+(use-package xref
+  :after evil-collection
+  :ensure nil
+  :config
+  (require 'evil-collection-xref)
+  (evil-collection-xref-setup))
+
+
 (use-package yasnippet
   :diminish yas-minor-mode
   :init

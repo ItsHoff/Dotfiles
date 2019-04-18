@@ -309,8 +309,11 @@
 (use-package golden-ratio
   :diminish golden-ratio-mode
   :init (golden-ratio-mode 1)
+  :custom
+  (golden-ratio-auto-scale nil)
+  (golden-ratio-adjust-factor 0.7)
+  (golden-ratio-recenter nil)
   :config
-  (setq golden-ratio-auto-scale t)
   (setq golden-ratio-extra-commands
         (append golden-ratio-extra-commands
                 '(evil-window-bottom-right

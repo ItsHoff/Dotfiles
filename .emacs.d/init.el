@@ -39,7 +39,6 @@
 (modify-syntax-entry ?_ "w" (standard-syntax-table)) ; _ is now part of a word
 (modify-syntax-entry ?- "w" (standard-syntax-table)) ; aswell as -
 (setq select-enable-clipboard nil) ; Disable emacs clipboard and rely on evil
-(put 'dired-find-alternate-file 'disabled nil) ; Allow dired to use the same buffer
 (setq completion-styles '(basic initials partial substring)) ; Better completion
 (setq gc-cons-threshold 20000000)   ; This should reduce emacs gc time
 (fset 'yes-or-no-p 'y-or-n-p)       ; y or n should suffice
@@ -217,6 +216,7 @@
   :after evil-collection
   :ensure nil
   :config
+  (put 'dired-find-alternate-file 'disabled nil) ; Allow dired to use the same buffer
   (require 'evil-collection-dired)
   (evil-collection-dired-setup))
 

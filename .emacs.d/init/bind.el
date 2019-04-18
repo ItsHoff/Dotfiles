@@ -8,20 +8,28 @@
 (require 'my-functions)
 
 ;; UNBIND --------------------------------------------------------------------------------------
+
 (general-define-key
  "C-<backspace>" nil ; Mistyped often with i-mode brackets
  )
 (general-define-key :keymaps 'evil-read-key-map
                     "C-k" nil) ; Conflicts with easy-brackets
-; Disable mouse
+
+;; MOUSE----------------------------------------------------------------------------------------
+
 (general-define-key :keymaps '(global-map evil-motion-state-map)
-                    ; TODO: focus the buffer with mouse click but don't change point
-                    "<mouse-1>" nil
-                    "<down-mouse-1>" nil
                     "<drag-mouse-1>" nil ; Causes annoying accidental visual modes when clicking
+                    "<down-mouse-1>" nil)
+
+(general-define-key :keymaps 'global-map
+                    ; TODO: focus the buffer with mouse click but don't change point
+                    "<mouse-1>" #'push-button
                     )
 
-;; BINDINGS -----------------------------------------------------------------------------------
+(general-define-key :keymaps 'org-mouse-map
+                    "<mouse-1>" #'org-open-at-mouse)
+
+;; BINDINGS ------------------------------------------------------------------------------------
 
 ;; esc quits
 (defun minibuffer-keyboard-quit ()

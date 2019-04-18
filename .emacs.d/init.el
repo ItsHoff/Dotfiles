@@ -210,6 +210,9 @@
             "C-h" #'ivy-alt-done
             "<escape>" #'minibuffer-keyboard-quit))
 
+(use-package counsel-projectile
+  :custom (counsel-projectile-mode t))
+
 (use-package diminish)
 
 (use-package dired

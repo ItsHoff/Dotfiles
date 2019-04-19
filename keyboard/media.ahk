@@ -16,7 +16,7 @@ F24::
     WinWaitActive, Sound
     WinSet, AlwaysOnTop, On, Sound
     Send, {DOWN 5}
-    Sleep, 100
+    Sleep, 200
     ControlGet, MyState, Enabled, , Button2
     If (MyState = 1){
         ControlClick, Button2, A

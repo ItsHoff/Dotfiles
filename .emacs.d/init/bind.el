@@ -18,11 +18,11 @@
 ;; MOUSE----------------------------------------------------------------------------------------
 
 (general-define-key :keymaps '(global-map evil-motion-state-map)
+                    "<mouse-1>" #'mouse-select-window
                     "<drag-mouse-1>" nil ; Causes annoying accidental visual modes when clicking
                     "<down-mouse-1>" nil)
 
-(general-define-key :keymaps 'global-map
-                    ; TODO: focus the buffer with mouse click but don't change point
+(general-define-key :keymaps 'button-map
                     "<mouse-1>" #'push-button
                     )
 

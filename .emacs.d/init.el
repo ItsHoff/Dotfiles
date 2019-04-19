@@ -415,6 +415,7 @@
   (lsp-prefer-flymake nil)
   (lsp-enable-snippet nil)
   :general
+  ; TODO: lsp doesn't define a keymap?
   (:keymaps 'lsp-mode-map
             "C-M-d" #'lsp-find-definition
             ))

@@ -23,6 +23,7 @@
 *** Function movement in unsupported languages (Rust)
   * end-of-defun
   * beginning-of-defun
+  * sexp (forward-sexp, backward-sexp, backward-up-list)
 *** Full sized splits with earlier splits
   * https://emacs.stackexchange.com/questions/585/split-window-at-outermost-border
 ** Learn
@@ -47,12 +48,7 @@
   * https://github.com/noctuid/targets.el
 * Resources
 ** Check
-  * https://masteringemacs.org/
-  * https://www.reddit.com/r/emacs/comments/60nb8b/favorite_builtin_emacs_commands/
-  * https://stackoverflow.com/questions/8483182/evil-mode-best-practice
   * http://pages.sachachua.com/.emacs.d/Sacha.html#orgdda953f
-  * http://ergoemacs.org/emacs/emacs.html
-  * https://tuhdo.github.io/c-ide.html
 ** Global
   * https://github.com/noctuid/evil-guide
   * http://ergoemacs.org/emacs/emacs_hyper_super_keys.html

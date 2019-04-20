@@ -12,8 +12,6 @@
 (general-define-key
  "C-<backspace>" nil ; Mistyped often with i-mode brackets
  )
-(general-define-key :keymaps 'evil-read-key-map
-                    "C-k" nil) ; Conflicts with easy-brackets
 
 ;; MOUSE----------------------------------------------------------------------------------------
 

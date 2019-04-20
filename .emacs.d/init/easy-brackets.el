@@ -63,6 +63,8 @@
                     "C-j" #'evil-a-bracket
                     "C-k" #'evil-a-bracket
                     )
+(general-define-key :keymaps 'evil-read-key-map
+                    "C-k" nil) ; Conflicts with easy-brackets
 
 (provide 'easy-brackets)
 ;;; easy-brackets ends here

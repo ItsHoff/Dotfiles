@@ -126,10 +126,17 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     "C-M-S-y" #'my/yank-line-clipboard
                     )
 
+(defhydra my/goto-change-hydra ()
+  "Go to change"
+  (";" goto-last-change "Backwards")
+  ("'" goto-last-change-reverse "Forwards"))
+
 (general-define-key :keymaps 'normal
                     ; Join + split
                     "<backspace>" #'evil-join
                     "RET" #'my/split-line
+                    "g ;" #'my/goto-change-hydra/goto-last-change
+                    "g '" #'my/goto-change-hydra/goto-last-change-reverse
                     )
 
 ; Insert state

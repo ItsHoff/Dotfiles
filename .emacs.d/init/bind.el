@@ -29,30 +29,10 @@
 (general-define-key :keymaps 'org-mouse-map
                     "<mouse-1>" #'org-open-at-mouse)
 
-;; BINDINGS ------------------------------------------------------------------------------------
+;; OVERRIDES -----------------------------------------------------------------------------------
+;; Bindings that should override any mode specific bindings
 
-;; esc quits
-(defun minibuffer-keyboard-quit ()
-  "Abort recursive edit.
-In Delete Selection mode, if the mark is active, just deactivate it;
-then it takes a second \\[keyboard-quit] to abort the minibuffer."
-  (interactive)
-  (if (and delete-selection-mode transient-mark-mode mark-active)
-      (setq deactivate-mark  t)
-    (when (get-buffer "*Completions*") (delete-windows-on "*Completions*"))
-    (abort-recursive-edit)))
-(define-key evil-normal-state-map [escape] #'keyboard-quit)
-(define-key evil-visual-state-map [escape] #'keyboard-quit)
-(define-key minibuffer-local-map [escape] #'minibuffer-keyboard-quit)
-(define-key minibuffer-local-ns-map [escape] #'minibuffer-keyboard-quit)
-(define-key minibuffer-local-completion-map [escape] #'minibuffer-keyboard-quit)
-(define-key minibuffer-local-must-match-map [escape] #'minibuffer-keyboard-quit)
-(define-key minibuffer-local-isearch-map [escape] #'minibuffer-keyboard-quit)
-(define-key minibuffer-local-isearch-map [escape] #'minibuffer-keyboard-quit)
-(define-key minibuffer-inactive-mode-map [escape] #'minibuffer-keyboard-quit)
-(global-set-key [escape] #'evil-exit-emacs-state)
-
-; Overrides
+; Everywhere
 (general-define-key :keymaps 'override
                     :states  '(motion normal visual emacs insert)
                     "M-+" help-map  ; Remap help
@@ -61,21 +41,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     "M-;" #'describe-key  ; Map key help (next to +)
                     )
 
-(general-define-key :keymaps 'override
-                    :states  '(motion normal visual emacs)
-                    "C-M-S-s-t" #'my/test-function
-                    "M-u" #'universal-argument
-                    "M-g" #'keyboard-quit
-                    "C-z" #'suspend-emacs
-                    "C-q" #'my/quit-extra-windows
-                    "C-h" #'evil-window-left
-                    "C-j" #'evil-window-down
-                    "C-k" #'evil-window-up
-                    "C-l" #'evil-window-right
-                    "C-b" #'ivy-switch-buffer
-                    "M-x" #'counsel-M-x
-                    )
-
+; Space prefix
 (general-define-key :keymaps 'override
                     :states '(motion normal visual emacs)
                     :prefix "SPC"
@@ -90,6 +56,25 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     "o" #'olivetti-mode
                     )
 
+; Non-insert + emacs (for special emacs state buffers)
+(general-define-key :keymaps 'override
+                    :states  '(motion normal visual emacs)
+                    "C-M-S-s-t" #'my/test-function
+                    "M-u" #'universal-argument
+                    "M-g" #'keyboard-quit
+                    "C-z" #'suspend-emacs
+                    "C-q" #'my/quit-extra-windows
+                    "C-h" #'evil-window-left
+                    "C-j" #'evil-window-down
+                    "C-k" #'evil-window-up
+                    "C-l" #'evil-window-right
+                    "C-f" #'counsel-find-file
+                    "C-b" #'ivy-switch-buffer
+                    "M-x" #'counsel-M-x
+                    )
+
+
+; Vim movement states
 (general-define-key :keymaps 'override
                     :states '(motion normal visual)
                     ; Bigger movement
@@ -99,15 +84,17 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     "K" #'golden-ratio-scroll-screen-down
                     )
 
+;; REGULAR BINDINGS -----------------------------------------------------------------------------
+
 ; Emacs state
 (general-define-key :keymaps 'emacs
-                    ":" #'evil-ex
                     "M-z" #'evil-exit-emacs-state
                     )
 
 ; Motions (normal, visual and some special buffers)
 (general-define-key :keymaps '(motion normal visual)
                     "<C-i>" #'evil-jump-forward
+                    "<C-m>" #'helm-mini
                     "TAB" #'evil-toggle-fold
                     ; Move emacs state
                     "M-z" #'evil-emacs-state
@@ -119,6 +106,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                     )
 
 (general-define-key :keymaps '(normal visual)
+                    "; c" #'evilnc-comment-or-uncomment-lines
                     ; Clipboard paste and yank
                     "C-M-p" #'my/paste-clipboard-after
                     "C-M-S-p" #'my/paste-clipboard-before
@@ -132,11 +120,14 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
   ("'" goto-last-change-reverse "Forwards"))
 
 (general-define-key :keymaps 'normal
+                    "C-u" #'undo-tree-visualize
+                    "; i" #'evil-numbers/inc-at-pt
+                    "; d" #'evil-numbers/dec-at-pt
+                    "g ;" #'my/goto-change-hydra/goto-last-change
+                    "g '" #'my/goto-change-hydra/goto-last-change-reverse
                     ; Join + split
                     "<backspace>" #'evil-join
                     "RET" #'my/split-line
-                    "g ;" #'my/goto-change-hydra/goto-last-change
-                    "g '" #'my/goto-change-hydra/goto-last-change-reverse
                     )
 
 ; Insert state

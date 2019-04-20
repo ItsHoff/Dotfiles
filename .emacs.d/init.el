@@ -146,6 +146,28 @@
   (setq evil-split-window-below 1)
   ; Allow c-o and c-i to jump to buffers matching the regexp
   (setq evil--jumps-buffer-targets "\\`magit")
+
+  ;; esc quits
+  (defun minibuffer-keyboard-quit ()
+    "Abort recursive edit.
+  In Delete Selection mode, if the mark is active, just deactivate it;
+  then it takes a second \\[keyboard-quit] to abort the minibuffer."
+    (interactive)
+    (if (and delete-selection-mode transient-mark-mode mark-active)
+        (setq deactivate-mark  t)
+      (when (get-buffer "*Completions*") (delete-windows-on "*Completions*"))
+      (abort-recursive-edit)))
+
+  (define-key evil-normal-state-map [escape] #'keyboard-quit)
+  (define-key evil-visual-state-map [escape] #'keyboard-quit)
+  (define-key minibuffer-local-map [escape] #'minibuffer-keyboard-quit)
+  (define-key minibuffer-local-ns-map [escape] #'minibuffer-keyboard-quit)
+  (define-key minibuffer-local-completion-map [escape] #'minibuffer-keyboard-quit)
+  (define-key minibuffer-local-must-match-map [escape] #'minibuffer-keyboard-quit)
+  (define-key minibuffer-local-isearch-map [escape] #'minibuffer-keyboard-quit)
+  (define-key minibuffer-local-isearch-map [escape] #'minibuffer-keyboard-quit)
+  (define-key minibuffer-inactive-mode-map [escape] #'minibuffer-keyboard-quit)
+  (global-set-key [escape] #'evil-exit-emacs-state)
   )
 
 (use-package abbrev
@@ -200,12 +222,6 @@
   (evil-declare-not-repeat #'ivy-done)
   (evil-declare-not-repeat #'ivy-alt-done)
   :general
-  (:keymaps '(motion normal)
-            "C-f" #'counsel-find-file
-            )
-  (:keymaps 'evil-ex-map
-            "b SPC" #'ivy-switch-buffer
-            "e SPC" #'counsel-find-file)
   (:keymaps 'ivy-minibuffer-map
             "C-h" #'ivy-alt-done
             "<escape>" #'minibuffer-keyboard-quit))
@@ -241,31 +257,18 @@
   :after evil
   :config
   (define-key evil-inner-text-objects-map "c" 'evilnc-inner-comment)
-  (define-key evil-outer-text-objects-map "c" 'evilnc-outer-commenter)
-  :general
-  (:keymaps '(normal visual)
-            "; c" #'evilnc-comment-or-uncomment-lines
-            ))
+  (define-key evil-outer-text-objects-map "c" 'evilnc-outer-commenter))
 
 (use-package evil-numbers
-  :after evil
-  :general
-  (:keymaps 'normal
-            "; i" #'evil-numbers/inc-at-pt
-            "; d" #'evil-numbers/dec-at-pt
-            ))
+  :after evil)
 
 (use-package evil-visualstar
   :after evil
-  :init (global-evil-visualstar-mode)
-  :general
-  (:keymaps 'visual
-            "#" #'evil-visualstar/begin-search-forward
-            "¤" #'evil-visualstar/begin-search-backward))
+  :config (global-evil-visualstar-mode))
 
 (use-package flycheck
   :diminish flycheck-mode
-  :init (global-flycheck-mode))
+  :config (global-flycheck-mode))
 
 ; Fuzzy matching for company
 (use-package flx)
@@ -386,9 +389,6 @@
             "k" #'helm-man-woman
             "r" #'helm-resume
             "a" #'helm-apropos
-            )
-  (:keymaps 'motion
-            "<C-m>" #'helm-mini
             )
   (:keymaps 'helm-map
             "<tab>" #'helm-execute-persistent-action
@@ -587,13 +587,6 @@
   (advice-add #'undo-tree-undo-1 :filter-args #'my/advice-preserve-timestamps)
   (advice-add #'undo-tree-redo-1 :filter-args #'my/advice-preserve-timestamps)
   :general
-  (:keymaps '(normal visual)
-            "C-u" #'undo-tree-visualize
-            )
-  (:keymaps 'visual
-            "u" #'undo-tree-undo
-            "C-r" #'undo-tree-redo
-            )
   (:keymaps 'undo-tree-visualizer-mode-map
             "q" #'undo-tree-visualizer-abort
             "<return>" #'undo-tree-visualizer-quit

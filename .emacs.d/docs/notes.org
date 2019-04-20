@@ -1,6 +1,7 @@
 * TODO
 ** Fix
 ** Improve
+*** Non-editable buffer should be in motion state
 *** Marks
     * m create mark
     * M jump to mark
@@ -12,6 +13,7 @@
   * https://github.com/noctuid/general.el#override-keymaps-and-buffer-local-keybindings
   * https://github.com/noctuid/evil-guide#what-overrides-evil
   * https://github.com/noctuid/evil-guide#keymap-precedence
+  * Is the current solution good enough? (20.4.2019)
 *** Configure spaceline
   * spaceline-config.el has the current config
   * https://github.com/TheBB/spaceline

@@ -320,45 +320,10 @@
   (golden-ratio-adjust-factor 0.7)
   (golden-ratio-recenter nil)
   :config
-  (setq golden-ratio-extra-commands
-        (append golden-ratio-extra-commands
-                '(evil-window-bottom-right
-                  evil-window-delete
-                  delete-other-windows
-                  evil-window-split
-                  evil-window-top-left
-                  evil-window-vsplit
-                  evil-window-left
-                  evil-window-down
-                  evil-window-up
-                  evil-window-right
-                  evil-window-move-far-left
-                  evil-window-move-very-bottom
-                  evil-window-move-very-top
-                  evil-window-move-far-right
-                  evil-window-rotate-downwards
-                  evil-window-rotate-upwards
-                  evil-window-set-width
-                  evil-window-set-height
-                  evil-window-mru
-                  evil-window-next
-                  evil-window-prev
-                  evil-window-new
-                  buf-move-left
-                  buf-move-right
-                  buf-move-up
-                  buf-move-down
-                  window-number-select
-                  select-window
-                  select-window-1
-                  select-window-2
-                  select-window-3
-                  select-window-4
-                  select-window-5
-                  select-window-6
-                  select-window-7
-                  select-window-8
-                  select-window-9)))
+  ; https://github.com/roman/golden-ratio.el/issues/77
+  (define-advice select-window (:after (window &optional no-record) golden-ratio-resize-window)
+    (golden-ratio)
+    nil)
   )
 
 (use-package golden-ratio-scroll-screen

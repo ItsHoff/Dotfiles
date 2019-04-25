@@ -221,13 +221,12 @@
   (evil-declare-not-repeat #'counsel-find-file)
   (evil-declare-not-repeat #'ivy-done)
   (evil-declare-not-repeat #'ivy-alt-done)
+  (evil-add-command-properties #'counsel-find-file :jump t)
+  (evil-add-command-properties #'ivy-switch-buffer :jump t)
   :general
   (:keymaps 'ivy-minibuffer-map
             "C-h" #'ivy-alt-done
             "<escape>" #'minibuffer-keyboard-quit))
-
-(use-package counsel-projectile
-  :custom (counsel-projectile-mode t))
 
 (use-package diminish)
 
@@ -479,9 +478,14 @@
 (use-package projectile
   :init
   (projectile-mode)
+  :custom
+  (projectile-indexing-method 'alien) ; Required tools should be installed on windows aswell
+  (projectile-completion-system 'ivy)
   :config
-  (setq projectile-indexing-method 'alien) ; Required tools should be installed on windows aswell
-  (setq projectile-completion-system 'ivy)
+  (use-package counsel-projectile
+    :custom (counsel-projectile-mode t))
+  (evil-add-command-properties #'counsel-projectile-find-file :jump t)
+  (evil-add-command-properties #'projectile-find-other-file :jump t)
   :general
   (:keymaps 'projectile-command-map
             "A" (lambda () (interactive) (projectile-add-known-project (projectile-project-p)))

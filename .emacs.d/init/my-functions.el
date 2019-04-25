@@ -67,26 +67,29 @@ If point is at or ahead of it move to last character."
           (backward-delete-char (- (match-end 1) (match-beginning 1)))
         (call-interactively 'backward-delete-char)))))
 
-; https://stackoverflow.com/questions/36506141/emacs-dispatch-help-window-from-original-buffer
-(defvar my/extra-window-names
-  '(;; Ubiquitous help buffers
-    "*Help*"
-    "*Apropos*"
-    "*Messages*"
-    "*Completions*"
-    "*Warnings*"
-    ;; Other general buffers
-    "*Command History*"
-    "*Compile-Log*"
-    "*TeX Help*"
-    "*grep*"
-    "*compilation*"
-    "*disabled command*"
-    "*Cargo Clippy*"
-    "*xref*"
-    "*ripgrep-search*"
-    )
-  "Names of buffers that `my/quit-extra-windows' should quit.")
+; Use define and set so the possible changes can be applied with eval-buffer
+; and not require a restart
+(defvar my/extra-window-names nil "Names of buffers that `my/quit-extra-windows' should quit.")
+(setq my/extra-window-names '(;; Ubiquitous help buffers
+                              "*Help*"
+                              "*Apropos*"
+                              "*Messages*"
+                              "*Completions*"
+                              "*Warnings*"
+                              ;; Other general buffers
+                              "*Command History*"
+                              "*Compile-Log*"
+                              "*TeX Help*"
+                              "*grep*"
+                              "*compilation*"
+                              "*disabled command*"
+                              "*Cargo Clippy*"
+                              "*xref*"
+                              "*ripgrep-search*"
+                              ))
+
+(defvar my/extra-window-regexps nil "Regexps for buffers that 'my/quit-extra-windows' should also quit.")
+(setq my/extra-window-regexps '("^magit.+"))
 
 (defun my/quit-extra-windows (&optional kill frame)
   "Quit all windows with help-like buffers.
@@ -100,10 +103,16 @@ Note that a nil value for FRAME cannot be distinguished from an
 omitted parameter and will be ignored; use some other value if
 you want to quit windows on all frames."
   (interactive)
-  (let ((frame (or frame t)))
-    (dolist (name my/extra-window-names)
-      (ignore-errors
-        (quit-windows-on name kill frame)))))
+  (walk-windows (lambda (window)
+                  (let* ((buffer (window-buffer window))
+                         (name (buffer-name buffer)))
+                    (dolist (test my/extra-window-names)
+                      (when (string= test name)
+                        (quit-windows-on buffer)))
+                    (dolist (regexp my/extra-window-regexps)
+                      (when (string-match-p regexp name)
+                        (quit-windows-on buffer)))))))
+
 
 (evil-define-command my/paste-and-repeat-pop (count &optional save-point)
   "Select paste or repeat pop depending on last command and do COUNT times."

@@ -1,12 +1,22 @@
 * TODO
 ** Fix
 ** Improve
+*** Exit recursive dired with single keypress
+    * use a to open stuff (24.4.19)
 *** Non-editable buffer should be in motion state
+    * dired
+    * magit
 *** Marks
     * m create mark
     * M jump to mark
+    * persistent marks
+      - desktop would work
+      - use desktop with very strict settings
+    * use lower case for global marks
+      - hack evil-global-marker-p?
     * https://github.com/Andrew-William-Smith/evil-fringe-mark
 *** Help
+    * allow asking for minibuffer binds
     * https://www.emacswiki.org/emacs/HelpPlus
     * https://github.com/Wilfred/helpful
 *** Make properly overriding map for global bindings
@@ -22,10 +32,6 @@
     * https://www.emacswiki.org/emacs/AutoIndentation
 *** Org
     * item insertion
-*** Function movement in unsupported languages (Rust)
-  * end-of-defun
-  * beginning-of-defun
-  * sexp (forward-sexp, backward-sexp, backward-up-list)
 *** Full sized splits with earlier splits
   * https://emacs.stackexchange.com/questions/585/split-window-at-outermost-border
 ** Learn
@@ -36,6 +42,18 @@
     * goto-last-change g-;
     * goto-last-change-reverse g-,
 *** Semantic movement
+    * (next or prev) visible-node
+    * (next or prev) sibling
+      - what to do at the end of sibling chain
+      - go up a level
+      - continue to different branch of the tree
+        - how many steps up would be allowed (basically only 1 or any)
+    * (next or prev) parent level node
+      - fall back to sibling at top level
+**** Function movement in unsupported languages (Rust)
+   * end-of-defun
+   * beginning-of-defun
+   * sexp (forward-sexp, backward-sexp, backward-up-list)
 *** paste history (c-p, c-n)
 *** repeat history (c-., evil-repeat-pop-next)
 ** Evaluate

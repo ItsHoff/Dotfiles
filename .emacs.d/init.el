@@ -47,7 +47,7 @@
 
 ; Reverse the splitting order from default
 ; First try vertical split and only then horizontal split
-(setq split-window-preferred-function 'my/split-window-sensibly)
+(setq split-window-preferred-function #'my/split-only-root)
 
 ; Make C-i and C-m different from <tab> and <return>
 (define-key input-decode-map [?\C-i] [C-i])

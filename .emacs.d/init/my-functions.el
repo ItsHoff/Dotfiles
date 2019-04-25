@@ -139,10 +139,10 @@ you want to quit windows on all frames."
         (t (message "Last command was not paste or repeat"))
         ))
 
-; Reverse the splitting order from default
-; First try vertical split and only then horizontal split
 ; https://stackoverflow.com/questions/23659909/reverse-evaluation-order-of-split-height-threshold-and-split-width-threshold-in
 (defun my/split-window-sensibly (&optional window)
+  "Reverse the WINDOW splitting order from default.
+First try vertical split and only then horizontal split"
   (let ((window (or window (selected-window))))
     (or (and (window-splittable-p window t)
              ;; Split window horizontally.
@@ -161,6 +161,17 @@ you want to quit windows on all frames."
                (when (window-splittable-p window t)
                  (with-selected-window window
                    (split-window-right))))))))
+
+(defun my/split-only-root (&optional window)
+  "Split WINDOW only if there are no existing splits.
+Perform the split along the longest axis."
+  (when (one-window-p t)
+    (if (> (window-pixel-height) (window-pixel-width))
+        (with-selected-window window
+          (split-window-below))
+      (with-selected-window window
+        (split-window-right)))))
+
 
 (evil-define-command my/paste-clipboard-before (count)
   "Pastes the clipboard before point."

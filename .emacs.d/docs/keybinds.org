@@ -119,12 +119,12 @@
    |-------------+----------------------------------+------------------------------|
    | <space>     | -                                |                              |
 *** Overwritten
-    | Old Key | Function          | Comment     |
-    |---------+-------------------+-------------|
-    | H       | evil-window-top   |             |
-    | J       | evil-join         |             |
-    | K       | evil-lookup (man) | TODO: remap |
-    | L       | evil-window-top   |             |
+    | Old Key | Function           | Comment     |
+    |---------+--------------------+-------------|
+    | H       | evil-window-top    |             |
+    | J       | evil-join          |             |
+    | K       | evil-lookup (man)  | TODO: remap |
+    | L       | evil-window-bottom |             |
 ** Control
    | Key         | Function               | Comment                 |
    |-------------+------------------------+-------------------------|
@@ -267,6 +267,8 @@
    | a       | evil-toggle-fold               |              |
    | h       | evil-scroll-column-left        |              |
    | H       | evil-scroll-left               |              |
+   | j       | evil-window-bottom             |              |
+   | k       | evil-window-top                |              |
    | l       | evil-scroll-column-right       |              |
    | L       | evil-scroll-right              |              |
    | <enter> | keyboard macro (top bol)       | Macro: z t ^ |

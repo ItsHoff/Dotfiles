@@ -95,6 +95,8 @@
                     "<C-i>" #'evil-jump-forward
                     "<C-m>" #'helm-mini
                     "TAB" #'evil-toggle-fold
+                    "z j" #'evil-window-bottom
+                    "z k" #'evil-window-top
                     ; Move emacs state
                     "M-z" #'evil-emacs-state
                     ; Make j and k move visual lines

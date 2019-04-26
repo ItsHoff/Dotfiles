@@ -400,6 +400,7 @@
   (require 'evil-magit)
   :config
   (evil-add-command-properties #'magit-diff-visit-file :jump t)
+  (evil-add-command-properties #'magit-status :jump t)
   :general
   (:keymaps 'magit-mode-map
             "<up>" #'magit-section-backward

@@ -7,8 +7,8 @@
     * dired
     * magit
 *** Marks
-    * m create mark
-    * M jump to mark
+    * M create mark
+    * m jump to mark
     * persistent marks
       - desktop would work
       - use desktop with very strict settings
@@ -38,9 +38,6 @@
 *** Refactoring
    * http://manuel-uberti.github.io/emacs/2018/02/10/occur/
 ** Create
-*** Change hydra
-    * goto-last-change g-;
-    * goto-last-change-reverse g-,
 *** Semantic movement
     * (next or prev) visible-node
     * (next or prev) sibling
@@ -50,6 +47,7 @@
         - how many steps up would be allowed (basically only 1 or any)
     * (next or prev) parent level node
       - fall back to sibling at top level
+    * https://github.com/emacs-lsp/lsp-origami/
 **** Function movement in unsupported languages (Rust)
    * end-of-defun
    * beginning-of-defun
@@ -62,6 +60,10 @@
   * https://github.com/Chobbes/org-chef
 ** doom-todo-ivy
   * https://github.com/jsmestad/doom-todo-ivy
+** ssh-agency
+  * https://github.com/magit/ssh-agency
+** gcmh
+  * https://gitlab.com/koral/gcmh/tree/81844fa43b9af8cc0882f8cd25f6bbfd5bb390c7
 ** targets
   * https://github.com/noctuid/targets.el
 * Resources

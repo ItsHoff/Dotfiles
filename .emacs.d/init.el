@@ -320,8 +320,13 @@
   (golden-ratio-recenter nil)
   :config
   ; https://github.com/roman/golden-ratio.el/issues/77
+  ; TODO: select-window is called several times per buffer switch, so look for something more efficient.
   (define-advice select-window (:after (window &optional no-record) golden-ratio-resize-window)
-    (golden-ratio)
+    (let* ((buffer (window-buffer window))
+           (name (buffer-name buffer)))
+      ; Ignore helm or helm will only show blank buffer
+      (when (not (string-match-p "^*helm.*" name))
+        (golden-ratio)))
     nil)
   )
 

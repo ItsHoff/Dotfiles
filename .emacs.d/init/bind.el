@@ -120,7 +120,21 @@
   (";" goto-last-change "Backwards")
   ("'" goto-last-change-reverse "Forwards"))
 
+(defhydra my/cycle-paste-hydra ()
+  ("p" evil-paste-after "Paste after")
+  ("P" evil-paste-before "Paste before")
+  (";" evil-paste-pop "Previous paste")
+  ("'" evil-paste-pop-next "Next paste"))
+
+(defhydra my/cycle-repeat-hydra ()
+  ("." evil-repeat "Repeat")
+  (";" evil-repeat-pop "Previous repeat")
+  ("'" evil-repeat-pop-next "Next repeat"))
+
 (general-define-key :keymaps 'normal
+                    "." #'my/cycle-repeat-hydra/evil-repeat
+                    "p" #'my/cycle-paste-hydra/evil-paste-after
+                    "P" #'my/cycle-paste-hydra/evil-paste-before
                     "C-u" #'undo-tree-visualize
                     "; i" #'evil-numbers/inc-at-pt
                     "; d" #'evil-numbers/dec-at-pt

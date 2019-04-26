@@ -24,7 +24,7 @@
     | u           | undo-tree-undo                     |                              |
     | i           | evil-insert                        |                              |
     | o           | evil-open-below                    |                              |
-    | p           | evil-paste-after                   |                              |
+    | p           | evil-paste-after                   | has cycling hydra            |
     | [           | prefix: objects                    | low use                      |
     | ]           | prefix: objects                    | low use                      |
     | \           | evil-execute-in-emacs-state        | low use                      |
@@ -51,7 +51,7 @@
     | n           | evil-search-next                   |                              |
     | m           | evil-set-marker                    | low use                      |
     | ,           | evil-repeat-find-char-reverse      |                              |
-    | .           | evil-repeat                        |                              |
+    | .           | evil-repeat                        | has cycling hydra            |
     | /           | evil-search-forward                |                              |
     |-------------+------------------------------------+------------------------------|
     | <space>     | prefix                             |                              |
@@ -88,7 +88,7 @@
    | U           | -                                |                              |
    | I           | evil-insert-line                 |                              |
    | O           | evil-open-above                  |                              |
-   | P           | evil-paste-before                |                              |
+   | P           | evil-paste-before                | has cycling hydra            |
    | {           | evil-backward-paragraph          | low use                      |
    | }           | evil-forward-paragraph           | low use                      |
    | \vert       | evil-goto-column                 | low use                      |
@@ -126,52 +126,52 @@
     | K       | evil-lookup (man)  | TODO: remap |
     | L       | evil-window-bottom |             |
 ** Control
-   | Key         | Function               | Comment                 |
-   |-------------+------------------------+-------------------------|
-   | `           | -                      |                         |
-   | 1-0         | digit-argument         | low use                 |
-   | -           | negative-argument      | low use                 |
-   | =           | -                      |                         |
-   | <backspace> | -                      |                         |
-   |-------------+------------------------+-------------------------|
-   | <tab>       | -                      |                         |
-   | q           | my/quit-extra-windows  |                         |
-   | w           | prefix: windows        |                         |
-   | e           | evil-scroll-line-down  | low use                 |
-   | r           | undo-tree-redo         |                         |
-   | t           | pop-tag-mark           | low use                 |
-   | y           | evil-scroll-line-up    | low use                 |
-   | u           | undo-tree-visualize    | low use                 |
-   | i           | evil-jump-forward      | TAB in emacs (!= <tab>) |
-   | o           | evil-jump-backward     |                         |
-   | p           | evil-paste-pop         | low use                 |
-   | [           | <escape>               |                         |
-   | ]           | evil-jump-to-tag       | low use                 |
-   |-------------+------------------------+-------------------------|
-   | a           | move-beginning-of-line | low use                 |
-   | s           | isearch-forward        | low use                 |
-   | d           | evil-scroll-down       | low use                 |
-   | f           | counsel-find-file      |                         |
-   | g           | keyboard-quit          |                         |
-   | h           | evil-window-left       |                         |
-   | j           | evil-window-down       |                         |
-   | k           | evil-window-up         |                         |
-   | l           | evil-window-right      |                         |
-   | ;           | -                      |                         |
-   | '           | -                      |                         |
-   |-------------+------------------------+-------------------------|
-   | z           | suspend-emacs          | low use                 |
-   | x           | emacs prefix           |                         |
-   | c           | emacs prefix           |                         |
-   | v           | evil-visual-block      |                         |
-   | b           | ivy-switch-buffer      |                         |
-   | n           | evil-paste-pop-next    | low use                 |
-   | m           | helm-mini              | low use                 |
-   | ,           | -                      |                         |
-   | .           | evil-repeat-pop        | low use                 |
-   | <enter>     | -                      |                         |
-   |-------------+------------------------+-------------------------|
-   | <space>     | set-mark-command       | low use                 |
+   | Key         | Function               | Comment                  |
+   |-------------+------------------------+--------------------------|
+   | `           | -                      |                          |
+   | 1-0         | digit-argument         | low use                  |
+   | -           | negative-argument      | low use                  |
+   | =           | -                      |                          |
+   | <backspace> | -                      |                          |
+   |-------------+------------------------+--------------------------|
+   | <tab>       | -                      |                          |
+   | q           | my/quit-extra-windows  |                          |
+   | w           | prefix: windows        |                          |
+   | e           | evil-scroll-line-down  | low use                  |
+   | r           | undo-tree-redo         |                          |
+   | t           | pop-tag-mark           | low use                  |
+   | y           | evil-scroll-line-up    | low use                  |
+   | u           | undo-tree-visualize    | low use                  |
+   | i           | evil-jump-forward      | TAB in emacs (!= <tab>)  |
+   | o           | evil-jump-backward     |                          |
+   | p           | evil-paste-pop         | included in paste hydra  |
+   | [           | <escape>               |                          |
+   | ]           | evil-jump-to-tag       | low use                  |
+   |-------------+------------------------+--------------------------|
+   | a           | move-beginning-of-line | low use                  |
+   | s           | isearch-forward        | low use                  |
+   | d           | evil-scroll-down       | low use                  |
+   | f           | counsel-find-file      |                          |
+   | g           | keyboard-quit          |                          |
+   | h           | evil-window-left       |                          |
+   | j           | evil-window-down       |                          |
+   | k           | evil-window-up         |                          |
+   | l           | evil-window-right      |                          |
+   | ;           | -                      |                          |
+   | '           | -                      |                          |
+   |-------------+------------------------+--------------------------|
+   | z           | suspend-emacs          | low use                  |
+   | x           | emacs prefix           |                          |
+   | c           | emacs prefix           |                          |
+   | v           | evil-visual-block      |                          |
+   | b           | ivy-switch-buffer      |                          |
+   | n           | evil-paste-pop-next    | included in paste hydra  |
+   | m           | helm-mini              | low use                  |
+   | ,           | -                      |                          |
+   | .           | evil-repeat-pop        | included in repeat hydra |
+   | <enter>     | -                      |                          |
+   |-------------+------------------------+--------------------------|
+   | <space>     | set-mark-command       | low use                  |
 *** Overwritten
    | Key | Function            | Comment      |
    |-----+---------------------+--------------|

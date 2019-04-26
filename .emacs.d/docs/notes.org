@@ -54,8 +54,6 @@
    * end-of-defun
    * beginning-of-defun
    * sexp (forward-sexp, backward-sexp, backward-up-list)
-*** paste history (c-p, c-n)
-*** repeat history (c-., evil-repeat-pop-next)
 ** Evaluate
 *** YASnippet
    * https://github.com/joaotavora/yasnippet

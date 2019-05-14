@@ -1,6 +1,13 @@
 * TODO
 ** Fix
+*** Check if paste clipboard works correctly
+    * usually first paste uses editor paste instead of clipboard
+    * Issue seems to be that quickly pressing caps after sending esc sends esc instead of toggling the layer
+    * should be fixed 14.5.19
 ** Improve
+*** golden-ratio
+    * https://github.com/syl20bnr/spacemacs/blob/c7a103a772d808101d7635ec10f292ab9202d9ee/layers/%2Bspacemacs/spacemacs-ui-visual/packages.el#L61
+    * golden-ratio-exclude-buffer-regexp (name or mode)
 *** Exit recursive dired with single keypress
     * use a to open stuff (24.4.19)
 *** Non-editable buffer should be in motion state
@@ -64,11 +71,26 @@
   * https://github.com/magit/ssh-agency
 ** gcmh
   * https://gitlab.com/koral/gcmh/tree/81844fa43b9af8cc0882f8cd25f6bbfd5bb390c7
+** dired
+  * https://github.com/Fuco1/dired-hacks
+  * https://www.emacswiki.org/emacs/DiredPlus
+** Agressive indent
+  * https://github.com/Malabarba/aggressive-indent-mode
+** ws-butler
+  * https://github.com/lewang/ws-butler
+** wgrep
+  * https://github.com/mhayashi1120/Emacs-wgrep
+** discover
+  * https://github.com/mickeynp/discover.el
+** benchmark-init
+  * https://github.com/dholm/benchmark-init-el
 ** targets
   * https://github.com/noctuid/targets.el
 * Resources
 ** Check
   * http://pages.sachachua.com/.emacs.d/Sacha.html#orgdda953f
+  * https://ileriseviye.wordpress.com/2019/05/09/how-to-preview-fixed-width-mono-spaced-fonts-in-an-editable-emacs-buffer/
+
 ** Global
   * https://github.com/noctuid/evil-guide
   * http://ergoemacs.org/emacs/emacs_hyper_super_keys.html

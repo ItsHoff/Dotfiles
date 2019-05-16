@@ -5,9 +5,6 @@
     * Issue seems to be that quickly pressing caps after sending esc sends esc instead of toggling the layer
     * should be fixed 14.5.19
 ** Improve
-*** golden-ratio
-    * https://github.com/syl20bnr/spacemacs/blob/c7a103a772d808101d7635ec10f292ab9202d9ee/layers/%2Bspacemacs/spacemacs-ui-visual/packages.el#L61
-    * golden-ratio-exclude-buffer-regexp (name or mode)
 *** Exit recursive dired with single keypress
     * use a to open stuff (24.4.19)
 *** Non-editable buffer should be in motion state

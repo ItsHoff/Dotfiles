@@ -313,21 +313,87 @@
 
 (use-package golden-ratio
   :diminish golden-ratio-mode
-  :init (golden-ratio-mode 1)
+  :init
+  (golden-ratio-mode 1)
   :custom
   (golden-ratio-auto-scale nil)
   (golden-ratio-adjust-factor 0.7)
   (golden-ratio-recenter nil)
   :config
-  ; https://github.com/roman/golden-ratio.el/issues/77
-  ; TODO: select-window is called several times per buffer switch, so look for something more efficient.
-  (define-advice select-window (:after (window &optional no-record) golden-ratio-resize-window)
-    (let* ((buffer (window-buffer window))
-           (name (buffer-name buffer)))
-      ; Ignore helm or helm will only show blank buffer
-      (when (not (string-match-p "^*helm.*" name))
-        (golden-ratio)))
-    nil)
+  ; From spacemacs
+  (setq window-combination-resize t)
+  (add-to-list 'golden-ratio-exclude-buffer-regexp "^\\*[hH]elm.*")
+  ;; golden-ratio-exclude-modes
+  (dolist (m '("bs-mode"
+               "calc-mode"
+               "ediff-mode"
+               "dired-mode"
+               "gud-mode"
+               "gdb-locals-mode"
+               "gdb-registers-mode"
+               "gdb-breakpoints-mode"
+               "gdb-threads-mode"
+               "gdb-frames-mode"
+               "gdb-inferior-io-mode"
+               "gdb-disassembly-mode"
+               "gdb-memory-mode"
+               "speedbar-mode"
+               ))
+    (add-to-list 'golden-ratio-exclude-modes m))
+  ;; golden-ratio-extra-commands
+  (dolist (f '(ace-window
+               ace-delete-window
+               ace-select-window
+               ace-swap-window
+               ace-maximize-window
+               avy-pop-mark
+               buf-move-left
+               buf-move-right
+               buf-move-up
+               buf-move-down
+               evil-avy-goto-word-or-subword-1
+               evil-avy-goto-line
+               evil-window-delete
+               evil-window-split
+               evil-window-vsplit
+               evil-window-left
+               evil-window-right
+               evil-window-up
+               evil-window-down
+               evil-window-bottom-right
+               evil-window-top-left
+               evil-window-mru
+               evil-window-next
+               evil-window-prev
+               evil-window-new
+               evil-window-vnew
+               evil-window-rotate-upwards
+               evil-window-rotate-downwards
+               evil-window-move-very-top
+               evil-window-move-far-left
+               evil-window-move-far-right
+               evil-window-move-very-bottom
+               quit-window
+               winum-select-window-0-or-10
+               winum-select-window-1
+               winum-select-window-2
+               winum-select-window-3
+               winum-select-window-4
+               winum-select-window-5
+               winum-select-window-6
+               winum-select-window-7
+               winum-select-window-8
+               winum-select-window-9
+               windmove-left
+               windmove-right
+               windmove-up
+               windmove-down))
+    (add-to-list 'golden-ratio-extra-commands f))
+  ;; golden-ratio-exclude-buffer-names
+  (dolist (n '(" *NeoTree*"
+               "*LV*"
+               " *which-key*"))
+    (add-to-list 'golden-ratio-exclude-buffer-names n))
   )
 
 (use-package golden-ratio-scroll-screen

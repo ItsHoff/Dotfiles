@@ -1,10 +1,8 @@
 * TODO
 ** Fix
-*** Check if paste clipboard works correctly
-    * usually first paste uses editor paste instead of clipboard
-    * Issue seems to be that quickly pressing caps after sending esc sends esc instead of toggling the layer
-    * should be fixed 14.5.19
 ** Improve
+*** golden-ratio
+    * magit transient buffer shouldn't be resized
 *** Exit recursive dired with single keypress
     * use a to open stuff (24.4.19)
 *** Non-editable buffer should be in motion state

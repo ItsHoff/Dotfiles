@@ -484,6 +484,12 @@
             "<return>" #'magit-visit-thing
             "SPC" nil
             )
+  (:keymaps 'transient-sticky-map
+            "<escape>" #'transient-quit-seq
+            )
+  (:keymaps 'transient-map
+            "<escape>" #'transient-quit-one
+            )
   )
 
 (use-package olivetti

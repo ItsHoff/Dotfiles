@@ -373,6 +373,7 @@
                evil-window-move-far-left
                evil-window-move-far-right
                evil-window-move-very-bottom
+               magit-status
                quit-window
                winum-select-window-0-or-10
                winum-select-window-1
@@ -392,7 +393,9 @@
   ;; golden-ratio-exclude-buffer-names
   (dolist (n '(" *NeoTree*"
                "*LV*"
-               " *which-key*"))
+               " *transient*"
+               " *which-key*"
+               ))
     (add-to-list 'golden-ratio-exclude-buffer-names n))
   )
 

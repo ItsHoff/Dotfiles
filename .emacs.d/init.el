@@ -178,8 +178,13 @@
 (use-package autorevert
   :ensure nil
   :diminish auto-revert-mode
+  :custom
+  (global-auto-revert-ignore-modes '(pdf-view-mode))
+  ; Poll for changes instead of asking notification from OS
+  ; On windows notifications block file deletion
+  (auto-revert-use-notify nil)
+  ;(auto-revert-interval 5) to change poll interval
   :config
-  (setq global-auto-revert-ignore-modes '(pdf-view-mode))
   (global-auto-revert-mode t))
 
 (use-package company
@@ -669,7 +674,6 @@
   :config
   (require 'evil-collection-xref)
   (evil-collection-xref-setup))
-
 
 (use-package yasnippet
   :diminish yas-minor-mode

@@ -128,22 +128,23 @@
   (general-override-mode))
 
 (use-package evil
+  :custom
+  (evil-want-keybinding nil) ; Use evil-collection for integration
+  (evil-want-Y-yank-to-eol t)
+  (evil-want-C-w-in-emacs-state t) ; Window commands should always work
+  (evil-ex-substitute-global t) ; substitute replaces all occurences in line
+  ; Open new splits right or below
+  (evil-vsplit-window-right 1)
+  (evil-split-window-below 1)
   :init
-  (setq evil-want-keybinding nil) ; Use evil-collection for integration
-  (setq evil-want-Y-yank-to-eol t)
-  (setq evil-want-C-w-in-emacs-state t) ; Window commands should always work
   (evil-mode 1)
   :config
-  (setq evil-ex-substitute-global t) ; substitute replaces all occurences in line
   (setq evil-normal-state-tag "NORM")
   (setq evil-visual-state-tag "VIS")
   (setq evil-motion-state-tag "MOT")
   (setq evil-insert-state-tag "INS")
   (setq evil-operator-state-tag "OP")
   (setq evil-emacs-state-tag "EMACS")
-  ; Open new splits right or below
-  (setq evil-vsplit-window-right 1)
-  (setq evil-split-window-below 1)
   ; Allow c-o and c-i to jump to buffers matching the regexp
   (setq evil--jumps-buffer-targets "\\`magit")
 

@@ -244,10 +244,6 @@
   (require 'evil-collection-dired)
   (evil-collection-dired-setup))
 
-;; Removed 8.2.2019
-;; (use-package desktop
-;;   :custom (desktop-save-mode t))
-
 (use-package eldoc
   :diminish eldoc-mode)
 
@@ -751,20 +747,6 @@
   :init
   (add-hook 'rust-mode-hook #'lsp)
   )
-
-; Removed 15.2.19
-;; (use-package cargo
-;;   :diminish cargo-minor-mode
-;;   :init (add-hook 'rust-mode-hook #'cargo-minor-mode))
-
-;; (use-package flycheck-rust
-;;   :init (add-hook 'rust-mode-hook #'flycheck-rust-setup))
-
-;; (use-package racer
-;;   :diminish racer-mode
-;;   :init
-;;   (add-hook 'rust-mode-hook #'racer-mode)
-;;   (add-hook 'racer-mode-hook #'eldoc-mode))
 
 ;; Tex
 (use-package tex

@@ -67,48 +67,21 @@ If point is at or ahead of it move to last character."
           (backward-delete-char (- (match-end 1) (match-beginning 1)))
         (call-interactively 'backward-delete-char)))))
 
-; Use define and set so the possible changes can be applied with eval-buffer
-; and not require a restart
-(defvar my/extra-window-names nil "Names of buffers that `my/quit-extra-windows' should quit.")
-(setq my/extra-window-names '(;; Ubiquitous help buffers
-                              "*Help*"
-                              "*Apropos*"
-                              "*Messages*"
-                              "*Completions*"
-                              "*Warnings*"
-                              ;; Other general buffers
-                              "*Command History*"
-                              "*Compile-Log*"
-                              "*TeX Help*"
-                              "*grep*"
-                              "*compilation*"
-                              "*disabled command*"
-                              "*Cargo Clippy*"
-                              "*xref*"
-                              "*ripgrep-search*"
-                              ))
-
+; Use define and set so the possible changes do not require a restart
 (defvar my/extra-window-regexps nil "Regexps for buffers that 'my/quit-extra-windows' should also quit.")
-(setq my/extra-window-regexps '("^magit.+"))
+(setq my/extra-window-regexps '("^magit.+"
+                                "^\*.+\*$"
+                                ))
 
+; TODO: Add white list for *x* buffers that should not be closed (if there ever comes a need)
 (defun my/quit-extra-windows (&optional kill frame)
   "Quit all windows with help-like buffers.
 
-Call `quit-windows-on' for every buffer named in
-`my/help-windows-name'.  The optional parameters KILL and FRAME
-are just as in `quit-windows-on', except FRAME defaults to t (so
-that only windows on the selected frame are considered).
-
-Note that a nil value for FRAME cannot be distinguished from an
-omitted parameter and will be ignored; use some other value if
-you want to quit windows on all frames."
+Call `quit-windows-on' for every buffer that matches `my/help-windows-regexps'."
   (interactive)
   (walk-windows (lambda (window)
                   (let* ((buffer (window-buffer window))
                          (name (buffer-name buffer)))
-                    (dolist (test my/extra-window-names)
-                      (when (string= test name)
-                        (quit-windows-on buffer)))
                     (dolist (regexp my/extra-window-regexps)
                       (when (string-match-p regexp name)
                         (quit-windows-on buffer)))))))

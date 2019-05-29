@@ -95,7 +95,7 @@
 (setq custom-file "~/.emacs.d/custom.el")
 ;; (load custom-file 'noerror)
 
-;; OS Specifics--------------------------------------------------------------------------------
+;; SYSTEM SETUP --------------------------------------------------------------------------------
 
 ; Windows
 (when (member system-type '(ms-dos windows-nt cygwin))
@@ -111,6 +111,16 @@
   :if (memq window-system '(ns))
   :config
   (exec-path-from-shell-initialize))
+
+;; LOCAL CONF ----------------------------------------------------------------------------------
+
+(require 'local-util)
+
+; Environment variables
+(setenv "LANG" "en_US")
+
+; Local configuration
+(load "local-conf" 'noerror) ; No error if missing
 
 ;; HOOKS ---------------------------------------------------------------------------------------
 
@@ -445,7 +455,10 @@
 (use-package ispell
   :ensure nil
   :custom
-  (ispell-silently-savep t))
+  (ispell-silently-savep t)
+  :config
+  (local/custom ispell-program-name)
+  )
 
 ; TODO: Add binds
 (use-package lsp-mode
@@ -757,9 +770,9 @@
   (TeX-auto-save t)
   (TeX-parse-self t)
   (TeX-save-query nil)
-  (TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view)))
-  (TeX-view-program-selection '((output-pdf "PDF Tools")))
   :config
+  (local/custom TeX-view-program-list)
+  (local/custom TeX-view-program-selection)
   (modify-syntax-entry ?_ "w" TeX-mode-syntax-table) ; _ is now part of a word
   (modify-syntax-entry ?- "w" TeX-mode-syntax-table) ; - is now part of a word
   (require 'pdf-sync)
@@ -781,9 +794,6 @@
 
 (use-package ivy-bibtex
   :custom
-  (bibtex-completion-notes-path "~/thesis/bibliography/notes.org")
-  (bibtex-completion-bibliography "~/thesis/bibliography/bibliography.bib")
-  (bibtex-completion-library-path "~/Google Drive File Stream/My Drive/papers")
   (bibtex-completion-pdf-open-function #'org-open-file-with-system)
   (bibtex-completion-cite-prompt-for-optional-arguments nil)
   (bibtex-completion-format-citation-functions
@@ -791,6 +801,10 @@
    (latex-mode . bibtex-completion-format-citation-cite)
    (markdown-mode . bibtex-completion-format-citation-pandoc-citeproc)
    (default . bibtex-completion-format-citation-default)))
+  :config
+  (local/custom bibtex-completion-bibliography)
+  (local/custom bibtex-completion-library-path)
+  (local/custom bibtex-completion-notes-path)
   )
 
 ;; Vimrc
@@ -799,7 +813,6 @@
 
 (require 'my-functions)
 (load "bind")
-(load "local-conf" 'noerror) ; No error if missing
 
 (provide 'init)
 ;;; init.el ends here

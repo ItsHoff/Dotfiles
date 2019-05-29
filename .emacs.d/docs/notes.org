@@ -1,12 +1,6 @@
 * TODO
 ** Fix
 ** Improve
-*** Local config
-**** Macros
-  * local-define to define local override
-  * local-set to set the variable if local value exists
-  * local-add to add local values to list
-  * local-setenv to set uninitialized environment variables
 *** Exit recursive dired with single keypress
     * use a to open stuff (24.4.19)
 *** Non-editable buffer should be in motion state

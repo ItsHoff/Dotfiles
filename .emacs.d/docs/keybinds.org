@@ -286,6 +286,41 @@
    |-----+------------------------------+---------|
    | Q   | evil-quit                    |         |
    | Z   | evil-save-modified-and-close |         |
+** Prefix: C-w - Windows
+   | Key     | Function                     | Comment |
+   |---------+------------------------------+---------|
+   | _       | evil-window-set-height       |         |
+   | =       | balance-windows              |         |
+   |---------+------------------------------+---------|
+   | w       | evil-window-next             |         |
+   | W       | evil-window-prev             |         |
+   | r       | evil-window-rotate-downwards |         |
+   | R       | evil-window-rotate-upwards   |         |
+   | t       | evil-window-top-left         |         |
+   | o       | delete-other-windows         |         |
+   | p       | evil-window-mru              |         |
+   | \vbar   | evil-window-set-width        |         |
+   |---------+------------------------------+---------|
+   | s       | evil-window-split            |         |
+   | c-f     | ffap-other-window            |         |
+   | h       | evil-window-left             |         |
+   | H       | evil-window-move-far-left    |         |
+   | j       | evil-window-down             |         |
+   | J       | evil-window-move-very-bottom |         |
+   | k       | evil-window-up               |         |
+   | K       | evil-window-move-very-top    |         |
+   | l       | evil-window-right            |         |
+   | L       | evil-window-move-far-right   |         |
+   |---------+------------------------------+---------|
+   | c       | evil-window-delete           |         |
+   | v       | evil-window-vsplit           |         |
+   | b       | evil-window-bottom-right     |         |
+   | n       | evil-window-new              |         |
+   |---------+------------------------------+---------|
+   | <up>    | evil-window-increase-height  |         |
+   | <down>  | evil-window-decrease-height  |         |
+   | <left>  | evil-window-decrease-width   |         |
+   | <right> | evil-window-increase-width   |         |
 ** Caps layer - Control-Meta
    | Key     | Function | Comment |
    |---------+----------+---------|

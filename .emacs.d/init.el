@@ -257,6 +257,12 @@
 (use-package eldoc
   :diminish eldoc-mode)
 
+(use-package evil-anzu
+  :after evil
+  :custom
+  (anzu-cons-mode-line-p nil)
+  )
+
 (use-package evil-collection
   :after evil)
 

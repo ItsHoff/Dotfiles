@@ -239,6 +239,8 @@
   (evil-declare-not-repeat #'ivy-alt-done)
   (evil-add-command-properties #'counsel-find-file :jump t)
   (evil-add-command-properties #'ivy-switch-buffer :jump t)
+  (require 'evil-collection-ivy)
+  (evil-collection-ivy-setup)
   :general
   (:keymaps 'ivy-minibuffer-map
             "C-h" #'ivy-alt-done

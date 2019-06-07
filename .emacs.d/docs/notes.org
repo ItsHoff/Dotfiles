@@ -1,5 +1,8 @@
 * TODO
 ** Fix
+*** Ivy-occur after grep not jumping to proper files
+    * jumps to file where the grep was initiated from
+*** my/indent-if-first indent following block if only one char is on the line
 ** Improve
 *** Exit recursive dired with single keypress
     * use a to open stuff (24.4.19)
@@ -57,6 +60,8 @@
 *** YASnippet
    * https://github.com/joaotavora/yasnippet
 * Packages to check out
+** buffer-move
+  * https://github.com/lukhas/buffer-move
 ** flyspell-prog-mode
 ** Org-chef
   * https://github.com/Chobbes/org-chef
@@ -85,7 +90,6 @@
 ** Check
   * http://pages.sachachua.com/.emacs.d/Sacha.html#orgdda953f
   * https://ileriseviye.wordpress.com/2019/05/09/how-to-preview-fixed-width-mono-spaced-fonts-in-an-editable-emacs-buffer/
-
 ** Global
   * https://github.com/noctuid/evil-guide
   * http://ergoemacs.org/emacs/emacs_hyper_super_keys.html

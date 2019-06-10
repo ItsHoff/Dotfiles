@@ -303,13 +303,13 @@
    |---------+------------------------------+---------|
    | s       | evil-window-split            |         |
    | c-f     | ffap-other-window            |         |
-   | h       | evil-window-left             |         |
+   | h       | buf-move-left                |         |
    | H       | evil-window-move-far-left    |         |
-   | j       | evil-window-down             |         |
+   | j       | buf-move-down                |         |
    | J       | evil-window-move-very-bottom |         |
-   | k       | evil-window-up               |         |
+   | k       | buf-move-up                  |         |
    | K       | evil-window-move-very-top    |         |
-   | l       | evil-window-right            |         |
+   | l       | buf-move-right               |         |
    | L       | evil-window-move-far-right   |         |
    |---------+------------------------------+---------|
    | c       | evil-window-delete           |         |
@@ -321,6 +321,13 @@
    | <down>  | evil-window-decrease-height  |         |
    | <left>  | evil-window-decrease-width   |         |
    | <right> | evil-window-increase-width   |         |
+*** Overwritten
+   | Key | Function          | Comment    |
+   |-----+-------------------+------------|
+   | h   | evil-window-left  | under Ctrl |
+   | j   | evil-window-down  | under Ctrl |
+   | k   | evil-window-up    | under Ctrl |
+   | l   | evil-window-right | under Ctrl |
 ** Caps layer - Control-Meta
    | Key     | Function | Comment |
    |---------+----------+---------|

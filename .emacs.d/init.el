@@ -199,6 +199,9 @@
   :config
   (global-auto-revert-mode t))
 
+(use-package buffer-move
+  :custom (buffer-move-stay-after-swap t))
+
 (use-package company
   :diminish company-mode
   :init (global-company-mode)

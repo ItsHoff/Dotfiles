@@ -60,8 +60,6 @@
 *** YASnippet
    * https://github.com/joaotavora/yasnippet
 * Packages to check out
-** buffer-move
-  * https://github.com/lukhas/buffer-move
 ** flyspell-prog-mode
 ** Org-chef
   * https://github.com/Chobbes/org-chef

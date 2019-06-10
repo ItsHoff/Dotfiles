@@ -63,10 +63,16 @@
                     "M-g" #'keyboard-quit
                     "C-z" #'suspend-emacs
                     "C-q" #'my/quit-extra-windows
+                    ; Use easier binds for window moves
                     "C-h" #'evil-window-left
                     "C-j" #'evil-window-down
                     "C-k" #'evil-window-up
                     "C-l" #'evil-window-right
+                    ; Window binds were freed above
+                    "C-w h" #'buf-move-left
+                    "C-w j" #'buf-move-down
+                    "C-w k" #'buf-move-up
+                    "C-w l" #'buf-move-right
                     "C-f" #'counsel-find-file
                     "C-b" #'ivy-switch-buffer
                     "M-x" #'counsel-M-x

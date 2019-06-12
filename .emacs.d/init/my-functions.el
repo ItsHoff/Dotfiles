@@ -182,7 +182,7 @@ Perform the split along the longest axis."
   (interactive "<R>")
   (evil-yank-line beg end type ?+))
 
-(defun my/org-up-heading ()
+(defun my/outline-up-heading ()
   "Go up to the parent heading.
 If already at top heading go to the next heading above."
   (interactive)
@@ -199,9 +199,10 @@ If already at top heading go to the next heading above."
           (setq level (outline-level))))
     )))
 
-(evil-declare-not-repeat #'my/org-up-heading)
+(evil-declare-not-repeat #'my/outline-up-heading)
+(evil-declare-motion #'my/outline-up-heading)
 
-(defun my/org-down-heading ()
+(defun my/outline-down-heading ()
   "Go down to heading of higher level.
 If already at top heading go to the next heading below.
 Goto end if no lower higher level headings."
@@ -219,7 +220,8 @@ Goto end if no lower higher level headings."
           (setq level (outline-level))))
     )))
 
-(evil-declare-not-repeat #'my/org-down-heading)
+(evil-declare-not-repeat #'my/outline-down-heading)
+(evil-declare-motion #'my/outline-down-heading)
 
 (defun my/org-indent-advice ()
   "Align indent with 'tab-width'.

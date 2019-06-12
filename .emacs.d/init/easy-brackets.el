@@ -36,8 +36,6 @@
 (defun my/advice-easy-brackets (args)
   "Filter ARGS such that C-(h j k l) get translated to { [ ] }."
   (let ((char (nth 1 args)))
-    (message "hello")
-    (message "%s" (char-to-string char))
     (cond ((= char ?\C-h)
            (list (nth 0 args) ?\{))
           ((= char ?\C-j)

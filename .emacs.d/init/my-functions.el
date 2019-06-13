@@ -9,7 +9,7 @@
   "Function for testing things."
   (interactive)
   (message "test")
-  (message (auto-revert-active-p)))
+  (prin1 (semantic-fetch-tags)))
 
 (defun my/set-tab-width (width)
   "Set 'tab-width' to WIDTH."

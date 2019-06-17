@@ -108,6 +108,8 @@
 ** Check
   * http://pages.sachachua.com/.emacs.d/Sacha.html#orgdda953f
   * https://ileriseviye.wordpress.com/2019/05/09/how-to-preview-fixed-width-mono-spaced-fonts-in-an-editable-emacs-buffer/
+** Redefine keys
+  * https://old.reddit.com/r/emacs/comments/c0k5qa/defying_your_keyboard_with_elisp/
 ** Global
   * https://github.com/noctuid/evil-guide
   * http://ergoemacs.org/emacs/emacs_hyper_super_keys.html

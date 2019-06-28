@@ -77,6 +77,8 @@
    * https://github.com/joaotavora/yasnippet
 * Packages to check out
 ** flyspell-prog-mode
+** helm-evil-markers
+  * https://github.com/xueeinstein/helm-evil-markers
 ** prescient
   * https://github.com/raxod502/prescient.el
 ** keyfreq
@@ -114,6 +116,11 @@
   * https://github.com/noctuid/evil-guide
   * http://ergoemacs.org/emacs/emacs_hyper_super_keys.html
   * https://idiocy.org/emacs-fonts-and-fontsets.html
+** Indendation
+  * evil uses different indendation based on lines and regions (evil-indent)
+    * indent-according-to-mode for lines
+    * indent-region for others
+  * https://www.emacswiki.org/emacs/IndentingC
 ** Tabbing
   * https://www.emacswiki.org/emacs/TabStopList
   * https://stackoverflow.com/questions/4006005/how-can-i-set-emacs-tab-settings-by-file-type

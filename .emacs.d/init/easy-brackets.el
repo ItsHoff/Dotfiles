@@ -15,7 +15,7 @@
   "Indent the line if the point is at first character."
   (when (>= (+ (current-indentation) 1) (- (point) (point-at-bol)))
     (save-excursion
-      (evil-indent-line (point-at-bol) (point-at-eol)))))
+      (evil-indent-line (line-beginning-position) (line-beginning-position 2)))))
 
 (general-imap "C-h" (lambda () (interactive)
                       (insert "{")

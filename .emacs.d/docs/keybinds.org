@@ -194,6 +194,7 @@
 ** Prefix: SPC - Leader
    | Key | Function     | Comment |
    |-----+--------------+---------|
+   | r   | ivy-resume   |         |
    | y   | yasnippet    |         |
    | o   | olivetti     |         |
    | p   | projectile   |         |

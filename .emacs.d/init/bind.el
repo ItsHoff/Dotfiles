@@ -48,6 +48,7 @@
                     "g" #'magit-status
                     "p" #'projectile-command-map
                     "b" #'ivy-bibtex
+                    "r" #'ivy-resume
                     "h" #'my/helm-command-map
                     "s" #'my/framegroups-command-map
                     "y" #'my/yas-command-map

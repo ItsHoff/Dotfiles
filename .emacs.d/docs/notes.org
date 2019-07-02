@@ -1,8 +1,11 @@
 * TODO
 ** Fix
-*** Ivy-occur after grep not jumping to proper files
+*** Ivy-occur after ripgrep not jumping to proper files
+    * works fine while in ivy
     * jumps to file where the grep was initiated from
-*** my/indent-if-first indent following block if only one char is on the line
+    * works with git grep
+    * fails with ripgrep
+    * works with grep
 ** Improve
 *** Exit recursive dired with single keypress
     * use a to open stuff (24.4.19)
@@ -38,7 +41,6 @@
 *** Full sized splits with earlier splits
   * https://emacs.stackexchange.com/questions/585/split-window-at-outermost-border
 ** Learn
-*** Go through evil-vars.el
 *** Refactoring
    * http://manuel-uberti.github.io/emacs/2018/02/10/occur/
 ** Create

@@ -227,12 +227,14 @@
   :custom (company-lsp-enable-snippet nil))
 
 (use-package counsel
+  :custom
+  (ivy-on-del-error-function nil)
+  (ivy-use-virtual-buffers t)
+  (ivy-count-format "%d/%d ")
+  (ivy-initial-inputs-alist nil)
+  (ivy-flx-limit 10000)
+  (ivy-re-builders-alist '((t . ivy--regex-plus)))
   :init
-  (setq ivy-use-virtual-buffers t)
-  (setq ivy-count-format "%d/%d ")
-  (setq ivy-re-builders-alist '((t . ivy--regex-plus)))
-  (setq ivy-initial-inputs-alist nil)
-  (setq ivy-flx-limit 10000)
   (use-package ivy
     :diminish ivy-mode
     :init (ivy-mode 1))

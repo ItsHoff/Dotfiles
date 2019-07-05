@@ -238,6 +238,7 @@
   (use-package ivy
     :diminish ivy-mode
     :init (ivy-mode 1))
+  (use-package ivy-hydra)
   :config
   (evil-declare-not-repeat #'ivy-switch-buffer)
   (evil-declare-not-repeat #'counsel-find-file)

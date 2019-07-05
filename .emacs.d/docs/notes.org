@@ -6,6 +6,8 @@
     * works with git grep
     * fails with ripgrep
     * works with grep
+    * https://github.com/ericdanan/counsel-projectile/issues/100
+    * https://github.com/abo-abo/swiper/issues/795
 ** Improve
 *** Exit recursive dired with single keypress
     * use a to open stuff (24.4.19)

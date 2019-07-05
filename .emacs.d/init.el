@@ -721,6 +721,7 @@
   :init
   (setq c-default-style "bsd")
   (setq c-basic-offset 4)
+  (c-set-offset 'innamespace 0)
   (setq c-tab-always-indent nil)
   (add-to-list 'auto-mode-alist '("\\inl\\'" . c++-mode))
   (add-hook 'c-mode-common-hook

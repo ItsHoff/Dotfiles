@@ -705,11 +705,13 @@
   :init
   (defvar my/yas-command-map (make-sparse-keymap))
   (fset 'my/yas-command-map my/yas-command-map)
+  (use-package ivy-yasnippet)
+  (use-package yasnippet-snippets)
   :config
   (yas-global-mode)
   :general
   (:keymaps 'my/yas-command-map
-            "y" #'yas-insert-snippet
+            "y" #'ivy-yasnippet
             "n" #'yas-new-snippet
             "v" #'yas-visit-snippet-file
             ))

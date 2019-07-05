@@ -154,7 +154,7 @@
 
 ; Insert state
 (general-define-key :keymaps 'insert
-                    "C-M-y" #'yas-insert-snippet
+                    "C-M-y" #'ivy-yasnippet
                     "<tab>" #'tab-to-tab-stop
                     "<backspace>" #'my/backspace-whitespace-to-tab-stop
                     "<return>" #'newline-and-indent

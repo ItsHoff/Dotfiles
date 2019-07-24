@@ -263,6 +263,10 @@
   (require 'evil-collection-dired)
   (evil-collection-dired-setup))
 
+(use-package display-line-numbers
+  :custom (display-line-numbers-type 'relative)
+  :config (global-display-line-numbers-mode))
+
 (use-package eldoc
   :diminish eldoc-mode)
 
@@ -463,6 +467,9 @@
             ))
 
 (use-package hydra)
+
+(use-package indent-guide
+  :config (indent-guide-global-mode))
 
 (use-package interaction-log
   :commands interaction-log-mode)

@@ -44,7 +44,6 @@
 (fset 'yes-or-no-p 'y-or-n-p)       ; y or n should suffice
 (setq-default fill-column 110)      ; Line wrap column
 (setq large-file-warning-threshold 50000000)  ; Allow larger files to be opened without confirmation
-(setq enable-recursive-minibuffers t)
 
 ; Reverse the splitting order from default
 ; First try vertical split and only then horizontal split

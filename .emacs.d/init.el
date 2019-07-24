@@ -740,9 +740,15 @@
   (modify-syntax-entry ?_ "w" java-mode-syntax-table) ; _ is now part of a word
   )
 
+;; C#
+(use-package csharp-mode)
+
 ;; GLSL
 (use-package glsl-mode
   :mode "\\.shader\\'")
+
+;; Groovy / Gradle
+(use-package groovy-mode)
 
 ;; ELisp
 (use-package lisp-mode

@@ -263,7 +263,7 @@
   (evil-collection-dired-setup))
 
 (use-package display-line-numbers
-  :custom (display-line-numbers-type 'relative)
+  :custom (display-line-numbers-type 'visual)
   :config (global-display-line-numbers-mode))
 
 (use-package eldoc

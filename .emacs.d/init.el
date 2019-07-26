@@ -28,7 +28,7 @@
 
 ;; GENERAL SETTINGS ----------------------------------------------------------------------------
 
-(server-start)                      ; Use server for external programs
+(server-start)                      ; Start server for external programs
 (prefer-coding-system 'utf-8)       ; UTF-8 please
 (setq visible-bell 1)               ; No error beep
 (tool-bar-mode -1)                  ; No toolbar
@@ -38,15 +38,17 @@
 (show-paren-mode 1)                 ; Show matching parenthesis
 (modify-syntax-entry ?_ "w" (standard-syntax-table)) ; _ is now part of a word
 (modify-syntax-entry ?- "w" (standard-syntax-table)) ; aswell as -
-(setq select-enable-clipboard nil) ; Disable emacs clipboard and rely on evil
+(setq select-enable-clipboard nil)  ; Disable emacs clipboard and rely on evil
 (setq completion-styles '(basic initials partial substring)) ; Better completion
 (setq gc-cons-threshold 20000000)   ; This should reduce emacs gc time
-(fset 'yes-or-no-p 'y-or-n-p)       ; y or n should suffice
+(fset 'yes-or-no-p 'y-or-n-p)       ; y or n should suffice for confirmation
 (setq-default fill-column 110)      ; Line wrap column
 (setq large-file-warning-threshold 50000000)  ; Allow larger files to be opened without confirmation
+(setq history-length 1000)          ; Increase the amount of history
+(setq create-lockfiles nil)         ; Don't create lockfiles
+(setq auto-save-default nil)        ; No auto-saves
 
-; Reverse the splitting order from default
-; First try vertical split and only then horizontal split
+; Use nicer window splitting method for automatic splits
 (setq split-window-preferred-function #'my/split-only-root)
 
 ; Make C-i and C-m different from <tab> and <return>
@@ -64,6 +66,12 @@
 (setq hscroll-step 1)
 (setq hscroll-margin 5)
 
+;; Tabs & Spaces
+(setq-default tab-always-indent nil)    ; Allow tabbing outside of indent
+(setq-default indent-tabs-mode nil)     ; Use spaces instead of tabs
+(setq-default tab-width 4)              ; Tab = 4 spaces
+(setq-default evil-shift-width tab-width)
+
 ;; Backups
 ; Put backups in .emacs.d
 (defvar backup-directory (concat user-emacs-directory "backups"))
@@ -74,10 +82,7 @@
         (make-directory undo-directory t))
 (setq backup-directory-alist `(("." . ,backup-directory)))
 
-(setq create-lockfiles nil)         ; Don't create lockfiles
-(setq auto-save-default nil)        ; No auto-saves
-
-;; Font
+;; Fonts
 (cond
   ((find-font (font-spec :name "Consolas"))
    (add-to-list 'default-frame-alist '(font . "Consolas-11")))
@@ -85,15 +90,8 @@
    (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-11")))
   )
 
-;; Tabs & Spaces
-(setq-default tab-always-indent nil)    ; Allow tabbing outside of indent
-(setq-default indent-tabs-mode nil)     ; Use spaces instead of tabs
-(setq-default tab-width 4)              ; Tab = 4 spaces
-(setq-default evil-shift-width tab-width)
-
-;; Save custom settings to another file and load it
+;; Save custom settings to another file so they don't mess up my init files
 (setq custom-file "~/.emacs.d/custom.el")
-;; (load custom-file 'noerror)
 
 ;; SYSTEM SETUP --------------------------------------------------------------------------------
 
@@ -124,7 +122,7 @@
 
 ;; HOOKS ---------------------------------------------------------------------------------------
 
-; Auto-save on focus lost
+; Save when emacs loses focus
 (add-hook 'focus-out-hook (lambda () (interactive) (save-some-buffers t)))
 
 ; Remove trailing whitespace before save

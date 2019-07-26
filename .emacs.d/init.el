@@ -276,6 +276,10 @@
 (use-package evil-collection
   :after evil)
 
+(use-package evil-goggles
+  :custom (evil-goggles-duration 0.1)
+  :config (evil-goggles-mode))
+
 (use-package evil-matchit
   :after evil
   :init (global-evil-matchit-mode 1))
@@ -288,6 +292,11 @@
 
 (use-package evil-numbers
   :after evil)
+
+(use-package evil-traces
+  :config
+  (evil-traces-use-diff-faces)
+  (evil-traces-mode))
 
 (use-package evil-visualstar
   :after evil
@@ -483,11 +492,14 @@
   (lsp-auto-guess-root t)
   (lsp-prefer-flymake nil)
   (lsp-enable-snippet nil)
+  (lsp-restart 'auto-restart)
   :general
   ; TODO: lsp doesn't define a keymap?
   (:keymaps 'lsp-mode-map
             "C-M-d" #'lsp-find-definition
             ))
+
+(use-package lsp-treemacs)
 
 (use-package lsp-ui
   :custom

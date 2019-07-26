@@ -467,9 +467,6 @@
 
 (use-package hydra)
 
-(use-package indent-guide
-  :config (indent-guide-global-mode))
-
 (use-package interaction-log
   :commands interaction-log-mode)
 

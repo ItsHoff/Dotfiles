@@ -40,6 +40,10 @@ If point is at or ahead of it move to last character."
         (evil-end-of-line)
       (evil-end-of-visual-line))
     (re-search-backward "^\\|[^[:space:]]")
+    ; Visual mode seems to handle point differently
+    ; so move forward one character to keep things consistent.
+    (when (eq evil-state 'visual)
+      (forward-char))
     (when (>= save-point (point))
         (evil-end-of-line))))
 

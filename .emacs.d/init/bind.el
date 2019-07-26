@@ -47,7 +47,7 @@
                     "SPC" #'counsel-M-x
                     "g" #'magit-status
                     "p" #'projectile-command-map
-                    "b" #'ivy-bibtex
+                    "b" #'magit-blame-addition
                     "r" #'ivy-resume
                     "h" #'my/helm-command-map
                     "s" #'my/framegroups-command-map

@@ -9,11 +9,8 @@
     * https://github.com/ericdanan/counsel-projectile/issues/100
     * https://github.com/abo-abo/swiper/issues/795
 ** Improve
-*** Exit recursive dired with single keypress
-    * use a to open stuff (24.4.19)
-*** Non-editable buffer should be in motion state
-    * dired
-    * magit
+*** my/end-of-line
+    * take a look at how evil-end-of-line is implemented
 *** Marks
     * M create mark
     * m jump to mark
@@ -27,11 +24,6 @@
     * allow asking for minibuffer binds
     * https://www.emacswiki.org/emacs/HelpPlus
     * https://github.com/Wilfred/helpful
-*** Make properly overriding map for global bindings
-  * https://github.com/noctuid/general.el#override-keymaps-and-buffer-local-keybindings
-  * https://github.com/noctuid/evil-guide#what-overrides-evil
-  * https://github.com/noctuid/evil-guide#keymap-precedence
-  * Is the current solution good enough? (20.4.2019)
 *** Configure spaceline
   * spaceline-config.el has the current config
   * https://github.com/TheBB/spaceline
@@ -42,12 +34,20 @@
     * item insertion
 *** Full sized splits with earlier splits
   * https://emacs.stackexchange.com/questions/585/split-window-at-outermost-border
+** Nice to have
+*** Non-editable buffer should be in motion state
+    * dired
+    * magit
 ** Learn
 *** Refactoring
    * http://manuel-uberti.github.io/emacs/2018/02/10/occur/
 ** Create
 *** Semantic movement
+**** lsp-treemacs
+    * https://github.com/emacs-lsp/lsp-treemacs
+    * lsp-treemacs-symbols-list
 **** Imenu (or similar) with swiper like preview
+    * https://old.reddit.com/r/emacs/comments/3mtus3/how_to_display_a_list_of_classes_functions_etc/
 **** Desired movements
 ***** (next or prev) visible-node
 ***** (next or prev) sibling
@@ -77,6 +77,15 @@
   * https://github.com/bmag/imenu-list
   * https://github.com/emacs-lsp/lsp-origami/
 ** Evaluate
+*** Exit recursive dired with single keypress
+    * use a to open stuff (24.4.19)
+*** Make properly overriding map for global bindings
+  * https://github.com/noctuid/general.el#override-keymaps-and-buffer-local-keybindings
+  * https://github.com/noctuid/evil-guide#what-overrides-evil
+  * https://github.com/noctuid/evil-guide#keymap-precedence
+  * Is the current solution good enough? (20.4.2019)
+*** evil-traces
+*** evil-goggles
 *** YASnippet
    * https://github.com/joaotavora/yasnippet
 * Packages to check out
@@ -120,6 +129,8 @@
   * https://github.com/noctuid/evil-guide
   * http://ergoemacs.org/emacs/emacs_hyper_super_keys.html
   * https://idiocy.org/emacs-fonts-and-fontsets.html
+** emacs-lsp
+  * https://emacs-lsp.github.io/lsp-mode/lsp-mode.html
 ** Indendation
   * evil uses different indendation based on lines and regions (evil-indent)
     * indent-according-to-mode for lines

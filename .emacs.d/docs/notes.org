@@ -1,173 +1,4 @@
-* TODO
-** Fix
-*** Ivy-occur after ripgrep not jumping to proper files
-    * works fine while in ivy
-    * jumps to file where the grep was initiated from
-    * works with git grep
-    * fails with ripgrep
-    * works with grep
-    * https://github.com/ericdanan/counsel-projectile/issues/100
-    * https://github.com/abo-abo/swiper/issues/795
-** Improve
-*** my/end-of-line
-    * take a look at how evil-end-of-line is implemented
-*** Marks
-    * M create mark
-    * m jump to mark
-    * persistent marks
-      - desktop would work
-      - use desktop with very strict settings
-    * use lower case for global marks
-      - hack evil-global-marker-p?
-    * https://github.com/Andrew-William-Smith/evil-fringe-mark
-*** Help
-    * allow asking for minibuffer binds
-    * https://www.emacswiki.org/emacs/HelpPlus
-    * https://github.com/Wilfred/helpful
-*** Configure spaceline
-  * spaceline-config.el has the current config
-  * https://github.com/TheBB/spaceline
-  * check the available segments
-*** Autoindent pasted text
-    * https://www.emacswiki.org/emacs/AutoIndentation
-*** Org
-    * item insertion
-*** Full sized splits with earlier splits
-  * https://emacs.stackexchange.com/questions/585/split-window-at-outermost-border
-** Nice to have
-*** Non-editable buffer should be in motion state
-    * dired
-    * magit
-** Learn
-*** Refactoring
-   * http://manuel-uberti.github.io/emacs/2018/02/10/occur/
-** Create
-*** Semantic movement
-**** Get the file hierarchy
-    * LSP: textDocument/documentSymbol
-      - https://microsoft.github.io/language-server-protocol/specification#textDocument_documentSymbol
-      - children is the intended source
-      - containerName is a hacky posibility
-      - also ranges could be used
-    * lsp-treemacs-symbols-list for reference
-      - https://github.com/emacs-lsp/lsp-treemacs
-    * potential helper: hierarchy
-      - https://github.com/DamienCassou/hierarchy
-****  Tree movements
-***** (next or prev) node
-    * File order should be depth first
-***** (next or prev) sibling
-  * What to do at the end of sibling chain?
-    - go up a level
-      * temporarily or permanently?
-    - continue to different branch of the tree
-      * how many steps through higher level nodes would be allowed (1 or any)
-    - revert to next node behaviour until jump to a lower level node would occur
-      * save a cycle level
-      * allow jumps to higher levels
-      * disable jumps to lower levels
-***** (next or prev) parent level node
-  * fall back to sibling at top level
-**** Potential bindings
-    * Caps +
-    * h for higher level
-    * l for lower level
-    * j and k for go up and down inside the level
-**** Ivy / helm interface
-    * imenu might be good enough
-    * but automatic jump would be nice
-    * https://old.reddit.com/r/emacs/comments/3mtus3/how_to_display_a_list_of_classes_functions_etc/
-** Evaluate
-*** Exit recursive dired with single keypress
-    * use a to open stuff (24.4.19)
-*** Make properly overriding map for global bindings
-  * https://github.com/noctuid/general.el#override-keymaps-and-buffer-local-keybindings
-  * https://github.com/noctuid/evil-guide#what-overrides-evil
-  * https://github.com/noctuid/evil-guide#keymap-precedence
-  * Is the current solution good enough? (20.4.2019)
-*** evil-traces
-*** evil-goggles
-*** YASnippet
-   * https://github.com/joaotavora/yasnippet
-* Packages to check out
-** flyspell-prog-mode
-** helm-evil-markers
-  * https://github.com/xueeinstein/helm-evil-markers
-** prescient
-  * https://github.com/raxod502/prescient.el
-** keyfreq
-  * https://github.com/dacap/keyfreq
-** Org-chef
-  * https://github.com/Chobbes/org-chef
-** doom-todo-ivy
-  * https://github.com/jsmestad/doom-todo-ivy
-** ssh-agency
-  * https://github.com/magit/ssh-agency
-** gcmh  - the Garbage Collector Magic Hack
-  * https://gitlab.com/koral/gcmh/tree/master
-** dired
-  * https://github.com/Fuco1/dired-hacks
-  * https://www.emacswiki.org/emacs/DiredPlus
-** Agressive indent
-  * https://github.com/Malabarba/aggressive-indent-mode
-** ws-butler
-  * https://github.com/lewang/ws-butler
-** wgrep
-  * https://github.com/mhayashi1120/Emacs-wgrep
-** discover
-  * https://github.com/mickeynp/discover.el
-** benchmark-init
-  * https://github.com/dholm/benchmark-init-el
-** targets
-  * https://github.com/noctuid/targets.el
-* Resources
-** Check
-  * http://pages.sachachua.com/.emacs.d/Sacha.html#orgdda953f
-  * https://ileriseviye.wordpress.com/2019/05/09/how-to-preview-fixed-width-mono-spaced-fonts-in-an-editable-emacs-buffer/
-** Redefine keys
-  * https://old.reddit.com/r/emacs/comments/c0k5qa/defying_your_keyboard_with_elisp/
-** Global
-  * https://github.com/noctuid/evil-guide
-  * http://ergoemacs.org/emacs/emacs_hyper_super_keys.html
-  * https://idiocy.org/emacs-fonts-and-fontsets.html
-** emacs-lsp
-  * https://emacs-lsp.github.io/lsp-mode/lsp-mode.html
-** Indendation
-  * evil uses different indendation based on lines and regions (evil-indent)
-    * indent-according-to-mode for lines
-    * indent-region for others
-  * https://www.emacswiki.org/emacs/IndentingC
-** Tabbing
-  * https://www.emacswiki.org/emacs/TabStopList
-  * https://stackoverflow.com/questions/4006005/how-can-i-set-emacs-tab-settings-by-file-type
-  * https://www.emacswiki.org/emacs/BackspaceWhitespaceToTabStop
-  * https://www.emacswiki.org/emacs/IndentationBasics
-  * https://www.gnu.org/software/emacs/manual/html_node/emacs/Indentation.html#Indentation
-  * https://emacs.stackexchange.com/questions/27869/how-to-make-evil-mode-tab-key-indent-not-re-indent-based-on-context
-** Ivy
-  * http://oremacs.com/swiper/
-  * https://github.com/abo-abo/swiper
-  * https://oremacs.com/2015/04/16/ivy-mode/
-  * https://writequit.org/denver-emacs/presentations/2017-04-11-ivy.html
-  * https://www.reddit.com/r/emacs/comments/52lnad/from_helm_to_ivy_a_user_perspective/
-** Helm
-  * https://emacs-helm.github.io/helm/
-  * https://github.com/emacs-helm/helm-descbinds
-  * https://tuhdo.github.io/helm-intro.html
-** Org
-  * http://orgmode.org/worg/
-  * http://doc.norang.ca/org-mode.html
-  * http://ehneilsen.net/notebook/orgExamples/org-examples.html
-  * http://thagomizer.com/blog/2017/03/16/five-useful-org-mode-features.html
-  * https://github.com/Somelauw/evil-org-mode
-  * https://www.reddit.com/r/orgmode/comments/6mfvb1/syncing_org_files_to_android_orgzly_with_tasker/
-  * https://www.reddit.com/r/orgmode/comments/6t7ufq/what_are_the_best_packages_plugins_for_org_mode/
-** Writing
-  * https://github.com/tmalsburg/guess-language.el
-* Debugging
-  * toggle-debug-on-quit
-  * interaction-log-mode
-* Setup
+* Setting up
 ** Hunspell
   * install hunspell (choco, homebrew etc.)
     - mingw64: pacman -S  mingw-w64-x86_64-hunspell-en mingw-w64-x86_64-hunspell
@@ -182,3 +13,51 @@
   * name them LANG.dic and LANG.aff
   * hunspell -D to verify available dictionaries
   * Dictionary 'default' might be required
+* Check
+ * http://pages.sachachua.com/.emacs.d/Sacha.html#orgdda953f
+ * https://ileriseviye.wordpress.com/2019/05/09/how-to-preview-fixed-width-mono-spaced-fonts-in-an-editable-emacs-buffer/
+* Redefine keys
+ * https://old.reddit.com/r/emacs/comments/c0k5qa/defying_your_keyboard_with_elisp/
+* Global
+ * https://github.com/noctuid/evil-guide
+ * http://ergoemacs.org/emacs/emacs_hyper_super_keys.html
+ * https://idiocy.org/emacs-fonts-and-fontsets.html
+* emacs-lsp
+ * https://emacs-lsp.github.io/lsp-mode/lsp-mode.html
+* Indendation
+ * evil uses different indendation based on lines and regions (evil-indent)
+   * indent-according-to-mode for lines
+   * indent-region for others
+ * https://www.emacswiki.org/emacs/IndentingC
+* Refactoring
+ * http://manuel-uberti.github.io/emacs/2018/02/10/occur/
+* Tabbing
+ * https://www.emacswiki.org/emacs/TabStopList
+ * https://stackoverflow.com/questions/4006005/how-can-i-set-emacs-tab-settings-by-file-type
+ * https://www.emacswiki.org/emacs/BackspaceWhitespaceToTabStop
+ * https://www.emacswiki.org/emacs/IndentationBasics
+ * https://www.gnu.org/software/emacs/manual/html_node/emacs/Indentation.html#Indentation
+ * https://emacs.stackexchange.com/questions/27869/how-to-make-evil-mode-tab-key-indent-not-re-indent-based-on-context
+* Ivy
+ * http://oremacs.com/swiper/
+ * https://github.com/abo-abo/swiper
+ * https://oremacs.com/2015/04/16/ivy-mode/
+ * https://writequit.org/denver-emacs/presentations/2017-04-11-ivy.html
+ * https://www.reddit.com/r/emacs/comments/52lnad/from_helm_to_ivy_a_user_perspective/
+* Helm
+ * https://emacs-helm.github.io/helm/
+ * https://github.com/emacs-helm/helm-descbinds
+ * https://tuhdo.github.io/helm-intro.html
+* Org
+ * http://orgmode.org/worg/
+ * http://doc.norang.ca/org-mode.html
+ * http://ehneilsen.net/notebook/orgExamples/org-examples.html
+ * http://thagomizer.com/blog/2017/03/16/five-useful-org-mode-features.html
+ * https://github.com/Somelauw/evil-org-mode
+ * https://www.reddit.com/r/orgmode/comments/6mfvb1/syncing_org_files_to_android_orgzly_with_tasker/
+ * https://www.reddit.com/r/orgmode/comments/6t7ufq/what_are_the_best_packages_plugins_for_org_mode/
+* Writing
+ * https://github.com/tmalsburg/guess-language.el
+* Debugging
+  * toggle-debug-on-quit
+  * interaction-log-mode

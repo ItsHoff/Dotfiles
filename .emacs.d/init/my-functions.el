@@ -9,7 +9,36 @@
   "Function for testing things."
   (interactive)
   (message "test")
-  (prin1 (semantic-fetch-tags)))
+  (lsp-request-async "textDocument/documentSymbol"
+                     `(:textDocument ,(lsp--text-document-identifier))
+                     (lambda (document-symbols)
+                       (mapcar (lambda (item)
+                                 (when (not (or (= (gethash "kind" item) 13) ; variable
+                                                (= (gethash "kind" item) 8) ; field
+                                                (= (gethash "kind" item) 22) ; enum member
+                                                (= (gethash "kind" item) 26) ; type parameter
+                                                ))
+                                   (prin1 "\n name:")
+                                   (prin1 (gethash "name" item))
+                                   (prin1 "\n kind:")
+                                   (prin1 (gethash "kind" item))
+                                   (prin1 "\n children:")
+                                   (prin1 (gethash "children" item))
+                                   (prin1 "\n containerName:")
+                                   (prin1 (gethash "containerName" item))
+                                   (prin1 "\n range:")
+                                   (let* ((location (gethash "location" item))
+                                          (range (gethash "range" location))
+                                          )
+                                     (prin1 (gethash "line" (gethash "start" range)))
+                                     (prin1 "-")
+                                     (prin1 (gethash "line" (gethash "end" range)))
+                                     )
+                                   (print "")
+                                   )
+                                 )
+                               document-symbols))
+                     :mode 'alive))
 
 (defun my/set-tab-width (width)
   "Set 'tab-width' to WIDTH."

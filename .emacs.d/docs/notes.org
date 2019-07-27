@@ -43,39 +43,40 @@
    * http://manuel-uberti.github.io/emacs/2018/02/10/occur/
 ** Create
 *** Semantic movement
-**** lsp-treemacs
-    * https://github.com/emacs-lsp/lsp-treemacs
-    * lsp-treemacs-symbols-list
-**** Imenu (or similar) with swiper like preview
-    * https://old.reddit.com/r/emacs/comments/3mtus3/how_to_display_a_list_of_classes_functions_etc/
-**** Desired movements
-***** (next or prev) visible-node
+**** Get the file hierarchy
+    * LSP: textDocument/documentSymbol
+      - https://microsoft.github.io/language-server-protocol/specification#textDocument_documentSymbol
+      - children is the intended source
+      - containerName is a hacky posibility
+      - also ranges could be used
+    * lsp-treemacs-symbols-list for reference
+      - https://github.com/emacs-lsp/lsp-treemacs
+    * potential helper: hierarchy
+      - https://github.com/DamienCassou/hierarchy
+****  Tree movements
+***** (next or prev) node
+    * File order should be depth first
 ***** (next or prev) sibling
-  * what to do at the end of sibling chain
+  * What to do at the end of sibling chain?
     - go up a level
+      * temporarily or permanently?
     - continue to different branch of the tree
-      - how many steps through higher level nodes would be allowed (basically only 1 or any)
+      * how many steps through higher level nodes would be allowed (1 or any)
+    - revert to next node behaviour until jump to a lower level node would occur
+      * save a cycle level
+      * allow jumps to higher levels
+      * disable jumps to lower levels
 ***** (next or prev) parent level node
   * fall back to sibling at top level
-**** Bindings
-  * hydra for changing levels?
-    - h for higher level
-    - l for lower level
-    - h and l as the heads to go up or down
-    - j and k for sibling navigation
-**** Implementation for different languages
-  * outline (outline-regexp)
-  * imenu
-  * semantic
-  * https://github.com/cute-jumper/parsec.el
-  * end-of-defun
-  * beginning-of-defun
-  * sexp (forward-sexp, backward-sexp, backward-up-list)
-  * counsel-outline
-  * https://github.com/emacsmirror/imenu-tree
-  * https://github.com/DamienCassou/hierarchy
-  * https://github.com/bmag/imenu-list
-  * https://github.com/emacs-lsp/lsp-origami/
+**** Potential bindings
+    * Caps +
+    * h for higher level
+    * l for lower level
+    * j and k for go up and down inside the level
+**** Ivy / helm interface
+    * imenu might be good enough
+    * but automatic jump would be nice
+    * https://old.reddit.com/r/emacs/comments/3mtus3/how_to_display_a_list_of_classes_functions_etc/
 ** Evaluate
 *** Exit recursive dired with single keypress
     * use a to open stuff (24.4.19)

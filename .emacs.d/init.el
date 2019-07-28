@@ -499,8 +499,6 @@
             "C-M-d" #'lsp-find-definition
             ))
 
-(use-package lsp-treemacs)
-
 (use-package lsp-ui
   :custom
   ; TODO: add toggle for hover and doc

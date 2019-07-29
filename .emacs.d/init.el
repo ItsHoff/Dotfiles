@@ -541,10 +541,12 @@
 (use-package org
   :init
   (add-hook 'org-mode-hook (lambda () (my/set-tab-width 2)))
+  :custom
+  (org-adapt-indentation nil)
   :config
   (setq org-M-RET-may-split-line '(default . nil)) ; Don't split line automatically
   (evil-make-overriding-map org-mode-map 'motion)
-  (advice-add #'org-indent-line :after #'my/org-indent-advice)
+  ;; (advice-add #'org-indent-line :after #'my/org-indent-advice)
   :general
   (:keymaps 'org-mode-map
             :states '(normal visual)

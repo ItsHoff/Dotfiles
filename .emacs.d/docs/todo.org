@@ -31,8 +31,8 @@
  * check the available segments
 * TODO Autoindent pasted text                               :low:improvement:
   * https://www.emacswiki.org/emacs/AutoIndentation
-* TODO Org-mode intendation                                 :med:improvement:
-  * Add one tab width to the position of the first character on the previous line
+* EVAL Org-mode intendation                                 :med:improvement:
+  * org-adapt-indentation nil
 * TODO Org-mode item insertion                              :med:improvement:
   * o and O to insert above and below
   * ; o

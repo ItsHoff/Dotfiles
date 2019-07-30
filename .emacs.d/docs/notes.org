@@ -61,3 +61,8 @@
 * Debugging
   * toggle-debug-on-quit
   * interaction-log-mode
+* Profiling
+- profiler-start
+- profiler-stop
+- profiler-report
+- https://stackoverflow.com/questions/568150/tips-for-profiling-misbehaving-emacs-lisp

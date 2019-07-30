@@ -2,35 +2,35 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL
 * TODO Ivy-occur after ripgrep not jumping to proper files          :med:bug:
-  * works fine while in ivy
-  * jumps to file where the grep was initiated from
-  * works with git grep
-  * fails with ripgrep
-  * works with grep
-  * https://github.com/ericdanan/counsel-projectile/issues/100
-  * https://github.com/abo-abo/swiper/issues/795
+- works fine while in ivy
+- jumps to file where the grep was initiated from
+- works with git grep
+- fails with ripgrep
+- works with grep
+- https://github.com/ericdanan/counsel-projectile/issues/100
+- https://github.com/abo-abo/swiper/issues/795
 * TODO my/end-of-line                                       :low:improvement:
-  * take a look at how evil-end-of-line is implemented
+- take a look at how evil-end-of-line is implemented
 * TODO Marks                                                :low:improvement:
-  * M create mark
-  * m jump to mark
-  * persistent marks
-    - desktop would work
-    - use desktop with very strict settings
-  * use lower case for global marks
-    - hack evil-global-marker-p?
-  * https://github.com/Andrew-William-Smith/evil-fringe-mark
-  * https://github.com/xueeinstein/helm-evil-markers
+- M create mark
+- m jump to mark
+- persistent marks
+   - desktop would work
+   - use desktop with very strict settings
+- use lower case for global marks
+   - hack evil-global-marker-p?
+- https://github.com/Andrew-William-Smith/evil-fringe-mark
+- https://github.com/xueeinstein/helm-evil-markers
 * TODO Help                                                 :low:improvement:
-  * allow asking for minibuffer binds
-  * https://www.emacswiki.org/emacs/HelpPlus
-  * https://github.com/Wilfred/helpful
+- allow asking for minibuffer binds
+- https://www.emacswiki.org/emacs/HelpPlus
+- https://github.com/Wilfred/helpful
 * TODO Configure spaceline                                  :low:improvement:
- * spaceline-config.el has the current config
- * https://github.com/TheBB/spaceline
- * check the available segments
+- spaceline-config.el has the current config
+- https://github.com/TheBB/spaceline
+- check the available segments
 * TODO Autoindent pasted text                               :low:improvement:
-  * https://www.emacswiki.org/emacs/AutoIndentation
+*https://www.emacswiki.org/emacs/AutoIndentation
 * EVAL Org-mode intendation                                 :med:improvement:
   * org-adapt-indentation nil
 * TODO Org-mode item insertion                              :med:improvement:
@@ -57,30 +57,30 @@
   * magit
 * TODO Semantic movement                                    :med:improvement:
 ** Get the file hierarchy
-  * LSP: textDocument/documentSymbol
-    - https://microsoft.github.io/language-server-protocol/specification#textDocument_documentSymbol
-    - children is the intended source
-    - containerName is a hacky posibility
-    - also ranges could be used
-  * lsp-treemacs-symbols-list for reference
-    - https://github.com/emacs-lsp/lsp-treemacs
-  * potential helper: hierarchy
-    - https://github.com/DamienCassou/hierarchy
+- LSP: textDocument/documentSymbol
+  - https://microsoft.github.io/language-server-protocol/specification#textDocument_documentSymbol
+  - children is the intended source
+  - containerName is a hacky posibility
+  - also ranges could be used
+- lsp-treemacs-symbols-list for reference
+  - https://github.com/emacs-lsp/lsp-treemacs
+- potential helper: hierarchy
+  - https://github.com/DamienCassou/hierarchy
 ** Tree movements
 *** (next or prev) node
-  * File order should be depth first
+- File order should be depth first
 *** (next or prev) sibling
- * What to do at the end of sibling chain?
-   - go up a level
-     * temporarily or permanently?
-   - continue to different branch of the tree
-     * how many steps through higher level nodes would be allowed (1 or any)
-   - revert to next node behaviour until jump to a lower level node would occur
-     * save a cycle level
-     * allow jumps to higher levels
-     * disable jumps to lower levels
+- What to do at the end of sibling chain?
+  - go up a level
+    - temporarily or permanently?
+  - continue to different branch of the tree
+    - how many steps through higher level nodes would be allowed (1 or any)
+  - revert to next node behaviour until jump to a lower level node would occur
+    - save a cycle level
+    - allow jumps to higher levels
+    - disable jumps to lower levels
 *** (next or prev) parent level node
- * fall back to sibling at top level
+- fall back to sibling at top level
 *** In org-mode
 - org has all these except next parent level
 - siblings movement does not go up levels at all
@@ -90,65 +90,64 @@
 - org-backward-heading-same-level
 - outline-up-heading
 ** Potential bindings
-  * Caps +
-  * h for higher level
-  * l for lower level
-  * j and k for go up and down inside the level
+- Caps layer
+- h for higher level
+- l for lower level
+- j and k for go up and down inside the level
 ** Ivy / helm interface
-  * imenu might be good enough
-  * but automatic jump would be nice
-  * https://old.reddit.com/r/emacs/comments/3mtus3/how_to_display_a_list_of_classes_functions_etc/
+- imenu might be good enough
+- but automatic jump would be nice
+- https://old.reddit.com/r/emacs/comments/3mtus3/how_to_display_a_list_of_classes_functions_etc/
 * TODO dired                                                :low:improvement:
-  * https://github.com/Fuco1/dired-hacks
-  * https://www.emacswiki.org/emacs/DiredPlus
+- https://github.com/Fuco1/dired-hacks
+- https://www.emacswiki.org/emacs/DiredPlus
 * EVAL Exit recursive dired with single keypress            :improvement:
-   use a to open stuff (24.4.19)
+- use a to open stuff (24.4.19)
 * EVAL Make properly overriding map for global bindings     :improvement:
- *s://github.com/noctuid/general.el#override-keymaps-and-buffer-local-keybindings
- *s://github.com/noctuid/evil-guide#what-overrides-evil
- *s://github.com/noctuid/evil-guide#keymap-precedence
- *he current solution good enough? (20.4.2019)
+- https://github.com/noctuid/general.el#override-keymaps-and-buffer-local-keybindings
+- https://github.com/noctuid/evil-guide#what-overrides-evil
+- https://github.com/noctuid/evil-guide#keymap-precedence
+- is the current solution good enough? (20.4.2019)
 * EVAL evil-traces                                              :package:
 * EVAL evil-goggles                                             :package:
 * EVAL YASnippet                                                :package:
- * https://github.com/joaotavora/yasnippet
+- https://github.com/joaotavora/yasnippet
 * TODO flyspell-prog-mode                                           :package:
-  * flyspell for comments and strings
-  * built in
+- flyspell for comments and strings
+- built in
 * TODO prescient                                                    :package:
-  * sorting and filtering (for ivy and company)
-  * https://github.com/raxod502/prescient.el
+- sorting and filtering (for ivy and company)
+- https://github.com/raxod502/prescient.el
 * TODO keyfreq                                                      :package:
-  * Track command frequency
-  * https://github.com/dacap/keyfreq
+- Track command frequency
+- https://github.com/dacap/keyfreq
 * TODO Org-chef                                                     :package:
-  * Recipes in org
-  * https://githu.com/Chobbes/org-chef
+- Recipes in org
+- https://githu.com/Chobbes/org-chef
 * TODO doom-todo-ivy                                                :package:
-  * Display TODO, FIXME, or anything else in an ivy buffer. Extracted from doom-emacs.
-  * https://github.com/jsmestad/doom-todo-ivy
+- Display TODO, FIXME, or anything else in an ivy buffer. Extracted from doom-emacs.
+- https://github.com/jsmestad/doom-todo-ivy
 * TODO ssh-agency                                                   :package:
-  * Use ssh-agent on Microsoft Windows from Emacs
-  * https://github.com/magit/ssh-agency
+- Use ssh-agent on Microsoft Windows from Emacs
+- https://github.com/magit/ssh-agency
 * TODO gcmh  - the Garbage Collector Magic Hack                     :package:
-  * Enforce a sneaky Garbage Collection strategy to minimize GC interference with
-  the activity.
-  * https://gitlab.com/koral/gcmh/tree/master
+- Enforce a sneaky Garbage Collection strategy to minimize GC interference with the activity.
+- https://gitlab.com/koral/gcmh/tree/master
 * TODO Agressive indent                                             :package:
-  * minor mode that keeps your code always indented
-  * https://github.com/Malabarba/aggressive-indent-mode
+- minor mode that keeps your code always indented
+- https://github.com/Malabarba/aggressive-indent-mode
 * TODO ws-butler                                                    :package:
-  * Unobtrusively trim extraneous white-space *ONLY* in lines edited.
-  * https://github.com/lewang/ws-butler
+- Unobtrusively trim extraneous white-space *ONLY* in lines edited.
+- https://github.com/lewang/ws-butler
 * TODO wgrep                                                        :package:
-  * wgrep allows you to edit a grep buffer and apply those changes to the file buffer.
-  * https://github.com/mhayashi1120/Emacs-wgrep
+- wgrep allows you to edit a grep buffer and apply those changes to the file buffer.
+- https://github.com/mhayashi1120/Emacs-wgrep
 * TODO discover                                                     :package:
-  * Discover more of emacs using context menus.
-  * https://github.com/mickeynp/discover.el
+- Discover more of emacs using context menus.
+- https://github.com/mickeynp/discover.el
 * TODO benchmark-init                                               :package:
-  * Benchmark your Emacs initialization
-  * https://github.com/dholm/benchmark-init-el
+- Benchmark your Emacs initialization
+- https://github.com/dholm/benchmark-init-el
 * TODO targets                                                      :package:
-  * Extension of evil text objects (not "stable" but feel free to try and give feedback)
-  * https://github.com/noctuid/targets.el
+- Extension of evil text objects (not "stable" but feel free to try and give feedback)
+- https://github.com/noctuid/targets.el

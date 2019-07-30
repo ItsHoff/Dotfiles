@@ -34,9 +34,22 @@
 * EVAL Org-mode intendation                                 :med:improvement:
   * org-adapt-indentation nil
 * TODO Org-mode item insertion                              :med:improvement:
-  * o and O to insert above and below
-  * ; o
-  * ; O
+** Default
+- M-RET insert new heading or item "intelligently"
+  - Prefix forces heading
+- M-S-RET insert new TODO heading
+  - or checkbox item
+** Tables
+- M-S-down insert row above
+  - with prefix below
+- M-S-right insert column left
+- C-c - insert horizontal line below
+- C-c RET insert horizontal line below and move cursor
+** Desired
+- Insert heading above or below
+  - Doesn't steal content
+  - Maybe option for TODO etc
+- Maybe item above or below
 * TODO Full sized splits with earlier splits                :low:improvement:
  * https://emacs.stackexchange.com/questions/585/split-window-at-outermost-border
 * TODO Non-editable buffer should be in motion state        :low:improvement:
@@ -53,7 +66,7 @@
     - https://github.com/emacs-lsp/lsp-treemacs
   * potential helper: hierarchy
     - https://github.com/DamienCassou/hierarchy
-**  Tree movements
+** Tree movements
 *** (next or prev) node
   * File order should be depth first
 *** (next or prev) sibling
@@ -68,6 +81,14 @@
      * disable jumps to lower levels
 *** (next or prev) parent level node
  * fall back to sibling at top level
+*** In org-mode
+- org has all these except next parent level
+- siblings movement does not go up levels at all
+- org-next-visible-heading
+- org-previous-visible-heading
+- org-forward-heading-same-level
+- org-backward-heading-same-level
+- outline-up-heading
 ** Potential bindings
   * Caps +
   * h for higher level
@@ -77,7 +98,6 @@
   * imenu might be good enough
   * but automatic jump would be nice
   * https://old.reddit.com/r/emacs/comments/3mtus3/how_to_display_a_list_of_classes_functions_etc/
-** Evaluate
 * TODO dired                                                :low:improvement:
   * https://github.com/Fuco1/dired-hacks
   * https://www.emacswiki.org/emacs/DiredPlus

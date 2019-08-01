@@ -120,7 +120,7 @@
 * TODO prescient                                                    :package:
 - sorting and filtering (for ivy and company)
 - https://github.com/raxod502/prescient.el
-* TODO keyfreq                                                      :package:
+* EVAL keyfreq                                                      :package:
 - Track command frequency
 - https://github.com/dacap/keyfreq
 * TODO Org-chef                                                     :package:

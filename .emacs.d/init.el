@@ -485,6 +485,11 @@
   (local/custom ispell-program-name)
   )
 
+(use-package keyfreq
+  :config
+  (keyfreq-mode 1)
+  (keyfreq-autosave-mode 1))
+
 ; TODO: Add binds
 (use-package lsp-mode
   :custom

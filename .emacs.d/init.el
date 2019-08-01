@@ -547,6 +547,8 @@
   (evil-make-overriding-map org-mode-map 'motion)
   ;; (advice-add #'org-indent-line :after #'my/org-indent-advice)
   (evil-declare-not-repeat #'org-cycle)
+  (evil-declare-not-repeat #'org-shifttab)
+  (evil-declare-not-repeat #'org-ctrl-c-ctrl-c)
   :general
   (:keymaps 'org-mode-map
             :states '(normal visual)

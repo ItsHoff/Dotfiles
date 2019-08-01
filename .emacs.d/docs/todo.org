@@ -66,6 +66,8 @@
   - https://github.com/emacs-lsp/lsp-treemacs
 - potential helper: hierarchy
   - https://github.com/DamienCassou/hierarchy
+- alternative: treesitter
+  - https://old.reddit.com/r/emacs/comments/chnxzm/dynamic_module_binding_for_treesitter_an/
 ** Tree movements
 *** (next or prev) node
 - File order should be depth first
@@ -151,3 +153,6 @@
 * TODO targets                                                      :package:
 - Extension of evil text objects (not "stable" but feel free to try and give feedback)
 - https://github.com/noctuid/targets.el
+* TODO org-projectile                                               :package:
+- Manage org-mode TODOs for your projectile projects
+- https://github.com/IvanMalison/org-projectile

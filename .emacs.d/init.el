@@ -667,6 +667,8 @@
        `(nlinum-relative-current-face ((t (:inherit linum :foreground ,base1))))
        ))))
 
+(use-package ssh-agency)
+
 (use-package undo-tree
   :diminish undo-tree-mode
   :init

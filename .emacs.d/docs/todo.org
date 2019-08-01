@@ -129,7 +129,7 @@
 * TODO doom-todo-ivy                                                :package:
 - Display TODO, FIXME, or anything else in an ivy buffer. Extracted from doom-emacs.
 - https://github.com/jsmestad/doom-todo-ivy
-* TODO ssh-agency                                                   :package:
+* EVAL ssh-agency                                                   :package:
 - Use ssh-agent on Microsoft Windows from Emacs
 - https://github.com/magit/ssh-agency
 * TODO gcmh  - the Garbage Collector Magic Hack                     :package:

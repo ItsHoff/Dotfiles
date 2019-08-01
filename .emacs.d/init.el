@@ -492,7 +492,6 @@
   (lsp-auto-guess-root t)
   (lsp-prefer-flymake nil)
   (lsp-enable-snippet nil)
-  (lsp-restart 'auto-restart)
   :general
   ; TODO: lsp doesn't define a keymap?
   (:keymaps 'lsp-mode-map

@@ -132,7 +132,7 @@
 * EVAL ssh-agency                                                   :package:
 - Use ssh-agent on Microsoft Windows from Emacs
 - https://github.com/magit/ssh-agency
-* TODO gcmh  - the Garbage Collector Magic Hack                     :package:
+* EVAL gcmh  - the Garbage Collector Magic Hack                     :package:
 - Enforce a sneaky Garbage Collection strategy to minimize GC interference with the activity.
 - https://gitlab.com/koral/gcmh/tree/master
 * TODO Agressive indent                                             :package:

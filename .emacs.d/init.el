@@ -40,7 +40,6 @@
 (modify-syntax-entry ?- "w" (standard-syntax-table)) ; aswell as -
 (setq select-enable-clipboard nil)  ; Disable emacs clipboard and rely on evil
 (setq completion-styles '(basic initials partial substring)) ; Better completion
-(setq gc-cons-threshold 20000000)   ; This should reduce emacs gc time
 (fset 'yes-or-no-p 'y-or-n-p)       ; y or n should suffice for confirmation
 (setq-default fill-column 110)      ; Line wrap column
 (setq large-file-warning-threshold 50000000)  ; Allow larger files to be opened without confirmation
@@ -347,6 +346,9 @@
             "m" #'toggle-frame-maximized
             "f" #'toggle-frame-fullscreen
             ))
+
+(use-package gcmh
+  :config (gcmh-mode 1))
 
 (use-package golden-ratio
   :diminish golden-ratio-mode

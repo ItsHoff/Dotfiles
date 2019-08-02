@@ -1,7 +1,7 @@
 #+TAGS: { high(h) med(m) low(l) }
 #+TAGS: { bug(b) improvement(i) package(p) }
-#+TODO: TODO EVAL
-* TODO Ivy-occur after ripgrep not jumping to proper files          :med:bug:
+#+TODO: TODO EVAL(!)
+* TODO [#B] Ivy-occur after ripgrep not jumping to proper files     :med:bug:
 - works fine while in ivy
 - jumps to file where the grep was initiated from
 - works with git grep
@@ -9,9 +9,9 @@
 - works with grep
 - https://github.com/ericdanan/counsel-projectile/issues/100
 - https://github.com/abo-abo/swiper/issues/795
-* TODO my/end-of-line                                       :low:improvement:
+* TODO [#C] my/end-of-line                                  :low:improvement:
 - take a look at how evil-end-of-line is implemented
-* TODO Marks                                                :low:improvement:
+* TODO [#C] Marks                                           :low:improvement:
 - M create mark
 - m jump to mark
 - persistent marks
@@ -21,19 +21,19 @@
    - hack evil-global-marker-p?
 - https://github.com/Andrew-William-Smith/evil-fringe-mark
 - https://github.com/xueeinstein/helm-evil-markers
-* TODO Help                                                 :low:improvement:
+* TODO [#C] Help                                            :low:improvement:
 - allow asking for minibuffer binds
 - https://www.emacswiki.org/emacs/HelpPlus
 - https://github.com/Wilfred/helpful
-* TODO Configure spaceline                                  :low:improvement:
+* TODO [#C] Configure spaceline                             :low:improvement:
 - spaceline-config.el has the current config
 - https://github.com/TheBB/spaceline
 - check the available segments
-* TODO Autoindent pasted text                               :low:improvement:
+* TODO [#C] Autoindent pasted text                          :low:improvement:
 *https://www.emacswiki.org/emacs/AutoIndentation
-* EVAL Org-mode intendation                                 :med:improvement:
+* EVAL [#B] Org-mode intendation                            :med:improvement:
   * org-adapt-indentation nil
-* TODO Org-mode item insertion                              :med:improvement:
+* TODO [#B] Org-mode item insertion                         :med:improvement:
 ** Default
 - M-RET insert new heading or item "intelligently"
   - Prefix forces heading
@@ -50,12 +50,12 @@
   - Doesn't steal content
   - Maybe option for TODO etc
 - Maybe item above or below
-* TODO Full sized splits with earlier splits                :low:improvement:
+* TODO [#C] Full sized splits with earlier splits           :low:improvement:
  * https://emacs.stackexchange.com/questions/585/split-window-at-outermost-border
-* TODO Non-editable buffer should be in motion state        :low:improvement:
+* TODO [#C] Non-editable buffer should be in motion state   :low:improvement:
   * dired
   * magit
-* TODO Semantic movement                                    :med:improvement:
+* TODO [#B] Semantic movement                               :med:improvement:
 ** Get the file hierarchy
 - LSP: textDocument/documentSymbol
   - https://microsoft.github.io/language-server-protocol/specification#textDocument_documentSymbol
@@ -100,7 +100,7 @@
 - imenu might be good enough
 - but automatic jump would be nice
 - https://old.reddit.com/r/emacs/comments/3mtus3/how_to_display_a_list_of_classes_functions_etc/
-* TODO dired                                                :low:improvement:
+* TODO [#C] dired                                           :low:improvement:
 - https://github.com/Fuco1/dired-hacks
 - https://www.emacswiki.org/emacs/DiredPlus
 * EVAL Exit recursive dired with single keypress            :improvement:
@@ -121,6 +121,7 @@
 - sorting and filtering (for ivy and company)
 - https://github.com/raxod502/prescient.el
 * EVAL keyfreq                                                      :package:
+- State "EVAL"       from "TODO"       [2019-08-01 Thu 16:54]
 - Track command frequency
 - https://github.com/dacap/keyfreq
 * TODO Org-chef                                                     :package:
@@ -130,9 +131,11 @@
 - Display TODO, FIXME, or anything else in an ivy buffer. Extracted from doom-emacs.
 - https://github.com/jsmestad/doom-todo-ivy
 * EVAL ssh-agency                                                   :package:
+- State "EVAL"       from "TODO"       [2019-08-01 Thu 16:54]
 - Use ssh-agent on Microsoft Windows from Emacs
 - https://github.com/magit/ssh-agency
 * EVAL gcmh  - the Garbage Collector Magic Hack                     :package:
+- State "EVAL"       from "TODO"       [2019-08-01 Thu 16:53]
 - Enforce a sneaky Garbage Collection strategy to minimize GC interference with the activity.
 - https://gitlab.com/koral/gcmh/tree/master
 * TODO Agressive indent                                             :package:

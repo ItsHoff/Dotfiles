@@ -18,6 +18,8 @@
 - name them LANG.dic and LANG.aff
 - hunspell -D to verify available dictionaries
 - Dictionary 'default' might be required
+* Windows
+- You can run commands in WSL from emacs using the wsl prefix. For example: (setq mu4e-get-mail-command "wsl offlineimap -c offlineimaprc")
 * Check
 - http://pages.sachachua.com/.emacs.d/Sacha.html#orgdda953f
 - https://ileriseviye.wordpress.com/2019/05/09/how-to-preview-fixed-width-mono-spaced-fonts-in-an-editable-emacs-buffer/

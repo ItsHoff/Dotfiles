@@ -620,7 +620,7 @@
   :init
   (projectile-mode)
   :custom
-  (projectile-indexing-method 'alien) ; Required tools should be installed on windows aswell
+  (projectile-indexing-method 'hybrid) ; Required tools should be installed on windows as well
   (projectile-completion-system 'ivy)
   :config
   (use-package counsel-projectile

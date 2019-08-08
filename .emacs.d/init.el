@@ -29,7 +29,6 @@
 ;; GENERAL SETTINGS ----------------------------------------------------------------------------
 
 (server-start)                      ; Start server for external programs
-(prefer-coding-system 'utf-8)       ; UTF-8 please
 (setq visible-bell 1)               ; No error beep
 (tool-bar-mode -1)                  ; No toolbar
 (scroll-bar-mode -1)                ; No scrollbar
@@ -56,6 +55,13 @@
 
 ; Just define § as escape so things are sensible on bigger keyboards
 (define-key input-decode-map [?§] [escape])
+
+; UTF-8 please
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(setq default-buffer-file-coding-system 'utf-8)
 
 ;; Smooth scrolling
 (setq scroll-step 1)

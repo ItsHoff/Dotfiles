@@ -94,14 +94,12 @@
 - https://github.com/noctuid/evil-guide#what-overrides-evil
 - https://github.com/noctuid/evil-guide#keymap-precedence
 - is the current solution good enough? (20.4.2019)
-* Org-mode [1/4]
+* Org-mode [0/3]
 ** TODO Org-mode capture templates [0/3]
 *** TODO Dotfile todo
 *** TODO Personal todo
 *** TODO Work todo
 ** TODO Org-mode agenda templates [0/0]
-** EVAL [#C] Org-mode intendation                               :improvement:
-- org-adapt-indentation nil
 ** TODO [#C] Org-mode item insertion                            :improvement:
 *** Default
 - M-RET insert new heading or item "intelligently"
@@ -119,9 +117,9 @@
   - Doesn't steal content
   - Maybe option for TODO etc
 - Maybe item above or below
-* Packages [6/17]                                                   :package:
+* Packages [5/16]                                                   :package:
 ** EVAL evil-traces
-** EVAL evil-goggles
+- https://github.com/mamapanda/evil-traces
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** TODO flyspell-prog-mode

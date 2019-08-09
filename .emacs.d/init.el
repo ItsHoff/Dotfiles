@@ -269,7 +269,7 @@
 
 (use-package display-line-numbers
   :custom (display-line-numbers-type 'visual)
-  :config (global-display-line-numbers-mode))
+  :config (add-hook 'prog-mode-hook #'display-line-numbers-mode))
 
 (use-package eldoc
   :diminish eldoc-mode)

@@ -83,10 +83,10 @@
 - but automatic jump would be nice
 - https://old.reddit.com/r/emacs/comments/3mtus3/how_to_display_a_list_of_classes_functions_etc/
 ** TODO dired                                                   :improvement:
-** TODO Magit conflicts                                         :improvement:
-- https://magit.vc/manual/magit/Resolving-Conflicts.html
 - https://github.com/Fuco1/dired-hacks
 - https://www.emacswiki.org/emacs/DiredPlus
+** TODO Magit conflicts                                         :improvement:
+- https://magit.vc/manual/magit/Resolving-Conflicts.html
 ** EVAL Exit recursive dired with single keypress               :improvement:
 - use a to open stuff (24.4.19)
 ** EVAL Make properly overriding map for global bindings        :improvement:
@@ -99,7 +99,7 @@
 *** TODO Dotfile todo
 *** TODO Personal todo
 *** TODO Work todo
-** TODO Org-mode agenda templates [/]
+** TODO Org-mode agenda templates [0/0]
 ** EVAL [#C] Org-mode intendation                               :improvement:
 - org-adapt-indentation nil
 ** TODO [#C] Org-mode item insertion                            :improvement:

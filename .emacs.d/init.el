@@ -264,6 +264,7 @@
   :ensure nil
   :config
   (put 'dired-find-alternate-file 'disabled nil) ; Allow dired to use the same buffer
+  (evil-add-command-properties #'dired-jump :jump t)
   (require 'evil-collection-dired)
   (evil-collection-dired-setup))
 

@@ -46,6 +46,7 @@
                     :prefix "SPC"
                     "SPC" #'counsel-M-x
                     "b" #'magit-blame-addition
+                    "c" #'org-capture
                     "d" #'dired-jump
                     "g" #'magit-status
                     "h" #'my/helm-command-map

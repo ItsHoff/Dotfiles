@@ -13,6 +13,19 @@
   (evil-make-overriding-map org-mode-map 'motion)
   (dolist (cmd '(org-cycle org-shifttab org-ctrl-c-ctrl-c))
     (evil-declare-not-repeat cmd))
+  ; https://orgmode.org/manual/Capture-templates.html#Capture-templates
+  (setq org-capture-templates
+        '(("e" "Emacs todo" entry (file+olp "~/.emacs.d/docs/todo.org" "General")
+           "** TODO %?" :unnarrowed t)
+          ("o" "Org-mode todo" entry (file+olp "~/.emacs.d/docs/todo.org" "Org-mode")
+           "** TODO %?" :unnarrowed t)
+          ("p" "Package to check out" entry (file+olp "~/.emacs.d/docs/todo.org" "Packages")
+           "** TODO %?\n- %^{link}" :unnarrowed t)
+          ("r" "Recipe" entry (file+olp "~/Dropbox/notes/recipes.org" "Uncategorized")
+           "%(org-chef-get-recipe-from-url)" :unnarrowed t)
+          ("R" "Recipe manually" entry (file+olp "~/Dropbox/notes/recipes.org" "Uncategorized")
+           "* %^{Recipe title: }\n  :PROPERTIES:\n  :source-url:\n  :servings:\n  :prep-time:\n  :cook-time:\n  :ready-in:\n  :END:\n** Ingredients\n   %?\n** Directions\n\n" :unnarrowed t)
+          ))
   :general
   (:keymaps 'org-mode-map
             :states '(normal visual)

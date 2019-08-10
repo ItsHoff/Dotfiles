@@ -5,7 +5,13 @@
 ;;; Code:
 (use-package org
   :init
-  (add-hook 'org-mode-hook (lambda () (my/set-tab-width 2)))
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (my/set-tab-width 2)
+              (add-hook 'before-save-hook
+                        (lambda () (org-update-statistics-cookies "All"))
+                        nil "local")
+              ))
   :custom
   (org-adapt-indentation nil)
   :config

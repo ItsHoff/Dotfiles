@@ -117,7 +117,7 @@
   - Doesn't steal content
   - Maybe option for TODO etc
 - Maybe item above or below
-* Packages [5/16]                                                   :package:
+* Packages [6/16]                                                   :package:
 ** EVAL evil-traces
 - https://github.com/mamapanda/evil-traces
 ** EVAL YASnippet
@@ -132,9 +132,10 @@
 - State "EVAL"       from "TODO"       [2019-08-01 Thu 16:54]
 - Track command frequency
 - https://github.com/dacap/keyfreq
-** TODO Org-chef
+** EVAL Org-chef
+- State "EVAL"       from "TODO"       [2019-08-10 Sat 14:02]
 - Recipes in org
-- https://githu.com/Chobbes/org-chef
+- https://github.com/Chobbes/org-chef
 ** TODO doom-todo-ivy
 - Display TODO, FIXME, or anything else in an ivy buffer. Extracted from doom-emacs.
 - https://github.com/jsmestad/doom-todo-ivy

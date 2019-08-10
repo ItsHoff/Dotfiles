@@ -553,31 +553,6 @@
   :custom
   (olivetti-body-width 80))
 
-(use-package org
-  :init
-  (add-hook 'org-mode-hook (lambda () (my/set-tab-width 2)))
-  :custom
-  (org-adapt-indentation nil)
-  :config
-  (setq org-M-RET-may-split-line '(default . nil)) ; Don't split line automatically
-  (evil-make-overriding-map org-mode-map 'motion)
-  ;; (advice-add #'org-indent-line :after #'my/org-indent-advice)
-  (evil-declare-not-repeat #'org-cycle)
-  (evil-declare-not-repeat #'org-shifttab)
-  (evil-declare-not-repeat #'org-ctrl-c-ctrl-c)
-  :general
-  (:keymaps 'org-mode-map
-            :states '(normal visual)
-            "<down>" #'outline-next-visible-heading
-            "<up>" #'outline-previous-visible-heading
-            "<right>" #'org-forward-heading-same-level
-            "<left>" #'org-backward-heading-same-level
-            "M-h" #'org-metaleft
-            "M-l" #'org-metaright
-            "M-j" #'org-metadown
-            "M-k" #'org-metaup
-            ))
-
 (use-package outline
   :ensure nil
   :diminish outline-minor-mode
@@ -872,7 +847,8 @@
   :mode "\\.vim\\(rc\\)?\\'")
 
 (require 'my-functions)
-(load "bind")
+(require 'my-org-setup)
+(require 'my-bindings)
 
 (provide 'init)
 ;;; init.el ends here

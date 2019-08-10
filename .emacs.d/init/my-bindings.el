@@ -1,6 +1,6 @@
-;;; bind --- bind all my keys
+;;; bindings --- general keybindings
 ;;; Commentary:
-;;; My keybindings
+;;; All non-package-specific keybinds.
 
 ;;; Code:
 (require 'general)
@@ -163,8 +163,7 @@
                     "<C-i>" #'indent-according-to-mode
                     )
 
+(require 'easy-brackets)
 
-(load "easy-brackets")
-
-(provide 'bind)
+(provide 'my-bindings)
 ;;; bind.el ends here

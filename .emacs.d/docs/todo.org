@@ -31,12 +31,12 @@
 - https://github.com/TheBB/spaceline
 - check the available segments
 ** TODO Autoindent pasted text                                  :improvement:
-*https://www.emacswiki.org/emacs/AutoIndentation
+- https://www.emacswiki.org/emacs/AutoIndentation
 ** TODO Full sized splits with earlier splits                   :improvement:
- * https://emacs.stackexchange.com/questions/585/split-window-at-outermost-border
+- https://emacs.stackexchange.com/questions/585/split-window-at-outermost-border
 ** TODO Non-editable buffer should be in motion state           :improvement:
-  * dired
-  * magit
+- dired
+- magit
 ** TODO [#C] Semantic movement                                  :improvement:
 *** Get the file hierarchy
 - LSP: textDocument/documentSymbol
@@ -94,9 +94,10 @@
 - https://github.com/noctuid/evil-guide#what-overrides-evil
 - https://github.com/noctuid/evil-guide#keymap-precedence
 - is the current solution good enough? (20.4.2019)
-* Org-mode [0/3]
-** TODO Org-mode capture templates [0/3]
-*** TODO Dotfile todo
+* Org-mode [2/7]
+** TODO Org-mode capture templates [1/3]
+*** EVAL Dotfile todo
+- State "EVAL"       from "TODO"       [2019-08-10 Sat 15:01]
 *** TODO Personal todo
 *** TODO Work todo
 ** TODO Org-mode agenda templates [0/0]
@@ -117,7 +118,22 @@
   - Doesn't steal content
   - Maybe option for TODO etc
 - Maybe item above or below
-* Packages [6/16]                                                   :package:
+** EVAL Fix org-mode-map overriding org-capture-mode-map                :bug:
+- State "EVAL"       from "TODO"       [2019-08-10 Sat 15:36]
+- org-mode-map was set to override motion state map in config
+- solution: removed the override
+** TODO Add org-chef sites [0/3]                                :improvement:
+*** TODO Serious eats
+*** TODO Smitten kitchen
+*** TODO Bon appetit
+** TODO Better bindings
+- tags
+- todo status
+- priorities
+- refile
+** EVAL Auto-update counters on save
+- State "EVAL"       from "TODO"       [2019-08-10 Sat 16:19]
+* Packages [6/17]                                                   :package:
 ** EVAL evil-traces
 - https://github.com/mamapanda/evil-traces
 ** EVAL YASnippet
@@ -168,3 +184,6 @@
 ** TODO org-projectile
 - Manage org-mode TODOs for your projectile projects
 - https://github.com/IvanMalison/org-projectile
+** TODO fast-scroll
+- Emacs package to ensure scrolling remains fast
+- https://github.com/ahungry/fast-scroll

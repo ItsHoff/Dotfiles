@@ -116,11 +116,13 @@
 (general-define-key :keymaps '(normal visual)
                     "; c" #'evilnc-comment-or-uncomment-lines
                     ; Clipboard paste and yank
-                    "C-M-p" #'my/paste-clipboard-after
-                    "C-M-S-p" #'my/paste-clipboard-before
                     "C-M-y" #'my/yank-clipboard
                     "C-M-S-y" #'my/yank-line-clipboard
                     )
+
+(general-define-key :keymaps '(normal visual minibuffer-local-map ivy-minibuffer-map)
+                    "C-M-p" #'my/paste-clipboard-after
+                    "C-M-S-p" #'my/paste-clipboard-before)
 
 (defhydra my/goto-change-hydra ()
   "Go to change"

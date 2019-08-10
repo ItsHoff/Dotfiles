@@ -45,15 +45,15 @@
                     :states '(motion normal visual emacs)
                     :prefix "SPC"
                     "SPC" #'counsel-M-x
-                    "g" #'magit-status
-                    "p" #'projectile-command-map
                     "b" #'magit-blame-addition
-                    "r" #'ivy-resume
+                    "d" #'dired-jump
+                    "g" #'magit-status
                     "h" #'my/helm-command-map
+                    "o" #'olivetti-mode
+                    "p" #'projectile-command-map
+                    "r" #'ivy-resume
                     "s" #'my/framegroups-command-map
                     "y" #'my/yas-command-map
-                    "d" #'dired-jump
-                    "o" #'olivetti-mode
                     )
 
 ; Non-insert + emacs (for special emacs state buffers)

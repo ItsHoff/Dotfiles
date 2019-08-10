@@ -10,7 +10,8 @@
   (org-adapt-indentation nil)
   :config
   (setq org-M-RET-may-split-line '(default . nil)) ; Don't split line automatically
-  (evil-make-overriding-map org-mode-map 'motion)
+  ; 10.8.19
+  ;; (evil-make-overriding-map org-mode-map 'motion)
   (dolist (cmd '(org-cycle org-shifttab org-ctrl-c-ctrl-c))
     (evil-declare-not-repeat cmd))
   ; https://orgmode.org/manual/Capture-templates.html#Capture-templates

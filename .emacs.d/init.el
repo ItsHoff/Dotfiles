@@ -559,7 +559,8 @@
   :init
   (add-hook 'prog-mode-hook (lambda () (outline-minor-mode)))
   :config
-  (evil-make-overriding-map outline-minor-mode-map 'motion)
+  ; 10.8.19
+  ;; (evil-make-overriding-map outline-minor-mode-map 'motion)
   (dolist (cmd '(outline-next-visible-heading
                  outline-previous-visible-heading
                  outline-forward-same-level
@@ -673,7 +674,8 @@
   ; Disable region undo since it seems to be flaky
   (setq undo-tree-enable-undo-in-region nil)
   :config
-  (evil-make-overriding-map undo-tree-visualizer-mode-map 'motion)
+  ; 10.8.19
+  ;; (evil-make-overriding-map undo-tree-visualizer-mode-map 'motion)
   (advice-add #'undo-tree-undo-1 :filter-args #'my/advice-preserve-timestamps)
   (advice-add #'undo-tree-redo-1 :filter-args #'my/advice-preserve-timestamps)
   :general

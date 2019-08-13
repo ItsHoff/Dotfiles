@@ -4,6 +4,7 @@
 
 ;;; Code:
 (use-package org
+  :commands org-capture
   :init
   (add-hook 'org-mode-hook
             (lambda ()
@@ -35,6 +36,17 @@
           ("R" "Recipe manually" entry (file+olp "~/Dropbox/notes/recipes.org" "Uncategorized")
            "* %^{Recipe title: }\n  :PROPERTIES:\n  :source-url:\n  :servings:\n  :prep-time:\n  :cook-time:\n  :ready-in:\n  :END:\n** Ingredients\n   %?\n** Directions\n\n")
           ))
+
+  (use-package org-chef
+    :config
+    ; org-chef uses outdated workaround
+    (setq org-chef-fetch-workaround
+          (and
+           ;; Note: For build sans gnutls, `libgnutls-version' is -1.
+           (>= libgnutls-version 30603)
+           (version<= emacs-version "26.2")
+           t)))
+
   :general
   (:keymaps 'org-mode-map
             :states '(normal visual)
@@ -47,16 +59,6 @@
             "M-j" #'org-metadown
             "M-k" #'org-metaup
             ))
-
-(use-package org-chef
-  :config
-  ; org-chef uses outdated workaround
-  (setq org-chef-fetch-workaround
-        (and
-         ;; Note: For build sans gnutls, `libgnutls-version' is -1.
-         (>= libgnutls-version 30603)
-         (version<= emacs-version "26.2")
-         t)))
 
 (provide 'my-org-setup)
 ;;; org-mode.el ends here

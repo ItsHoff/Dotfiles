@@ -2,8 +2,6 @@
 ;;; Commentary:
 
 ;;; Code:
-(require 'evil)
-(require 'org)
 
 (defun my/test-function ()
   "Function for testing things."

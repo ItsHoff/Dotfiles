@@ -507,7 +507,7 @@
   (keyfreq-autosave-mode 1))
 
 (use-package lsp-mode
-  :commands lsp
+  :commands (lsp lsp-deferred)
   :custom
   (lsp-keep-workspace-alive nil)
   (lsp-auto-guess-root t)
@@ -757,8 +757,8 @@
               ;; Preferred comment style
               (setq comment-start "// "
                     comment-end "")))
-  (add-hook 'c++-mode-hook #'lsp)
-  (add-hook 'c-mode-hook #'lsp)
+  (add-hook 'c++-mode-hook #'lsp-deferred)
+  (add-hook 'c-mode-hook #'lsp-deferred)
   :config
   (modify-syntax-entry ?_ "w" c-mode-syntax-table) ; _ is now part of a word
   (modify-syntax-entry ?_ "w" c++-mode-syntax-table) ; _ is now part of a word
@@ -809,7 +809,7 @@
 ;; Rust
 (use-package rust-mode
   :init
-  (add-hook 'rust-mode-hook #'lsp)
+  (add-hook 'rust-mode-hook #'lsp-deferred)
   )
 
 ;; Tex

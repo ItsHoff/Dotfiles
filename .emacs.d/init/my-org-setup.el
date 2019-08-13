@@ -23,17 +23,17 @@
   ; https://orgmode.org/manual/Capture-templates.html#Capture-templates
   (setq org-capture-templates
         '(("e" "Emacs todo" entry (file+olp "~/.emacs.d/docs/todo.org" "General")
-           "** TODO %?" :unnarrowed t)
+           "** TODO %?")
           ("o" "Org-mode todo" entry (file+olp "~/.emacs.d/docs/todo.org" "Org-mode")
-           "** TODO %?" :unnarrowed t)
+           "** TODO %?")
           ("p" "Package to check out" entry (file+olp "~/.emacs.d/docs/todo.org" "Packages")
-           "** TODO %?\n- %x" :unnarrowed t)
+           "** TODO %?\n- %x")
           ("t" "Personal todo" entry (file "~/Dropbox/notes/todo.org")
            "* TODO %?")
           ("r" "Recipe" entry (file+olp "~/Dropbox/notes/recipes.org" "Uncategorized")
-           "%(org-chef-get-recipe-from-url)" :unnarrowed t)
+           "%(org-chef-get-recipe-from-url)")
           ("R" "Recipe manually" entry (file+olp "~/Dropbox/notes/recipes.org" "Uncategorized")
-           "* %^{Recipe title: }\n  :PROPERTIES:\n  :source-url:\n  :servings:\n  :prep-time:\n  :cook-time:\n  :ready-in:\n  :END:\n** Ingredients\n   %?\n** Directions\n\n" :unnarrowed t)
+           "* %^{Recipe title: }\n  :PROPERTIES:\n  :source-url:\n  :servings:\n  :prep-time:\n  :cook-time:\n  :ready-in:\n  :END:\n** Ingredients\n   %?\n** Directions\n\n")
           ))
   :general
   (:keymaps 'org-mode-map

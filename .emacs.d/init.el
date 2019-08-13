@@ -267,6 +267,17 @@
             "C-h" #'ivy-alt-done
             "<escape>" #'minibuffer-keyboard-quit))
 
+(use-package desktop
+  :disabled ; never used properly with this setup
+  :custom
+  (desktop-restore-eager 2)
+  (desktop-lazy-verbose nil)
+  (desktop-globals-to-clear nil)
+  (desktop-globals-to-save nil)
+  (desktop-locals-to-save nil)
+  :config
+  (desktop-save-mode 1))
+
 (use-package diminish)
 
 (use-package dired

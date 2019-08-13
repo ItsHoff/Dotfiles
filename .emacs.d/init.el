@@ -276,6 +276,7 @@
 (use-package eldoc
   :diminish eldoc-mode)
 
+; Shows search matches on modeline
 (use-package evil-anzu
   :after evil
   :custom

@@ -26,6 +26,12 @@
 ; Install all packages automatically
 (setq use-package-always-ensure t)
 
+(use-package benchmark-init
+  :disabled ; enable for benchmarking
+  :config
+  ;; To disable collection of benchmark data after init is done.
+  (add-hook 'after-init-hook 'benchmark-init/deactivate))
+
 ;; GENERAL SETTINGS ----------------------------------------------------------------------------
 
 (server-start)                      ; Start server for external programs

@@ -134,7 +134,7 @@
 - refile
 ** EVAL Auto-update counters on save
 - State "EVAL"       from "TODO"       [2019-08-10 Sat 16:19]
-* Packages [6/17]                                                   :package:
+* Packages [6/16]                                                   :package:
 ** EVAL evil-traces
 - https://github.com/mamapanda/evil-traces
 ** EVAL YASnippet
@@ -176,9 +176,6 @@
 ** TODO discover
 - Discover more of emacs using context menus.
 - https://github.com/mickeynp/discover.el
-** TODO benchmark-init
-- Benchmark your Emacs initialization
-- https://github.com/dholm/benchmark-init-el
 ** TODO targets
 - Extension of evil text objects (not "stable" but feel free to try and give feedback)
 - https://github.com/noctuid/targets.el

@@ -73,3 +73,6 @@
 - profiler-stop
 - profiler-report
 - https://stackoverflow.com/questions/568150/tips-for-profiling-misbehaving-emacs-lisp
+** benchmark-init
+- Benchmark your Emacs initialization
+- https://github.com/dholm/benchmark-init-el

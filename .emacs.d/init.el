@@ -529,10 +529,9 @@
   )
 
 (use-package magit
-  :init
-  (use-package evil-magit)
-  (require 'evil-magit)
+  :commands (magit-status magit-blame-addition)
   :config
+  (use-package evil-magit)
   (evil-add-command-properties #'magit-diff-visit-file :jump t)
   (evil-add-command-properties #'magit-status :jump t)
   :general

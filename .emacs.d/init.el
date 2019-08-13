@@ -844,6 +844,7 @@
   (add-hook 'LaTeX-mode-hook #'turn-on-reftex))
 
 (use-package ivy-bibtex
+  :commands ivy-bibtex
   :custom
   (bibtex-completion-pdf-open-function #'org-open-file-with-system)
   (bibtex-completion-cite-prompt-for-optional-arguments nil)

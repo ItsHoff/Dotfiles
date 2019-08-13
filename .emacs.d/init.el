@@ -622,13 +622,13 @@
 
 (use-package recentf
   :ensure nil
-  :init
-  (setq recentf-max-saved-items 50)
-  (recentf-mode 1)
+  :custom
+  (recentf-max-saved-items 50)
   :config
   (add-to-list 'recentf-exclude "autoloads\\.el\\'")
   ; Exclude files with no suffix
-  (add-to-list 'recentf-exclude "/\\w*$"))
+  (add-to-list 'recentf-exclude "/\\w*$")
+  (recentf-mode 1))
 
 (use-package ripgrep)
 

@@ -238,6 +238,8 @@
   (ivy-initial-inputs-alist nil)
   (ivy-flx-limit 10000)
   (ivy-re-builders-alist '((t . ivy--regex-ignore-order)))
+  (ivy-wrap t)
+  (ivy-action-wrap t)
   ; Abbreviate virtual buffers so files with the same name are not ignored
   (ivy-virtual-abbreviate 'abbreviate)
   :init

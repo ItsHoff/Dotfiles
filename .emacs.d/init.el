@@ -227,6 +227,7 @@
   :config (company-flx-mode t))
 
 (use-package company-lsp
+  :commands company-lsp
   :custom (company-lsp-enable-snippet nil))
 
 (use-package counsel
@@ -503,22 +504,21 @@
   (keyfreq-mode 1)
   (keyfreq-autosave-mode 1))
 
-; TODO: Add binds
 (use-package lsp-mode
+  :commands lsp
   :custom
   (lsp-keep-workspace-alive nil)
   (lsp-auto-guess-root t)
   (lsp-prefer-flymake nil)
   (lsp-enable-snippet nil)
   :general
-  ; TODO: lsp doesn't define a keymap?
   (:keymaps 'lsp-mode-map
             "C-M-d" #'lsp-find-definition
             ))
 
 (use-package lsp-ui
+  :commands lsp-ui-mode
   :custom
-  ; TODO: add toggle for hover and doc
   (lsp-ui-doc-enable nil)
   (lsp-ui-sideline-show-hover nil)
   (lsp-ui-sideline-show-code-actions t)

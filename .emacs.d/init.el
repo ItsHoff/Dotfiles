@@ -206,13 +206,15 @@
 (use-package company
   :diminish company-mode
   :init (global-company-mode)
+  :custom
+  (company-tooltip-limit 20)
+  (company-idle-delay 0.2)
+  (company-minimum-prefix-length 2)
+  (company-selection-wrap-around t)
+  (company-show-numbers t)
+  (company-require-match nil)
+  (company-dabbrev-downcase nil)
   :config
-  (setq company-idle-delay 0.2)
-  (setq company-minimum-prefix-length 2)
-  (setq company-selection-wrap-around t)
-  (setq company-show-numbers t)
-  (setq company-require-match nil)
-  (setq company-dabbrev-downcase nil)
   (dotimes (i 10)
     (general-define-key :keymaps 'company-active-map
                         (format "C-%d" i) #'company-complete-number))

@@ -34,7 +34,6 @@
 (scroll-bar-mode -1)                ; No scrollbar
 (electric-indent-mode -1)           ; Handle indendation elsewhere
 (setq inhibit-startup-screen t)     ; No message at startup
-(show-paren-mode 1)                 ; Show matching parenthesis
 (modify-syntax-entry ?_ "w" (standard-syntax-table)) ; _ is now part of a word
 (modify-syntax-entry ?- "w" (standard-syntax-table)) ; aswell as -
 (setq select-enable-clipboard nil)  ; Disable emacs clipboard and rely on evil
@@ -582,6 +581,15 @@
   :config
   (require 'evil-collection-package-menu)
   (evil-collection-package-menu-setup))
+
+; Show matching parenthesis
+(use-package paren
+  :ensure nil
+  :custom
+  (show-paren-when-point-inside-paren t)
+  (show-paren-when-point-in-periphery t)
+  :config
+  (show-paren-mode 1))
 
 (use-package pdf-tools
   :if (memq window-system '(ns))

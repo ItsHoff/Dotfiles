@@ -236,7 +236,7 @@
   (ivy-count-format "%d/%d ")
   (ivy-initial-inputs-alist nil)
   (ivy-flx-limit 10000)
-  (ivy-re-builders-alist '((t . ivy--regex-plus)))
+  (ivy-re-builders-alist '((t . ivy--regex-ignore-order)))
   ; Abbreviate virtual buffers so files with the same name are not ignored
   (ivy-virtual-abbreviate 'abbreviate)
   :init

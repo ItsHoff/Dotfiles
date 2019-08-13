@@ -1,6 +1,6 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [2/13]
+* General [2/16]
 ** TODO [#C] Ivy-occur after ripgrep not jumping to proper files        :bug:
 - works fine while in ivy
 - jumps to file where the grep was initiated from
@@ -94,7 +94,14 @@
 - https://github.com/noctuid/evil-guide#what-overrides-evil
 - https://github.com/noctuid/evil-guide#keymap-precedence
 - is the current solution good enough? (20.4.2019)
-* Org-mode [2/7]
+** TODO Utilize use-package better
+- Check if packages can be lazily loaded
+  - Benchmark whether this improves start-up time
+  - Already saved ~5 seconds by lazy loading the biggest packages
+- https://jwiegley.github.io/use-package/keywords/
+** TODO Add toggle for lsp-ui hover and doc
+** TODO Add lsp-mode binds
+* Org-mode [2/8]
 ** TODO Org-mode capture templates [1/4]
 *** EVAL Dotfile todo
 - State "EVAL"       from "TODO"       [2019-08-10 Sat 15:01]
@@ -134,6 +141,7 @@
 - refile
 ** EVAL Auto-update counters on save
 - State "EVAL"       from "TODO"       [2019-08-10 Sat 16:19]
+** TODO Figure out how to do archiving
 * Packages [6/16]                                                   :package:
 ** EVAL evil-traces
 - https://github.com/mamapanda/evil-traces

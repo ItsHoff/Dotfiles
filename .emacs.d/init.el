@@ -26,11 +26,23 @@
 ; Install all packages automatically
 (setq use-package-always-ensure t)
 
+;; ANALYSIS ------------------------------------------------------------------------------------
+
 (use-package benchmark-init
   :disabled ; enable for benchmarking
   :config
   ;; To disable collection of benchmark data after init is done.
   (add-hook 'after-init-hook 'benchmark-init/deactivate))
+
+; Log emacs interactions
+(use-package interaction-log
+  :commands interaction-log-mode)
+
+; Record and analyse command usage
+(use-package keyfreq
+  :config
+  (keyfreq-mode 1)
+  (keyfreq-autosave-mode 1))
 
 ;; GENERAL SETTINGS ----------------------------------------------------------------------------
 
@@ -547,10 +559,6 @@
 ; Additional way of keybinding
 (use-package hydra)
 
-; Log emacs interactions
-(use-package interaction-log
-  :commands interaction-log-mode)
-
 ; Spell checking
 (use-package ispell
   :ensure nil
@@ -559,12 +567,6 @@
   :config
   (local/custom ispell-program-name)
   )
-
-; Record and analyse command usage
-(use-package keyfreq
-  :config
-  (keyfreq-mode 1)
-  (keyfreq-autosave-mode 1))
 
 ; LSP support
 (use-package lsp-mode

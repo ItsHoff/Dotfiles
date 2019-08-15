@@ -833,12 +833,13 @@
 
 ;; C and C++
 (use-package cc-mode
+  :commands (c++-mode c-mode java-mode)
   :ensure nil
+  :custom
+  (c-default-style "bsd")
+  (c-basic-offset 4)
+  (c-tab-always-indent nil)
   :init
-  (setq c-default-style "bsd")
-  (setq c-basic-offset 4)
-  (c-set-offset 'innamespace 0)
-  (setq c-tab-always-indent nil)
   (add-to-list 'auto-mode-alist '("\\inl\\'" . c++-mode))
   (add-hook 'c-mode-common-hook
             (lambda ()
@@ -848,24 +849,29 @@
   (add-hook 'c++-mode-hook #'lsp-deferred)
   (add-hook 'c-mode-hook #'lsp-deferred)
   :config
+  (c-set-offset 'innamespace 0)
   (modify-syntax-entry ?_ "w" c-mode-syntax-table) ; _ is now part of a word
   (modify-syntax-entry ?_ "w" c++-mode-syntax-table) ; _ is now part of a word
   (modify-syntax-entry ?_ "w" java-mode-syntax-table) ; _ is now part of a word
   )
 
 ;; C#
-(use-package csharp-mode)
+(use-package csharp-mode
+  :commands csharp-mode)
 
 ;; GLSL
 (use-package glsl-mode
+  :commands glsl-mode
   :mode "\\.shader\\'")
 
 ;; Groovy / Gradle
-(use-package groovy-mode)
+(use-package groovy-mode
+  :commands groovy-mode)
 
 ;; ELisp
-(use-package lisp-mode
+(use-package emacs-lisp-mode
   :ensure nil
+  :commands emacs-lisp-mode
   :init (add-hook 'emacs-lisp-mode-hook (lambda () (my/set-tab-width 2)))
   :config
   (modify-syntax-entry ?_ "w" emacs-lisp-mode-syntax-table) ; _ is now part of a word
@@ -873,14 +879,15 @@
   )
 
 ;; Kotlin
-(use-package kotlin-mode)
+(use-package kotlin-mode
+  :commands kotlin-mode)
 
 ;; Octave / Matlab
 (use-package octave-mode
   :ensure nil
   :mode "\\.m\\'"
-  :init (add-hook 'octave-mode-hook (lambda () (my/set-tab-width 2)))
-  )
+  :commands octave-mode
+  :init (add-hook 'octave-mode-hook (lambda () (my/set-tab-width 2))))
 
 ;; Python
 (use-package anaconda-mode
@@ -896,13 +903,14 @@
 
 ;; Rust
 (use-package rust-mode
+  :commands rust-mode
   :init
-  (add-hook 'rust-mode-hook #'lsp-deferred)
-  )
+  (add-hook 'rust-mode-hook #'lsp-deferred))
 
 ;; Tex
 (use-package tex
   :ensure auctex
+  :commands latex-mode
   :custom
   (TeX-source-correlate-mode t)
   (TeX-source-correlate-start-server t)
@@ -928,6 +936,7 @@
 
 ; Easily create references in LaTex
 (use-package reftex
+  :commands turn-on-reftex
   :custom
   (reftex-plug-into-AUCTeX t)
   (add-hook 'LaTeX-mode-hook #'turn-on-reftex))

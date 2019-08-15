@@ -343,6 +343,7 @@
 (use-package evil-goggles
   :after evil
   :demand t
+  :diminish evil-goggles-mode
   :custom (evil-goggles-duration 0.1)
   :config (evil-goggles-mode))
 
@@ -367,6 +368,7 @@
 ; Show visual hints for ex-mode commands
 (use-package evil-traces
   :after evil
+  :diminish evil-traces-mode
   :config
   (evil-traces-use-diff-faces)
   (evil-traces-mode))
@@ -427,6 +429,7 @@
 ; Garbage collector magic hack
 (use-package gcmh
   :demand t
+  :diminish gcmh-mode
   :config (gcmh-mode 1))
 
 ; Automatically resize splits

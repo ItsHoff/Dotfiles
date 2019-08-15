@@ -140,12 +140,16 @@
 
 ;; PACKAGES ------------------------------------------------------------------------------------
 
+; Keybinding utilities
 (use-package general
-  :init
+  :demand t
+  :config
   (general-evil-setup)
   (general-override-mode))
 
+; Vim emulation
 (use-package evil
+  :demand t
   :custom
   (evil-want-keybinding nil) ; Use evil-collection for integration
   (evil-want-Y-yank-to-eol t)
@@ -189,12 +193,14 @@
   (global-set-key [escape] #'evil-exit-emacs-state)
   )
 
+; TODO: check which package uses this
 (use-package abbrev
   :ensure nil
   :diminish abbrev-mode)
 
 ; Automatically reload changed files
 (use-package autorevert
+  :demand t
   :ensure nil
   :diminish auto-revert-mode
   :custom
@@ -206,12 +212,14 @@
   :config
   (global-auto-revert-mode t))
 
+; Used for swapping buffer positions in a window
 (use-package buffer-move
   :custom (buffer-move-stay-after-swap t))
 
+; Auto completion
 (use-package company
+  :demand t
   :diminish company-mode
-  :init (global-company-mode)
   :custom
   (company-tooltip-limit 20)
   (company-idle-delay 0.2)
@@ -224,19 +232,23 @@
   (dotimes (i 10)
     (general-define-key :keymaps 'company-active-map
                         (format "C-%d" i) #'company-complete-number))
+  ; Fuzzy matching for company
+  (use-package company-flx
+    :config (company-flx-mode t))
+  (global-company-mode)
   :general
   (:keymaps 'company-active-map
             "C-<return>" #'newline-and-indent)
   )
 
-(use-package company-flx
-  :config (company-flx-mode t))
-
+; LSP backend for company
 (use-package company-lsp
   :commands company-lsp
   :custom (company-lsp-enable-snippet nil))
 
+; Minibuffer completion framework
 (use-package counsel
+  :demand t
   :custom
   (ivy-on-del-error-function nil)
   (ivy-use-virtual-buffers t)
@@ -267,8 +279,10 @@
             "C-h" #'ivy-alt-done
             "<escape>" #'minibuffer-keyboard-quit))
 
+; Save and restore emacs session
 (use-package desktop
   :disabled ; never used properly with this setup
+  :demand t
   :custom
   (desktop-restore-eager 2)
   (desktop-lazy-verbose nil)
@@ -278,8 +292,11 @@
   :config
   (desktop-save-mode 1))
 
-(use-package diminish)
+; Hide packages from modeline
+(use-package diminish
+  :demand t)
 
+; Directory editor
 (use-package dired
   :after evil-collection
   :ensure nil
@@ -289,10 +306,12 @@
   (require 'evil-collection-dired)
   (evil-collection-dired-setup))
 
+; Display line numbers
 (use-package display-line-numbers
   :custom (display-line-numbers-type 'visual)
   :config (add-hook 'prog-mode-hook #'display-line-numbers-mode))
 
+; Shows documentation about symbol under point on the echo area
 (use-package eldoc
   :diminish eldoc-mode)
 
@@ -300,49 +319,61 @@
 (use-package evil-anzu
   :after evil
   :custom
-  (anzu-cons-mode-line-p nil)
-  )
+  (anzu-cons-mode-line-p nil))
 
+; More evil configuration for basic packages
 (use-package evil-collection
   :after evil)
 
+; Visual hints for evil edits
 (use-package evil-goggles
+  :after evil
+  :demand t
   :custom (evil-goggles-duration 0.1)
   :config (evil-goggles-mode))
 
+; Match more things with %
 (use-package evil-matchit
   :after evil
-  :init (global-evil-matchit-mode 1))
+  :demand t
+  :config (global-evil-matchit-mode 1))
 
+; Toggle comments on things
 (use-package evil-nerd-commenter
   :after evil
   :config
   (define-key evil-inner-text-objects-map "c" 'evilnc-inner-comment)
   (define-key evil-outer-text-objects-map "c" 'evilnc-outer-commenter))
 
+; Increment and decrement numbers
 (use-package evil-numbers
   :after evil)
 
+; Show visual hints for ex-mode commands
 (use-package evil-traces
+  :after evil
   :config
   (evil-traces-use-diff-faces)
   (evil-traces-mode))
 
+; Start a * or # search from the visual selection
 (use-package evil-visualstar
   :after evil
   :config (global-evil-visualstar-mode))
 
+; On the fly syntax checking
 (use-package flycheck
   :diminish flycheck-mode
   :config (global-flycheck-mode))
 
 ; Fuzzy matching for company
+; TODO: should be brought in as a dependency?
 (use-package flx)
 
+; Frame utility
 (use-package framegroups
   :ensure nil
   :pin manual
-  ; Needed to load the package (binds) on start-up
   :commands fg-switch
   :init
   (defvar my/framegroups-command-map (make-sparse-keymap))
@@ -378,17 +409,20 @@
             "f" #'toggle-frame-fullscreen
             ))
 
+; Garbage collector magic hack
 (use-package gcmh
+  :demand t
   :config (gcmh-mode 1))
 
+; Automatically resize splits
 (use-package golden-ratio
+  :demand t
   :diminish golden-ratio-mode
-  :init
-  (golden-ratio-mode 1)
   :custom
   (golden-ratio-auto-scale nil)
   (golden-ratio-adjust-factor 0.7)
   (golden-ratio-recenter nil)
+  (golden-ratio-mode 1)
   :config
   ; From spacemacs
   (setq window-combination-resize t)
@@ -469,6 +503,7 @@
     (add-to-list 'golden-ratio-exclude-buffer-names n))
   )
 
+; Move up and down the screen nicely
 (use-package golden-ratio-scroll-screen
   :custom
   (golden-ratio-scroll-recenter nil)
@@ -476,6 +511,7 @@
   (evil-declare-motion #'golden-ratio-scroll-screen-down)
   (evil-declare-motion #'golden-ratio-scroll-screen-up))
 
+; Heavier 'minibuffer' completion
 (use-package helm
   :diminish helm-mode
   :init
@@ -505,11 +541,14 @@
             "C-n" #'helm-delete-minibuffer-contents
             ))
 
+; Additional way of keybinding
 (use-package hydra)
 
+; Log emacs interactions
 (use-package interaction-log
   :commands interaction-log-mode)
 
+; Spell checking
 (use-package ispell
   :ensure nil
   :custom
@@ -518,11 +557,13 @@
   (local/custom ispell-program-name)
   )
 
+; Record and analyse command usage
 (use-package keyfreq
   :config
   (keyfreq-mode 1)
   (keyfreq-autosave-mode 1))
 
+; LSP support
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
   :custom
@@ -535,6 +576,7 @@
             "C-M-d" #'lsp-find-definition
             ))
 
+; Fancy ui for LSP
 (use-package lsp-ui
   :commands lsp-ui-mode
   :custom
@@ -545,6 +587,7 @@
   (lsp-ui-sideline-show-symbol t)
   )
 
+; Git support
 (use-package magit
   :commands (magit-status magit-blame-addition)
   :config
@@ -568,11 +611,13 @@
             )
   )
 
+; Improved writing experience
 (use-package olivetti
   :commands olivetti-mode
   :custom
   (olivetti-body-width 80))
 
+; Structured file operations
 (use-package outline
   :ensure nil
   :diminish outline-minor-mode
@@ -596,6 +641,7 @@
             "<left>" #'outline-backward-same-level
             ))
 
+; Emacs package manager
 (use-package package
   :after evil-collection
   :ensure nil
@@ -612,6 +658,7 @@
   :config
   (show-paren-mode 1))
 
+; PDF mode
 (use-package pdf-tools
   :if (memq window-system '(ns))
   :after evil-collection
@@ -622,6 +669,7 @@
   (require 'evil-collection-pdf)
   (evil-collection-pdf-setup))
 
+; Project management
 (use-package projectile
   :init
   (projectile-mode)
@@ -639,6 +687,7 @@
             )
   )
 
+; Save recently visited files between sessions
 (use-package recentf
   :ensure nil
   :custom
@@ -649,11 +698,15 @@
   (add-to-list 'recentf-exclude "/\\w*$")
   (recentf-mode 1))
 
+; Use ripgrep in emacs
+; TODO: what packages require this
 (use-package ripgrep)
 
 ; Used by ivy to improve ordering
+; TODO: can this just be under ivy
 (use-package smex)
 
+; Modeline
 (use-package spaceline
   :after framegroups
   :config
@@ -667,6 +720,7 @@
       (fg-mode-line-string)))
   (spaceline-spacemacs-theme '(framegroups :tight t)))
 
+; Color theme
 (use-package solarized-theme
   :config
   (setq solarized-high-contrast-mode-line t)
@@ -690,9 +744,11 @@
        `(nlinum-relative-current-face ((t (:inherit linum :foreground ,base1))))
        ))))
 
+; SSH agent support for emacs
 (use-package ssh-agency
   :commands ssh-agency-ensure)
 
+; Vim like undo
 (use-package undo-tree
   :diminish undo-tree-mode
   :init
@@ -720,10 +776,12 @@
             "l" #'undo-tree-visualize-switch-branch-right
             ))
 
+; Show key hints after a small delay
 (use-package which-key
   :diminish which-key-mode
   :init (which-key-mode))
 
+; Clear extra whitespace
 (use-package whitespace
   :ensure nil
   :diminish global-whitespace-mode
@@ -735,6 +793,7 @@
   (setq whitespace-display-mappings '((tab-mark ?\t [?▸ ?\t] [?› ?\t] [?> ?\t])))
   (global-whitespace-mode t))
 
+; Find references
 (use-package xref
   :after evil-collection
   :ensure nil
@@ -742,6 +801,7 @@
   (require 'evil-collection-xref)
   (evil-collection-xref-setup))
 
+; Snippets
 (use-package yasnippet
   :diminish yas-minor-mode
   :init
@@ -855,11 +915,13 @@
             )
   )
 
+; Easily create references in LaTex
 (use-package reftex
   :custom
   (reftex-plug-into-AUCTeX t)
   (add-hook 'LaTeX-mode-hook #'turn-on-reftex))
 
+; Bibliography management
 (use-package ivy-bibtex
   :commands ivy-bibtex
   :custom

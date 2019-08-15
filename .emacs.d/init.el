@@ -343,6 +343,7 @@
 ; Toggle comments on things
 (use-package evil-nerd-commenter
   :after evil
+  :commands (evilnc-comment-or-uncomment-lines evilnc-outer-commenter evilnc-inner-comment)
   :config
   (define-key evil-inner-text-objects-map "c" 'evilnc-inner-comment)
   (define-key evil-outer-text-objects-map "c" 'evilnc-outer-commenter))

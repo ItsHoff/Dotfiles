@@ -285,8 +285,10 @@
   (evil-declare-not-repeat #'ivy-alt-done)
   (evil-add-command-properties #'counsel-find-file :jump t)
   (evil-add-command-properties #'ivy-switch-buffer :jump t)
-  (require 'evil-collection-ivy)
-  (evil-collection-ivy-setup)
+  (use-package evil-collection-ivy
+    :ensure evil-collection
+    :config
+    (evil-collection-ivy-setup))
   :general
   (:keymaps 'ivy-minibuffer-map
             "C-h" #'ivy-alt-done
@@ -314,10 +316,12 @@
   :after evil-collection
   :ensure nil
   :config
+  (use-package evil-collection-dired
+    :ensure evil-collection
+    :config (evil-collection-dired-setup))
   (put 'dired-find-alternate-file 'disabled nil) ; Allow dired to use the same buffer
   (evil-add-command-properties #'dired-jump :jump t)
-  (require 'evil-collection-dired)
-  (evil-collection-dired-setup))
+  )
 
 ; Display line numbers
 (use-package display-line-numbers
@@ -334,10 +338,6 @@
   :after evil
   :custom
   (anzu-cons-mode-line-p nil))
-
-; More evil configuration for basic packages
-(use-package evil-collection
-  :after evil)
 
 ; Visual hints for evil edits
 (use-package evil-goggles
@@ -648,11 +648,11 @@
 
 ; Emacs package manager
 (use-package package
-  :after evil-collection
   :ensure nil
   :config
-  (require 'evil-collection-package-menu)
-  (evil-collection-package-menu-setup))
+  (use-package evil-collection-package-menu
+    :ensure evil-collection
+    :config (evil-collection-package-menu-setup)))
 
 ; Show matching parenthesis
 (use-package paren
@@ -666,13 +666,14 @@
 ; PDF mode
 (use-package pdf-tools
   :if (memq window-system '(ns))
-  :after evil-collection
   :custom
   (pdf-view-display-size 'fit-page)
   :config
   (pdf-tools-install)
-  (require 'evil-collection-pdf)
-  (evil-collection-pdf-setup))
+  (use-package evil-collection-pdf
+    :ensure evil-collection
+    :config
+    (evil-collection-pdf-setup)))
 
 ; Project management
 (use-package projectile
@@ -800,11 +801,12 @@
 
 ; Find references
 (use-package xref
-  :after evil-collection
   :ensure nil
   :config
-  (require 'evil-collection-xref)
-  (evil-collection-xref-setup))
+  (use-package evil-collection-xref
+    :ensure evil-collection
+    :config
+    (evil-collection-xref-setup)))
 
 ; Snippets
 (use-package yasnippet

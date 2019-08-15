@@ -381,7 +381,8 @@
 ; On the fly syntax checking
 (use-package flycheck
   :diminish flycheck-mode
-  :config (global-flycheck-mode))
+  :commands flycheck-mode
+  :init (add-hook 'prog-mode-hook (lambda () (flycheck-mode))))
 
 ; Fuzzy matching for company
 ; TODO: should be brought in as a dependency?

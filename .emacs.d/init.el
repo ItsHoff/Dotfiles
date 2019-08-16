@@ -273,11 +273,6 @@
   (ivy-action-wrap t)
   ; Abbreviate virtual buffers so files with the same name are not ignored
   (ivy-virtual-abbreviate 'abbreviate)
-  :init
-  (use-package ivy
-    :diminish ivy-mode
-    :init (ivy-mode 1))
-  (use-package ivy-hydra)
   :config
   (evil-declare-not-repeat #'ivy-switch-buffer)
   (evil-declare-not-repeat #'counsel-find-file)
@@ -287,8 +282,12 @@
   (evil-add-command-properties #'ivy-switch-buffer :jump t)
   (use-package evil-collection-ivy
     :ensure evil-collection
-    :config
-    (evil-collection-ivy-setup))
+    :config (evil-collection-ivy-setup))
+  (use-package ivy
+    :diminish ivy-mode
+    :config (ivy-mode t))
+  (use-package ivy-hydra
+    :commands hydra-ivy/body)
   :general
   (:keymaps 'ivy-minibuffer-map
             "C-h" #'ivy-alt-done

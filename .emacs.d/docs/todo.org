@@ -142,7 +142,7 @@
 ** EVAL Auto-update counters on save
 - State "EVAL"       from "TODO"       [2019-08-10 Sat 16:19]
 ** TODO Figure out how to do archiving
-* Packages [6/16]                                                   :package:
+* Packages [6/17]                                                   :package:
 ** EVAL evil-traces
 - https://github.com/mamapanda/evil-traces
 ** EVAL YASnippet
@@ -193,3 +193,6 @@
 ** TODO fast-scroll
 - Emacs package to ensure scrolling remains fast
 - https://github.com/ahungry/fast-scroll
+** TODO Company-fuzzy
+- Fuzzy matching for `company-mode'
+- https://github.com/jcs090218/company-fuzzy

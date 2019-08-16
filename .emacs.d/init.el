@@ -569,8 +569,7 @@
   :custom
   (ispell-silently-savep t)
   :config
-  (local/custom ispell-program-name)
-  )
+  (local/custom ispell-program-name))
 
 ; LSP support
 (use-package lsp-mode

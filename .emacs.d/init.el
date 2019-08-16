@@ -288,6 +288,7 @@
     :config (ivy-mode t))
   (use-package ivy-hydra
     :commands hydra-ivy/body)
+  (counsel-mode t)
   :general
   (:keymaps 'ivy-minibuffer-map
             "C-h" #'ivy-alt-done

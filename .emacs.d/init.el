@@ -680,16 +680,16 @@
 
 ; Project management
 (use-package projectile
-  :init
-  (projectile-mode)
+  :demand t
   :custom
   (projectile-indexing-method 'hybrid) ; Required tools should be installed on windows as well
   (projectile-completion-system 'ivy)
   :config
   (use-package counsel-projectile
-    :custom (counsel-projectile-mode t))
+    :config (counsel-projectile-mode t))
   (evil-add-command-properties #'counsel-projectile-find-file :jump t)
   (evil-add-command-properties #'projectile-find-other-file :jump t)
+  (projectile-mode t)
   :general
   (:keymaps 'projectile-command-map
             "ESC" nil))

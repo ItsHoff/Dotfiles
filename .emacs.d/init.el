@@ -693,9 +693,7 @@
   (evil-add-command-properties #'projectile-find-other-file :jump t)
   :general
   (:keymaps 'projectile-command-map
-            "A" (lambda () (interactive) (projectile-add-known-project (projectile-project-p)))
-            )
-  )
+            "ESC" nil))
 
 ; Save recently visited files between sessions
 (use-package recentf

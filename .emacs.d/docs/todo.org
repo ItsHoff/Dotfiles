@@ -142,7 +142,7 @@
 ** EVAL Auto-update counters on save
 - State "EVAL"       from "TODO"       [2019-08-10 Sat 16:19]
 ** TODO Figure out how to do archiving
-* Packages [6/17]                                                   :package:
+* Packages [6/18]                                                   :package:
 ** EVAL evil-traces
 - https://github.com/mamapanda/evil-traces
 ** EVAL YASnippet
@@ -196,3 +196,6 @@
 ** TODO Company-fuzzy
 - Fuzzy matching for `company-mode'
 - https://github.com/jcs090218/company-fuzzy
+** TODO grip-mode
+- Instant Github-flavored Markdown preview using grip
+- https://github.com/seagle0128/grip-mode

@@ -262,6 +262,7 @@
 ; Minibuffer completion framework
 (use-package counsel
   :demand t
+  :diminish counsel-mode
   :custom
   (ivy-on-del-error-function nil)
   (ivy-use-virtual-buffers t)

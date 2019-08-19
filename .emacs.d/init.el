@@ -873,7 +873,14 @@
   :init (add-hook 'emacs-lisp-mode-hook (lambda () (my/set-tab-width 2)))
   :config
   (modify-syntax-entry ?_ "w" emacs-lisp-mode-syntax-table) ; _ is now part of a word
-  (modify-syntax-entry ?- "w" emacs-lisp-mode-syntax-table)) ; aswell as -
+  (modify-syntax-entry ?- "w" emacs-lisp-mode-syntax-table) ; aswell as -
+  :general
+  (:keymaps '(emacs-lisp-mode-map lisp-interaction-mode-map)
+   :states 'normal
+   "C-c C-c" #'eval-buffer)
+  (:keymaps '(emacs-lisp-mode-map lisp-interaction-mode-map)
+   :states 'visual
+   "C-c C-c" #'eval-region))
 
 
 ;; Kotlin

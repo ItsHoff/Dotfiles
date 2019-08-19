@@ -8,7 +8,7 @@
 - fails with ripgrep
 - works with grep
 - https://github.com/ericdanan/counsel-projectile/issues/100
-- https://github.com/abo-abo/swiper/issues/795
+- reported: https://github.com/abo-abo/swiper/issues/2207
 ** TODO my/end-of-line                                          :improvement:
 - take a look at how evil-end-of-line is implemented
 ** TODO Marks                                                   :improvement:
@@ -130,8 +130,7 @@
 - State "EVAL"       from "TODO"       [2019-08-10 Sat 15:36]
 - org-mode-map was set to override motion state map in config
 - solution: removed the override
-** TODO Add org-chef sites [0/3]                                :improvement:
-*** TODO Serious eats
+** TODO Add org-chef sites [0/2]                                :improvement:
 *** TODO Smitten kitchen
 *** TODO Bon appetit
 ** TODO Better bindings

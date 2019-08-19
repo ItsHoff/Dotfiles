@@ -867,14 +867,14 @@
   :commands groovy-mode)
 
 ;; ELisp
-(use-package emacs-lisp-mode
+(use-package elisp-mode
   :ensure nil
   :commands emacs-lisp-mode
   :init (add-hook 'emacs-lisp-mode-hook (lambda () (my/set-tab-width 2)))
   :config
   (modify-syntax-entry ?_ "w" emacs-lisp-mode-syntax-table) ; _ is now part of a word
-  (modify-syntax-entry ?- "w" emacs-lisp-mode-syntax-table) ; aswell as -
-  )
+  (modify-syntax-entry ?- "w" emacs-lisp-mode-syntax-table)) ; aswell as -
+
 
 ;; Kotlin
 (use-package kotlin-mode

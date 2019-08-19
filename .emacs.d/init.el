@@ -390,8 +390,7 @@
   :demand t
   :ensure nil
   :pin manual
-  :commands fg-switch
-  :init
+  :config
   (defvar my/framegroups-command-map (make-sparse-keymap))
   (fset 'my/framegroups-command-map my/framegroups-command-map)
   (defun my/framegroup-setup (name &rest _)

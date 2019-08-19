@@ -565,7 +565,8 @@
             ))
 
 ; Additional way of keybinding
-(use-package hydra)
+(use-package hydra
+  :commands defhydra)
 
 ; Spell checking
 (use-package ispell

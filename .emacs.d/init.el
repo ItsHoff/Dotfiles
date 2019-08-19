@@ -289,6 +289,7 @@
     :config (ivy-mode t))
   (use-package ivy-hydra
     :commands hydra-ivy/body)
+  (use-package amx)
   (counsel-mode t)
   :general
   (:keymaps 'ivy-minibuffer-map
@@ -709,10 +710,6 @@
 ; Use ripgrep in emacs
 ; TODO: what packages require this
 (use-package ripgrep)
-
-; Used by ivy to improve ordering
-; TODO: can this just be under ivy
-(use-package smex)
 
 ; Modeline
 (use-package spaceline

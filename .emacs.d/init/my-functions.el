@@ -52,11 +52,12 @@ to the hard beginning of line."
   (let ((save-point (point)))
     (evil-first-non-blank-of-visual-line)
     (when (<= save-point (point))
-        (evil-first-non-blank))
+        (evil-beginning-of-visual-line))
     (when (<= save-point (point))
         (evil-beginning-of-line))))
 
 (evil-declare-not-repeat #'my/beginning-of-line)
+(evil-declare-motion #'my/beginning-of-line)
 
 ; https://stackoverflow.com/a/9597612
 (defun my/end-of-line ()
@@ -76,6 +77,7 @@ If point is at or ahead of it move to last character."
         (evil-end-of-line))))
 
 (evil-declare-not-repeat #'my/end-of-line)
+(evil-declare-motion #'my/end-of-line)
 
 (defun my/split-line ()
   "Split line at current cursor position."

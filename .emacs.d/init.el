@@ -710,10 +710,6 @@
   (add-to-list 'recentf-exclude "/\\w*$")
   (recentf-mode 1))
 
-; Use ripgrep in emacs
-; TODO: what packages require this
-(use-package ripgrep)
-
 ; Modeline
 (use-package spaceline
   :demand t

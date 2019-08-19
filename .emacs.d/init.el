@@ -392,6 +392,7 @@
 
 ; Frame utility
 (use-package framegroups
+  :demand t
   :ensure nil
   :pin manual
   :commands fg-switch
@@ -526,6 +527,7 @@
 
 ; Move up and down the screen nicely
 (use-package golden-ratio-scroll-screen
+  :demand t
   :custom
   (golden-ratio-scroll-recenter nil)
   :config
@@ -698,6 +700,7 @@
 
 ; Save recently visited files between sessions
 (use-package recentf
+  :demand t
   :ensure nil
   :custom
   (recentf-max-saved-items 50)
@@ -713,6 +716,7 @@
 
 ; Modeline
 (use-package spaceline
+  :demand t
   :after framegroups
   :config
   (require 'spaceline-config)
@@ -727,9 +731,11 @@
 
 ; Color theme
 (use-package solarized-theme
+  :demand t
+  :custom
+  (solarized-high-contrast-mode-line t)
+  (x-underline-at-descent-line t)
   :config
-  (setq solarized-high-contrast-mode-line t)
-  (setq x-underline-at-descent-line t)
   (load-theme 'solarized-dark t)
   (solarized-with-color-variables
     'dark

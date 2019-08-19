@@ -86,7 +86,7 @@
                     :states '(motion normal visual)
                     ; Bigger movement
                     "H" #'my/beginning-of-line
-                    "L" #'my/end-of-line
+                    "L" #'evil-end-of-visual-line
                     "J" #'golden-ratio-scroll-screen-up
                     "K" #'golden-ratio-scroll-screen-down
                     )

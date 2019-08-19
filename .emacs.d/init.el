@@ -242,17 +242,16 @@
   (company-require-match nil)
   (company-dabbrev-downcase nil)
   :config
-  (dotimes (i 10)
-    (general-define-key :keymaps 'company-active-map
-                        (format "C-%d" i) #'company-complete-number))
   ; Fuzzy matching for company
   (use-package company-flx
     :config (company-flx-mode t))
+  (dotimes (i 10)
+    (general-define-key :keymaps 'company-active-map
+                        (format "C-%d" i) #'company-complete-number))
   (global-company-mode)
   :general
   (:keymaps 'company-active-map
-            "C-<return>" #'newline-and-indent)
-  )
+            "C-<return>" #'newline-and-indent))
 
 ; LSP backend for company
 (use-package company-lsp
@@ -385,10 +384,6 @@
   :diminish flycheck-mode
   :commands flycheck-mode
   :init (add-hook 'prog-mode-hook (lambda () (flycheck-mode))))
-
-; Fuzzy matching for company
-; TODO: should be brought in as a dependency?
-(use-package flx)
 
 ; Frame utility
 (use-package framegroups

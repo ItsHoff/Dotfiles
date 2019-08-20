@@ -340,6 +340,14 @@
   :custom
   (anzu-cons-mode-line-p nil))
 
+(use-package evil-collection-custom
+  :ensure evil-collection
+  :config (evil-collection-custom-setup))
+
+(use-package evil-collection-help
+  :ensure evil-collection
+  :config (evil-collection-help-setup))
+
 ; Visual hints for evil edits
 (use-package evil-goggles
   :after evil

@@ -4,6 +4,7 @@
 
 ;;; Code:
 (use-package org
+  :ensure org-plus-contrib
   :commands org-capture
   :init
   (add-hook 'org-mode-hook

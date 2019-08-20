@@ -14,11 +14,18 @@
                         nil "local")
               ))
   :custom
+  (org-export-backends nil)
+  (org-modules nil)
+  (org-default-notes-file nil)
+  (org-directory "~/Dropbox/notes")
+  (org-startup-align-all-tables t)
+  (org-startup-truncated nil)
   (org-adapt-indentation nil)
+  (org-cycle-emulate-tab nil)
+  (org-cycle-include-plain-lists nil)
+  (org-insert-heading-respect-content t)
+  (org-M-RET-may-split-line '((default . nil))) ; Don't split line automatically
   :config
-  (setq org-M-RET-may-split-line '(default . nil)) ; Don't split line automatically
-  ; 10.8.19
-  ;; (evil-make-overriding-map org-mode-map 'motion)
   (dolist (cmd '(org-cycle org-shifttab org-ctrl-c-ctrl-c))
     (evil-declare-not-repeat cmd))
   ; https://orgmode.org/manual/Capture-templates.html#Capture-templates

@@ -44,9 +44,20 @@
            "* %^{Recipe title: }\n  :PROPERTIES:\n  :source-url:\n  :servings:\n  :prep-time:\n  :cook-time:\n  :ready-in:\n  :END:\n** Ingredients\n   %?\n** Directions\n\n")
           ))
   (use-package org-chef)
+  (defhydra my/org-hydra ()
+    ("h" org-insert-heading "Insert heading")
+    ("i" org-insert-item "Insert item")
+    ;("c" c-u org-insert-item "Insert checkbox item")
+    ("t" org-todo "Toggle TODO")
+    ("g" org-set-tags-command "Set tags")
+    ("p" org-priority "Set priority")
+    ("w" org-refile "Refile")
+    ("-" org-ctrl-c-minus "Modify bullet / Insert separator")
+    )
   :general
   (:keymaps 'org-mode-map
             :states '(normal visual)
+            ";" #'my/org-hydra/body
             "<down>" #'outline-next-visible-heading
             "<up>" #'outline-previous-visible-heading
             "<right>" #'org-forward-heading-same-level

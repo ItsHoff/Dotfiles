@@ -170,9 +170,9 @@
   ; Open new splits right or below
   (evil-vsplit-window-right 1)
   (evil-split-window-below 1)
-  :init
-  (evil-mode 1)
+  (evil-move-cursor-back nil) ; Disabled to make org-cycle behave correctly
   :config
+  (evil-mode 1)
   (setq evil-normal-state-tag "NORM")
   (setq evil-visual-state-tag "VIS")
   (setq evil-motion-state-tag "MOT")

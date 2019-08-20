@@ -205,7 +205,7 @@
   (global-set-key [escape] #'evil-exit-emacs-state)
   )
 
-; TODO: check which package uses this
+; Company abbrev enables this
 (use-package abbrev
   :ensure nil
   :diminish abbrev-mode)

@@ -752,6 +752,7 @@
        `(powerline-inactive1 ((t (:background ,base02 :foreground ,base1))))
        `(powerline-inactive2 ((t (:background ,base02 :foreground ,base1))))
        `(nlinum-relative-current-face ((t (:inherit linum :foreground ,base1))))
+       `(whitespace-tab ((,class (:background ,base02 :foreground ,base0))))
        ))))
 
 ; SSH agent support for emacs
@@ -793,14 +794,14 @@
 
 ; Clear extra whitespace
 (use-package whitespace
+  :demand t
   :ensure nil
   :diminish global-whitespace-mode
-  :init
-  ; Hightlight tabs and trailing whitespace
-  (setq whitespace-style '(face trailing tabs space-before-tab tab-mark))
-  (setq whitespace-tab 'highlight)
+  :custom
+  (whitespace-style '(face trailing tabs space-before-tab tab-mark))
   ; Change tab mark (this removes space and newline marks)
-  (setq whitespace-display-mappings '((tab-mark ?\t [?▸ ?\t] [?› ?\t] [?> ?\t])))
+  (whitespace-display-mappings '((tab-mark ?\t [?▸ ?\t] [?› ?\t] [?> ?\t])))
+  :config
   (global-whitespace-mode t))
 
 ; Find references

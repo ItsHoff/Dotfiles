@@ -120,9 +120,10 @@
 - [X] priorities
 - [X] refile
 ** TODO Figure out how to do archiving
-** EVAL Assess whether evil-move-cursor-back
+** EVAL org-cycle jumps to the beginning of line
 - State "EVAL"       from "TODO"       [2019-08-20 Tue 14:16]
-- Assess if it can be disabled globally should be an advice around org-cycle
+- There needs to be a space between the bullets and point for it to work correctly
+- evil-move-beyond-eol is needed to make this possible
 * Packages [6/18]                                                   :package:
 ** EVAL evil-traces
 - https://github.com/mamapanda/evil-traces

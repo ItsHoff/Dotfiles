@@ -36,17 +36,7 @@
           ("R" "Recipe manually" entry (file+olp "~/Dropbox/notes/recipes.org" "Uncategorized")
            "* %^{Recipe title: }\n  :PROPERTIES:\n  :source-url:\n  :servings:\n  :prep-time:\n  :cook-time:\n  :ready-in:\n  :END:\n** Ingredients\n   %?\n** Directions\n\n")
           ))
-
-  (use-package org-chef
-    :config
-    ; org-chef uses outdated workaround
-    (setq org-chef-fetch-workaround
-          (and
-           ;; Note: For build sans gnutls, `libgnutls-version' is -1.
-           (>= libgnutls-version 30603)
-           (version<= emacs-version "26.2")
-           t)))
-
+  (use-package org-chef)
   :general
   (:keymaps 'org-mode-map
             :states '(normal visual)

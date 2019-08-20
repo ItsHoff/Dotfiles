@@ -76,3 +76,7 @@
 ** benchmark-init
 - Benchmark your Emacs initialization
 - https://github.com/dholm/benchmark-init-el
+* Keymap precedence
+- https://github.com/noctuid/general.el#override-keymaps-and-buffer-local-keybindings
+- https://github.com/noctuid/evil-guide#what-overrides-evil
+- https://github.com/noctuid/evil-guide#keymap-precedence

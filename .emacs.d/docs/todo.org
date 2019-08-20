@@ -1,6 +1,6 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [2/16]
+* General [0/13]
 ** TODO [#C] Ivy-occur after ripgrep not jumping to proper files        :bug:
 - works fine while in ivy
 - jumps to file where the grep was initiated from
@@ -9,8 +9,6 @@
 - works with grep
 - https://github.com/ericdanan/counsel-projectile/issues/100
 - reported: https://github.com/abo-abo/swiper/issues/2207
-** TODO my/end-of-line                                          :improvement:
-- take a look at how evil-end-of-line is implemented
 ** TODO Marks                                                   :improvement:
 - M create mark
 - m jump to mark
@@ -87,26 +85,12 @@
 - https://www.emacswiki.org/emacs/DiredPlus
 ** TODO Magit conflicts                                         :improvement:
 - https://magit.vc/manual/magit/Resolving-Conflicts.html
-** EVAL Exit recursive dired with single keypress               :improvement:
-- use a to open stuff (24.4.19)
-** EVAL Make properly overriding map for global bindings        :improvement:
-- https://github.com/noctuid/general.el#override-keymaps-and-buffer-local-keybindings
-- https://github.com/noctuid/evil-guide#what-overrides-evil
-- https://github.com/noctuid/evil-guide#keymap-precedence
-- is the current solution good enough? (20.4.2019)
-** TODO Utilize use-package better
-- Check if packages can be lazily loaded
-  - Benchmark whether this improves start-up time
-  - Already saved ~5 seconds by lazy loading the biggest packages
-- https://jwiegley.github.io/use-package/keywords/
 ** TODO Add toggle for lsp-ui hover and doc
 ** TODO Add lsp-mode binds
-* Org-mode [2/8]
-** TODO Org-mode capture templates [1/4]
-*** EVAL Dotfile todo
-- State "EVAL"       from "TODO"       [2019-08-10 Sat 15:01]
+** TODO Move company select to f keys
+* Org-mode [2/7]
+** TODO Org-mode capture templates [0/2]
 *** TODO Automatically fill the package name from link on clipboard
-*** TODO Personal todo
 *** TODO Work todo
 ** TODO Org-mode agenda templates [0/0]
 ** TODO [#C] Org-mode item insertion                            :improvement:
@@ -126,21 +110,19 @@
   - Doesn't steal content
   - Maybe option for TODO etc
 - Maybe item above or below
-** EVAL Fix org-mode-map overriding org-capture-mode-map                :bug:
-- State "EVAL"       from "TODO"       [2019-08-10 Sat 15:36]
-- org-mode-map was set to override motion state map in config
-- solution: removed the override
 ** TODO Add org-chef sites [0/2]                                :improvement:
 *** TODO Smitten kitchen
 *** TODO Bon appetit
-** TODO Better bindings
-- tags
-- todo status
-- priorities
-- refile
-** EVAL Auto-update counters on save
-- State "EVAL"       from "TODO"       [2019-08-10 Sat 16:19]
+** EVAL Better bindings                                         :improvement:
+- State "EVAL"       from "TODO"       [2019-08-20 Tue 12:16]
+- [X] tags
+- [X] todo status
+- [X] priorities
+- [X] refile
 ** TODO Figure out how to do archiving
+** EVAL Assess whether evil-move-cursor-back
+- State "EVAL"       from "TODO"       [2019-08-20 Tue 14:16]
+- Assess if it can be disabled globally should be an advice around org-cycle
 * Packages [6/18]                                                   :package:
 ** EVAL evil-traces
 - https://github.com/mamapanda/evil-traces

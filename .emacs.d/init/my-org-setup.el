@@ -3,6 +3,42 @@
 ;; My org-mode setup
 
 ;;; Code:
+(defun my/org-insert-heading-above ()
+  "Insert heading above the current one."
+  (interactive)
+  (outline-back-to-heading)
+  (org-insert-heading))
+
+(defun my/org-insert-heading-below ()
+  "Insert heading below the current section."
+  (interactive)
+  (end-of-line)
+  (org-insert-heading '(4)))
+
+(defun my/org-insert-item-above (&optional checkbox)
+  "Insert item above the current item.
+If CHECKBOX is non-nil, add a checkbox next to the bullet."
+  (interactive "P")
+  (beginning-of-line)
+  (org-insert-item checkbox))
+
+(defun my/org-insert-item-below (&optional checkbox)
+  "Insert item below the current item.
+If CHECKBOX is non-nil, add a checkbox next to the bullet."
+  (interactive "P")
+  (end-of-line)
+  (org-insert-item checkbox))
+
+(defun my/org-insert-checkbox-above ()
+  "Insert checkbox above the current item."
+  (interactive)
+  (my/org-insert-item-above t))
+
+(defun my/org-insert-checkbox-below ()
+  "Insert checkbox below the current item."
+  (interactive)
+  (my/org-insert-item-below t))
+
 (use-package org
   :ensure org-plus-contrib
   :commands org-capture
@@ -24,7 +60,7 @@
   (org-adapt-indentation nil)
   (org-cycle-emulate-tab nil)
   (org-cycle-include-plain-lists nil)
-  (org-insert-heading-respect-content t)
+  (org-insert-heading-respect-content nil)
   (org-M-RET-may-split-line '((default . nil))) ; Don't split line automatically
   :config
   (dolist (cmd '(org-cycle org-shifttab org-ctrl-c-ctrl-c))
@@ -45,15 +81,27 @@
            "* %^{Recipe title: }\n  :PROPERTIES:\n  :source-url:\n  :servings:\n  :prep-time:\n  :cook-time:\n  :ready-in:\n  :END:\n** Ingredients\n   %?\n** Directions\n\n")
           ))
   (use-package org-chef)
-  (defhydra my/org-hydra ()
-    ("h" org-insert-heading "Insert heading")
-    ("i" org-insert-item "Insert item")
-    ;("c" c-u org-insert-item "Insert checkbox item")
-    ("t" org-todo "Toggle TODO")
-    ("g" org-set-tags-command "Set tags")
-    ("p" org-priority "Set priority")
-    ("w" org-refile "Refile")
-    ("-" org-ctrl-c-minus "Modify bullet / Insert separator")
+  (defhydra my/org-hydra (:exit t :hint nil)
+    "
+^Insert^               ^Modify^             ^Tables^
+_h_: Heading below     _t_: Toggle TODO     _-_: Insert separator
+_H_: Heading above     _g_: Set tags
+_i_: Item below        _p_: Set priority
+_I_: Item above        _w_: Refile
+_c_: Checkbox below    _-_: Toggle bullet
+_C_: Checkbox above
+"
+    ("h" my/org-insert-heading-below)
+    ("H" my/org-insert-heading-above)
+    ("i" my/org-insert-item-below)
+    ("I" my/org-insert-item-above)
+    ("c" my/org-insert-checkbox-below)
+    ("C" my/org-insert-checkbox-above)
+    ("t" org-todo :exit nil)
+    ("g" org-set-tags-command)
+    ("p" org-priority)
+    ("w" org-refile)
+    ("-" org-ctrl-c-minus :exit nil)
     )
   :general
   (:keymaps 'org-mode-map

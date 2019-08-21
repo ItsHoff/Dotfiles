@@ -88,12 +88,13 @@
 ** TODO Add toggle for lsp-ui hover and doc
 ** TODO Add lsp-mode binds
 ** TODO Move company select to f keys
-* Org-mode [2/7]
+* Org-mode [3/7]
 ** TODO Org-mode capture templates [0/2]
 *** TODO Automatically fill the package name from link on clipboard
 *** TODO Work todo
 ** TODO Org-mode agenda templates [0/0]
-** TODO [#C] Org-mode item insertion                            :improvement:
+** EVAL [#C] Org-mode item insertion                            :improvement:
+- State "EVAL"       from "TODO"       [2019-08-21 Wed 10:44]
 *** Default
 - M-RET insert new heading or item "intelligently"
   - Prefix forces heading
@@ -106,10 +107,10 @@
 - C-c - insert horizontal line below
 - C-c RET insert horizontal line below and move cursor
 *** Desired
-- Insert heading above or below
-  - Doesn't steal content
-  - Maybe option for TODO etc
-- Maybe item above or below
+- [X] Insert heading above or below
+  - [X] Doesn't steal content
+- [ ] Maybe option for TODO etc
+- [X] Maybe item above or below
 ** TODO Add org-chef sites [0/2]                                :improvement:
 *** TODO Smitten kitchen
 *** TODO Bon appetit

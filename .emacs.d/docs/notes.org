@@ -68,6 +68,8 @@
 * Debugging
 - toggle-debug-on-quit
 - interaction-log-mode
+- what-cursor-position
+- debug-on-entry
 * Profiling
 - profiler-start
 - profiler-stop

@@ -124,6 +124,9 @@
 ** EVAL org-cycle jumps to the beginning of line
 - State "EVAL"       from "TODO"       [2019-08-20 Tue 14:16]
 - There needs to be a space between the bullets and point for it to work correctly
+  - In list items this is not necessary
+  - What actually controls this?
+  - And can it be hacked?
 - evil-move-beyond-eol is needed to make this possible
 * Packages [6/18]                                                   :package:
 ** EVAL evil-traces

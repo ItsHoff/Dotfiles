@@ -170,7 +170,6 @@
   ; Open new splits right or below
   (evil-vsplit-window-right 1)
   (evil-split-window-below 1)
-  (evil-move-beyond-eol t) ; This is needed for org-cycle to behave correctly
   :config
   (evil-mode 1)
   (setq evil-normal-state-tag "NORM")

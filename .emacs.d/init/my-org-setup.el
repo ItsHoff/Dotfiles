@@ -46,6 +46,8 @@ If CHECKBOX is non-nil, add a checkbox next to the bullet."
   (add-hook 'org-mode-hook
             (lambda ()
               (my/set-tab-width 2)
+              ; This is needed for org-cycle to behave correctly
+              (setq-local evil-move-beyond-eol t)
               (add-hook 'before-save-hook
                         (lambda () (org-update-statistics-cookies "All"))
                         nil "local")

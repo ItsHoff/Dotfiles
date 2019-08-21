@@ -786,12 +786,13 @@
             "l" #'undo-tree-visualize-switch-branch-right
             ))
 
-; Show key hints after a small delay
+; Show key hints
 (use-package which-key
   :diminish which-key-mode
   :init (which-key-mode))
 
-; Clear extra whitespace
+; Visualize extra whitespace
+; Could be used to also clean whitespace
 (use-package whitespace
   :demand t
   :ensure nil
@@ -884,7 +885,6 @@
    :states 'visual
    "C-c C-c" #'eval-region))
 
-
 ;; Kotlin
 (use-package kotlin-mode
   :commands kotlin-mode)
@@ -906,7 +906,6 @@
   (use-package company-anaconda
     :config
     (add-to-list 'company-backends '(company-anaconda :with company-capf))))
-
 
 ;; Rust
 (use-package rust-mode

@@ -604,6 +604,7 @@
 ; Git support
 (use-package magit
   :commands (magit-status magit-blame-addition)
+  :custom (magit-diff-paint-whitespace-lines 'all)
   :config
   (use-package evil-magit)
   (evil-add-command-properties #'magit-diff-visit-file :jump t)

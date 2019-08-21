@@ -257,11 +257,6 @@ Goto end if no lower higher level headings."
 (evil-declare-not-repeat #'my/outline-down-heading)
 (evil-declare-motion #'my/outline-down-heading)
 
-(defun my/org-indent-advice ()
-  "Align indent with 'tab-width'.
-Advice type: after."
-  (backward-delete-char (% (current-column) tab-width)))
-
 (defun my/advice-preserve-timestamps (args)
   "Change preserve-timestamps in ARGS to t.
 Filters arguments for undo-tree-undo-1 and undo-tree-redo-1.

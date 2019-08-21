@@ -1,6 +1,6 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [0/13]
+* General [1/14]
 ** TODO [#C] Ivy-occur after ripgrep not jumping to proper files        :bug:
 - works fine while in ivy
 - jumps to file where the grep was initiated from
@@ -88,6 +88,8 @@
 ** TODO Add toggle for lsp-ui hover and doc
 ** TODO Add lsp-mode binds
 ** TODO Move company select to f keys
+** EVAL Whitespace mode only visualizes tabs in non prog modes
+- State "EVAL"       from "TODO"       [2019-08-21 Wed 13:16]
 * Org-mode [3/7]
 ** TODO Org-mode capture templates [0/2]
 *** TODO Automatically fill the package name from link on clipboard

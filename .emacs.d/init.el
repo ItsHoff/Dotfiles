@@ -798,11 +798,14 @@
   :ensure nil
   :diminish global-whitespace-mode
   :custom
-  (whitespace-style '(face trailing tabs space-before-tab tab-mark))
+  (whitespace-style '(trailing tabs space-before-tab tab-mark))
   ; Change tab mark (this removes space and newline marks)
   (whitespace-display-mappings '((tab-mark ?\t [?▸ ?\t] [?› ?\t] [?> ?\t])))
-  :config
-  (global-whitespace-mode t))
+  :hook
+  (prog-mode . (lambda ()
+                 (setq-local whitespace-style
+                             '(face trailing tabs space-before-tab tab-mark))))
+  :config (global-whitespace-mode))
 
 ; Find references
 (use-package xref

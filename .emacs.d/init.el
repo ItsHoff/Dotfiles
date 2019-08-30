@@ -283,15 +283,15 @@
   (evil-declare-not-repeat #'ivy-alt-done)
   (evil-add-command-properties #'counsel-find-file :jump t)
   (evil-add-command-properties #'ivy-switch-buffer :jump t)
-  (use-package evil-collection-ivy
-    :ensure evil-collection
-    :config (evil-collection-ivy-setup))
   (use-package ivy
     :diminish ivy-mode
     :config (ivy-mode t))
   (use-package ivy-hydra
     :commands hydra-ivy/body)
   (use-package amx)
+  (use-package evil-collection-ivy
+    :ensure evil-collection
+    :config (evil-collection-ivy-setup))
   (counsel-mode t)
   :general
   (:keymaps 'ivy-minibuffer-map

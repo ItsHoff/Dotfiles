@@ -1,9 +1,4 @@
 * Setting up
-** compile_commands.json
-- cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja -B build_compile_commands -DCMAKE_CXX_STANDARD:STRING=17 -DCMAKE_CXX_COMPILER=clang-cl -DCMAKE_C_COMPILER=clang-cl -DCMAKE_CXX_FLAGS="-Wno-invalid-token-paste -fmacro-backtrace-limit=0 -fmsc-version=1900"
-  - use developer command prompt for vs2017
-  - make sure there are no old and bad build files
-- Linux?: cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja -B build_compile_commands -DUSE_PCH:BOOL=OFF -DCMAKE_CXX_STANDARD:STRING=17 -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_C_COMPILER=clang -DMSVC
 ** Hunspell
 - install hunspell (choco, homebrew etc.)
   - mingw64: pacman -S  mingw-w64-x86_64-hunspell-en mingw-w64-x86_64-hunspell

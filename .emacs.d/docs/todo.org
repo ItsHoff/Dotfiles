@@ -1,6 +1,6 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [1/14]
+* General [2/14]
 ** TODO [#C] Ivy-occur after ripgrep not jumping to proper files        :bug:
 - works fine while in ivy
 - jumps to file where the grep was initiated from
@@ -32,9 +32,6 @@
 - https://www.emacswiki.org/emacs/AutoIndentation
 ** TODO Full sized splits with earlier splits                   :improvement:
 - https://emacs.stackexchange.com/questions/585/split-window-at-outermost-border
-** TODO Non-editable buffer should be in motion state           :improvement:
-- dired
-- magit
 ** TODO [#C] Semantic movement                                  :improvement:
 *** Get the file hierarchy
 - LSP: textDocument/documentSymbol
@@ -85,11 +82,18 @@
 - https://www.emacswiki.org/emacs/DiredPlus
 ** TODO Magit conflicts                                         :improvement:
 - https://magit.vc/manual/magit/Resolving-Conflicts.html
+- smerge-next
+- smerge-previous
+- smerge-keep-upper
+- smerge-keep-lower
 ** TODO Add toggle for lsp-ui hover and doc
 ** TODO Add lsp-mode binds
 ** TODO Move company select to f keys
 ** EVAL Whitespace mode only visualizes tabs in non prog modes
 - State "EVAL"       from "TODO"       [2019-08-21 Wed 13:16]
+** EVAL Use normal state as the initial state
+- https://github.com/noctuid/evil-guide#make-evil-normal-state-the-initial-state-always
+- State "EVAL"       from "TODO"       [2019-08-27 Tue 13:02]
 * Org-mode [3/7]
 ** TODO Org-mode capture templates [0/2]
 *** TODO Automatically fill the package name from link on clipboard
@@ -130,9 +134,7 @@
   - What actually controls this?
   - And can it be hacked?
 - evil-move-beyond-eol is needed to make this possible
-* Packages [6/18]                                                   :package:
-** EVAL evil-traces
-- https://github.com/mamapanda/evil-traces
+* Packages [4/16]                                                   :package:
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** TODO flyspell-prog-mode
@@ -145,10 +147,6 @@
 - State "EVAL"       from "TODO"       [2019-08-01 Thu 16:54]
 - Track command frequency
 - https://github.com/dacap/keyfreq
-** EVAL Org-chef
-- State "EVAL"       from "TODO"       [2019-08-10 Sat 14:02]
-- Recipes in org
-- https://github.com/Chobbes/org-chef
 ** TODO doom-todo-ivy
 - Display TODO, FIXME, or anything else in an ivy buffer. Extracted from doom-emacs.
 - https://github.com/jsmestad/doom-todo-ivy

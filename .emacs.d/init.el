@@ -377,14 +377,6 @@
 (use-package evil-numbers
   :after evil)
 
-; Show visual hints for ex-mode commands
-(use-package evil-traces
-  :after evil
-  :diminish evil-traces-mode
-  :config
-  (evil-traces-use-diff-faces)
-  (evil-traces-mode))
-
 ; Start a * or # search from the visual selection
 (use-package evil-visualstar
   :after evil

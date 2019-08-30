@@ -864,6 +864,11 @@
   (modify-syntax-entry ?_ "w" java-mode-syntax-table) ; _ is now part of a word
   )
 
+;; CMake
+(use-package cmake-mode
+  :commands cmake-mode
+  :custom (cmake-tab-width 4))
+
 ;; C#
 (use-package csharp-mode
   :commands csharp-mode)

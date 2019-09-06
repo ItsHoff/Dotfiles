@@ -134,7 +134,7 @@
   - What actually controls this?
   - And can it be hacked?
 - evil-move-beyond-eol is needed to make this possible
-* Packages [4/16]                                                   :package:
+* Packages [4/17]                                                   :package:
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** TODO flyspell-prog-mode
@@ -185,3 +185,6 @@
 ** TODO grip-mode
 - Instant Github-flavored Markdown preview using grip
 - https://github.com/seagle0128/grip-mode
+** TODO compdef
+- A stupid Emacs completion definer.
+- https://gitlab.com/jjzmajic/compdef

@@ -11,39 +11,39 @@ set nocompatible                    " be iMproved, required
 filetype off                        " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" Plugin 'VundleVim/Vundle.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-Plugin 'sjl/gundo.vim'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'vim-airline/vim-airline'
-Plugin 'scrooloose/nerdtree'
-Plugin 'klen/python-mode'
-Plugin 'Raimondi/delimitMate'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/syntastic'
-Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/vimproc.vim'
-"Plugin 'Valloric/YouCompleteMe'
-Plugin 'lervag/vimtex'
+" Plugin 'sjl/gundo.vim'
+" Plugin 'altercation/vim-colors-solarized'
+" Plugin 'vim-airline/vim-airline'
+" Plugin 'scrooloose/nerdtree'
+" Plugin 'klen/python-mode'
+" Plugin 'Raimondi/delimitMate'
+" Plugin 'tpope/vim-surround'
+" Plugin 'tpope/vim-repeat'
+" Plugin 'scrooloose/nerdcommenter'
+" Plugin 'scrooloose/syntastic'
+" Plugin 'Shougo/unite.vim'
+" Plugin 'Shougo/vimproc.vim'
+" Plugin 'Valloric/YouCompleteMe'
+" Plugin 'lervag/vimtex'
 " Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+" Plugin 'honza/vim-snippets'
 
 " Plugins to checkout
-Plugin 'unblevable/quick-scope'
+" Plugin 'unblevable/quick-scope'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+" call vundle#end()            " required
 filetype plugin indent on    " required
 
 " BASIC SETTINGS----------------------------------------------------------------
@@ -86,8 +86,6 @@ endif
 
 " Highlight current line
 set cursorline
-" Keep results highlighted after searching
-set hlsearch
 " Highlight as we type
 set incsearch
 " Ignore case when searching...
@@ -284,9 +282,6 @@ noremap <Left> gT
 " Change working directory
 noremap <leader>cd :cd %:p:h<CR>
 noremap <localleader>cd :lcd %:p:h<CR>
-
-" Clear highlight
-noremap <leader>f :nohlsearch<CR>
 
 " Toggle paste
 set pastetoggle=<leader>p

@@ -1,6 +1,6 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [2/14]
+* General [3/14]
 ** TODO [#C] Ivy-occur after ripgrep not jumping to proper files        :bug:
 - works fine while in ivy
 - jumps to file where the grep was initiated from
@@ -80,7 +80,8 @@
 ** TODO dired                                                   :improvement:
 - https://github.com/Fuco1/dired-hacks
 - https://www.emacswiki.org/emacs/DiredPlus
-** TODO Magit conflicts                                         :improvement:
+** EVAL Magit conflicts                                         :improvement:
+- State "EVAL"       from "TODO"       [2019-09-10 Tue 16:35]
 - https://magit.vc/manual/magit/Resolving-Conflicts.html
 - smerge-next
 - smerge-previous

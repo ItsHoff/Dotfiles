@@ -709,6 +709,20 @@
   (add-to-list 'recentf-exclude "/\\w*$")
   (recentf-mode 1))
 
+(use-package smerge-mode
+  :ensure nil
+  :commands smerge-mode
+  :config
+  (evil-make-intercept-map smerge-mode-map 'motion)
+  (message "smerge")
+  :general
+  (:keymaps 'smerge-mode-map
+            "<up>" #'smerge-prev
+            "<down>" #'smerge-next
+            "<left>" #'smerge-keep-upper
+            "<right>" #'smerge-keep-lower
+            "C-M-a" #'smerge-keep-all))
+
 ; Modeline
 (use-package spaceline
   :demand t
@@ -749,6 +763,10 @@
        `(powerline-inactive2 ((t (:background ,base02 :foreground ,base1))))
        `(nlinum-relative-current-face ((t (:inherit linum :foreground ,base1))))
        `(whitespace-tab ((,class (:background ,base02 :foreground ,base0))))
+       `(smerge-upper ((t (:inherit magit-diff-our-highlight))))
+       `(smerge-lower ((t (:inherit magit-diff-their-highlight))))
+       `(smerge-refined-removed ((t (:inherit smerge-upper :inverse-video t))))
+       `(smerge-refined-added ((t (:inherit smerge-lower :inverse-video t))))
        ))))
 
 ; SSH agent support for emacs

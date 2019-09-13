@@ -1,6 +1,6 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [3/14]
+* General [3/16]
 ** TODO [#C] Ivy-occur after ripgrep not jumping to proper files        :bug:
 - works fine while in ivy
 - jumps to file where the grep was initiated from
@@ -95,6 +95,12 @@
 ** EVAL Use normal state as the initial state
 - https://github.com/noctuid/evil-guide#make-evil-normal-state-the-initial-state-always
 - State "EVAL"       from "TODO"       [2019-08-27 Tue 13:02]
+** TODO Close extra buffers should not close the current buffer
+** TODO Send file to visual studio
+- https://blogs.msdn.microsoft.com/saraford/2008/11/19/did-you-know-you-can-use-devenv-exe-edit-to-open-a-file-in-an-existing-visual-studio-instance-360/
+- https://github.com/evgeny-panasyuk/open-in-msvs.el
+- https://stackoverflow.com/questions/44130341/open-file-in-existing-instance-of-visual-studio-2017
+- https://docs.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2010/aa991989(v=vs.100)?redirectedfrom=MSDN
 * Org-mode [3/7]
 ** TODO Org-mode capture templates [0/2]
 *** TODO Automatically fill the package name from link on clipboard

@@ -13,6 +13,11 @@
 - name them LANG.dic and LANG.aff
 - hunspell -D to verify available dictionaries
 - Dictionary 'default' might be required
+** Open emacs from VS
+- Tools -> External Tools
+- emacsclient --no-wait +$(CurLine):$(CurCol) $(ItemPath)
+- Tools -> Customize -> Commands -> Context Menu -> Other Context Menus | Code Window
+- Add External Command n to the context menu
 * Windows
 - You can run commands in WSL from emacs using the wsl prefix. For example: (setq mu4e-get-mail-command "wsl offlineimap -c offlineimaprc")
 * Check

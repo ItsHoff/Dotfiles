@@ -602,7 +602,8 @@
   :commands (magit-status magit-blame-addition)
   :custom (magit-diff-paint-whitespace-lines 'all)
   :config
-  (use-package evil-magit)
+  (use-package evil-magit
+    :custom (evil-magit-want-horizontal-movement t))
   (evil-add-command-properties #'magit-diff-visit-file :jump t)
   (evil-add-command-properties #'magit-status :jump t)
   :general

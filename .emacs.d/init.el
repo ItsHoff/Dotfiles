@@ -185,6 +185,8 @@
   ; Allow c-o and c-i to jump to buffers matching the regexp
   (setq evil--jumps-buffer-targets "\\`magit")
 
+  (evil-declare-not-repeat #'compile-goto-error)
+
   ;; esc quits
   (defun minibuffer-keyboard-quit ()
     "Abort recursive edit.

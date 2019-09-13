@@ -714,7 +714,6 @@
   :commands smerge-mode
   :config
   (evil-make-intercept-map smerge-mode-map 'motion)
-  (message "smerge")
   :general
   (:keymaps 'smerge-mode-map
             "<up>" #'smerge-prev

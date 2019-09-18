@@ -141,7 +141,7 @@
   - What actually controls this?
   - And can it be hacked?
 - evil-move-beyond-eol is needed to make this possible
-* Packages [4/17]                                                   :package:
+* Packages [4/18]                                                   :package:
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** TODO flyspell-prog-mode
@@ -195,3 +195,6 @@
 ** TODO compdef
 - A stupid Emacs completion definer.
 - https://gitlab.com/jjzmajic/compdef
+** TODO Dumb-jump
+- an Emacs "jump to definition" package for 40+ languages
+- https://github.com/jacktasia/dumb-jump

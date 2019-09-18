@@ -18,6 +18,8 @@
 - emacsclient --no-wait +$(CurLine):$(CurCol) $(ItemPath)
 - Tools -> Customize -> Commands -> Context Menu -> Other Context Menus | Code Window
 - Add External Command n to the context menu
+- https://stackoverflow.com/questions/16566315/add-an-item-to-the-visual-studio-folder-right-click-menu-within-addin
+- https://docs.microsoft.com/en-us/visualstudio/ide/managing-external-tools?view=vs-2019
 * Windows
 - You can run commands in WSL from emacs using the wsl prefix. For example: (setq mu4e-get-mail-command "wsl offlineimap -c offlineimaprc")
 * Check

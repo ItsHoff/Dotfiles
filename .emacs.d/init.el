@@ -119,9 +119,10 @@
 
 ; Windows
 (when (member system-type '(ms-dos windows-nt cygwin))
+  ; Disabled 17.9. because super modifier was getting stuck when locking the pc
   ;; Windows key is super
-  (setq w32-lwindow-modifier 'super)
-  (setq w32-rwindow-modifier 'super)
+  ;; (setq w32-lwindow-modifier 'super)
+  ;; (setq w32-rwindow-modifier 'super)
   ;; and windows app key hyper
   (setq w32-pass-apps-to-system nil)
   (setq w32-apps-modifier 'hyper))

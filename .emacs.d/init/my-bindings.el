@@ -19,7 +19,8 @@
 (general-define-key :keymaps '(global-map evil-motion-state-map)
                     "<mouse-1>" #'mouse-select-window
                     "<drag-mouse-1>" nil ; Causes annoying accidental visual modes when clicking
-                    "<down-mouse-1>" nil)
+                    "<down-mouse-1>" nil
+                    "<mouse-3>" nil)
 
 (general-define-key :keymaps 'button-map
                     "<mouse-1>" #'push-button

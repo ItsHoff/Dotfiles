@@ -84,3 +84,4 @@
 - https://github.com/noctuid/general.el#override-keymaps-and-buffer-local-keybindings
 - https://github.com/noctuid/evil-guide#what-overrides-evil
 - https://github.com/noctuid/evil-guide#keymap-precedence
+- https://oremacs.com/2014/12/31/keymap-arms-race/

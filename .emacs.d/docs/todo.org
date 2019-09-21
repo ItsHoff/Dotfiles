@@ -141,7 +141,7 @@
   - What actually controls this?
   - And can it be hacked?
 - evil-move-beyond-eol is needed to make this possible
-* Packages [4/18]                                                   :package:
+* Packages [4/20]                                                   :package:
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** TODO flyspell-prog-mode
@@ -198,3 +198,9 @@
 ** TODO Dumb-jump
 - an Emacs "jump to definition" package for 40+ languages
 - https://github.com/jacktasia/dumb-jump
+** TODO evil-owl
+- preview registers and marks before actually using them
+- https://github.com/mamapanda/evil-owl
+** TODO Rustic
+- Rust development environment for Emacs
+- https://github.com/brotzeit/rustic

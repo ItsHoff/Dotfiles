@@ -355,6 +355,10 @@
   :ensure evil-collection
   :config (evil-collection-custom-setup))
 
+(use-package evil-collection-debug
+  :ensure evil-collection
+  :config (evil-collection-debug-setup))
+
 (use-package evil-collection-help
   :ensure evil-collection
   :config (evil-collection-help-setup))

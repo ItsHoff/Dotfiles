@@ -141,7 +141,7 @@
   - What actually controls this?
   - And can it be hacked?
 - evil-move-beyond-eol is needed to make this possible
-* Packages [4/20]                                                   :package:
+* Packages [4/21]                                                   :package:
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** TODO flyspell-prog-mode
@@ -204,3 +204,6 @@
 ** TODO Rustic
 - Rust development environment for Emacs
 - https://github.com/brotzeit/rustic
+** TODO handle
+- A handle for major-mode generic functions.
+- https://gitlab.com/jjzmajic/handle

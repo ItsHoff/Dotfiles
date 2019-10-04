@@ -187,6 +187,7 @@
   (setq evil--jumps-buffer-targets "\\`magit")
 
   (evil-declare-not-repeat #'compile-goto-error)
+  (evil-declare-not-repeat #'eval-buffer)
 
   ;; esc quits
   (defun minibuffer-keyboard-quit ()
@@ -280,10 +281,14 @@
   ; Abbreviate virtual buffers so files with the same name are not ignored
   (ivy-virtual-abbreviate 'abbreviate)
   :config
-  (evil-declare-not-repeat #'ivy-switch-buffer)
-  (evil-declare-not-repeat #'counsel-find-file)
-  (evil-declare-not-repeat #'ivy-done)
-  (evil-declare-not-repeat #'ivy-alt-done)
+  (dolist (command '(ivy-switch-buffer
+                     counsel-find-file
+                     ivy-done
+                     ivy-alt-done
+                     ivy-occur-previous-line
+                     ivy-occur-next-line
+                     counsel-M-x))
+    (evil-declare-not-repeat command))
   (evil-add-command-properties #'counsel-find-file :jump t)
   (evil-add-command-properties #'ivy-switch-buffer :jump t)
   (use-package ivy

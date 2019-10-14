@@ -293,6 +293,7 @@
   (evil-add-command-properties #'ivy-switch-buffer :jump t)
   (use-package ivy
     :diminish ivy-mode
+    ; ivy-mode replaces completing-read-function
     :config (ivy-mode t))
   (use-package ivy-hydra
     :commands hydra-ivy/body)
@@ -300,6 +301,7 @@
   (use-package evil-collection-ivy
     :ensure evil-collection
     :config (evil-collection-ivy-setup))
+  ; counsel-mode replaces built in commands with counsel alternatives
   (counsel-mode t)
   :general
   (:keymaps 'ivy-minibuffer-map

@@ -7,37 +7,43 @@
   "Insert heading above the current one."
   (interactive)
   (outline-back-to-heading)
-  (org-insert-heading))
+  (org-insert-heading)
+  (evil-insert 1))
 
 (defun my/org-insert-heading-below ()
   "Insert heading below the current section."
   (interactive)
   (end-of-line)
-  (org-insert-heading '(4)))
+  (org-insert-heading '(4))
+  (evil-insert 1))
 
 (defun my/org-insert-item-above (&optional checkbox)
   "Insert item above the current item.
 If CHECKBOX is non-nil, add a checkbox next to the bullet."
   (interactive "P")
   (beginning-of-line)
-  (org-insert-item checkbox))
+  (org-insert-item checkbox)
+  (evil-insert 1))
 
 (defun my/org-insert-item-below (&optional checkbox)
   "Insert item below the current item.
 If CHECKBOX is non-nil, add a checkbox next to the bullet."
   (interactive "P")
   (end-of-line)
-  (org-insert-item checkbox))
+  (org-insert-item checkbox)
+  (evil-insert 1))
 
 (defun my/org-insert-checkbox-above ()
   "Insert checkbox above the current item."
   (interactive)
-  (my/org-insert-item-above t))
+  (my/org-insert-item-above t)
+  (evil-insert 1))
 
 (defun my/org-insert-checkbox-below ()
   "Insert checkbox below the current item."
   (interactive)
-  (my/org-insert-item-below t))
+  (my/org-insert-item-below t)
+  (evil-insert 1))
 
 (use-package org
   :ensure org-plus-contrib

@@ -267,6 +267,7 @@
 
 ; Minibuffer completion framework
 (use-package counsel
+  :after evil-collection
   :demand t
   :diminish counsel-mode
   :custom
@@ -298,9 +299,7 @@
   (use-package ivy-hydra
     :commands hydra-ivy/body)
   (use-package amx)
-  (use-package evil-collection-ivy
-    :ensure evil-collection
-    :config (evil-collection-ivy-setup))
+  (evil-collection-ivy-setup)
   ; counsel-mode replaces built in commands with counsel alternatives
   (counsel-mode t)
   :general
@@ -330,12 +329,9 @@
   :after evil-collection
   :ensure nil
   :config
-  (use-package evil-collection-dired
-    :ensure evil-collection
-    :config (evil-collection-dired-setup))
+  (evil-collection-dired-setup)
   (put 'dired-find-alternate-file 'disabled nil) ; Allow dired to use the same buffer
-  (evil-add-command-properties #'dired-jump :jump t)
-  )
+  (evil-add-command-properties #'dired-jump :jump t))
 
 ; Display line numbers
 (use-package display-line-numbers
@@ -353,17 +349,9 @@
   :custom
   (anzu-cons-mode-line-p nil))
 
-(use-package evil-collection-custom
-  :ensure evil-collection
-  :config (evil-collection-custom-setup))
-
-(use-package evil-collection-debug
-  :ensure evil-collection
-  :config (evil-collection-debug-setup))
-
-(use-package evil-collection-help
-  :ensure evil-collection
-  :config (evil-collection-help-setup))
+(use-package evil-collection
+  :config
+  (evil-collection-init '(custom debug help package-menu xref)))
 
 ; Visual hints for evil edits
 (use-package evil-goggles
@@ -667,14 +655,6 @@
             "<left>" #'outline-backward-same-level
             ))
 
-; Emacs package manager
-(use-package package
-  :ensure nil
-  :config
-  (use-package evil-collection-package-menu
-    :ensure evil-collection
-    :config (evil-collection-package-menu-setup)))
-
 ; Show matching parenthesis
 (use-package paren
   :ensure nil
@@ -687,14 +667,12 @@
 ; PDF mode
 (use-package pdf-tools
   :if (memq window-system '(ns))
+  :after evil-collection
   :custom
   (pdf-view-display-size 'fit-page)
   :config
   (pdf-tools-install)
-  (use-package evil-collection-pdf
-    :ensure evil-collection
-    :config
-    (evil-collection-pdf-setup)))
+  (evil-collection-pdf-setup))
 
 ; Project management
 (use-package projectile
@@ -835,15 +813,6 @@
                  (setq-local whitespace-style
                              '(face trailing tabs space-before-tab tab-mark))))
   :config (global-whitespace-mode))
-
-; Find references
-(use-package xref
-  :ensure nil
-  :config
-  (use-package evil-collection-xref
-    :ensure evil-collection
-    :config
-    (evil-collection-xref-setup)))
 
 ; Snippets
 (use-package yasnippet

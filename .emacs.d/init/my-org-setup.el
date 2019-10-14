@@ -89,32 +89,28 @@ If CHECKBOX is non-nil, add a checkbox next to the bullet."
            "* %^{Recipe title: }\n  :PROPERTIES:\n  :source-url:\n  :servings:\n  :prep-time:\n  :cook-time:\n  :ready-in:\n  :END:\n** Ingredients\n   %?\n** Directions\n\n")
           ))
   (use-package org-chef)
-  (defhydra my/org-hydra (:exit t :hint nil)
+  (defhydra my/org-hydra (:hint nil)
     "
-^Insert^               ^Modify^             ^Tables^
-_h_: Heading below     _t_: Toggle TODO     _-_: Insert separator
-_H_: Heading above     _g_: Set tags
-_i_: Item below        _p_: Set priority
-_I_: Item above        _w_: Refile
-_c_: Checkbox below    _-_: Toggle bullet
-_C_: Checkbox above
+^Modify^             ^Tables^
+_t_: Toggle TODO     _-_: Insert separator
+_-_: Toggle bullet
 "
-    ("h" my/org-insert-heading-below)
-    ("H" my/org-insert-heading-above)
-    ("i" my/org-insert-item-below)
-    ("I" my/org-insert-item-above)
-    ("c" my/org-insert-checkbox-below)
-    ("C" my/org-insert-checkbox-above)
     ("t" org-todo :exit nil)
-    ("g" org-set-tags-command)
-    ("p" org-priority)
-    ("w" org-refile)
-    ("-" org-ctrl-c-minus :exit nil)
-    )
+    ("-" org-ctrl-c-minus :exit nil))
   :general
   (:keymaps 'org-mode-map
             :states '(normal visual)
-            ";" #'my/org-hydra/body
+            "; h" #'my/org-insert-heading-below
+            "; H" #'my/org-insert-heading-above
+            "; i" #'my/org-insert-item-below
+            "; I" #'my/org-insert-item-above
+            "; c" #'my/org-insert-checkbox-below
+            "; C" #'my/org-insert-checkbox-above
+            "; g" #'org-set-tags-command
+            "; p" #'org-priority
+            "; w" #'org-refile
+            "; t" #'my/org-hydra/org-todo
+            "; -" #'my/org-hydra/org-ctrl-c-minus
             "<down>" #'outline-next-visible-heading
             "<up>" #'outline-previous-visible-heading
             "<right>" #'org-forward-heading-same-level
@@ -123,7 +119,9 @@ _C_: Checkbox above
             "M-l" #'org-metaright
             "M-j" #'org-metadown
             "M-k" #'org-metaup
-            ))
+            )
+
+  )
 
 (provide 'my-org-setup)
 ;;; org-mode.el ends here

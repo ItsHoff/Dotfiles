@@ -351,7 +351,7 @@
 
 (use-package evil-collection
   :config
-  (evil-collection-init '(custom debug help package-menu xref)))
+  (evil-collection-init '((custom cus-edit) debug help (package-menu package) xref)))
 
 ; Visual hints for evil edits
 (use-package evil-goggles

@@ -429,12 +429,6 @@
             "f" #'toggle-frame-fullscreen
             ))
 
-; Garbage collector magic hack
-(use-package gcmh
-  :demand t
-  :diminish gcmh-mode
-  :config (gcmh-mode 1))
-
 ; Automatically resize splits
 (use-package golden-ratio
   :demand t

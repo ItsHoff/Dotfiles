@@ -141,7 +141,7 @@
   - What actually controls this?
   - And can it be hacked?
 - evil-move-beyond-eol is needed to make this possible
-* Packages [4/21]                                                   :package:
+* Packages [3/20]                                                   :package:
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** TODO flyspell-prog-mode
@@ -161,10 +161,6 @@
 - State "EVAL"       from "TODO"       [2019-08-01 Thu 16:54]
 - Use ssh-agent on Microsoft Windows from Emacs
 - https://github.com/magit/ssh-agency
-** EVAL gcmh  - the Garbage Collector Magic Hack
-- State "EVAL"       from "TODO"       [2019-08-01 Thu 16:53]
-- Enforce a sneaky Garbage Collection strategy to minimize GC interference with the activity.
-- https://gitlab.com/koral/gcmh/tree/master
 ** TODO Agressive indent
 - minor mode that keeps your code always indented
 - https://github.com/Malabarba/aggressive-indent-mode

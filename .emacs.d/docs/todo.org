@@ -1,7 +1,8 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [3/16]
-** TODO [#C] Ivy-occur after ripgrep not jumping to proper files        :bug:
+* General [4/16]
+** EVAL [#C] Ivy-occur after ripgrep not jumping to proper files        :bug:
+- State "EVAL"       from "TODO"       [2019-10-23 Wed 15:25]
 - works fine while in ivy
 - jumps to file where the grep was initiated from
 - works with git grep
@@ -9,6 +10,10 @@
 - works with grep
 - https://github.com/ericdanan/counsel-projectile/issues/100
 - reported: https://github.com/abo-abo/swiper/issues/2207
+- compile-goto-error worked in ivy 20190825.1023
+- not working in ivy 20191013.1612
+- next-error-function is ivy-occur-next-error
+- previously compilation-next-error-function
 ** TODO Marks                                                   :improvement:
 - M create mark
 - m jump to mark

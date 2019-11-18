@@ -146,7 +146,7 @@
   - What actually controls this?
   - And can it be hacked?
 - evil-move-beyond-eol is needed to make this possible
-* Packages [3/20]                                                   :package:
+* Packages [3/23]                                                   :package:
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** TODO flyspell-prog-mode
@@ -208,3 +208,12 @@
 ** TODO handle
 - A handle for major-mode generic functions.
 - https://gitlab.com/jjzmajic/handle
+** TODO lsp-ivy
+- https://github.com/emacs-lsp/lsp-ivy
+** TODO org-ql
+- An Org-mode query language, including search commands and saved views
+- https://github.com/alphapapa/org-ql
+** TODO lolsmacs
+- The Law Of Least Surprise Lattice For Emacs.
+- Borrow cool ideas
+- https://github.com/grettke/lolsmacs

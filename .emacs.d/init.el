@@ -716,8 +716,6 @@
   :after framegroups
   :config
   (require 'spaceline-config)
-  (setq powerline-height 25)
-  (setq powerline-default-separator "slant")
   (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
   (spaceline-define-segment framegroups
     "Segment for framegroups"
@@ -728,33 +726,11 @@
 ; Color theme
 (use-package solarized-theme
   :demand t
-  :custom
-  (solarized-high-contrast-mode-line t)
-  (x-underline-at-descent-line t)
   :config
   (load-theme 'solarized-dark t)
-  (solarized-with-color-variables
-    'dark
-    (let ((active-line base02) (inactive-line base02))
-      (custom-theme-set-faces
-       'solarized-dark
-       `(mode-line ((t (:overline ,active-line :underline ,active-line
-                                  :box (:line-width 1 :color ,active-line)
-                                  :background ,base02 :foreground ,base1))))
-       `(mode-line-inactive ((t (:overline ,inactive-line :underline ,inactive-line
-                                           :box (:line-width 1 :color ,inactive-line)
-                                           :background ,base02 :foreground ,base1))))
-       `(powerline-active1 ((t (:background ,base03 :foreground ,base1))))
-       `(powerline-active2 ((t (:background ,base02 :foreground ,base1))))
-       `(powerline-inactive1 ((t (:background ,base02 :foreground ,base1))))
-       `(powerline-inactive2 ((t (:background ,base02 :foreground ,base1))))
-       `(nlinum-relative-current-face ((t (:inherit linum :foreground ,base1))))
-       `(whitespace-tab ((,class (:background ,base02 :foreground ,base0))))
-       `(smerge-upper ((t (:inherit magit-diff-our-highlight))))
-       `(smerge-lower ((t (:inherit magit-diff-their-highlight))))
-       `(smerge-refined-removed ((t (:inherit smerge-upper :inverse-video t))))
-       `(smerge-refined-added ((t (:inherit smerge-lower :inverse-video t))))
-       ))))
+  ; Disable mode-line over and underlines
+  (set-face-attribute 'mode-line nil :overline 'unspecified :underline 'unspecified)
+  (set-face-attribute 'mode-line-inactive nil :overline 'unspecified :underline 'unspecified))
 
 ; SSH agent support for emacs
 (use-package ssh-agency

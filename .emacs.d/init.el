@@ -288,6 +288,7 @@
                      ivy-alt-done
                      ivy-occur-previous-line
                      ivy-occur-next-line
+                     ivy-occur-revert-buffer
                      counsel-M-x))
     (evil-declare-not-repeat command))
   (evil-add-command-properties #'counsel-find-file :jump t)

@@ -908,6 +908,10 @@
     :config
     (add-to-list 'company-backends '(company-anaconda :with company-capf))))
 
+(use-package python-mode
+  :ensure nil
+  :mode "SConstruct")
+
 ;; Rust
 (use-package rust-mode
   :commands rust-mode

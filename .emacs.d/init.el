@@ -734,7 +734,7 @@
 
 ; SSH agent support for emacs
 (use-package ssh-agency
-  :disabled ; 23.10.19
+  :disabled t ; 23.10.19
   :commands ssh-agency-ensure)
 
 ; Vim like undo

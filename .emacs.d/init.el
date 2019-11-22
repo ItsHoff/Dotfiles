@@ -265,6 +265,15 @@
   :commands company-lsp
   :custom (company-lsp-enable-snippet nil))
 
+(use-package compile
+  :ensure nil
+  :after evil-collection
+  :commands compilation-mode
+  :custom
+  (compilation-scroll-output 'first-error)
+  :config
+  (evil-collection-compile-setup))
+
 ; Minibuffer completion framework
 (use-package counsel
   :after evil-collection

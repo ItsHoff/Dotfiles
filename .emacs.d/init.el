@@ -3,6 +3,12 @@
 ;;; My .emacs
 
 ;;; Code:
+
+; Save custom settings to another file so they don't mess up the init file
+(setq custom-file "~/.emacs.d/custom.el")
+; Load the custom file first so personal settings will always override it
+(load custom-file :noerror)
+
 (require 'package)
 (add-to-list 'load-path "~/.emacs.d/init/")
 (add-to-list 'load-path "~/.emacs.d/manual_packages/")
@@ -111,9 +117,6 @@
   ((find-font (font-spec :name "DejaVu Sans Mono"))
    (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-11")))
   )
-
-;; Save custom settings to another file so they don't mess up my init files
-(setq custom-file "~/.emacs.d/custom.el")
 
 ;; SYSTEM SETUP --------------------------------------------------------------------------------
 

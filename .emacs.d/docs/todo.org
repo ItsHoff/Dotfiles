@@ -147,6 +147,9 @@
   - And can it be hacked?
 - evil-move-beyond-eol is needed to make this possible
 * Packages [3/23]                                                   :package:
+* Packages [4/24]                                                   :package:
+** EVAL Saveplace
+- State "EVAL"       from "TODO"       [2019-11-22 Fri 14:23]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** TODO flyspell-prog-mode

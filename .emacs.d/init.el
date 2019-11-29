@@ -708,6 +708,12 @@
   (add-to-list 'recentf-exclude "/\\w*$")
   (recentf-mode 1))
 
+(use-package saveplace
+  :demand t
+  :ensure nil
+  :config
+  (save-place-mode t))
+
 (use-package smerge-mode
   :ensure nil
   :commands smerge-mode

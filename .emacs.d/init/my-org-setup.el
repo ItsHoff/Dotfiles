@@ -116,12 +116,14 @@ _-_: Toggle bullet
             "<right>" #'org-forward-heading-same-level
             "<left>" #'org-backward-heading-same-level
             "M-h" #'org-metaleft
+            "M-H" #'org-shiftmetaleft
             "M-l" #'org-metaright
+            "M-L" #'org-shiftmetaright
             "M-j" #'org-metadown
+            "M-J" #'org-shiftmetadown
             "M-k" #'org-metaup
-            )
-
-  )
+            "M-K" #'org-shiftmetaup
+            ))
 
 (provide 'my-org-setup)
 ;;; org-mode.el ends here

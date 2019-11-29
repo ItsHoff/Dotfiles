@@ -85,3 +85,4 @@
 - https://github.com/noctuid/evil-guide#what-overrides-evil
 - https://github.com/noctuid/evil-guide#keymap-precedence
 - https://oremacs.com/2014/12/31/keymap-arms-race/
+- https://www.masteringemacs.org/article/mastering-key-bindings-emacs

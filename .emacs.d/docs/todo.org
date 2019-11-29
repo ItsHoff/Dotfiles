@@ -1,6 +1,6 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [4/18]
+* General [4/20]
 ** EVAL [#C] Ivy-occur after ripgrep not jumping to proper files        :bug:
 - State "EVAL"       from "TODO"       [2019-10-23 Wed 15:25]
 - works fine while in ivy
@@ -110,7 +110,10 @@
 - https://stackoverflow.com/questions/1413837/emacs-auto-save-on-switch-buffer
 ** TODO Investigate background loading of packages
 - For example magit would be good to load on background
-*** TODO Emacs crashes if h is pressed at the end of a folded org heading
+** TODO Emacs crashes if h is pressed at the end of a folded org heading
+- Happens when line numbers are enabled
+** TODO Load only specific things from custom file
+- Custom file can contain old settings that were removed from init file
 * Org-mode [3/8]
 ** TODO Org-mode capture templates [0/2]
 *** TODO Automatically fill the package name from link on clipboard

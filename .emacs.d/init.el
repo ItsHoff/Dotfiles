@@ -348,8 +348,9 @@
 
 ; Display line numbers
 (use-package display-line-numbers
+  :commands display-line-numbers-mode
   :custom (display-line-numbers-type 'visual)
-  :config (global-display-line-numbers-mode))
+  :init (add-hook 'prog-mode-hook #'display-line-numbers-mode))
 
 ; Shows documentation about symbol under point on the echo area
 (use-package eldoc

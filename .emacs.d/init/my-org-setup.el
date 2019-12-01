@@ -88,7 +88,8 @@ If CHECKBOX is non-nil, add a checkbox next to the bullet."
           ("R" "Recipe manually" entry (file+olp "~/Dropbox/notes/recipes.org" "Uncategorized")
            "* %^{Recipe title: }\n  :PROPERTIES:\n  :source-url:\n  :servings:\n  :prep-time:\n  :cook-time:\n  :ready-in:\n  :END:\n** Ingredients\n   %?\n** Directions\n\n")
           ))
-  (use-package org-chef)
+  (use-package org-chef
+    :config (require 'gnutls)) ; Workaround for org-chef
   (defhydra my/org-hydra (:hint nil)
     "
 ^Modify^             ^Tables^

@@ -1,6 +1,6 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [4/20]
+* General [4/21]
 ** EVAL [#C] Ivy-occur after ripgrep not jumping to proper files        :bug:
 - State "EVAL"       from "TODO"       [2019-10-23 Wed 15:25]
 - works fine while in ivy
@@ -114,6 +114,7 @@
 - Happens when line numbers are enabled
 ** TODO Load only specific things from custom file
 - Custom file can contain old settings that were removed from init file
+** TODO Try out :defer n
 * Org-mode [3/8]
 ** TODO Org-mode capture templates [0/2]
 *** TODO Automatically fill the package name from link on clipboard
@@ -155,7 +156,7 @@
   - And can it be hacked?
 - evil-move-beyond-eol is needed to make this possible
 ** TODO Heading movement doesn't work in visual mode
-* Packages [4/24]                                                   :package:
+* Packages [4/26]                                                   :package:
 ** EVAL Saveplace
 - State "EVAL"       from "TODO"       [2019-11-22 Fri 14:23]
 ** EVAL YASnippet
@@ -228,3 +229,8 @@
 - The Law Of Least Surprise Lattice For Emacs.
 - Borrow cool ideas
 - https://github.com/grettke/lolsmacs
+** TODO psession
+- Yet another package for emacs persistent sessions
+- https://github.com/thierryvolpiatto/psession
+** TODO doom-themes
+- https://github.com/hlissner/emacs-doom-themes

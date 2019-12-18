@@ -608,6 +608,7 @@
 
 ; Git support
 (use-package magit
+  :defer 2
   :commands (magit-status magit-blame-addition)
   :custom (magit-diff-paint-whitespace-lines 'all)
   :config

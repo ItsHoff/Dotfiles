@@ -114,11 +114,12 @@ If point is at or ahead of it move to last character."
 Call `quit-windows-on' for every buffer that matches `my/help-windows-regexps'."
   (interactive)
   (walk-windows (lambda (window)
-                  (let* ((buffer (window-buffer window))
-                         (name (buffer-name buffer)))
-                    (dolist (regexp my/extra-window-regexps)
-                      (when (string-match-p regexp name)
-                        (quit-windows-on buffer)))))))
+                  (when (not (eq window (selected-window)))
+                    (let* ((buffer (window-buffer window))
+                           (name (buffer-name buffer)))
+                      (dolist (regexp my/extra-window-regexps)
+                        (when (string-match-p regexp name)
+                          (quit-windows-on buffer))))))))
 
 
 (evil-define-command my/paste-and-repeat-pop (count &optional save-point)

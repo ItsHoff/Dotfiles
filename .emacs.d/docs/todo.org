@@ -1,20 +1,24 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [5/21]
-** EVAL [#C] Ivy-occur after ripgrep not jumping to proper files        :bug:
-- State "EVAL"       from "TODO"       [2019-10-23 Wed 15:25]
-- works fine while in ivy
-- jumps to file where the grep was initiated from
-- works with git grep
-- fails with ripgrep
-- works with grep
-- https://github.com/ericdanan/counsel-projectile/issues/100
-- reported: https://github.com/abo-abo/swiper/issues/2207
-- compile-goto-error worked in ivy 20190825.1023
-- not working in ivy 20191013.1612
-- next-error-function is ivy-occur-next-error
-- previously compilation-next-error-function
-** TODO Marks                                                   :improvement:
+* General [5/19]
+** EVAL Whitespace mode only visualizes tabs in non prog modes
+- State "EVAL"       from "TODO"       [2019-08-21 Wed 13:16]
+** EVAL Use normal state as the initial state
+- https://github.com/noctuid/evil-guide#make-evil-normal-state-the-initial-state-always
+- State "EVAL"       from "TODO"       [2019-08-27 Tue 13:02]
+** EVAL Try out :defer n
+- State "EVAL"       from "TODO"       [2019-12-18 Wed 16:24]
+- magit
+** EVAL Magit conflicts
+- State "EVAL"       from "TODO"       [2019-09-10 Tue 16:35]
+- https://magit.vc/manual/magit/Resolving-Conflicts.html
+- smerge-next
+- smerge-previous
+- smerge-keep-upper
+- smerge-keep-lower
+** EVAL Close extra buffers should not close the current buffer
+- State "EVAL"       from "TODO"       [2019-12-20 Fri 14:52]
+** TODO Marks
 - M create mark
 - m jump to mark
 - persistent marks
@@ -25,20 +29,54 @@
    - hack evil-global-marker-p?
 - https://github.com/Andrew-William-Smith/evil-fringe-mark
 - https://github.com/xueeinstein/helm-evil-markers
-** TODO Help                                                    :improvement:
+** TODO Help
 - allow asking for minibuffer binds
 - https://www.emacswiki.org/emacs/HelpPlus
 - https://github.com/Wilfred/helpful
-** TODO Configure spaceline                                     :improvement:
+** TODO Configure spaceline
 - spaceline-config.el has the current config
 - https://github.com/TheBB/spaceline
 - check the available segments
-** TODO Autoindent pasted text                                  :improvement:
+** TODO Autoindent pasted text
 - https://www.emacswiki.org/emacs/AutoIndentation
-** TODO Full sized splits with earlier splits                   :improvement:
+** TODO Full sized splits with earlier splits
 - https://emacs.stackexchange.com/questions/585/split-window-at-outermost-border
-** TODO [#C] Semantic movement                                  :improvement:
-*** Get the file hierarchy
+** TODO Semantic movement [0/3]
+*** TODO Figure out functionality and bindings
+**** Tree movements
+***** (next or prev) node
+- File order should be depth first
+***** (next or prev) sibling
+- What to do at the end of sibling chain?
+  - go up a level
+    - temporarily or permanently?
+  - continue to different branch of the tree
+    - how many steps through higher level nodes would be allowed (1 or any)
+  - revert to next node behaviour until jump to a lower level node would occur
+    - save a cycle level
+    - allow jumps to higher levels
+    - disable jumps to lower levels
+***** (next or prev) parent level node
+- fall back to sibling at top level
+**** Current setup
+- <left> sibling up
+- <right> sibling down
+- <up> and <down> for go up and down visible headings
+- u to go to parent heading
+**** Potential bindings
+- <left> for higher level
+- <right> for lower level
+- <up> and <down> for go up and down inside the level
+*** TODO Implement required functions for different major modes
+**** org-mode
+- org has all these except next parent level
+- siblings movement does not go up levels at all
+- org-next-visible-heading
+- org-previous-visible-heading
+- org-forward-heading-same-level
+- org-backward-heading-same-level
+- outline-up-heading
+**** Prog modes
 - LSP: textDocument/documentSymbol
   - https://microsoft.github.io/language-server-protocol/specification#textDocument_documentSymbol
   - children is the intended source
@@ -50,57 +88,23 @@
   - https://github.com/DamienCassou/hierarchy
 - alternative: treesitter
   - https://old.reddit.com/r/emacs/comments/chnxzm/dynamic_module_binding_for_treesitter_an/
-*** Tree movements
-**** (next or prev) node
-- File order should be depth first
-**** (next or prev) sibling
-- What to do at the end of sibling chain?
-  - go up a level
-    - temporarily or permanently?
-  - continue to different branch of the tree
-    - how many steps through higher level nodes would be allowed (1 or any)
-  - revert to next node behaviour until jump to a lower level node would occur
-    - save a cycle level
-    - allow jumps to higher levels
-    - disable jumps to lower levels
-**** (next or prev) parent level node
-- fall back to sibling at top level
-**** In org-mode
-- org has all these except next parent level
-- siblings movement does not go up levels at all
-- org-next-visible-heading
-- org-previous-visible-heading
-- org-forward-heading-same-level
-- org-backward-heading-same-level
-- outline-up-heading
-*** Potential bindings
-- Caps layer
-- h for higher level
-- l for lower level
-- j and k for go up and down inside the level
-*** Ivy / helm interface
+**** Magit
+- magit-section-forward
+- magit-section-backward
+- magit-section-forward-sibling
+- magit-section-backward-sibling
+- magit-section-up
+*** TODO Ivy / helm interface
+- Swiper like search for document symbols
 - imenu might be good enough
 - but automatic jump would be nice
 - https://old.reddit.com/r/emacs/comments/3mtus3/how_to_display_a_list_of_classes_functions_etc/
-** TODO dired                                                   :improvement:
+** TODO dired
 - https://github.com/Fuco1/dired-hacks
 - https://www.emacswiki.org/emacs/DiredPlus
-** EVAL Magit conflicts                                         :improvement:
-- State "EVAL"       from "TODO"       [2019-09-10 Tue 16:35]
-- https://magit.vc/manual/magit/Resolving-Conflicts.html
-- smerge-next
-- smerge-previous
-- smerge-keep-upper
-- smerge-keep-lower
 ** TODO Add toggle for lsp-ui hover and doc
 ** TODO Add lsp-mode binds
 ** TODO Move company select to f keys
-** EVAL Whitespace mode only visualizes tabs in non prog modes
-- State "EVAL"       from "TODO"       [2019-08-21 Wed 13:16]
-** EVAL Use normal state as the initial state
-- https://github.com/noctuid/evil-guide#make-evil-normal-state-the-initial-state-always
-- State "EVAL"       from "TODO"       [2019-08-27 Tue 13:02]
-** TODO Close extra buffers should not close the current buffer
 ** TODO Send file to visual studio
 - https://blogs.msdn.microsoft.com/saraford/2008/11/19/did-you-know-you-can-use-devenv-exe-edit-to-open-a-file-in-an-existing-visual-studio-instance-360/
 - https://github.com/evgeny-panasyuk/open-in-msvs.el
@@ -108,48 +112,17 @@
 - https://docs.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2010/aa991989(v=vs.100)?redirectedfrom=MSDN
 ** TODO Save when switching buffers
 - https://stackoverflow.com/questions/1413837/emacs-auto-save-on-switch-buffer
-** TODO Investigate background loading of packages
-- For example magit would be good to load on background
 ** TODO Emacs crashes if h is pressed at the end of a folded org heading
 - Happens when line numbers are enabled
 ** TODO Load only specific things from custom file
 - Custom file can contain old settings that were removed from init file
-** EVAL Try out :defer n
-- State "EVAL"       from "TODO"       [2019-12-18 Wed 16:24]
-- magit
-* Org-mode [3/8]
-** TODO Org-mode capture templates [0/2]
-*** TODO Automatically fill the package name from link on clipboard
-*** TODO Work todo
-** TODO Org-mode agenda templates [0/0]
-** EVAL [#C] Org-mode item insertion                            :improvement:
-- State "EVAL"       from "TODO"       [2019-08-21 Wed 10:44]
-*** Default
-- M-RET insert new heading or item "intelligently"
-  - Prefix forces heading
-- M-S-RET insert new TODO heading
-  - or checkbox item
-*** Tables
-- M-S-down insert row above
-  - with prefix below
-- M-S-right insert column left
-- C-c - insert horizontal line below
-- C-c RET insert horizontal line below and move cursor
-*** Desired
-- [X] Insert heading above or below
-  - [X] Doesn't steal content
-- [ ] Maybe option for TODO etc
-- [X] Maybe item above or below
-** TODO Add org-chef sites [0/2]                                :improvement:
-*** TODO Smitten kitchen
-*** TODO Bon appetit
-** EVAL Better bindings                                         :improvement:
+* Org-mode [2/7]
+** EVAL Better bindings
 - State "EVAL"       from "TODO"       [2019-08-20 Tue 12:16]
 - [X] tags
 - [X] todo status
 - [X] priorities
 - [X] refile
-** TODO Figure out how to do archiving
 ** EVAL org-cycle jumps to the beginning of line
 - State "EVAL"       from "TODO"       [2019-08-20 Tue 14:16]
 - There needs to be a space between the bullets and point for it to work correctly
@@ -157,29 +130,27 @@
   - What actually controls this?
   - And can it be hacked?
 - evil-move-beyond-eol is needed to make this possible
+** TODO Org-mode capture templates [0/2]
+*** TODO Automatically fill the package name from link on clipboard
+*** TODO Work todo
+** TODO Org-mode agenda templates [0/0]
+** TODO Add org-chef sites [0/2]
+*** TODO Smitten kitchen
+*** TODO Bon appetit
+** TODO Figure out how to do archiving
 ** TODO Heading movement doesn't work in visual mode
-* Packages [4/27]                                                   :package:
+* Packages [4/18]
 ** EVAL Saveplace
 - State "EVAL"       from "TODO"       [2019-11-22 Fri 14:23]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
-** TODO flyspell-prog-mode
-- flyspell for comments and strings
-- built in
-** TODO prescient
-- sorting and filtering (for ivy and company)
-- https://github.com/raxod502/prescient.el
 ** EVAL keyfreq
 - State "EVAL"       from "TODO"       [2019-08-01 Thu 16:54]
 - Track command frequency
 - https://github.com/dacap/keyfreq
-** TODO doom-todo-ivy
-- Display TODO, FIXME, or anything else in an ivy buffer. Extracted from doom-emacs.
-- https://github.com/jsmestad/doom-todo-ivy
-** EVAL ssh-agency
-- State "EVAL"       from "TODO"       [2019-08-01 Thu 16:54]
-- Use ssh-agent on Microsoft Windows from Emacs
-- https://github.com/magit/ssh-agency
+** EVAL lsp-ivy
+- State "EVAL"       from "TODO"       [2019-12-19 Thu 14:58]
+- https://github.com/emacs-lsp/lsp-ivy
 ** TODO Agressive indent
 - minor mode that keeps your code always indented
 - https://github.com/Malabarba/aggressive-indent-mode
@@ -189,24 +160,12 @@
 ** TODO wgrep
 - wgrep allows you to edit a grep buffer and apply those changes to the file buffer.
 - https://github.com/mhayashi1120/Emacs-wgrep
-** TODO discover
-- Discover more of emacs using context menus.
-- https://github.com/mickeynp/discover.el
 ** TODO targets
 - Extension of evil text objects (not "stable" but feel free to try and give feedback)
 - https://github.com/noctuid/targets.el
 ** TODO org-projectile
 - Manage org-mode TODOs for your projectile projects
 - https://github.com/IvanMalison/org-projectile
-** TODO fast-scroll
-- Emacs package to ensure scrolling remains fast
-- https://github.com/ahungry/fast-scroll
-** TODO Company-fuzzy
-- Fuzzy matching for `company-mode'
-- https://github.com/jcs090218/company-fuzzy
-** TODO grip-mode
-- Instant Github-flavored Markdown preview using grip
-- https://github.com/seagle0128/grip-mode
 ** TODO compdef
 - A stupid Emacs completion definer.
 - https://gitlab.com/jjzmajic/compdef
@@ -222,15 +181,9 @@
 ** TODO handle
 - A handle for major-mode generic functions.
 - https://gitlab.com/jjzmajic/handle
-** TODO lsp-ivy
-- https://github.com/emacs-lsp/lsp-ivy
 ** TODO org-ql
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
-** TODO lolsmacs
-- The Law Of Least Surprise Lattice For Emacs.
-- Borrow cool ideas
-- https://github.com/grettke/lolsmacs
 ** TODO psession
 - Yet another package for emacs persistent sessions
 - https://github.com/thierryvolpiatto/psession

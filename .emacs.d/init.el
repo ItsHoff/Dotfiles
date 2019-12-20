@@ -582,6 +582,9 @@
   :config
   (local/custom ispell-program-name))
 
+(use-package lsp-ivy
+  :commands (lsp-ivy-workspace-symbol lsp-ivy-global-workspace-symbol))
+
 ; LSP support
 (use-package lsp-mode
   :commands (lsp lsp-deferred)

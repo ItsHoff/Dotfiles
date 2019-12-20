@@ -56,8 +56,14 @@ If CHECKBOX is non-nil, add a checkbox next to the bullet."
               (setq-local evil-move-beyond-eol t)
               (add-hook 'before-save-hook
                         (lambda () (org-update-statistics-cookies "All"))
-                        nil "local")
-              ))
+                        nil "local"))
+            ; Fix a problem with saveplace.el putting you back in a folded position
+            ; https://orgmode.org/worg/org-hacks.html#org3e7d06e
+            (lambda ()
+              (when (outline-invisible-p)
+                (save-excursion
+                  (outline-previous-visible-heading 1)
+                  (org-show-subtree)))))
   :custom
   (org-export-backends nil)
   (org-modules nil)

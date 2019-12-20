@@ -625,6 +625,7 @@
             "<down>" #'magit-section-forward
             "<left>" #'magit-section-backward-sibling
             "<right>" #'magit-section-forward-sibling
+            "C-M-u" #'magit-section-up
             "<return>" #'magit-visit-thing
             "SPC" nil
             )

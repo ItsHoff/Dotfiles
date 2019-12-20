@@ -116,6 +116,7 @@ _-_: Toggle bullet
             "<up>" #'outline-previous-visible-heading
             "<right>" #'org-forward-heading-same-level
             "<left>" #'org-backward-heading-same-level
+            "C-M-u" #'outline-up-heading
             "M-h" #'org-metaleft
             "M-H" #'org-shiftmetaleft
             "M-l" #'org-metaright

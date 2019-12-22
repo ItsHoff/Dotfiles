@@ -139,7 +139,7 @@
 *** TODO Bon appetit
 ** TODO Figure out how to do archiving
 ** TODO Heading movement doesn't work in visual mode
-* Packages [4/18]
+* Packages [4/21]                                                   :package:
 ** EVAL Saveplace
 - State "EVAL"       from "TODO"       [2019-11-22 Fri 14:23]
 ** EVAL YASnippet
@@ -192,3 +192,12 @@
 ** TODO ESUP
 - ESUP - Emacs Start Up Profiler
 - https://github.com/jschaf/esup
+** TODO lolsmacs
+- The Law Of Least Surprise Lattice For Emacs.
+- Borrow cool ideas
+- https://github.com/grettke/lolsmacs
+** TODO lsp-treemacs
+- https://github.com/emacs-lsp/lsp-treemacs
+** TODO dap-mode
+- Emacs ❤ Debug Adapter Protocol
+- https://github.com/emacs-lsp/dap-mode

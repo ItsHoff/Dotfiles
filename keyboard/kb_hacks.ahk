@@ -14,6 +14,9 @@ SetCapslockState, AlwaysOff
 ~Capslock & k:: Send {Blind}{Up}
 ~Capslock & j:: Send {Blind}{Down}
 
+;; Map Caps-Enter to Ctrl-Alt-Enter
+~Capslock & Enter:: Send {Blind} ^!{Enter}
+
 ~Capslock & BS:: Send {Blind}{Del}
 ; Plain Caps sends esc
 ~Capslock::

@@ -44,12 +44,6 @@
 (use-package interaction-log
   :commands interaction-log-mode)
 
-; Record and analyse command usage
-(use-package keyfreq
-  :config
-  (keyfreq-mode 1)
-  (keyfreq-autosave-mode 1))
-
 ;; GENERAL SETTINGS ----------------------------------------------------------------------------
 
 (server-start)                      ; Start server for external programs

@@ -352,6 +352,13 @@
   :custom (display-line-numbers-type 'visual)
   :init (add-hook 'prog-mode-hook #'display-line-numbers-mode))
 
+(use-package doom-themes
+  :demand t
+  :config
+  ;; Enable flashing mode-line on errors
+  (doom-themes-visual-bell-config)
+  (load-theme 'doom-nord t))
+
 ; Shows documentation about symbol under point on the echo area
 (use-package eldoc
   :diminish eldoc-mode)
@@ -748,6 +755,7 @@
 
 ; Color theme
 (use-package solarized-theme
+  :disabled ; 9.1.2020
   :demand t
   :config
   (load-theme 'solarized-dark t)

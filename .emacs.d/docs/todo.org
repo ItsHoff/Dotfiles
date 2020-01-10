@@ -130,8 +130,9 @@
   - What actually controls this?
   - And can it be hacked?
 - evil-move-beyond-eol is needed to make this possible
-** TODO Org-mode capture templates [0/2]
-*** TODO Automatically fill the package name from link on clipboard
+** TODO Org-mode capture templates [1/2]
+*** EVAL Automatically fill the package name from link on clipboard
+- State "EVAL"       from "TODO"       [2020-01-10 pe 16:49]
 *** TODO Work todo
 ** TODO Org-mode agenda templates [0/0]
 ** TODO Add org-chef sites [0/2]

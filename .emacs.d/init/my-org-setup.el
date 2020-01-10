@@ -45,6 +45,10 @@ If CHECKBOX is non-nil, add a checkbox next to the bullet."
   (my/org-insert-item-below t)
   (evil-insert 1))
 
+(defun my/extract-package-name (url)
+  "Extract package name from URL."
+  (car (last (split-string url "/"))))
+
 (use-package org
   :ensure org-plus-contrib
   :commands org-capture
@@ -86,7 +90,7 @@ If CHECKBOX is non-nil, add a checkbox next to the bullet."
           ("o" "Org-mode todo" entry (file+olp "~/.emacs.d/docs/todo.org" "Org-mode")
            "** TODO %?")
           ("p" "Package to check out" entry (file+olp "~/.emacs.d/docs/todo.org" "Packages")
-           "** TODO %?\n- %x")
+           "** TODO %(my/extract-package-name \"%x\")\n- %x")
           ("t" "Personal todo" entry (file "~/Dropbox/notes/todo.org")
            "* TODO %?")
           ("r" "Recipe" entry (file+olp "~/Dropbox/notes/recipes.org" "Uncategorized")

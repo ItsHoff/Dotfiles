@@ -140,7 +140,7 @@
 *** TODO Bon appetit
 ** TODO Figure out how to do archiving
 ** TODO Heading movement doesn't work in visual mode
-* Packages [3/19]                                                   :package:
+* Packages [3/20]                                                   :package:
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** EVAL lsp-ivy
@@ -196,3 +196,6 @@
 ** TODO Shackle
 - Enforce rules for popup windows
 - https://github.com/wasamasa/shackle
+** TODO org-popnote
+- Pop to new Org headings for quick notetaking
+- https://github.com/alphapapa/org-popnote

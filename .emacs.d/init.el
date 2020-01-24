@@ -168,10 +168,6 @@
   ; Open new splits right or below
   (evil-vsplit-window-right 1)
   (evil-split-window-below 1)
-  ; Open everything in normal state by default
-  (evil-motion-state-modes nil)
-  (evil-insert-state-modes nil)
-  (evil-emacs-state-modes nil)
   :config
   (evil-mode 1)
   (setq evil-normal-state-tag "NORM")

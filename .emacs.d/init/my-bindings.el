@@ -23,8 +23,7 @@
                     "<mouse-3>" nil)
 
 (general-define-key :keymaps 'button-map
-                    "<mouse-1>" #'push-button
-                    )
+                    "<mouse-1>" #'push-button)
 
 (general-define-key :keymaps 'org-mouse-map
                     "<mouse-1>" #'org-open-at-mouse)
@@ -38,8 +37,7 @@
                     "M-+" help-map  ; Remap help
                     "M-<dead-acute>" #'describe-key  ; Map key help (next to +)
                     "M-/" help-map  ; Remap help for ansi
-                    "M-;" #'describe-key  ; Map key help (next to +)
-                    )
+                    "M-;" #'describe-key)  ; Map key help (next to +)
 
 ; Space prefix
 (general-define-key :keymaps 'override
@@ -55,8 +53,7 @@
                     "p" #'projectile-command-map
                     "r" #'ivy-resume
                     "s" #'my/framegroups-command-map
-                    "y" #'my/yas-command-map
-                    )
+                    "y" #'my/yas-command-map)
 
 ; Non-insert + emacs (for special emacs state buffers)
 (general-define-key :keymaps 'override
@@ -78,9 +75,7 @@
                     "C-w l" #'buf-move-right
                     "C-f" #'counsel-find-file
                     "C-b" #'ivy-switch-buffer
-                    "M-x" #'counsel-M-x
-                    )
-
+                    "M-x" #'counsel-M-x)
 
 ; Vim movement states
 (general-define-key :keymaps 'override
@@ -89,15 +84,13 @@
                     "H" #'my/beginning-of-line
                     "L" #'evil-end-of-visual-line
                     "J" #'golden-ratio-scroll-screen-up
-                    "K" #'golden-ratio-scroll-screen-down
-                    )
+                    "K" #'golden-ratio-scroll-screen-down)
 
 ;; REGULAR BINDINGS -----------------------------------------------------------------------------
 
 ; Emacs state
 (general-define-key :keymaps 'emacs
-                    "M-z" #'evil-exit-emacs-state
-                    )
+                    "M-z" #'evil-exit-emacs-state)
 
 ; Motions (normal, visual and some special buffers)
 (general-define-key :keymaps '(motion normal visual)
@@ -112,8 +105,7 @@
                     "j" #'evil-next-visual-line
                     "k" #'evil-previous-visual-line
                     ; _;_ is leader so use ' instead
-                    "'" #'evil-repeat-find-char
-                    )
+                    "'" #'evil-repeat-find-char)
 
 (general-define-key :keymaps '(normal visual)
                     "; c" #'evilnc-comment-or-uncomment-lines
@@ -121,8 +113,7 @@
                     "; d" #'evil-numbers/dec-at-pt
                     ; Clipboard paste and yank
                     "C-M-y" #'my/yank-clipboard
-                    "C-M-S-y" #'my/yank-line-clipboard
-                    )
+                    "C-M-S-y" #'my/yank-line-clipboard)
 
 (general-define-key :keymaps '(normal visual minibuffer-local-map ivy-minibuffer-map)
                     "C-M-p" #'my/paste-clipboard-after
@@ -153,8 +144,7 @@
                     "g '" #'my/goto-change-hydra/goto-last-change-reverse
                     ; Join + split
                     "<backspace>" #'evil-join
-                    "RET" #'my/split-line
-                    )
+                    "RET" #'my/split-line)
 
 ; Insert state
 (general-define-key :keymaps 'insert
@@ -162,8 +152,7 @@
                     "<tab>" #'tab-to-tab-stop
                     "<backspace>" #'my/backspace-whitespace-to-tab-stop
                     "<return>" #'newline-and-indent
-                    "<C-i>" #'indent-according-to-mode
-                    )
+                    "<C-i>" #'indent-according-to-mode)
 
 (require 'easy-brackets)
 

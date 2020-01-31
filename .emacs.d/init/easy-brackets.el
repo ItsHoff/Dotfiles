@@ -44,8 +44,7 @@
            (list (nth 0 args) ?\]))
           ((= char ?\C-l)
            (list (nth 0 args) ?\}))
-          (t args))
-    ))
+          (t args))))
 
 (advice-add #'evil-find-char :filter-args #'my/advice-easy-brackets)
 
@@ -53,14 +52,12 @@
                     "C-h" #'evil-inner-curly
                     "C-l" #'evil-inner-curly
                     "C-j" #'evil-inner-bracket
-                    "C-k" #'evil-inner-bracket
-                    )
+                    "C-k" #'evil-inner-bracket)
 (general-define-key :keymaps 'evil-outer-text-objects-map
                     "C-h" #'evil-a-curly
                     "C-l" #'evil-a-curly
                     "C-j" #'evil-a-bracket
-                    "C-k" #'evil-a-bracket
-                    )
+                    "C-k" #'evil-a-bracket)
 (general-define-key :keymaps 'evil-read-key-map
                     "C-k" nil) ; Conflicts with easy-brackets
 

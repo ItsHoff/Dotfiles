@@ -14,8 +14,7 @@
                                  (when (not (or (= (gethash "kind" item) 13) ; variable
                                                 (= (gethash "kind" item) 8) ; field
                                                 (= (gethash "kind" item) 22) ; enum member
-                                                (= (gethash "kind" item) 26) ; type parameter
-                                                ))
+                                                (= (gethash "kind" item) 26))) ; type parameter
                                    (prin1 "\n name:")
                                    (prin1 (gethash "name" item))
                                    (prin1 "\n kind:")
@@ -27,15 +26,11 @@
                                    (prin1 "\n range:")
                                    (ignore-errors
                                      (let* ((location (gethash "location" item))
-                                            (range (gethash "range" location))
-                                            )
+                                            (range (gethash "range" location)))
                                        (prin1 (gethash "line" (gethash "start" range)))
                                        (prin1 "-")
-                                       (prin1 (gethash "line" (gethash "end" range)))
-                                       ))
-                                   (print "")
-                                   )
-                                 )
+                                       (prin1 (gethash "line" (gethash "end" range)))))
+                                   (print "")))
                                document-symbols))
                      :mode 'alive))
 
@@ -104,8 +99,7 @@ If point is at or ahead of it move to last character."
 ; Use define and set so the possible changes do not require a restart
 (defvar my/extra-window-regexps nil "Regexps for buffers that 'my/quit-extra-windows' should also quit.")
 (setq my/extra-window-regexps '("^magit.+"
-                                "^\*.+\*$"
-                                ))
+                                "^\*.+\*$"))
 
 ; TODO: Add white list for *x* buffers that should not be closed (if there ever comes a need)
 (defun my/quit-extra-windows (&optional kill frame)
@@ -121,7 +115,6 @@ Call `quit-windows-on' for every buffer that matches `my/help-windows-regexps'."
                         (when (string-match-p regexp name)
                           (quit-windows-on buffer))))))))
 
-
 (evil-define-command my/paste-and-repeat-pop (count &optional save-point)
   "Select paste or repeat pop depending on last command and do COUNT times."
   :repeat nil
@@ -136,8 +129,7 @@ Call `quit-windows-on' for every buffer that matches `my/help-windows-regexps'."
         ((and (eq last-command #'evil-repeat)
               evil-last-repeat)
          (evil-repeat-pop count save-point))
-        (t (message "Last command was not paste or repeat"))
-        ))
+        (t (message "Last command was not paste or repeat"))))
 
 (evil-define-command my/paste-and-repeat-pop-next (count &optional save-point)
   "Select paste or repeat pop next depending on last command and do COUNT times."
@@ -153,8 +145,7 @@ Call `quit-windows-on' for every buffer that matches `my/help-windows-regexps'."
         ((and (eq last-command #'evil-repeat)
               evil-last-repeat)
          (evil-repeat-pop-next count save-point))
-        (t (message "Last command was not paste or repeat"))
-        ))
+        (t (message "Last command was not paste or repeat"))))
 
 ; https://stackoverflow.com/questions/23659909/reverse-evaluation-order-of-split-height-threshold-and-split-width-threshold-in
 (defun my/split-window-sensibly (&optional window)
@@ -188,7 +179,6 @@ Perform the split along the longest axis."
           (split-window-below))
       (with-selected-window window
         (split-window-right)))))
-
 
 (evil-define-command my/paste-clipboard-before (count)
   "Pastes the clipboard before point."
@@ -231,8 +221,7 @@ If already at top heading go to the next heading above."
       (let ((level (outline-level)))
         (while (and (> level target-level) (not (bobp)))
           (outline-previous-visible-heading 1)
-          (setq level (outline-level))))
-    )))
+          (setq level (outline-level)))))))
 
 (evil-declare-not-repeat #'my/outline-up-heading)
 (evil-declare-motion #'my/outline-up-heading)
@@ -252,8 +241,7 @@ Goto end if no lower higher level headings."
       (let ((level (outline-level)))
         (while (and (> level target-level) (not (eobp)))
           (outline-next-visible-heading 1)
-          (setq level (outline-level))))
-    )))
+          (setq level (outline-level)))))))
 
 (evil-declare-not-repeat #'my/outline-down-heading)
 (evil-declare-motion #'my/outline-down-heading)

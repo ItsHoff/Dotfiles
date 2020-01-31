@@ -109,8 +109,7 @@
   ((find-font (font-spec :name "Consolas"))
    (add-to-list 'default-frame-alist '(font . "Consolas-11")))
   ((find-font (font-spec :name "DejaVu Sans Mono"))
-   (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-11")))
-  )
+   (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-11"))))
 
 ;; SYSTEM SETUP --------------------------------------------------------------------------------
 
@@ -202,8 +201,7 @@
   (define-key minibuffer-local-isearch-map [escape] #'minibuffer-keyboard-quit)
   (define-key minibuffer-local-isearch-map [escape] #'minibuffer-keyboard-quit)
   (define-key minibuffer-inactive-mode-map [escape] #'minibuffer-keyboard-quit)
-  (global-set-key [escape] #'evil-exit-emacs-state)
-  )
+  (global-set-key [escape] #'evil-exit-emacs-state))
 
 ; Company abbrev enables this
 (use-package abbrev
@@ -436,8 +434,7 @@
             "c" #'delete-frame
             "o" #'delete-other-frames
             "m" #'toggle-frame-maximized
-            "f" #'toggle-frame-fullscreen
-            ))
+            "f" #'toggle-frame-fullscreen))
 
 ; Automatically resize splits
 (use-package golden-ratio
@@ -466,8 +463,7 @@
                "gdb-inferior-io-mode"
                "gdb-disassembly-mode"
                "gdb-memory-mode"
-               "speedbar-mode"
-               ))
+               "speedbar-mode"))
     (add-to-list 'golden-ratio-exclude-modes m))
   ;; golden-ratio-extra-commands
   (dolist (f '(ace-window
@@ -523,10 +519,8 @@
   (dolist (n '(" *NeoTree*"
                "*LV*"
                " *transient*"
-               " *which-key*"
-               ))
-    (add-to-list 'golden-ratio-exclude-buffer-names n))
-  )
+               " *which-key*"))
+    (add-to-list 'golden-ratio-exclude-buffer-names n)))
 
 ; Move up and down the screen nicely
 (use-package golden-ratio-scroll-screen
@@ -558,14 +552,12 @@
             "o" #'helm-occur
             "k" #'helm-man-woman
             "r" #'helm-resume
-            "a" #'helm-apropos
-            )
+            "a" #'helm-apropos)
   (:keymaps 'helm-map
             "<tab>" #'helm-execute-persistent-action
             "C-h" #'helm-execute-persistent-action
             "C-p" #'helm-select-action
-            "C-n" #'helm-delete-minibuffer-contents
-            ))
+            "C-n" #'helm-delete-minibuffer-contents))
 
 ; Additional way of keybinding
 (use-package hydra
@@ -608,8 +600,7 @@
   (lsp-ui-sideline-show-hover nil)
   (lsp-ui-sideline-show-code-actions t)
   (lsp-ui-sideline-show-diagnostics t)
-  (lsp-ui-sideline-show-symbol t)
-  )
+  (lsp-ui-sideline-show-symbol t))
 
 ; Git support
 (use-package magit
@@ -629,15 +620,11 @@
             "<right>" #'magit-section-forward-sibling
             "C-M-u" #'magit-section-up
             "<return>" #'magit-visit-thing
-            "SPC" nil
-            )
+            "SPC" nil)
   (:keymaps 'transient-sticky-map
-            "<escape>" #'transient-quit-seq
-            )
+            "<escape>" #'transient-quit-seq)
   (:keymaps 'transient-map
-            "<escape>" #'transient-quit-one
-            )
-  )
+            "<escape>" #'transient-quit-one))
 
 ; Improved writing experience
 (use-package olivetti
@@ -666,8 +653,7 @@
             "<down>" #'outline-next-visible-heading
             "<up>" #'outline-previous-visible-heading
             "<right>" #'outline-forward-same-level
-            "<left>" #'outline-backward-same-level
-            ))
+            "<left>" #'outline-backward-same-level))
 
 ; Show matching parenthesis
 (use-package paren
@@ -790,8 +776,7 @@
             "k" #'undo-tree-visualize-undo
             "K" #'undo-tree-visualize-undo-to-x
             "h" #'undo-tree-visualize-switch-branch-left
-            "l" #'undo-tree-visualize-switch-branch-right
-            ))
+            "l" #'undo-tree-visualize-switch-branch-right))
 
 ; Show key hints
 (use-package which-key
@@ -828,8 +813,7 @@
   (:keymaps 'my/yas-command-map
             "y" #'ivy-yasnippet
             "n" #'yas-new-snippet
-            "v" #'yas-visit-snippet-file
-            ))
+            "v" #'yas-visit-snippet-file))
 
 ;; PROGRAMMING MODES ---------------------------------------------------------------------------
 
@@ -854,8 +838,7 @@
   (c-set-offset 'innamespace 0)
   (modify-syntax-entry ?_ "w" c-mode-syntax-table) ; _ is now part of a word
   (modify-syntax-entry ?_ "w" c++-mode-syntax-table) ; _ is now part of a word
-  (modify-syntax-entry ?_ "w" java-mode-syntax-table) ; _ is now part of a word
-  )
+  (modify-syntax-entry ?_ "w" java-mode-syntax-table)) ; _ is now part of a word
 
 ;; CMake
 (use-package cmake-mode
@@ -946,9 +929,7 @@
   (:keymaps 'LaTeX-mode-map
             :states 'normal
             "C-c e" #'TeX-next-error
-            "g s" #'pdf-sync-forward-search
-            )
-  )
+            "g s" #'pdf-sync-forward-search))
 
 ; Easily create references in LaTex
 (use-package reftex
@@ -971,8 +952,7 @@
   :config
   (local/custom bibtex-completion-bibliography)
   (local/custom bibtex-completion-library-path)
-  (local/custom bibtex-completion-notes-path)
-  )
+  (local/custom bibtex-completion-notes-path))
 
 ;; Vimrc
 (use-package vimrc-mode)

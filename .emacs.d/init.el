@@ -591,10 +591,14 @@
   (lsp-prefer-flymake nil)
   (lsp-enable-snippet nil)
   (lsp-clients-clangd-args '("--header-insertion=never" "--suggest-missing-includes"))
+  :config
+  (defun my/goto-definition-lsp (_string _position)
+    (when (bound-and-true-p lsp-mode)
+      (lsp-find-definition)))
+  (add-to-list 'evil-goto-definition-functions #'my/goto-definition-lsp)
   :general
   (:keymaps 'lsp-mode-map
-            "C-M-d" #'lsp-find-definition
-            ))
+            "C-M-a" #'lsp-execute-code-action))
 
 ; Fancy ui for LSP
 (use-package lsp-ui
@@ -698,7 +702,9 @@
   (projectile-mode t)
   :general
   (:keymaps 'projectile-command-map
-            "ESC" nil))
+            "ESC" nil
+            "s s" #'lsp-ivy-workspace-symbol
+            "s a" #'projectile-ag))
 
 ; Save recently visited files between sessions
 (use-package recentf

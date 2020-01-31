@@ -975,8 +975,7 @@
   )
 
 ;; Vimrc
-(use-package vimrc-mode
-  :mode "\\.vim\\(rc\\)?\\'")
+(use-package vimrc-mode)
 
 (require 'my-functions)
 (require 'my-org-setup)

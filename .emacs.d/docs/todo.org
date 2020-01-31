@@ -1,6 +1,6 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [3/17]
+* General [3/18]
 ** EVAL Try out :defer n
 - State "EVAL"       from "TODO"       [2019-12-18 Wed 16:24]
 - magit
@@ -111,6 +111,10 @@
 - Happens when line numbers are enabled
 ** TODO Load only specific things from custom file
 - Custom file can contain old settings that were removed from init file
+** TODO Find a way to do mode specific additions to prefix maps
+- For example bind "; a" to lsp-execute-code-action
+- generic function (handle)
+- derived prefix maps
 * Org-mode [2/7]
 ** EVAL Better bindings
 - State "EVAL"       from "TODO"       [2019-08-20 Tue 12:16]
@@ -135,7 +139,7 @@
 *** TODO Bon appetit
 ** TODO Figure out how to do archiving
 ** TODO Heading movement doesn't work in visual mode
-* Packages [3/19]                                                   :package:
+* Packages [3/20]                                                   :package:
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** EVAL lsp-ivy
@@ -191,3 +195,5 @@
 ** TODO Shackle
 - Enforce rules for popup windows
 - https://github.com/wasamasa/shackle
+** TODO straight.el
+- https://github.com/raxod502/straight.el

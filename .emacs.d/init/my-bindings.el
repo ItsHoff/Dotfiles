@@ -117,6 +117,8 @@
 
 (general-define-key :keymaps '(normal visual)
                     "; c" #'evilnc-comment-or-uncomment-lines
+                    "; i" #'evil-numbers/inc-at-pt
+                    "; d" #'evil-numbers/dec-at-pt
                     ; Clipboard paste and yank
                     "C-M-y" #'my/yank-clipboard
                     "C-M-S-y" #'my/yank-line-clipboard
@@ -147,8 +149,6 @@
                     "p" #'my/cycle-paste-hydra/evil-paste-after
                     "P" #'my/cycle-paste-hydra/evil-paste-before
                     "C-u" #'undo-tree-visualize
-                    "; i" #'evil-numbers/inc-at-pt
-                    "; d" #'evil-numbers/dec-at-pt
                     "g ;" #'my/goto-change-hydra/goto-last-change
                     "g '" #'my/goto-change-hydra/goto-last-change-reverse
                     ; Join + split

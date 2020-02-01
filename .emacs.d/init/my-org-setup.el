@@ -50,7 +50,6 @@ If CHECKBOX is non-nil, add a checkbox next to the bullet."
   (car (last (split-string url "/"))))
 
 (use-package org
-  :ensure org-plus-contrib
   :commands org-capture
   :init
   (add-hook 'org-mode-hook

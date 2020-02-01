@@ -9,28 +9,28 @@
 ; Load the custom file first so personal settings will always override it
 (load custom-file :noerror)
 
-(require 'package)
 (add-to-list 'load-path "~/.emacs.d/init/")
-(add-to-list 'load-path "~/.emacs.d/manual_packages/")
-(setq package-enable-at-startup nil)
-(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
-                         ("melpa" . "https://melpa.org/packages/")
-                         ("org" . "https://orgmode.org/elpa/")
-                         ("melpa-stable" . "https://stable.melpa.org/packages/")))
 
-(package-initialize)
+;; STRAIGHT -----------------------------------------------------------------------------------
 
-; bootstrap use-package
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-; and general
-(unless (package-installed-p 'general)
-  (package-refresh-contents)
-  (package-install 'general))
+(custom-set-variables '(straight-use-package-by-default t)
+                      ; Switched to develop since built-in packages messed up freezing
+                      '(straight-repository-branch "develop"))
 
-; Install all packages automatically
-(setq use-package-always-ensure t)
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+(straight-use-package 'use-package)
 
 ;; ANALYSIS ------------------------------------------------------------------------------------
 
@@ -205,13 +205,13 @@
 
 ; Company abbrev enables this
 (use-package abbrev
-  :ensure nil
+  :straight (:type built-in)
   :diminish abbrev-mode)
 
 ; Automatically reload changed files
 (use-package autorevert
   :demand t
-  :ensure nil
+  :straight (:type built-in)
   :diminish auto-revert-mode
   :custom
   (global-auto-revert-ignore-modes '(pdf-view-mode))
@@ -257,7 +257,7 @@
   :custom (company-lsp-enable-snippet nil))
 
 (use-package compile
-  :ensure nil
+  :straight (:type built-in)
   :after evil-collection
   :commands compilation-mode
   :custom
@@ -328,7 +328,7 @@
 ; Directory editor
 (use-package dired
   :after evil-collection
-  :ensure nil
+  :straight (:type built-in)
   :config
   (evil-collection-dired-setup)
   (put 'dired-find-alternate-file 'disabled nil) ; Allow dired to use the same buffer
@@ -401,8 +401,7 @@
 ; Frame utility
 (use-package framegroups
   :demand t
-  :ensure nil
-  :pin manual
+  :straight (:host github :repo "noctuid/framegroups.el")
   :config
   (defvar my/framegroups-command-map (make-sparse-keymap))
   (fset 'my/framegroups-command-map my/framegroups-command-map)
@@ -565,7 +564,7 @@
 
 ; Spell checking
 (use-package ispell
-  :ensure nil
+  :straight (:type built-in)
   :custom
   (ispell-silently-savep t)
   :config
@@ -634,7 +633,7 @@
 
 ; Structured file operations
 (use-package outline
-  :ensure nil
+  :straight (:type built-in)
   :diminish outline-minor-mode
   :init
   (add-hook 'prog-mode-hook (lambda () (outline-minor-mode)))
@@ -657,7 +656,7 @@
 
 ; Show matching parenthesis
 (use-package paren
-  :ensure nil
+  :straight (:type built-in)
   :custom
   (show-paren-when-point-inside-paren t)
   (show-paren-when-point-in-periphery t)
@@ -695,7 +694,7 @@
 ; Save recently visited files between sessions
 (use-package recentf
   :demand t
-  :ensure nil
+  :straight (:type built-in)
   :custom
   (recentf-max-saved-items 50)
   :config
@@ -706,12 +705,12 @@
 
 (use-package saveplace
   :demand t
-  :ensure nil
+  :straight (:type built-in)
   :config
   (save-place-mode t))
 
 (use-package smerge-mode
-  :ensure nil
+  :straight (:type built-in)
   :commands smerge-mode
   :config
   (evil-make-intercept-map smerge-mode-map 'motion)
@@ -787,7 +786,7 @@
 ; Could be used to also clean whitespace
 (use-package whitespace
   :demand t
-  :ensure nil
+  :straight (:type built-in)
   :diminish global-whitespace-mode
   :custom
   (whitespace-style '(trailing tabs space-before-tab tab-mark))
@@ -820,7 +819,7 @@
 ;; C and C++
 (use-package cc-mode
   :commands (c++-mode c-mode java-mode)
-  :ensure nil
+  :straight (:type built-in)
   :custom
   (c-default-style "bsd")
   (c-basic-offset 4)
@@ -860,7 +859,7 @@
 
 ;; ELisp
 (use-package elisp-mode
-  :ensure nil
+  :straight (:type built-in)
   :commands emacs-lisp-mode
   :init (add-hook 'emacs-lisp-mode-hook (lambda () (my/set-tab-width 2)))
   :config
@@ -884,7 +883,7 @@
 
 ;; Octave / Matlab
 (use-package octave-mode
-  :ensure nil
+  :straight (:type built-in)
   :mode "\\.m\\'"
   :commands octave-mode
   :init (add-hook 'octave-mode-hook (lambda () (my/set-tab-width 2))))
@@ -901,7 +900,7 @@
     (add-to-list 'company-backends '(company-anaconda :with company-capf))))
 
 (use-package python-mode
-  :ensure nil
+  :straight (:type built-in)
   :mode "SConstruct")
 
 ;; Rust
@@ -912,7 +911,7 @@
 
 ;; Tex
 (use-package tex
-  :ensure auctex
+  :straight auctex
   :commands latex-mode
   :custom
   (TeX-source-correlate-mode t)

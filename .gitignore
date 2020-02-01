@@ -3,6 +3,9 @@
 !.emacs.d/init/
 !.emacs.d/docs/
 !.emacs.d/snippets/
-!.emacs.d/manual_packages/
-!.emacs.d/.projectile
+
+!.emacs.d/straight/
+.emacs.d/straight/*
+!.emacs.d/straight/versions/
+
 local-conf.el

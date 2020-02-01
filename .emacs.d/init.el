@@ -7,7 +7,7 @@
 ; Save custom settings to another file so they don't mess up the init file
 (setq custom-file "~/.emacs.d/custom.el")
 ; Load the custom file first so personal settings will always override it
-(load custom-file :noerror)
+;; (load custom-file :noerror) ; Figure out a way to load only desired variables
 
 (add-to-list 'load-path "~/.emacs.d/init/")
 

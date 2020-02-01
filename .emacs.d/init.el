@@ -878,6 +878,10 @@
 (use-package kotlin-mode
   :commands kotlin-mode)
 
+;; Lua
+(use-package lua-mode
+  :commands lua-mode)
+
 ;; Octave / Matlab
 (use-package octave-mode
   :ensure nil

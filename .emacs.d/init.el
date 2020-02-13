@@ -225,7 +225,7 @@
 ; Used for swapping buffer positions in a window
 (use-package buffer-move
   :commands (buf-move-left buf-move-right buf-move-up buf-move-down)
-  :custom (buffer-move-stay-after-swap t))
+  :custom (buffer-move-stay-after-swap nil))
 
 ; Auto completion
 (use-package company

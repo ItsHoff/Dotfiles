@@ -1,6 +1,6 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [3/19]
+* General [3/20]
 ** EVAL Try out :defer n
 - State "EVAL"       from "TODO"       [2019-12-18 Wed 16:24]
 - magit
@@ -119,6 +119,8 @@
 ** TODO Investigate straight find failure
 - Apparently `call-process` evaluates wildcards on windows
 - https://github.com/raxod502/straight.el/issues/124
+** TODO Emacs package dev handbook
+- https://github.com/alphapapa/emacs-package-dev-handbook
 * Org-mode [2/7]
 ** EVAL Better bindings
 - State "EVAL"       from "TODO"       [2019-08-20 Tue 12:16]
@@ -143,7 +145,7 @@
 *** TODO Bon appetit
 ** TODO Figure out how to do archiving
 ** TODO Heading movement doesn't work in visual mode
-* Packages [3/19]                                                   :package:
+* Packages [3/20]                                                   :package:
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** EVAL doom-themes
@@ -199,3 +201,6 @@
 ** TODO Shackle
 - Enforce rules for popup windows
 - https://github.com/wasamasa/shackle
+** TODO ranger.el
+- Dired alternative
+- https://github.com/ralesi/ranger.el

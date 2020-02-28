@@ -707,7 +707,9 @@
   :config
   (add-to-list 'recentf-exclude "autoloads\\.el\\'")
   ; Exclude files with no suffix
-  (add-to-list 'recentf-exclude "/\\w*$")
+  ; Disabled 28.2.20 because it excluded some desired files
+  ; such as Jenkinsfile and paths with spaces
+  ;; (add-to-list 'recentf-exclude "/\\w*$")
   (recentf-mode 1))
 
 (use-package saveplace

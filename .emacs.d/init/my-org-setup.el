@@ -59,14 +59,13 @@ If CHECKBOX is non-nil, add a checkbox next to the bullet."
               (setq-local evil-move-beyond-eol t)
               (add-hook 'before-save-hook
                         (lambda () (org-update-statistics-cookies "All"))
-                        nil "local"))
-            ; Fix a problem with saveplace.el putting you back in a folded position
-            ; https://orgmode.org/worg/org-hacks.html#org3e7d06e
-            (lambda ()
-              (when (outline-invisible-p)
-                (save-excursion
-                  (outline-previous-visible-heading 1)
-                  (org-show-subtree)))))
+                        nil "local")
+              ; Fix a problem with saveplace.el putting you back in a folded position.
+              ; This is done find-file-hook because saveplace uses find-file-hook
+              ; to set the position. org-mode-hook should be evaluated before find-file-hook.
+              (add-hook 'find-file-hook
+                        (lambda () (org-reveal '(4)))
+                        "append" "local")))
   :custom
   (org-export-backends nil)
   (org-modules nil)
@@ -79,6 +78,7 @@ If CHECKBOX is non-nil, add a checkbox next to the bullet."
   (org-cycle-include-plain-lists nil)
   (org-insert-heading-respect-content nil)
   (org-M-RET-may-split-line '((default . nil))) ; Don't split line automatically
+  (org-show-context-detail '((default . lineage))) ; Always show lineage
   :config
   (dolist (cmd '(org-cycle org-shifttab org-ctrl-c-ctrl-c))
     (evil-declare-not-repeat cmd))

@@ -250,6 +250,7 @@
   (dotimes (i 10)
     (general-define-key :keymaps 'company-active-map
                         (format "C-%d" i) #'company-complete-number))
+  (setq company-backends (remove #'company-clang company-backends))
   (global-company-mode)
   :general
   (:keymaps 'company-active-map
@@ -257,6 +258,7 @@
 
 ; LSP backend for company
 (use-package company-lsp
+  :disabled ; 28.2.20 to test lsp-prefer-capf
   :commands company-lsp
   :custom (company-lsp-enable-snippet nil))
 
@@ -585,6 +587,7 @@
   (lsp-auto-guess-root t)
   (lsp-prefer-flymake nil)
   (lsp-enable-snippet nil)
+  (lsp-prefer-capf t)
   (lsp-clients-clangd-args '("--header-insertion=never" "--suggest-missing-includes"))
   :config
   (defun my/goto-definition-lsp (_string _position)

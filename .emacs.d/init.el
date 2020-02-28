@@ -63,6 +63,10 @@
 (setq create-lockfiles nil)         ; Don't create lockfiles
 (setq auto-save-default nil)        ; No auto-saves
 
+; Performance suggestions from lsp (https://github.com/emacs-lsp/lsp-mode#performance)
+(setq gc-cons-threshold (* 100 1024 1024)) ; 100 mb
+(setq read-process-output-max (* 1024 1024)) ; 1 mb
+
 ; Use nicer window splitting method for automatic splits
 (setq split-window-preferred-function #'my/split-only-root)
 

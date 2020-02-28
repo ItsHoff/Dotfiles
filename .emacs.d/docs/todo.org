@@ -1,16 +1,9 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [3/20]
+* General [2/21]
 ** EVAL Try out :defer n
 - State "EVAL"       from "TODO"       [2019-12-18 Wed 16:24]
 - magit
-** EVAL Magit conflicts
-- State "EVAL"       from "TODO"       [2019-09-10 Tue 16:35]
-- https://magit.vc/manual/magit/Resolving-Conflicts.html
-- smerge-next
-- smerge-previous
-- smerge-keep-upper
-- smerge-keep-lower
 ** EVAL Close extra buffers should not close the current buffer
 - State "EVAL"       from "TODO"       [2019-12-20 Fri 14:52]
 ** TODO Marks
@@ -116,11 +109,19 @@
 - generic function (handle)
 - derived prefix maps
 - Org-mode bindings work. Investigate why.
+** TODO Fix smerge bindings
+- [[*Find a way to do mode specific additions to prefix maps][Find a way to do mode specific additions to prefix maps]]
+- smerge-next
+- smerge-previous
+- smerge-keep-upper
+- smerge-keep-lower
 ** TODO Investigate straight find failure
 - Apparently `call-process` evaluates wildcards on windows
 - https://github.com/raxod502/straight.el/issues/124
 ** TODO Emacs package dev handbook
 - https://github.com/alphapapa/emacs-package-dev-handbook
+** TODO Clean up company-backends
+[[compdef][compdef]]
 * Org-mode [2/7]
 ** EVAL Better bindings
 - State "EVAL"       from "TODO"       [2019-08-20 Tue 12:16]

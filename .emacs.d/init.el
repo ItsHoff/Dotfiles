@@ -958,9 +958,9 @@
   (bibtex-completion-cite-prompt-for-optional-arguments nil)
   (bibtex-completion-format-citation-functions
    '((org-mode . bibtex-completion-format-citation-org-link-to-PDF)
-   (latex-mode . bibtex-completion-format-citation-cite)
-   (markdown-mode . bibtex-completion-format-citation-pandoc-citeproc)
-   (default . bibtex-completion-format-citation-default)))
+     (latex-mode . bibtex-completion-format-citation-cite)
+     (markdown-mode . bibtex-completion-format-citation-pandoc-citeproc)
+     (default . bibtex-completion-format-citation-default)))
   :config
   (local/custom bibtex-completion-bibliography)
   (local/custom bibtex-completion-library-path)

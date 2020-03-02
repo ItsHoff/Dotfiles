@@ -109,6 +109,11 @@
 - generic function (handle)
 - derived prefix maps
 - Org-mode bindings work. Investigate why.
+  - Regular ; bindings use evil global maps
+  - org-mode binds with :states so to evil auxiliary maps
+  - lsp binds without :states so minor mode maps
+  - And the preference is evil-auxiliary > evil-global > minor-mode
+  - Also evil probably does some magic so auxiliary binds work together with global binds
 ** TODO Fix smerge bindings
 - [[*Find a way to do mode specific additions to prefix maps][Find a way to do mode specific additions to prefix maps]]
 - smerge-next

@@ -698,14 +698,14 @@
 (use-package smerge-mode
   :straight (:type built-in)
   :commands smerge-mode
-  :config
-  (evil-make-intercept-map smerge-mode-map 'motion)
   :general
-  (:keymaps 'smerge-mode-map
+  (:definer 'minor-mode
+            :keymaps 'smerge-mode
+            :states 'normal
             "<up>" #'smerge-prev
             "<down>" #'smerge-next
-            "<left>" #'smerge-keep-upper
-            "<right>" #'smerge-keep-lower
+            "C-M-w" #'smerge-keep-upper
+            "C-M-s" #'smerge-keep-lower
             "C-M-a" #'smerge-keep-all))
 
 ; Modeline

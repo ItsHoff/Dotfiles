@@ -1,11 +1,18 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [2/21]
+* General [3/21]
 ** EVAL Try out :defer n
 - State "EVAL"       from "TODO"       [2019-12-18 Wed 16:24]
 - magit
 ** EVAL Close extra buffers should not close the current buffer
 - State "EVAL"       from "TODO"       [2019-12-20 Fri 14:52]
+** EVAL Fix smerge bindings
+- State "EVAL"       from "TODO"       [2020-03-03 ti 11:21]
+- [[*Find a way to do mode specific additions to prefix maps][Find a way to do mode specific additions to prefix maps]]
+- smerge-next
+- smerge-previous
+- smerge-keep-upper
+- smerge-keep-lower
 ** TODO Marks
 - M create mark
 - m jump to mark
@@ -114,12 +121,6 @@
   - lsp binds without :states so minor mode maps
   - And the preference is evil-auxiliary > evil-global > minor-mode
   - Also evil probably does some magic so auxiliary binds work together with global binds
-** TODO Fix smerge bindings
-- [[*Find a way to do mode specific additions to prefix maps][Find a way to do mode specific additions to prefix maps]]
-- smerge-next
-- smerge-previous
-- smerge-keep-upper
-- smerge-keep-lower
 ** TODO Investigate straight find failure
 - Apparently `call-process` evaluates wildcards on windows
 - https://github.com/raxod502/straight.el/issues/124

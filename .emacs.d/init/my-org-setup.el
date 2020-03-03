@@ -82,6 +82,12 @@ If CHECKBOX is non-nil, add a checkbox next to the bullet."
   :config
   (dolist (cmd '(org-cycle org-shifttab org-ctrl-c-ctrl-c))
     (evil-declare-not-repeat cmd))
+  (dolist (cmd '(outline-next-visible-heading
+                 outline-previous-visible-heading
+                 outline-forward-same-level
+                 outline-backward-same-level))
+    (evil-declare-motion cmd)
+    (evil-declare-not-repeat cmd))
   ; https://orgmode.org/manual/Capture-templates.html#Capture-templates
   (setq org-capture-templates
         '(("e" "Emacs todo" entry (file+olp "~/.emacs.d/docs/todo.org" "General")

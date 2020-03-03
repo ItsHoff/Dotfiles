@@ -638,29 +638,6 @@
   :custom
   (olivetti-body-width 80))
 
-; Structured file operations
-(use-package outline
-  :straight (:type built-in)
-  :diminish outline-minor-mode
-  :init
-  (add-hook 'prog-mode-hook (lambda () (outline-minor-mode)))
-  :config
-  ; 10.8.19
-  ;; (evil-make-overriding-map outline-minor-mode-map 'motion)
-  (dolist (cmd '(outline-next-visible-heading
-                 outline-previous-visible-heading
-                 outline-forward-same-level
-                 outline-backward-same-level))
-    (evil-declare-motion cmd)
-    (evil-declare-not-repeat cmd))
-  :general
-  (:keymaps 'outline-minor-mode-map
-            :states '(normal visual)
-            "<down>" #'outline-next-visible-heading
-            "<up>" #'outline-previous-visible-heading
-            "<right>" #'outline-forward-same-level
-            "<left>" #'outline-backward-same-level))
-
 ; Show matching parenthesis
 (use-package paren
   :straight (:type built-in)

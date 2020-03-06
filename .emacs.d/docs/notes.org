@@ -86,6 +86,7 @@
   - As a result, state minor mode binding might not work without state change
   - https://github.com/emacs-evil/evil/issues/130
   - https://github.com/emacs-evil/evil/issues/301
+  - So, prefer :definer 'minor-mode to set minor-mode bindings (uses 'evil-define-minor-mode-key')
 ** Sources
 - https://github.com/syl20bnr/spacemacs/wiki/Keymaps-guide
 - https://github.com/noctuid/general.el#override-keymaps-and-buffer-local-keybindings

@@ -1,6 +1,6 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [3/21]
+* General [3/19]
 ** EVAL Try out :defer n
 - State "EVAL"       from "TODO"       [2019-12-18 Wed 16:24]
 - magit
@@ -94,11 +94,7 @@
 - imenu might be good enough
 - but automatic jump would be nice
 - https://old.reddit.com/r/emacs/comments/3mtus3/how_to_display_a_list_of_classes_functions_etc/
-** TODO dired
-- https://github.com/Fuco1/dired-hacks
-- https://www.emacswiki.org/emacs/DiredPlus
 ** TODO Add toggle for lsp-ui hover and doc
-** TODO Add lsp-mode binds
 ** TODO Move company select to f keys
 ** TODO Send file to visual studio
 - https://blogs.msdn.microsoft.com/saraford/2008/11/19/did-you-know-you-can-use-devenv-exe-edit-to-open-a-file-in-an-existing-visual-studio-instance-360/

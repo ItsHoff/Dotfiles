@@ -132,6 +132,9 @@ _-_: Toggle bullet
             "<right>" #'org-forward-heading-same-level
             "<left>" #'org-backward-heading-same-level
             "C-M-u" #'outline-up-heading
+            )
+  (:keymaps 'org-mode-map
+            :states '(normal visual insert)
             "M-h" #'org-metaleft
             "M-H" #'org-shiftmetaleft
             "M-l" #'org-metaright

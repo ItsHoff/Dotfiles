@@ -1,6 +1,6 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [3/19]
+* General [3/20]
 ** EVAL Try out :defer n
 - State "EVAL"       from "TODO"       [2019-12-18 Wed 16:24]
 - magit
@@ -124,6 +124,12 @@
 - https://github.com/alphapapa/emacs-package-dev-handbook
 ** TODO Clean up company-backends
 [[compdef][compdef]]
+** TODO Add action to counsel-find-file and ivy-switch-buffer
+- Action exists (M-o j), but have a direct binding
+- ivy-switch-buffer-map
+- ivy--switch-buffer-other-window-action
+- counsel-find-file-map
+- find-file-other-window
 * Org-mode [2/7]
 ** EVAL Better bindings
 - State "EVAL"       from "TODO"       [2019-08-20 Tue 12:16]

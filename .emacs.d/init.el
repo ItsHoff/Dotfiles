@@ -312,7 +312,10 @@
   :general
   (:keymaps 'ivy-minibuffer-map
             "C-h" #'ivy-alt-done
-            "<escape>" #'minibuffer-keyboard-quit))
+            "<escape>" #'minibuffer-keyboard-quit)
+  (:keymaps 'ivy-occur-grep-mode-map
+            "n" nil) ; Conflicts with search (was next-error-no-select)
+  )
 
 ; Save and restore emacs session
 (use-package desktop

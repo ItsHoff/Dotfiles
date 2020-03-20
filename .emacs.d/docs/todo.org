@@ -148,7 +148,7 @@
 *** TODO Bon appetit
 ** TODO Figure out how to do archiving
 ** TODO Heading movement doesn't work in visual mode
-* Packages [3/20]                                                   :package:
+* Packages [3/22]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** EVAL doom-themes
@@ -207,3 +207,10 @@
 ** TODO ranger.el
 - Dired alternative
 - https://github.com/ralesi/ranger.el
+** TODO dimmer.el
+- Visually highlight the selected buffer.
+- https://github.com/gonewest818/dimmer.el
+- Though, it is often the case that other buffers contain relevant info
+** TODO org-roam
+- Rudimentary Roam replica with Org-mode
+- https://github.com/jethrokuan/org-roam

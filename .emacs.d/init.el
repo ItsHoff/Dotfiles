@@ -146,7 +146,7 @@
 ;; HOOKS ---------------------------------------------------------------------------------------
 
 ; Save when emacs loses focus
-(add-hook 'focus-out-hook (lambda () (interactive) (save-some-buffers t)))
+(add-hook 'focus-out-hook (lambda () (save-some-buffers t)))
 
 ; Remove trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)

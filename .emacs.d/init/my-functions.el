@@ -252,5 +252,12 @@ Filters arguments for undo-tree-undo-1 and undo-tree-redo-1.
 Advice type: filter-args."
   (list (nth 0 args) (nth 1 args) t))
 
+; https://github.com/bbatsov/solarized-emacs/issues/390#issuecomment-576626439
+(defun my/disable-all-themes()
+  "Disable all currently active themes."
+  (interactive)
+  (dolist (v custom-enabled-themes)
+    (disable-theme v)))
+
 (provide 'my-functions)
 ;;; my-functions.el ends here

@@ -615,7 +615,9 @@
 (use-package magit
   :defer 2
   :commands (magit-status magit-blame-addition)
-  :custom (magit-diff-paint-whitespace-lines 'all)
+  :custom
+  (magit-diff-paint-whitespace-lines 'all)
+  (magit-diff-refine-hunk 'all)
   :config
   (use-package evil-magit
     :custom (evil-magit-want-horizontal-movement t))

@@ -350,6 +350,7 @@
   :init (add-hook 'prog-mode-hook #'display-line-numbers-mode))
 
 (use-package doom-themes
+  :disabled ; 20.3.2020
   :demand t
   :config
   ;; Enable flashing mode-line on errors
@@ -728,7 +729,6 @@
 
 ; Color theme
 (use-package solarized-theme
-  :disabled ; 9.1.2020
   :demand t
   :config
   (load-theme 'solarized-dark t)

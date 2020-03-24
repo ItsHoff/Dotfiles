@@ -248,6 +248,7 @@
   (use-package company-flx
     :config (company-flx-mode t))
   (use-package company-posframe
+    :diminish company-posframe-mode
     :config (company-posframe-mode 1))
   (dotimes (i 10)
     (general-define-key :keymaps 'company-active-map

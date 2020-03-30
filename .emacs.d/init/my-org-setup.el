@@ -45,6 +45,15 @@ If CHECKBOX is non-nil, add a checkbox next to the bullet."
   (my/org-insert-item-below t)
   (evil-insert 1))
 
+(defvar my/org-property-list nil "List of properties to add with my/org-add-properties.")
+
+(defun my/org-add-properties ()
+  "Add properties listed in my/org-property-list to current entry."
+  (interactive)
+  (dolist (property my/org-property-list)
+    (when (not (org-entry-get (point) property))
+      (org-entry-put (point) property nil))))
+
 (defun my/extract-package-name (url)
   "Extract package name from URL."
   (car (last (split-string url "/"))))
@@ -123,7 +132,7 @@ _-_: Toggle bullet
             "; c" #'my/org-insert-checkbox-below
             "; C" #'my/org-insert-checkbox-above
             "; g" #'org-set-tags-command
-            "; p" #'org-priority
+            "; p" #'my/org-add-properties
             "; w" #'org-refile
             "; a" #'org-archive-subtree
             "; t" #'my/org-hydra/org-todo

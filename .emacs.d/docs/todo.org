@@ -1,6 +1,6 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [3/20]
+* General [3/21]
 ** EVAL Try out :defer n
 - State "EVAL"       from "TODO"       [2019-12-18 Wed 16:24]
 - magit
@@ -130,6 +130,7 @@
 - ivy--switch-buffer-other-window-action
 - counsel-find-file-map
 - find-file-other-window
+** TODO Enter not working with company-posframe
 * Org-mode [2/7]
 ** EVAL Better bindings
 - State "EVAL"       from "TODO"       [2019-08-20 Tue 12:16]
@@ -149,9 +150,11 @@
 - State "EVAL"       from "TODO"       [2020-01-10 pe 16:49]
 *** TODO Work todo
 ** TODO Org-mode agenda templates [0/0]
-** TODO Add org-chef sites [0/2]
+** TODO Add org-chef sites [0/4]
 *** TODO Smitten kitchen
 *** TODO Bon appetit
+*** TODO Alton Brown
+*** TODO Binging with Babish
 ** TODO Figure out how to do archiving
 ** TODO Heading movement doesn't work in visual mode
 * Packages [4/23]

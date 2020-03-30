@@ -125,6 +125,7 @@ _-_: Toggle bullet
             "; g" #'org-set-tags-command
             "; p" #'org-priority
             "; w" #'org-refile
+            "; a" #'org-archive-subtree
             "; t" #'my/org-hydra/org-todo
             "; -" #'my/org-hydra/org-ctrl-c-minus
             "<down>" #'outline-next-visible-heading

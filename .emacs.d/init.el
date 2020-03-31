@@ -156,6 +156,10 @@
 
 ;; PACKAGES ------------------------------------------------------------------------------------
 
+; Hide packages from modeline
+(use-package diminish
+  :demand t)
+
 ; Keybinding utilities
 (use-package general
   :demand t
@@ -335,10 +339,6 @@
   (desktop-locals-to-save nil)
   :config
   (desktop-save-mode 1))
-
-; Hide packages from modeline
-(use-package diminish
-  :demand t)
 
 ; Directory editor
 (use-package dired

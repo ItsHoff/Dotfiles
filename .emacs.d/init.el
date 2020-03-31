@@ -67,6 +67,9 @@
 (setq gc-cons-threshold (* 100 1024 1024)) ; 100 mb
 (setq read-process-output-max (* 1024 1024)) ; 1 mb
 
+; Don't compact font caches. Will consume more memory, but improves performance.
+(setq inhibit-compacting-font-caches t)
+
 ; Use nicer window splitting method for automatic splits
 (setq split-window-preferred-function #'my/split-only-root)
 

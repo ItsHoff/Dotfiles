@@ -6,7 +6,9 @@
 (defun my/test-function ()
   "Function for testing things."
   (interactive)
-  (message "test")
+  (message "test"))
+
+(defun my/lsp-test ()
   (lsp-request-async "textDocument/documentSymbol"
                      `(:textDocument ,(lsp--text-document-identifier))
                      (lambda (document-symbols)

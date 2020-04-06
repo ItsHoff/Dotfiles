@@ -156,7 +156,7 @@
 *** TODO Binging with Babish
 ** TODO Figure out how to do archiving
 ** TODO Heading movement doesn't work in visual mode
-* Packages [4/23]
+* Packages [4/25]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** EVAL doom-themes
@@ -225,3 +225,9 @@
 ** TODO org-roam
 - Rudimentary Roam replica with Org-mode
 - https://github.com/jethrokuan/org-roam
+** TODO org-superstar-mode
+- Make org-mode stars a little more super
+- https://github.com/integral-dw/org-superstar-mode
+** TODO org-spacer.el
+- Enforce the number of blank lines between elements in an org-mode document
+- https://github.com/dustinlacewell/org-spacer.el

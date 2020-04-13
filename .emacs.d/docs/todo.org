@@ -51,6 +51,13 @@
     - save a cycle level
     - allow jumps to higher levels
     - disable jumps to lower levels
+  - Idea:
+    - Allow to go via next higher level node
+    - A - B - C - B - C can jump C to C via B
+    - A - B - C - A - B - C can jump C to C via A - B
+    - A - B - C - B - A - B - C cannot jump C to C, since the following B does not have C level node
+    - A - B - C - A - B - B - A - C cannot jump C to C, since the following B does not have C level node
+    - A - B - C - A - A - B - C cannot jump C to C, since the following A does not have C level node
 ***** (next or prev) parent level node
 - fall back to sibling at top level
 **** Current setup
@@ -130,7 +137,7 @@
 - ivy--switch-buffer-other-window-action
 - counsel-find-file-map
 - find-file-other-window
-* Org-mode [2/7]
+* Org-mode [2/8]
 ** EVAL Better bindings
 - State "EVAL"       from "TODO"       [2019-08-20 Tue 12:16]
 - [X] tags
@@ -156,6 +163,8 @@
 *** TODO Binging with Babish
 ** TODO Figure out how to do archiving
 ** TODO Heading movement doesn't work in visual mode
+** TODO org-goto
+https://emacs.stackexchange.com/questions/32617/how-to-jump-directly-to-an-org-headline
 * Packages [4/25]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet

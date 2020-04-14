@@ -1,6 +1,6 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [3/20]
+* General [3/21]
 ** EVAL Try out :defer n
 - State "EVAL"       from "TODO"       [2019-12-18 Wed 16:24]
 - magit
@@ -137,7 +137,8 @@
 - ivy--switch-buffer-other-window-action
 - counsel-find-file-map
 - find-file-other-window
-* Org-mode [2/8]
+** TODO my/split-line messes up dot
+* Org-mode [2/9]
 ** EVAL Better bindings
 - State "EVAL"       from "TODO"       [2019-08-20 Tue 12:16]
 - [X] tags
@@ -165,6 +166,7 @@
 ** TODO Heading movement doesn't work in visual mode
 ** TODO org-goto
 https://emacs.stackexchange.com/questions/32617/how-to-jump-directly-to-an-org-headline
+** TODO org-habit
 * Packages [4/25]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet

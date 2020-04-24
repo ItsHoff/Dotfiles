@@ -584,7 +584,10 @@
   (local/custom ispell-program-name))
 
 (use-package lsp-ivy
-  :commands (lsp-ivy-workspace-symbol lsp-ivy-global-workspace-symbol))
+  :commands (lsp-ivy-workspace-symbol lsp-ivy-global-workspace-symbol)
+  :config
+  (evil-add-command-properties #'lsp-ivy-workspace-symbol :jump t)
+  (evil-add-command-properties #'lsp-ivy-global-workspace-symbol :jump t))
 
 ; LSP support
 (use-package lsp-mode

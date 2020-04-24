@@ -1,6 +1,6 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [3/21]
+* General [3/22]
 ** EVAL Try out :defer n
 - State "EVAL"       from "TODO"       [2019-12-18 Wed 16:24]
 - magit
@@ -138,6 +138,8 @@
 - counsel-find-file-map
 - find-file-other-window
 ** TODO my/split-line messes up dot
+** TODO Try start-up optimizations
+- https://old.reddit.com/r/emacs/comments/fyqkip/rme_ryans_minimal_emacs/fn21psa/
 * Org-mode [2/9]
 ** EVAL Better bindings
 - State "EVAL"       from "TODO"       [2019-08-20 Tue 12:16]
@@ -167,7 +169,7 @@
 ** TODO org-goto
 https://emacs.stackexchange.com/questions/32617/how-to-jump-directly-to-an-org-headline
 ** TODO org-habit
-* Packages [4/25]
+* Packages [4/26]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** EVAL doom-themes
@@ -242,3 +244,6 @@ https://emacs.stackexchange.com/questions/32617/how-to-jump-directly-to-an-org-h
 ** TODO org-spacer.el
 - Enforce the number of blank lines between elements in an org-mode document
 - https://github.com/dustinlacewell/org-spacer.el
+** TODO prescient.el
+- Simple but effective sorting and filtering for Emacs.
+- https://github.com/raxod502/prescient.el

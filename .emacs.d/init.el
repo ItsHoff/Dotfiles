@@ -603,6 +603,7 @@
   (defun my/goto-definition-lsp (_string _position)
     (when (bound-and-true-p lsp-mode)
       (not (stringp (lsp-find-definition)))))
+  (setq evil-goto-definition-functions (delete #'evil-goto-definition-search evil-goto-definition-functions))
   (add-to-list 'evil-goto-definition-functions #'my/goto-definition-lsp)
   :general
   (:keymaps 'lsp-mode-map

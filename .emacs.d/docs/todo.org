@@ -169,7 +169,7 @@
 ** TODO org-goto
 https://emacs.stackexchange.com/questions/32617/how-to-jump-directly-to-an-org-headline
 ** TODO org-habit
-* Packages [4/26]
+* Packages [4/28]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** EVAL doom-themes
@@ -247,3 +247,10 @@ https://emacs.stackexchange.com/questions/32617/how-to-jump-directly-to-an-org-h
 ** TODO prescient.el
 - Simple but effective sorting and filtering for Emacs.
 - https://github.com/raxod502/prescient.el
+** TODO winds.el
+- Window configuration switcher grouped by workspaces
+- https://github.com/Javyre/winds.el
+** TODO emacs-keypression
+- Keystroke visualizer for GUI version Emacs
+- Can also show the called functions, which is super useful for debugging
+- https://github.com/chuntaro/emacs-keypression

@@ -168,98 +168,97 @@ endif
 
 " PLUGIN SETTINGS---------------------------------------------------------------
 
-" Airline
-let g:airline_powerline_fonts = 1
-" if !exists('g:airline_symbols')
-    " let g:airline_symbols = {}
-" endif
-" let g:airline_symbols.space = "\ua0"
+" " Airline
+" let g:airline_powerline_fonts = 1
+" " if !exists('g:airline_symbols')
+"     " let g:airline_symbols = {}
+" " endif
+" " let g:airline_symbols.space = "\ua0"
 
-" Delimit Mate
-let delimitMate_nesting_quotes = ["'", '"']
-imap <C-L> <Plug>delimitMateS-Tab
+" " Delimit Mate
+" let delimitMate_nesting_quotes = ["'", '"']
+" imap <C-L> <Plug>delimitMateS-Tab
 
-" Gundo
-nnoremap <F9> :GundoToggle<CR>
+" " Gundo
+" nnoremap <F9> :GundoToggle<CR>
 
+" " Nerd-commenter
+" let g:NERDSpaceDelims = 1
 
-" Nerd-commenter
-let g:NERDSpaceDelims = 1
+" " Nerd Tree
+" map <C-n> :NERDTreeToggle<CR>
 
-" Nerd Tree
-map <C-n> :NERDTreeToggle<CR>
+" " Pymode
+" let g:pymode = 1
+" let g:pymode_options = 0   "  _max_line_length = 0
+" let g:pymode_lint = 0
+" let g:pymode_folding = 0
+" let g:pymode_rope = 0
+" let g:pymode_rope_completion = 0
+" let g:pymode_run_bind = ''
 
-" Pymode
-let g:pymode = 1
-let g:pymode_options = 0   "  _max_line_length = 0
-let g:pymode_lint = 0
-let g:pymode_folding = 0
-let g:pymode_rope = 0
-let g:pymode_rope_completion = 0
-let g:pymode_run_bind = ''
+" " Quick-Scope
+" let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
-" Quick-Scope
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+" " Syntastic
+" nnoremap <leader>le :Errors<CR>
+" nnoremap <localleader>ss :SyntasticCheck<CR>
+" let g:syntastic_aggregate_errors = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_cursor_column = 0
+" let g:syntastic_auto_jump = 0
+" let g:syntastic_python_pylint_quiet_messages = {"regex": 'C0103'}
+" let g:syntastic_python_pylint_args = "--max-line-length=90
+"                                     \ --disable=C0103,R0201"
+" let g:syntastic_mode_map = { "mode": "active",
+"                            \ "active_filetypes": [],
+"                            \ "passive_filetypes": ["tex"] }
 
-" Syntastic
-nnoremap <leader>le :Errors<CR>
-nnoremap <localleader>ss :SyntasticCheck<CR>
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_cursor_column = 0
-let g:syntastic_auto_jump = 0
-let g:syntastic_python_pylint_quiet_messages = {"regex": 'C0103'}
-let g:syntastic_python_pylint_args = "--max-line-length=90
-                                    \ --disable=C0103,R0201"
-let g:syntastic_mode_map = { "mode": "active",
-                           \ "active_filetypes": [],
-                           \ "passive_filetypes": ["tex"] }
+" " UltiSnips
+" let g:UltiSnipsExpandTrigger="<c-j>"
+" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
-" UltiSnips
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+" " Unite
+" " The prefix key.
+" nnoremap [unite] <Nop>
+" nmap <leader>u [unite]
 
-" Unite
-" The prefix key.
-nnoremap [unite] <Nop>
-nmap <leader>u [unite]
+" call unite#custom#profile('default', 'context', {
+" \   'start_insert': 0,
+" \   'smartcase': 1
+" \ })
 
-call unite#custom#profile('default', 'context', {
-\   'start_insert': 0,
-\   'smartcase': 1
-\ })
+" call unite#custom#source('file, file/new, buffer, file_rec',
+"         \ 'matchers', 'matcher_fuzzy')
+" call unite#custom#source('file, file/new, buffer, file_rec',
+"         \ 'sorters', 'sorter_selecta')
+" let g:unite_source_history_yank_enable = 1
 
-call unite#custom#source('file, file/new, buffer, file_rec',
-        \ 'matchers', 'matcher_fuzzy')
-call unite#custom#source('file, file/new, buffer, file_rec',
-        \ 'sorters', 'sorter_selecta')
-let g:unite_source_history_yank_enable = 1
+" nnoremap [unite]f :<C-u>Unite -buffer-name=files -start-insert file/async:!<CR>
+" nnoremap [unite]b :<C-u>Unite -buffer-name=buffers buffer<CR>
+" nnoremap [unite]c :<C-u>Unite -buffer-name=commands -start-insert command<CR>
+" nnoremap [unite]m :<C-u>Unite -buffer-name=mappings -start-insert mapping<CR>
+" nnoremap [unite]g :<C-u>Unite -buffer-name=grep grep:.<CR>
+" nnoremap [unite]y :<C-u>Unite -buffer-name=yank history/yank<CR>
+" nnoremap [unite]w :<C-u>UniteWithCursorWord -buffer-name=grep_word grep:.<CR>
 
-nnoremap [unite]f :<C-u>Unite -buffer-name=files -start-insert file/async:!<CR>
-nnoremap [unite]b :<C-u>Unite -buffer-name=buffers buffer<CR>
-nnoremap [unite]c :<C-u>Unite -buffer-name=commands -start-insert command<CR>
-nnoremap [unite]m :<C-u>Unite -buffer-name=mappings -start-insert mapping<CR>
-nnoremap [unite]g :<C-u>Unite -buffer-name=grep grep:.<CR>
-nnoremap [unite]y :<C-u>Unite -buffer-name=yank history/yank<CR>
-nnoremap [unite]w :<C-u>UniteWithCursorWord -buffer-name=grep_word grep:.<CR>
+" nnoremap [unite]r :<C-u>UniteResume<CR>
 
-nnoremap [unite]r :<C-u>UniteResume<CR>
+" nnoremap [unite]n :<C-u>UniteNext<CR>
+" nnoremap [unite]p :<C-u>UnitePrevious<CR>
 
-nnoremap [unite]n :<C-u>UniteNext<CR>
-nnoremap [unite]p :<C-u>UnitePrevious<CR>
+" " Vimtex
+" let g:vimtex_view_general_viewer = 'SumatraPDF'
+" let g:vimtex_view_general_options = '-forward-search @tex @line @pdf'
+" let g:vimtex_view_general_options_latexmk = '-reuse-instance'
 
-" Vimtex
-let g:vimtex_view_general_viewer = 'SumatraPDF'
-let g:vimtex_view_general_options = '-forward-search @tex @line @pdf'
-let g:vimtex_view_general_options_latexmk = '-reuse-instance'
-
-" YCM
-let g:ycm_global_ycm_extra_conf = ""
-let g:ycm_confirm_extra_conf = 1
-nnoremap <leader>a :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
+" " YCM
+" let g:ycm_global_ycm_extra_conf = ""
+" let g:ycm_confirm_extra_conf = 1
+" nnoremap <leader>a :YcmCompleter GoToDeclaration<CR>
+" nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
 
 
 " MAPPINGS----------------------------------------------------------------------

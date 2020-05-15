@@ -53,7 +53,6 @@ to the hard beginning of line."
     (when (<= save-point (point))
         (evil-beginning-of-line))))
 
-(evil-declare-not-repeat #'my/beginning-of-line)
 (evil-declare-motion #'my/beginning-of-line)
 
 ; https://stackoverflow.com/a/9597612
@@ -73,7 +72,6 @@ If point is at or ahead of it move to last character."
     (when (>= save-point (point))
         (evil-end-of-line))))
 
-(evil-declare-not-repeat #'my/end-of-line)
 (evil-declare-motion #'my/end-of-line)
 
 (defun my/split-line ()

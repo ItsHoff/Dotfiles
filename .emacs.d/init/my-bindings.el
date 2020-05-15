@@ -58,7 +58,7 @@
 ; Non-insert + emacs (for special emacs state buffers)
 (general-define-key :keymaps 'override
                     :states  '(motion normal visual emacs)
-                    "C-M-S-s-t" #'my/test-function
+                    "C-M-S-t" #'my/test-function
                     "M-u" #'universal-argument
                     "M-g" #'keyboard-quit
                     "C-z" #'suspend-emacs

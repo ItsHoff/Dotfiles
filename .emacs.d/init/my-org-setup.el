@@ -45,6 +45,43 @@ If CHECKBOX is non-nil, add a checkbox next to the bullet."
   (my/org-insert-item-below t)
   (evil-insert 1))
 
+(defun my/outline-up-heading ()
+  "Go up to the parent heading.
+If already at top heading go to the next heading above."
+  (interactive)
+  (if (not (outline-on-heading-p))
+      (outline-back-to-heading)
+    (let ((start-level (outline-level)) target-level)
+      (if (> start-level 2)
+          (setq target-level (- start-level 1))
+        (setq target-level start-level)
+        (outline-previous-visible-heading 1))
+      (let ((level (outline-level)))
+        (while (and (> level target-level) (not (bobp)))
+          (outline-previous-visible-heading 1)
+          (setq level (outline-level)))))))
+
+(evil-declare-motion #'my/outline-up-heading)
+
+(defun my/outline-down-heading ()
+  "Go down to heading of higher level.
+If already at top heading go to the next heading below.
+Goto end if no lower higher level headings."
+  (interactive)
+  (if (not (outline-on-heading-p))
+      (progn (outline-back-to-heading) (outline-next-visible-heading 1))
+    (let ((start-level (outline-level)) target-level)
+      (if (> start-level 2)
+          (setq target-level (- start-level 1))
+        (setq target-level start-level)
+        (outline-next-visible-heading 1))
+      (let ((level (outline-level)))
+        (while (and (> level target-level) (not (eobp)))
+          (outline-next-visible-heading 1)
+          (setq level (outline-level)))))))
+
+(evil-declare-motion #'my/outline-down-heading)
+
 (defvar my/org-property-list nil "List of properties to add with my/org-add-properties.")
 
 (defun my/org-add-properties ()
@@ -141,7 +178,8 @@ _-_: Toggle bullet
             "<up>" #'outline-previous-visible-heading
             "<right>" #'org-forward-heading-same-level
             "<left>" #'org-backward-heading-same-level
-            "C-M-u" #'outline-up-heading
+            "C-M-p" #'my/outline-up-heading
+            "C-M-n" #'my/outline-down-heading
             )
   (:keymaps 'org-mode-map
             :states '(normal visual insert)

@@ -207,45 +207,6 @@ Perform the split along the longest axis."
   (interactive "<R>")
   (evil-yank-line beg end type ?+))
 
-(defun my/outline-up-heading ()
-  "Go up to the parent heading.
-If already at top heading go to the next heading above."
-  (interactive)
-  (if (not (outline-on-heading-p))
-      (outline-back-to-heading)
-    (let ((start-level (outline-level)) target-level)
-      (if (> start-level 2)
-          (setq target-level (- start-level 1))
-        (setq target-level start-level)
-        (outline-previous-visible-heading 1))
-      (let ((level (outline-level)))
-        (while (and (> level target-level) (not (bobp)))
-          (outline-previous-visible-heading 1)
-          (setq level (outline-level)))))))
-
-(evil-declare-not-repeat #'my/outline-up-heading)
-(evil-declare-motion #'my/outline-up-heading)
-
-(defun my/outline-down-heading ()
-  "Go down to heading of higher level.
-If already at top heading go to the next heading below.
-Goto end if no lower higher level headings."
-  (interactive)
-  (if (not (outline-on-heading-p))
-      (progn (outline-back-to-heading) (outline-next-visible-heading 1))
-    (let ((start-level (outline-level)) target-level)
-      (if (> start-level 2)
-          (setq target-level (- start-level 1))
-        (setq target-level start-level)
-        (outline-next-visible-heading 1))
-      (let ((level (outline-level)))
-        (while (and (> level target-level) (not (eobp)))
-          (outline-next-visible-heading 1)
-          (setq level (outline-level)))))))
-
-(evil-declare-not-repeat #'my/outline-down-heading)
-(evil-declare-motion #'my/outline-down-heading)
-
 (defun my/advice-preserve-timestamps (args)
   "Change preserve-timestamps in ARGS to t.
 Filters arguments for undo-tree-undo-1 and undo-tree-redo-1.

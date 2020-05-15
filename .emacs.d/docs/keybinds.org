@@ -325,12 +325,15 @@
    | k   | evil-window-up    | under Ctrl |
    | l   | evil-window-right | under Ctrl |
 ** Caps layer - Control-Meta
-| Key     | Function                  | Comment |
-|---------+---------------------------+---------|
-| C-M-y   | my/yank-clipboard         |         |
-| C-M-S-y | my/yank-line-clipboard    |         |
-| C-M-p   | my/paste-clipboard-after  |         |
-| C-M-S-p | my/paste-clipboard-before |         |
+| Key     | Function                           | Comment |
+|---------+------------------------------------+---------|
+| C-M-p   | my/outline-up-heading              |         |
+| C-M-p   | my/outline-down-heading            |         |
+** Tab layer - Control-Meta-Shift
+| Key     | Function                 | Comment |
+|---------+--------------------------+---------|
+| C-M-S-y | my/yank-clipboard        |         |
+| C-M-S-p | my/paste-clipboard-after |         |
 * Insert-state
 ** Keys
 | Key         | Function                            | Comment             |

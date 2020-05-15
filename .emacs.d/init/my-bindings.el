@@ -112,12 +112,10 @@
                     "; i" #'evil-numbers/inc-at-pt
                     "; d" #'evil-numbers/dec-at-pt
                     ; Clipboard paste and yank
-                    "C-M-y" #'my/yank-clipboard
-                    "C-M-S-y" #'my/yank-line-clipboard)
+                    "C-M-S-y" #'my/yank-clipboard)
 
 (general-define-key :keymaps '(normal visual insert minibuffer-local-map ivy-minibuffer-map)
-                    "C-M-p" #'my/paste-clipboard-after
-                    "C-M-S-p" #'my/paste-clipboard-before)
+                    "C-M-S-p" #'my/paste-clipboard-after)
 
 (defhydra my/goto-change-hydra ()
   "Go to change"

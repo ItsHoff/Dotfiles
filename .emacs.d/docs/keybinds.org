@@ -329,6 +329,10 @@
 |---------+------------------------------------+---------|
 | C-M-p   | my/outline-up-heading              |         |
 | C-M-p   | my/outline-down-heading            |         |
+| <up>    | outline-previous-visible-heading   |         |
+| <down>  | outline-next-visible-heading       |         |
+| <left>  | my/org-backward-heading-same-level |         |
+| <right> | my/org-forward-heading-same-level  |         |
 ** Tab layer - Control-Meta-Shift
 | Key     | Function                 | Comment |
 |---------+--------------------------+---------|

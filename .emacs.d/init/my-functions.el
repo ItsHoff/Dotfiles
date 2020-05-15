@@ -6,7 +6,7 @@
 (defun my/test-function ()
   "Function for testing things."
   (interactive)
-  (message "test"))
+  (prin1 (outline-level) t))
 
 (defun my/lsp-test ()
   (lsp-request-async "textDocument/documentSymbol"

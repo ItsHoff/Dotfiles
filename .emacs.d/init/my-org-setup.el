@@ -82,6 +82,52 @@ Goto end if no lower higher level headings."
 
 (evil-declare-motion #'my/outline-down-heading)
 
+(defun my/org-backward-heading-same-level ()
+  "Move backward to the previous subheading at same level as this one.
+One hop over higher level heading is allowed."
+  (interactive)
+  (if (not (outline-on-heading-p))
+      (outline-back-to-heading)
+    (let ((target-level (outline-level))
+          (save-point (point)))
+      (outline-previous-heading)
+      (let ((level (outline-level)))
+        (while (and (> level target-level) (not (bobp)))
+          (outline-previous-heading)
+          (setq level (outline-level)))
+        ; Hop once more if we ended up on a higher level heading
+        (when (< level target-level)
+          (outline-previous-heading)
+          (setq level (outline-level)))
+        ; If we didn't find appropriate heading stay at the original heading
+        (when (/= level target-level)
+          (goto-char save-point))))))
+
+(evil-declare-motion #'my/org-backward-heading-same-level)
+
+(defun my/org-forward-heading-same-level ()
+  "Move forward to the next subheading at same level as this one.
+One hop over higher level heading is allowed."
+  (interactive)
+  (if (not (outline-on-heading-p))
+      (outline-back-to-heading)
+    (let ((target-level (outline-level))
+          (save-point (point)))
+      (outline-next-heading)
+      (let ((level (outline-level)))
+        (while (and (> level target-level) (not (bobp)))
+          (outline-next-heading)
+          (setq level (outline-level)))
+        ; Hop once more if we ended up on a higher level heading
+        (when (< level target-level)
+          (outline-next-heading)
+          (setq level (outline-level)))
+        ; If we didn't find appropriate heading stay at the original heading
+        (when (/= level target-level)
+          (goto-char save-point))))))
+
+(evil-declare-motion #'my/org-backward-heading-same-level)
+
 (defvar my/org-property-list nil "List of properties to add with my/org-add-properties.")
 
 (defun my/org-add-properties ()
@@ -176,8 +222,8 @@ _-_: Toggle bullet
             "; -" #'my/org-hydra/org-ctrl-c-minus
             "<down>" #'outline-next-visible-heading
             "<up>" #'outline-previous-visible-heading
-            "<right>" #'org-forward-heading-same-level
-            "<left>" #'org-backward-heading-same-level
+            "<right>" #'my/org-forward-heading-same-level
+            "<left>" #'my/org-backward-heading-same-level
             "C-M-p" #'my/outline-up-heading
             "C-M-n" #'my/outline-down-heading
             )

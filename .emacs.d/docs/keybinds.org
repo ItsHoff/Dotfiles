@@ -168,11 +168,11 @@
 |-------------+------------------------+--------------------------|
 | <space>     | set-mark-command       | low use                  |
 *** Overwritten
-   | Key | Function            | Comment      |
-   |-----+---------------------+--------------|
-   | u   | universal-argument  |              |
-   | b   | evil-scroll-page-up | similar to K |
-   | q   | quoted-insert       |              |
+| Key | Function            | Comment      |
+|-----+---------------------+--------------|
+| u   | universal-argument  |              |
+| b   | evil-scroll-page-up | similar to K |
+| q   | quoted-insert       |              |
 ** Alt - Emacs
 | Key | Function           | Comment |
 |-----+--------------------+---------|
@@ -199,6 +199,7 @@
 | g   | magit-status         |         |
 | h   | helm                 |         |
 |-----+----------------------+---------|
+| c   | org-capture          |         |
 | b   | magit-blame-addition |         |
 |-----+----------------------+---------|
 | SPC | counsel-M-x          |         |
@@ -380,9 +381,9 @@
 |-----+-----------------------+---------|
 | M-z | evil-exit-emacs-state |         |
 ** Overwritten
-   | Old Key | Function    | Comment |
-   |---------+-------------+---------|
-   | M-z     | zap-to-char |         |
+| Old Key | Function    | Comment |
+|---------+-------------+---------|
+| M-z     | zap-to-char |         |
 * Ex-mode
 | Key   | Function          | Comment                       |
 |-------+-------------------+-------------------------------|

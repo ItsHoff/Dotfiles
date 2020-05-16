@@ -1,6 +1,5 @@
-;;; my-functions --- my personal custom functions
+;;; my-functions --- my personal custom functions -*- lexical-binding: t -*-
 ;;; Commentary:
-
 ;;; Code:
 
 (defun my/test-function ()

@@ -1,4 +1,4 @@
-;;; bindings --- general keybindings
+;;; bindings --- general keybindings -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; All non-package-specific keybinds.
 

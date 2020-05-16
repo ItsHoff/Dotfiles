@@ -1,4 +1,4 @@
-;;; local-util --- local definition utilities
+;;; local-util --- local definition utilities -*- lexical-binding: t -*-
 ;;; Commentary:
 
 ;;; Code:

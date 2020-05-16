@@ -1,11 +1,6 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [3/22]
-** EVAL Try out :defer n
-- State "EVAL"       from "TODO"       [2019-12-18 Wed 16:24]
-- magit
-** EVAL Close extra buffers should not close the current buffer
-- State "EVAL"       from "TODO"       [2019-12-20 Fri 14:52]
+* General [1/21]
 ** EVAL Fix smerge bindings
 - State "EVAL"       from "TODO"       [2020-03-03 ti 11:21]
 - [[*Find a way to do mode specific additions to prefix maps][Find a way to do mode specific additions to prefix maps]]
@@ -13,6 +8,62 @@
 - smerge-previous
 - smerge-keep-upper
 - smerge-keep-lower
+** TODO Semantic movement [1/3]
+*** EVAL Figure out functionality and bindings
+- State "EVAL"       from "TODO"       [2020-05-16 Sat 14:50]
+**** next or prev (<down> <up>)
+File order corresponds to depth first movement in a tree
+**** next or prev same level (<right> <left>)
+Allow to go via one node that is one level higher:
+  * C - B - C can jump C to C
+  * B - A - C - C - B  can jump B to B as lower level nodes don't matter
+  * C - A - B - C cannot jump C to C, because A is two levels higher
+  * C - B - B - C cannot jump C to C, because the following B does not have C level node
+**** next or prev higher level node (C-M-n C-M-p)
+Fall back to sibling at top level
+*** TODO Implement required functions for different major modes [1/3]
+**** EVAL org-mode
+- State "EVAL"       from "TODO"       [2020-05-16 Sat 15:00]
+<down>  outline-next-visible-heading
+<up>    outline-previous-visible-heading
+<right> my/org-forward-heading-same-level
+<left>  my/org-backward-heading-same-level
+C-M-p   my/outline-up-heading
+C-M-n   my/outline-down-heading
+**** TODO LSP
+- LSP: textDocument/documentSymbol
+  - https://microsoft.github.io/language-server-protocol/specification#textDocument_documentSymbol
+  - children is the intended source
+  - containerName is a hacky posibility
+  - also ranges could be used
+- lsp-treemacs-symbols-list for reference
+  - https://github.com/emacs-lsp/lsp-treemacs
+- potential helper: hierarchy
+  - https://github.com/DamienCassou/hierarchy
+- alternative: treesitter
+  - https://old.reddit.com/r/emacs/comments/chnxzm/dynamic_module_binding_for_treesitter_an/
+**** TODO Magit
+- magit-section-forward
+- magit-section-backward
+- magit-section-forward-sibling
+- magit-section-backward-sibling
+- magit-section-up
+*** TODO Ivy / helm interface
+- Swiper like search for document symbols
+- imenu might be good enough
+- but automatic jump would be nice
+- https://old.reddit.com/r/emacs/comments/3mtus3/how_to_display_a_list_of_classes_functions_etc/
+** TODO my/quit-extra-windows should close recursively
+- closing one extra window might reveal another
+** TODO Load only specific things from custom file
+- Custom file can contain old settings that were removed from init file
+** TODO Add open in other window action to counsel-find-file and ivy-switch-buffer
+- Action exists (M-o j), but have a direct binding
+- ivy-switch-buffer-map
+- ivy--switch-buffer-other-window-action
+- counsel-find-file-map
+- find-file-other-window
+** TODO my/split-line messes up dot
 ** TODO Marks
 - M create mark
 - m jump to mark
@@ -36,71 +87,6 @@
 - https://www.emacswiki.org/emacs/AutoIndentation
 ** TODO Full sized splits with earlier splits
 - https://emacs.stackexchange.com/questions/585/split-window-at-outermost-border
-** TODO Semantic movement [0/3]
-*** TODO Figure out functionality and bindings
-**** Tree movements
-***** (next or prev) node
-- File order should be depth first
-***** (next or prev) sibling
-- What to do at the end of sibling chain?
-  - go up a level
-    - temporarily or permanently?
-  - continue to different branch of the tree
-    - how many steps through higher level nodes would be allowed (1 or any)
-  - revert to next node behaviour until jump to a lower level node would occur
-    - save a cycle level
-    - allow jumps to higher levels
-    - disable jumps to lower levels
-  - Idea:
-    - Allow to go via next higher level node
-    - A - B - C - B - C can jump C to C via B
-    - A - B - C - A - B - C can jump C to C via A - B
-    - A - B - C - B - A - B - C cannot jump C to C, since the following B does not have C level node
-    - A - B - C - A - B - B - A - C cannot jump C to C, since the following B does not have C level node
-    - A - B - C - A - A - B - C cannot jump C to C, since the following A does not have C level node
-***** (next or prev) parent level node
-- fall back to sibling at top level
-**** Current setup
-- <left> sibling up
-- <right> sibling down
-- <up> and <down> for go up and down visible headings
-- u to go to parent heading
-**** Potential bindings
-- <left> for higher level
-- <right> for lower level
-- <up> and <down> for go up and down inside the level
-*** TODO Implement required functions for different major modes
-**** org-mode
-- org has all these except next parent level
-- siblings movement does not go up levels at all
-- org-next-visible-heading
-- org-previous-visible-heading
-- org-forward-heading-same-level
-- org-backward-heading-same-level
-- outline-up-heading
-**** Prog modes
-- LSP: textDocument/documentSymbol
-  - https://microsoft.github.io/language-server-protocol/specification#textDocument_documentSymbol
-  - children is the intended source
-  - containerName is a hacky posibility
-  - also ranges could be used
-- lsp-treemacs-symbols-list for reference
-  - https://github.com/emacs-lsp/lsp-treemacs
-- potential helper: hierarchy
-  - https://github.com/DamienCassou/hierarchy
-- alternative: treesitter
-  - https://old.reddit.com/r/emacs/comments/chnxzm/dynamic_module_binding_for_treesitter_an/
-**** Magit
-- magit-section-forward
-- magit-section-backward
-- magit-section-forward-sibling
-- magit-section-backward-sibling
-- magit-section-up
-*** TODO Ivy / helm interface
-- Swiper like search for document symbols
-- imenu might be good enough
-- but automatic jump would be nice
-- https://old.reddit.com/r/emacs/comments/3mtus3/how_to_display_a_list_of_classes_functions_etc/
 ** TODO Add toggle for lsp-ui hover and doc
 ** TODO Move company select to f keys
 ** TODO Send file to visual studio
@@ -112,8 +98,6 @@
 - https://stackoverflow.com/questions/1413837/emacs-auto-save-on-switch-buffer
 ** TODO Emacs crashes if h is pressed at the end of a folded org heading
 - Happens when line numbers are enabled
-** TODO Load only specific things from custom file
-- Custom file can contain old settings that were removed from init file
 ** TODO Find a way to do mode specific additions to prefix maps
 - For example bind "; a" to lsp-execute-code-action
 - generic function (handle)
@@ -131,22 +115,9 @@
 - https://github.com/alphapapa/emacs-package-dev-handbook
 ** TODO Clean up company-backends
 [[compdef][compdef]]
-** TODO Add action to counsel-find-file and ivy-switch-buffer
-- Action exists (M-o j), but have a direct binding
-- ivy-switch-buffer-map
-- ivy--switch-buffer-other-window-action
-- counsel-find-file-map
-- find-file-other-window
-** TODO my/split-line messes up dot
 ** TODO Try start-up optimizations
 - https://old.reddit.com/r/emacs/comments/fyqkip/rme_ryans_minimal_emacs/fn21psa/
-* Org-mode [2/9]
-** EVAL Better bindings
-- State "EVAL"       from "TODO"       [2019-08-20 Tue 12:16]
-- [X] tags
-- [X] todo status
-- [X] priorities
-- [X] refile
+* Org-mode [1/8]
 ** EVAL org-cycle jumps to the beginning of line
 - State "EVAL"       from "TODO"       [2019-08-20 Tue 14:16]
 - There needs to be a space between the bullets and point for it to work correctly
@@ -154,11 +125,10 @@
   - What actually controls this?
   - And can it be hacked?
 - evil-move-beyond-eol is needed to make this possible
-** TODO Org-mode capture templates [1/2]
-*** EVAL Automatically fill the package name from link on clipboard
-- State "EVAL"       from "TODO"       [2020-01-10 pe 16:49]
+** TODO Org-mode capture templates [0/2]
+*** TODO Automatically fill the package description from link on clipboard
 *** TODO Work todo
-** TODO Org-mode agenda templates [0/0]
+** TODO Org-mode agenda templates
 ** TODO Add org-chef sites [0/4]
 *** TODO Smitten kitchen
 *** TODO Bon appetit
@@ -169,7 +139,7 @@
 ** TODO org-goto
 https://emacs.stackexchange.com/questions/32617/how-to-jump-directly-to-an-org-headline
 ** TODO org-habit
-* Packages [4/28]
+* Packages [3/27]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** EVAL doom-themes
@@ -178,9 +148,6 @@ https://emacs.stackexchange.com/questions/32617/how-to-jump-directly-to-an-org-h
 ** EVAL straight.el
 - State "EVAL"       from "TODO"       [2020-02-01 Sat 13:36]
 - https://github.com/raxod502/straight.el
-** EVAL company-posframe
-- State "EVAL"       from "TODO"       [2020-03-20 pe 16:16]
-- https://github.com/tumashu/company-posframe
 ** TODO Agressive indent
 - minor mode that keeps your code always indented
 - https://github.com/Malabarba/aggressive-indent-mode

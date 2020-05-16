@@ -333,11 +333,12 @@
 | <down>  | outline-next-visible-heading       |         |
 | <left>  | my/org-backward-heading-same-level |         |
 | <right> | my/org-forward-heading-same-level  |         |
-** Tab layer - Control-Meta-Shift
-| Key     | Function                 | Comment |
-|---------+--------------------------+---------|
-| C-M-S-y | my/yank-clipboard        |         |
-| C-M-S-p | my/paste-clipboard-after |         |
+** Tab layer - Meta-Shift
+| Key | Function                 | Comment |
+|-----+--------------------------+---------|
+| M-T | my/test-function         |         |
+| M-Y | my/yank-clipboard        |         |
+| M-P | my/paste-clipboard-after |         |
 * Insert-state
 ** Keys
 | Key         | Function                            | Comment             |

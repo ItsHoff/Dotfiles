@@ -58,7 +58,7 @@
 ; Non-insert + emacs (for special emacs state buffers)
 (general-define-key :keymaps 'override
                     :states  '(motion normal visual emacs)
-                    "C-M-S-t" #'my/test-function
+                    "M-T" #'my/test-function
                     "M-u" #'universal-argument
                     "M-g" #'keyboard-quit
                     "C-z" #'suspend-emacs
@@ -112,10 +112,10 @@
                     "; i" #'evil-numbers/inc-at-pt
                     "; d" #'evil-numbers/dec-at-pt
                     ; Clipboard paste and yank
-                    "C-M-S-y" #'my/yank-clipboard)
+                    "M-Y" #'my/yank-clipboard)
 
 (general-define-key :keymaps '(normal visual insert minibuffer-local-map ivy-minibuffer-map)
-                    "C-M-S-p" #'my/paste-clipboard-after)
+                    "M-P" #'my/paste-clipboard-after)
 
 (defhydra my/goto-change-hydra ()
   "Go to change"

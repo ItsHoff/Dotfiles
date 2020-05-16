@@ -45,6 +45,20 @@ If CHECKBOX is non-nil, add a checkbox next to the bullet."
   (my/org-insert-item-below t)
   (evil-insert 1))
 
+(defun my/go-up-to-heading-level (target-level)
+  "Go up headings until heading of at least TARGET-LEVEL is found."
+  (outline-previous-heading)
+  (let ((level (outline-level)))
+    (while (and (> level target-level) (not (bobp)))
+      (outline-previous-heading)
+      (setq level (outline-level)))))
+
+(defun my/go-down-to-heading-level (target-level)
+  "Go up headings until heading of at least TARGET-LEVEL is found."
+  (outline-next-heading)
+  (while (and (> (outline-level) target-level) (not (eobp)))
+    (outline-next-heading)))
+
 (defun my/outline-up-heading ()
   "Go up to the parent heading.
 If already at top heading go to the next heading above."
@@ -54,12 +68,8 @@ If already at top heading go to the next heading above."
     (let ((start-level (outline-level)) target-level)
       (if (> start-level 2)
           (setq target-level (- start-level 1))
-        (setq target-level start-level)
-        (outline-previous-visible-heading 1))
-      (let ((level (outline-level)))
-        (while (and (> level target-level) (not (bobp)))
-          (outline-previous-visible-heading 1)
-          (setq level (outline-level)))))))
+        (setq target-level start-level))
+      (my/go-up-to-heading-level target-level))))
 
 (evil-declare-motion #'my/outline-up-heading)
 
@@ -73,58 +83,46 @@ Goto end if no lower higher level headings."
     (let ((start-level (outline-level)) target-level)
       (if (> start-level 2)
           (setq target-level (- start-level 1))
-        (setq target-level start-level)
-        (outline-next-visible-heading 1))
-      (let ((level (outline-level)))
-        (while (and (> level target-level) (not (eobp)))
-          (outline-next-visible-heading 1)
-          (setq level (outline-level)))))))
+        (setq target-level start-level))
+      (my/go-down-to-heading-level target-level))))
 
 (evil-declare-motion #'my/outline-down-heading)
 
 (defun my/org-backward-heading-same-level ()
   "Move backward to the previous subheading at same level as this one.
-One hop over higher level heading is allowed."
+One hop over heading that is one level higher is allowed."
   (interactive)
   (if (not (outline-on-heading-p))
       (outline-back-to-heading)
     (let ((target-level (outline-level))
           (save-point (point)))
-      (outline-previous-heading)
-      (let ((level (outline-level)))
-        (while (and (> level target-level) (not (bobp)))
-          (outline-previous-heading)
-          (setq level (outline-level)))
-        ; Hop once more if we ended up on a higher level heading
-        (when (< level target-level)
-          (outline-previous-heading)
-          (setq level (outline-level)))
-        ; If we didn't find appropriate heading stay at the original heading
-        (when (/= level target-level)
-          (goto-char save-point))))))
+      (my/go-up-to-heading-level target-level)
+      ;; Hop once more if we ended up on a heading that is one level higher.
+      (when (= (outline-level) (1- target-level))
+        (my/go-up-to-heading-level target-level))
+      ;; If we didn't find appropriate heading stay at the original position.
+      (if (/= (outline-level) target-level)
+          (goto-char save-point)
+        (org-reveal '(4))))))
 
 (evil-declare-motion #'my/org-backward-heading-same-level)
 
 (defun my/org-forward-heading-same-level ()
   "Move forward to the next subheading at same level as this one.
-One hop over higher level heading is allowed."
+One hop over heading that is one level higher is allowed."
   (interactive)
-  (if (not (outline-on-heading-p))
-      (outline-back-to-heading)
-    (let ((target-level (outline-level))
-          (save-point (point)))
-      (outline-next-heading)
-      (let ((level (outline-level)))
-        (while (and (> level target-level) (not (bobp)))
-          (outline-next-heading)
-          (setq level (outline-level)))
-        ; Hop once more if we ended up on a higher level heading
-        (when (< level target-level)
-          (outline-next-heading)
-          (setq level (outline-level)))
-        ; If we didn't find appropriate heading stay at the original heading
-        (when (/= level target-level)
-          (goto-char save-point))))))
+  (let ((save-point (point)))
+    (when (not (outline-on-heading-p))
+      (outline-back-to-heading))
+    (let ((target-level (outline-level)))
+      (my/go-down-to-heading-level target-level)
+      ;; Hop once more if we ended up on a heading that is one level higher.
+      (when (= (outline-level) (1- target-level))
+        (my/go-down-to-heading-level target-level))
+      ;; If we didn't find appropriate heading stay at the original position.
+      (if (/= (outline-level) target-level)
+          (goto-char save-point)
+        (org-reveal '(4))))))
 
 (evil-declare-motion #'my/org-backward-heading-same-level)
 

@@ -62,7 +62,7 @@
                     "M-u" #'universal-argument
                     "M-g" #'keyboard-quit
                     "C-z" #'suspend-emacs
-                    "C-q" #'my/quit-extra-windows
+                    "C-q" #'my/close-extra-buffers
                     ; Use easier binds for window moves
                     "C-h" #'evil-window-left
                     "C-j" #'evil-window-down

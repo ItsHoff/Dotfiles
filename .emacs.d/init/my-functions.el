@@ -95,16 +95,14 @@ If point is at or ahead of it move to last character."
           (backward-delete-char (- (match-end 1) (match-beginning 1)))
         (call-interactively 'backward-delete-char)))))
 
-; Use define and set so the possible changes do not require a restart
-(defvar my/extra-window-regexps nil "Regexps for buffers that 'my/quit-extra-windows' should also quit.")
-(setq my/extra-window-regexps '("^magit.+"
+; This uses defvar + setq so that possible changes do not require a restart.
+(defvar my/extra-buffer-regexps nil "Regexps for buffers that `my/close-extra-buffers' should also quit.")
+(setq my/extra-buffer-regexps '("^magit.+"
                                 "^\*.+\*$"))
 
 ; TODO: Add white list for *x* buffers that should not be closed (if there ever comes a need)
-(defun my/quit-extra-windows (&optional kill frame)
-  "Quit all windows with help-like buffers.
-
-Call `quit-windows-on' for every buffer that matches `my/help-windows-regexps'."
+(defun my/close-extra-buffers ()
+  "Close all non-selected buffers whose name match `my/extra-buffer-regexps'."
   (interactive)
   (walk-windows (lambda (window)
                   (when (not (eq window (selected-window)))
@@ -113,7 +111,7 @@ Call `quit-windows-on' for every buffer that matches `my/help-windows-regexps'."
                         (setq done t)
                         (let* ((buffer (window-buffer window))
                                (name (buffer-name buffer)))
-                          (dolist (regexp my/extra-window-regexps)
+                          (dolist (regexp my/extra-buffer-regexps)
                             (when (string-match-p regexp name)
                               (quit-windows-on buffer)
                               ;; Closing a buffer might reveal another buffer we want to close,

@@ -130,7 +130,7 @@
 | <backspace> | -                      |                          |
 |-------------+------------------------+--------------------------|
 | <tab>       | -                      |                          |
-| q           | my/quit-extra-windows  |                          |
+| q           | my/close-extra-buffers |                          |
 | w           | prefix: windows        |                          |
 | e           | evil-scroll-line-down  | low use                  |
 | r           | undo-tree-redo         |                          |

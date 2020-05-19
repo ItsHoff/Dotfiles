@@ -32,7 +32,7 @@
                     "M-+" help-map                    ; Remap help
                     "M-<dead-acute>" #'describe-key   ; Map key help (next to +)
                     "M-/" help-map                    ; Remap help for ansi
-                    "M-;" #'describe-key)             ; Map key help (next to +)
+                    "M-;" #'describe-key)             ; Map key help
 
 ;; Space prefix
 (general-define-key :keymaps 'override

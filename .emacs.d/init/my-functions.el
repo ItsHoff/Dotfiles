@@ -108,11 +108,17 @@ Call `quit-windows-on' for every buffer that matches `my/help-windows-regexps'."
   (interactive)
   (walk-windows (lambda (window)
                   (when (not (eq window (selected-window)))
-                    (let* ((buffer (window-buffer window))
-                           (name (buffer-name buffer)))
-                      (dolist (regexp my/extra-window-regexps)
-                        (when (string-match-p regexp name)
-                          (quit-windows-on buffer))))))))
+                    (let (done)
+                      (while (not done) ; Loop until there is nothing to close
+                        (setq done t)
+                        (let* ((buffer (window-buffer window))
+                               (name (buffer-name buffer)))
+                          (dolist (regexp my/extra-window-regexps)
+                            (when (string-match-p regexp name)
+                              (quit-windows-on buffer)
+                              ;; Closing a buffer might reveal another buffer we want to close,
+                              ;; so we need to check again.
+                              (setq done nil))))))))))
 
 (evil-define-command my/paste-and-repeat-pop (count &optional save-point)
   "Select paste or repeat pop depending on last command and do COUNT times."

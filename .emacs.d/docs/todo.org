@@ -53,8 +53,6 @@ C-M-n   my/outline-down-heading
 - imenu might be good enough
 - but automatic jump would be nice
 - https://old.reddit.com/r/emacs/comments/3mtus3/how_to_display_a_list_of_classes_functions_etc/
-** TODO my/quit-extra-windows should close recursively
-- closing one extra window might reveal another
 ** TODO Load only specific things from custom file
 - Custom file can contain old settings that were removed from init file
 ** TODO Add open in other window action to counsel-find-file and ivy-switch-buffer

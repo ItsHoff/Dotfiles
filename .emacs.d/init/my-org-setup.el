@@ -191,10 +191,8 @@ One hop over heading that is one level higher is allowed."
           ("r" "Recipe" entry (file+olp "~/Dropbox/notes/recipes.org" "Uncategorized")
            "%(org-chef-get-recipe-from-url)")
           ("R" "Recipe manually" entry (file+olp "~/Dropbox/notes/recipes.org" "Uncategorized")
-           "* %^{Recipe title: }\n  :PROPERTIES:\n  :source-url:\n  :servings:\n  :prep-time:\n  :cook-time:\n  :ready-in:\n  :END:\n** Ingredients\n   %?\n** Directions\n\n")
-          ))
-  (use-package org-chef
-    :config (require 'gnutls)) ; Workaround for org-chef
+           "* %^{Recipe title: }\n  :PROPERTIES:\n  :source-url:\n  :servings:\n  :prep-time:\n  :cook-time:\n  :ready-in:\n  :END:\n** Ingredients\n   %?\n** Directions\n\n")))
+  (use-package org-chef)
   (defhydra my/org-hydra (:hint nil)
     "
 ^Modify^             ^Tables^

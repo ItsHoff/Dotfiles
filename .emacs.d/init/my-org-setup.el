@@ -145,14 +145,14 @@ One hop over heading that is one level higher is allowed."
   (add-hook 'org-mode-hook
             (lambda ()
               (my/set-tab-width 2)
-              ; This is needed for org-cycle to behave correctly
+              ;; This is needed for org-cycle to behave correctly
               (setq-local evil-move-beyond-eol t)
               (add-hook 'before-save-hook
                         (lambda () (org-update-statistics-cookies "All"))
                         nil "local")
-              ; Fix a problem with saveplace.el putting you back in a folded position.
-              ; This is done find-file-hook because saveplace uses find-file-hook
-              ; to set the position. org-mode-hook should be evaluated before find-file-hook.
+              ;; Fix a problem with saveplace.el putting you back in a folded position.
+              ;; This is done find-file-hook because saveplace uses find-file-hook
+              ;; to set the position. org-mode-hook should be evaluated before find-file-hook.
               (add-hook 'find-file-hook
                         (lambda () (org-reveal '(4)))
                         "append" "local")))
@@ -167,8 +167,8 @@ One hop over heading that is one level higher is allowed."
   (org-cycle-emulate-tab nil)
   (org-cycle-include-plain-lists nil)
   (org-insert-heading-respect-content nil)
-  (org-M-RET-may-split-line '((default . nil))) ; Don't split line automatically
-  (org-show-context-detail '((default . lineage))) ; Always show lineage
+  (org-M-RET-may-split-line '((default . nil)))     ; Don't split line automatically
+  (org-show-context-detail '((default . lineage)))  ; Always show lineage
   :config
   (dolist (cmd '(org-cycle org-shifttab org-ctrl-c-ctrl-c))
     (evil-declare-not-repeat cmd))
@@ -178,7 +178,7 @@ One hop over heading that is one level higher is allowed."
                  outline-backward-same-level))
     (evil-declare-motion cmd)
     (evil-declare-not-repeat cmd))
-  ; https://orgmode.org/manual/Capture-templates.html#Capture-templates
+  ;; https://orgmode.org/manual/Capture-templates.html#Capture-templates
   (setq org-capture-templates
         '(("e" "Emacs todo" entry (file+olp "~/.emacs.d/docs/todo.org" "General")
            "** TODO %?")

@@ -4,14 +4,14 @@
 
 ;;; Code:
 
-; Save custom settings to another file so they don't mess up the init file
+;; Save custom settings to another file so they don't mess up the init file
 (setq custom-file "~/.emacs.d/custom.el")
-; Load the custom file first so personal settings will always override it
+;; Load the custom file first so personal settings will always override it
 ;; (load custom-file :noerror) ; Figure out a way to load only desired variables
 
 (add-to-list 'load-path "~/.emacs.d/init/")
 
-;; STRAIGHT -----------------------------------------------------------------------------------
+;;; STRAIGHT -----------------------------------------------------------------------------------
 
 (custom-set-variables '(straight-use-package-by-default t)
                       ; Switched to develop since built-in packages messed up freezing
@@ -32,7 +32,7 @@
 
 (straight-use-package 'use-package)
 
-;; ANALYSIS ------------------------------------------------------------------------------------
+;;; ANALYSIS ------------------------------------------------------------------------------------
 
 (use-package benchmark-init
   :disabled ; enable for benchmarking
@@ -40,11 +40,11 @@
   ;; To disable collection of benchmark data after init is done.
   (add-hook 'after-init-hook 'benchmark-init/deactivate))
 
-; Log emacs interactions
+;; Log emacs interactions
 (use-package interaction-log
   :commands interaction-log-mode)
 
-;; GENERAL SETTINGS ----------------------------------------------------------------------------
+;;; GENERAL SETTINGS ----------------------------------------------------------------------------
 
 (server-start)                      ; Start server for external programs
 (setq visible-bell 1)               ; No error beep
@@ -63,24 +63,24 @@
 (setq create-lockfiles nil)         ; Don't create lockfiles
 (setq auto-save-default nil)        ; No auto-saves
 
-; Performance suggestions from lsp (https://github.com/emacs-lsp/lsp-mode#performance)
+;; Performance suggestions from lsp (https://github.com/emacs-lsp/lsp-mode#performance)
 (setq gc-cons-threshold (* 100 1024 1024)) ; 100 mb
 (setq read-process-output-max (* 1024 1024)) ; 1 mb
 
-; Don't compact font caches. Will consume more memory, but improves performance.
+;; Don't compact font caches. Will consume more memory, but improves performance.
 (setq inhibit-compacting-font-caches t)
 
-; Use nicer window splitting method for automatic splits
+;; Use nicer window splitting method for automatic splits
 (setq split-window-preferred-function #'my/split-only-root)
 
-; Make C-i and C-m different from <tab> and <return>
+;; Make C-i and C-m different from <tab> and <return>
 (define-key input-decode-map [?\C-i] [C-i])
 (define-key input-decode-map [?\C-m] [C-m])
 
-; Just define § as escape so things are sensible on bigger keyboards
+;; Just define § as escape so things are sensible on bigger keyboards
 (define-key input-decode-map [?§] [escape])
 
-; UTF-8 please
+;; UTF-8 please
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 (set-terminal-coding-system 'utf-8)
@@ -101,8 +101,7 @@
 (setq-default tab-width 4)              ; Tab = 4 spaces
 (setq-default evil-shift-width tab-width)
 
-;; Backups
-; Put backups in .emacs.d
+;; Put backups in .emacs.d
 (defvar backup-directory (concat user-emacs-directory "backups"))
 (if (not (file-exists-p backup-directory))
         (make-directory backup-directory t))
@@ -118,11 +117,11 @@
   ((find-font (font-spec :name "DejaVu Sans Mono"))
    (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-11"))))
 
-;; SYSTEM SETUP --------------------------------------------------------------------------------
+;;; SYSTEM SETUP --------------------------------------------------------------------------------
 
-; Windows
+;; Windows
 (when (member system-type '(ms-dos windows-nt cygwin))
-  ; Disabled 17.9. because super modifier was getting stuck when locking the pc
+  ;; Disabled 17.9. because super modifier was getting stuck when locking the pc
   ;; Windows key is super
   ;; (setq w32-lwindow-modifier 'super)
   ;; (setq w32-rwindow-modifier 'super)
@@ -130,52 +129,52 @@
   (setq w32-pass-apps-to-system nil)
   (setq w32-apps-modifier 'hyper))
 
-; Mac
+;; Mac
 (use-package exec-path-from-shell
   :if (memq window-system '(ns))
   :config
   (exec-path-from-shell-initialize))
 
-;; LOCAL CONF ----------------------------------------------------------------------------------
+;;; LOCAL CONF ----------------------------------------------------------------------------------
 
 (require 'local-util)
 
-; Environment variables
+;; Environment variables
 (setenv "LANG" "en_US")
 
-; Local configuration
+;; Local configuration
 (load "local-conf" 'noerror) ; No error if missing
 
-;; HOOKS ---------------------------------------------------------------------------------------
+;;; HOOKS ---------------------------------------------------------------------------------------
 
-; Save when emacs loses focus
+;; Save when emacs loses focus
 (add-hook 'focus-out-hook (lambda () (save-some-buffers t)))
 
-; Remove trailing whitespace before save
+;; Remove trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;; PACKAGES ------------------------------------------------------------------------------------
+;;; PACKAGES ------------------------------------------------------------------------------------
 
-; Hide packages from modeline
+;; Hide packages from modeline
 (use-package diminish
   :demand t)
 
-; Keybinding utilities
+;; Keybinding utilities
 (use-package general
   :demand t
   :config
   (general-evil-setup)
   (general-override-mode))
 
-; Vim emulation
+;; Vim emulation
 (use-package evil
   :demand t
   :custom
-  (evil-want-keybinding nil) ; Use evil-collection for integration
+  (evil-want-keybinding nil)        ; Use evil-collection for integration
   (evil-want-Y-yank-to-eol t)
-  (evil-want-C-w-in-emacs-state t) ; Window commands should always work
-  (evil-ex-substitute-global t) ; substitute replaces all occurences in line
-  ; Open new splits right or below
+  (evil-want-C-w-in-emacs-state t)  ; Window commands should always work
+  (evil-ex-substitute-global t)     ; substitute replaces all occurences in line
+  ;; Open new splits right or below
   (evil-vsplit-window-right 1)
   (evil-split-window-below 1)
   :config
@@ -186,7 +185,7 @@
   (setq evil-insert-state-tag "INS")
   (setq evil-operator-state-tag "OP")
   (setq evil-emacs-state-tag "EMACS")
-  ; Allow c-o and c-i to jump to buffers matching the regexp
+  ;; Allow c-o and c-i to jump to buffers matching the regexp
   (setq evil--jumps-buffer-targets "\\`magit")
 
   (evil-declare-not-repeat #'compile-goto-error)
@@ -214,31 +213,31 @@
   (define-key minibuffer-inactive-mode-map [escape] #'minibuffer-keyboard-quit)
   (global-set-key [escape] #'evil-exit-emacs-state))
 
-; Company abbrev enables this
+;; Company abbrev enables this
 (use-package abbrev
   :straight (:type built-in)
   :diminish abbrev-mode)
 
-; Automatically reload changed files
+;; Automatically reload changed files
 (use-package autorevert
   :demand t
   :straight (:type built-in)
   :diminish auto-revert-mode
   :custom
   (global-auto-revert-ignore-modes '(pdf-view-mode))
-  ; Poll for changes instead of asking notification from OS
-  ; On windows notifications block file deletion
+  ;; Poll for changes instead of asking notification from OS
+  ;; On windows notifications block file deletion
   (auto-revert-use-notify nil)
-  ;(auto-revert-interval 5) to change poll interval
+  ;;(auto-revert-interval 5) to change poll interval
   :config
   (global-auto-revert-mode t))
 
-; Used for swapping buffer positions in a window
+;; Used for swapping buffer positions in a window
 (use-package buffer-move
   :commands (buf-move-left buf-move-right buf-move-up buf-move-down)
   :custom (buffer-move-stay-after-swap nil))
 
-; Auto completion
+;; Auto completion
 (use-package company
   :demand t
   :diminish company-mode
@@ -251,7 +250,7 @@
   (company-require-match nil)
   (company-dabbrev-downcase nil)
   :config
-  ; Fuzzy matching for company
+  ;; Fuzzy matching for company
   (use-package company-flx
     :config (company-flx-mode t))
   (dotimes (i 10)
@@ -263,7 +262,7 @@
   (:keymaps 'company-active-map
             "C-<return>" #'newline-and-indent))
 
-; LSP backend for company
+;; LSP backend for company
 (use-package company-lsp
   :disabled ; 28.2.20 to test lsp-prefer-capf
   :commands company-lsp
@@ -278,7 +277,7 @@
   :config
   (evil-collection-compile-setup))
 
-; Minibuffer completion framework
+;; Minibuffer completion framework
 (use-package counsel
   :after evil-collection
   :demand t
@@ -292,7 +291,7 @@
   (ivy-re-builders-alist '((t . ivy--regex-ignore-order)))
   (ivy-wrap t)
   (ivy-action-wrap t)
-  ; Abbreviate virtual buffers so files with the same name are not ignored
+  ;; Abbreviate virtual buffers so files with the same name are not ignored
   (ivy-virtual-abbreviate 'abbreviate)
   :config
   (dolist (command '(ivy-switch-buffer
@@ -308,13 +307,13 @@
   (evil-add-command-properties #'ivy-switch-buffer :jump t)
   (use-package ivy
     :diminish ivy-mode
-    ; ivy-mode replaces completing-read-function
+    ;; ivy-mode replaces completing-read-function
     :config (ivy-mode t))
   (use-package ivy-hydra
     :commands hydra-ivy/body)
   (use-package amx)
   (evil-collection-ivy-setup)
-  ; counsel-mode replaces built in commands with counsel alternatives
+  ;; counsel-mode replaces built in commands with counsel alternatives
   (counsel-mode t)
   :general
   (:keymaps 'ivy-minibuffer-map
@@ -324,7 +323,7 @@
             "n" nil) ; Conflicts with search (was next-error-no-select)
   )
 
-; Save and restore emacs session
+;; Save and restore emacs session
 (use-package desktop
   :disabled ; never used properly with this setup
   :demand t
@@ -337,7 +336,7 @@
   :config
   (desktop-save-mode 1))
 
-; Directory editor
+;; Directory editor
 (use-package dired
   :after evil-collection
   :straight (:type built-in)
@@ -346,7 +345,7 @@
   (put 'dired-find-alternate-file 'disabled nil) ; Allow dired to use the same buffer
   (evil-add-command-properties #'dired-jump :jump t))
 
-; Display line numbers
+;; Display line numbers
 (use-package display-line-numbers
   :commands display-line-numbers-mode
   :custom (display-line-numbers-type 'visual)
@@ -360,11 +359,11 @@
   (doom-themes-visual-bell-config)
   (load-theme 'doom-nord t))
 
-; Shows documentation about symbol under point on the echo area
+;; Shows documentation about symbol under point on the echo area
 (use-package eldoc
   :diminish eldoc-mode)
 
-; Shows search matches on modeline
+;; Shows search matches on modeline
 (use-package evil-anzu
   :after evil
   :custom
@@ -374,7 +373,7 @@
   :config
   (evil-collection-init '((custom cus-edit) debug help (package-menu package) xref)))
 
-; Visual hints for evil edits
+;; Visual hints for evil edits
 (use-package evil-goggles
   :after evil
   :demand t
@@ -382,13 +381,13 @@
   :custom (evil-goggles-duration 0.1)
   :config (evil-goggles-mode))
 
-; Match more things with %
+;; Match more things with %
 (use-package evil-matchit
   :after evil
   :demand t
   :config (global-evil-matchit-mode 1))
 
-; Toggle comments on things
+;; Toggle comments on things
 (use-package evil-nerd-commenter
   :after evil
   :commands (evilnc-comment-or-uncomment-lines evilnc-outer-commenter evilnc-inner-comment)
@@ -396,22 +395,22 @@
   (define-key evil-inner-text-objects-map "c" 'evilnc-inner-comment)
   (define-key evil-outer-text-objects-map "c" 'evilnc-outer-commenter))
 
-; Increment and decrement numbers
+;; Increment and decrement numbers
 (use-package evil-numbers
   :after evil)
 
-; Start a * or # search from the visual selection
+;; Start a * or # search from the visual selection
 (use-package evil-visualstar
   :after evil
   :config (global-evil-visualstar-mode))
 
-; On the fly syntax checking
+;; On the fly syntax checking
 (use-package flycheck
   :diminish flycheck-mode
   :commands flycheck-mode
   :init (add-hook 'prog-mode-hook (lambda () (flycheck-mode))))
 
-; Frame utility
+;; Frame utility
 (use-package framegroups
   :demand t
   :straight (:host github :repo "noctuid/framegroups.el")
@@ -435,7 +434,7 @@
        (set-frame-parameter nil 'fullscreen 'maximized))
       ))
   (add-hook 'fg-create-hook #'my/framegroup-setup)
-  ; Open initial frame
+  ;; Open initial frame
   (add-hook 'window-setup-hook (fg-switch "default"))
   :general
   (:keymaps 'my/framegroups-command-map
@@ -448,7 +447,7 @@
             "m" #'toggle-frame-maximized
             "f" #'toggle-frame-fullscreen))
 
-; Automatically resize splits
+;; Automatically resize splits
 (use-package golden-ratio
   :demand t
   :diminish golden-ratio-mode
@@ -458,7 +457,7 @@
   (golden-ratio-recenter nil)
   (golden-ratio-mode 1)
   :config
-  ; From spacemacs
+  ;; From spacemacs
   (setq window-combination-resize t)
   (add-to-list 'golden-ratio-exclude-buffer-regexp "^\\*[hH]elm.*")
   ;; golden-ratio-exclude-modes
@@ -534,7 +533,7 @@
                " *which-key*"))
     (add-to-list 'golden-ratio-exclude-buffer-names n)))
 
-; Move up and down the screen nicely
+;; Move up and down the screen nicely
 (use-package golden-ratio-scroll-screen
   :demand t
   :custom
@@ -543,7 +542,7 @@
   (evil-declare-motion #'golden-ratio-scroll-screen-down)
   (evil-declare-motion #'golden-ratio-scroll-screen-up))
 
-; Heavier 'minibuffer' completion
+;; Heavier 'minibuffer' completion
 (use-package helm
   :diminish helm-mode
   :init
@@ -571,11 +570,11 @@
             "C-p" #'helm-select-action
             "C-n" #'helm-delete-minibuffer-contents))
 
-; Additional way of keybinding
+;; Additional way of keybinding
 (use-package hydra
   :commands defhydra)
 
-; Spell checking
+;; Spell checking
 (use-package ispell
   :straight (:type built-in)
   :custom
@@ -589,7 +588,7 @@
   (evil-add-command-properties #'lsp-ivy-workspace-symbol :jump t)
   (evil-add-command-properties #'lsp-ivy-global-workspace-symbol :jump t))
 
-; LSP support
+;; LSP support
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
   :custom
@@ -609,7 +608,7 @@
   (:keymaps 'lsp-mode-map
             "C-M-a" #'lsp-execute-code-action))
 
-; Fancy ui for LSP
+;; Fancy ui for LSP
 (use-package lsp-ui
   :commands lsp-ui-mode
   :custom
@@ -619,7 +618,7 @@
   (lsp-ui-sideline-show-diagnostics t)
   (lsp-ui-sideline-show-symbol t))
 
-; Git support
+;; Git support
 (use-package magit
   :defer 2
   :commands (magit-status magit-blame-addition)
@@ -645,13 +644,13 @@
   (:keymaps 'transient-map
             "<escape>" #'transient-quit-one))
 
-; Improved writing experience
+;; Improved writing experience
 (use-package olivetti
   :commands olivetti-mode
   :custom
   (olivetti-body-width 80))
 
-; Show matching parenthesis
+;; Show matching parenthesis
 (use-package paren
   :straight (:type built-in)
   :custom
@@ -660,7 +659,7 @@
   :config
   (show-paren-mode 1))
 
-; PDF mode
+;; PDF mode
 (use-package pdf-tools
   :if (memq window-system '(ns))
   :after evil-collection
@@ -670,7 +669,7 @@
   (pdf-tools-install)
   (evil-collection-pdf-setup))
 
-; Project management
+;; Project management
 (use-package projectile
   :demand t
   :custom
@@ -688,7 +687,7 @@
             "s s" #'lsp-ivy-workspace-symbol
             "s a" #'projectile-ag))
 
-; Save recently visited files between sessions
+;; Save recently visited files between sessions
 (use-package recentf
   :demand t
   :straight (:type built-in)
@@ -696,9 +695,9 @@
   (recentf-max-saved-items 50)
   :config
   (add-to-list 'recentf-exclude "autoloads\\.el\\'")
-  ; Exclude files with no suffix
-  ; Disabled 28.2.20 because it excluded some desired files
-  ; such as Jenkinsfile and paths with spaces
+  ;; Exclude files with no suffix
+  ;; Disabled 28.2.20 because it excluded some desired files
+  ;; such as Jenkinsfile and paths with spaces
   ;; (add-to-list 'recentf-exclude "/\\w*$")
   (recentf-mode 1))
 
@@ -721,7 +720,7 @@
             "C-M-s" #'smerge-keep-lower
             "C-M-a" #'smerge-keep-all))
 
-; Modeline
+;; Modeline
 (use-package spaceline
   :demand t
   :after framegroups
@@ -734,21 +733,21 @@
       (fg-mode-line-string)))
   (spaceline-spacemacs-theme '(framegroups :tight t)))
 
-; Color theme
+;; Color theme
 (use-package solarized-theme
   :demand t
   :config
   (load-theme 'solarized-dark t)
-  ; Disable mode-line over and underlines
+  ;; Disable mode-line over and underlines
   (set-face-attribute 'mode-line nil :overline 'unspecified :underline 'unspecified)
   (set-face-attribute 'mode-line-inactive nil :overline 'unspecified :underline 'unspecified))
 
-; SSH agent support for emacs
+;; SSH agent support for emacs
 (use-package ssh-agency
   :disabled t ; 23.10.19
   :commands ssh-agency-ensure)
 
-; Vim like undo
+;; Vim like undo
 (use-package undo-tree
   :diminish undo-tree-mode
   :init
@@ -757,10 +756,10 @@
   (setq undo-tree-visualizer-diff t)
   (setq undo-tree-visualizer-timestamps t)
   (setq undo-tree-visualizer-lazy-drawing nil) ; Change this to improve perf
-  ; Disable region undo since it seems to be flaky
+  ;; Disable region undo since it seems to be flaky
   (setq undo-tree-enable-undo-in-region nil)
   :config
-  ; 10.8.19
+  ;; 10.8.19
   ;; (evil-make-overriding-map undo-tree-visualizer-mode-map 'motion)
   (advice-add #'undo-tree-undo-1 :filter-args #'my/advice-preserve-timestamps)
   (advice-add #'undo-tree-redo-1 :filter-args #'my/advice-preserve-timestamps)
@@ -775,20 +774,20 @@
             "h" #'undo-tree-visualize-switch-branch-left
             "l" #'undo-tree-visualize-switch-branch-right))
 
-; Show key hints
+;; Show key hints
 (use-package which-key
   :diminish which-key-mode
   :init (which-key-mode))
 
-; Visualize extra whitespace
-; Could be used to also clean whitespace
+;; Visualize extra whitespace
+;; Could be used to also clean whitespace
 (use-package whitespace
   :demand t
   :straight (:type built-in)
   :diminish global-whitespace-mode
   :custom
   (whitespace-style '(trailing tabs space-before-tab tab-mark))
-  ; Change tab mark (this removes space and newline marks)
+  ;; Change tab mark (this removes space and newline marks)
   (whitespace-display-mappings '((tab-mark ?\t [?▸ ?\t] [?› ?\t] [?> ?\t])))
   :hook
   (prog-mode . (lambda ()
@@ -796,7 +795,7 @@
                              '(face trailing tabs space-before-tab tab-mark))))
   :config (global-whitespace-mode))
 
-; Snippets
+;; Snippets
 (use-package yasnippet
   :diminish yas-minor-mode
   :init
@@ -812,7 +811,7 @@
             "n" #'yas-new-snippet
             "v" #'yas-visit-snippet-file))
 
-;; PROGRAMMING MODES ---------------------------------------------------------------------------
+;;; PROGRAMMING MODES ---------------------------------------------------------------------------
 
 ;; C and C++
 (use-package cc-mode
@@ -833,9 +832,9 @@
   (add-hook 'c-mode-hook #'lsp-deferred)
   :config
   (c-set-offset 'innamespace 0)
-  (modify-syntax-entry ?_ "w" c-mode-syntax-table) ; _ is now part of a word
-  (modify-syntax-entry ?_ "w" c++-mode-syntax-table) ; _ is now part of a word
-  (modify-syntax-entry ?_ "w" java-mode-syntax-table)) ; _ is now part of a word
+  (modify-syntax-entry ?_ "w" c-mode-syntax-table)      ; _ is now part of a word
+  (modify-syntax-entry ?_ "w" c++-mode-syntax-table)    ; _ is now part of a word
+  (modify-syntax-entry ?_ "w" java-mode-syntax-table))  ; _ is now part of a word
 
 ;; CMake
 (use-package cmake-mode
@@ -932,14 +931,14 @@
             "C-c e" #'TeX-next-error
             "g s" #'pdf-sync-forward-search))
 
-; Easily create references in LaTex
+;; Easily create references in LaTex
 (use-package reftex
   :commands turn-on-reftex
   :custom
   (reftex-plug-into-AUCTeX t)
   (add-hook 'LaTeX-mode-hook #'turn-on-reftex))
 
-; Bibliography management
+;; Bibliography management
 (use-package ivy-bibtex
   :commands ivy-bibtex
   :custom

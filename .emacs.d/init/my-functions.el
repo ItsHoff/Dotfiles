@@ -12,10 +12,10 @@
                      `(:textDocument ,(lsp--text-document-identifier))
                      (lambda (document-symbols)
                        (mapcar (lambda (item)
-                                 (when (not (or (= (gethash "kind" item) 13) ; variable
-                                                (= (gethash "kind" item) 8) ; field
-                                                (= (gethash "kind" item) 22) ; enum member
-                                                (= (gethash "kind" item) 26))) ; type parameter
+                                 (when (not (or (= (gethash "kind" item) 13)    ; variable
+                                                (= (gethash "kind" item) 8)     ; field
+                                                (= (gethash "kind" item) 22)    ; enum member
+                                                (= (gethash "kind" item) 26)))  ; type parameter
                                    (prin1 "\n name:")
                                    (prin1 (gethash "name" item))
                                    (prin1 "\n kind:")
@@ -54,7 +54,7 @@ to the hard beginning of line."
 
 (evil-declare-motion #'my/beginning-of-line)
 
-; https://stackoverflow.com/a/9597612
+;; https://stackoverflow.com/a/9597612
 (defun my/end-of-line ()
   "Move to the last non-whitespace character in the current line.
 If point is at or ahead of it move to last character."
@@ -64,8 +64,8 @@ If point is at or ahead of it move to last character."
         (evil-end-of-line)
       (evil-end-of-visual-line))
     (re-search-backward "^\\|[^[:space:]]")
-    ; Visual mode seems to handle point differently
-    ; so move forward one character to keep things consistent.
+    ;; Visual mode seems to handle point differently
+    ;; so move forward one character to keep things consistent.
     (when (eq evil-state 'visual)
       (forward-char))
     (when (>= save-point (point))
@@ -80,7 +80,7 @@ If point is at or ahead of it move to last character."
     (newline-and-indent)
     (goto-char (- save-point 1))))
 
-; https://www.emacswiki.org/emacs/BackspaceWhitespaceToTabStop
+;; https://www.emacswiki.org/emacs/BackspaceWhitespaceToTabStop
 (defun my/backspace-whitespace-to-tab-stop ()
   "Delete whitespace backwards to the next tab-stop, otherwise delete one character."
   (interactive)
@@ -95,12 +95,12 @@ If point is at or ahead of it move to last character."
           (backward-delete-char (- (match-end 1) (match-beginning 1)))
         (call-interactively 'backward-delete-char)))))
 
-; This uses defvar + setq so that possible changes do not require a restart.
+;; This uses defvar + setq so that possible changes do not require a restart.
 (defvar my/extra-buffer-regexps nil "Regexps for buffers that `my/close-extra-buffers' should also quit.")
 (setq my/extra-buffer-regexps '("^magit.+"
                                 "^\*.+\*$"))
 
-; TODO: Add white list for *x* buffers that should not be closed (if there ever comes a need)
+;; TODO: Add white list for *x* buffers that should not be closed (if there ever comes a need)
 (defun my/close-extra-buffers ()
   "Close all non-selected buffers whose name match `my/extra-buffer-regexps'."
   (interactive)
@@ -150,7 +150,7 @@ If point is at or ahead of it move to last character."
          (evil-repeat-pop-next count save-point))
         (t (message "Last command was not paste or repeat"))))
 
-; https://stackoverflow.com/questions/23659909/reverse-evaluation-order-of-split-height-threshold-and-split-width-threshold-in
+;; https://stackoverflow.com/questions/23659909/reverse-evaluation-order-of-split-height-threshold-and-split-width-threshold-in
 (defun my/split-window-sensibly (&optional window)
   "Reverse the WINDOW splitting order from default.
 First try vertical split and only then horizontal split"
@@ -216,7 +216,7 @@ Filters arguments for undo-tree-undo-1 and undo-tree-redo-1.
 Advice type: filter-args."
   (list (nth 0 args) (nth 1 args) t))
 
-; https://github.com/bbatsov/solarized-emacs/issues/390#issuecomment-576626439
+;; https://github.com/bbatsov/solarized-emacs/issues/390#issuecomment-576626439
 (defun my/disable-all-themes()
   "Disable all currently active themes."
   (interactive)

@@ -9,11 +9,6 @@
 
 ;;; UNBIND --------------------------------------------------------------------------------------
 
-;; Removed 20.4.2019
-;; (general-define-key
-;;  "C-<backspace>" nil ; Mistyped often with i-mode brackets
-;;  )
-
 ;;; MOUSE----------------------------------------------------------------------------------------
 
 (general-define-key :keymaps '(global-map evil-motion-state-map)

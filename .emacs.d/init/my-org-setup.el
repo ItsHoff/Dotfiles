@@ -169,6 +169,10 @@ One hop over heading that is one level higher is allowed."
   (org-insert-heading-respect-content nil)
   (org-M-RET-may-split-line '((default . nil)))     ; Don't split line automatically
   (org-show-context-detail '((default . lineage)))  ; Always show lineage
+  (org-refile-targets '((nil :maxlevel . 2)))
+  (org-refile-use-outline-path t)
+  (org-outline-path-complete-in-steps nil)
+  (org-refile-allow-creating-parent-nodes 'confirm)
   :config
   (dolist (cmd '(org-cycle org-shifttab org-ctrl-c-ctrl-c))
     (evil-declare-not-repeat cmd))

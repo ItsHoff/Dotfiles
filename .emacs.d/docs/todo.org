@@ -1,6 +1,6 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [1/21]
+* General [1/22]
 ** EVAL Fix smerge bindings
 - State "EVAL"       from "TODO"       [2020-03-03 ti 11:21]
 - [[*Find a way to do mode specific additions to prefix maps][Find a way to do mode specific additions to prefix maps]]
@@ -115,6 +115,8 @@ C-M-n   my/outline-down-heading
 [[compdef][compdef]]
 ** TODO Try start-up optimizations
 - https://old.reddit.com/r/emacs/comments/fyqkip/rme_ryans_minimal_emacs/fn21psa/
+** TODO Investigate if isearch-lazy-count in Emacs 27 can replace anzu.el
+** TODO which-key-show-top-level
 * Org-mode [1/8]
 ** EVAL org-cycle jumps to the beginning of line
 - State "EVAL"       from "TODO"       [2019-08-20 Tue 14:16]
@@ -137,7 +139,7 @@ C-M-n   my/outline-down-heading
 ** TODO org-goto
 https://emacs.stackexchange.com/questions/32617/how-to-jump-directly-to-an-org-headline
 ** TODO org-habit
-* Packages [3/27]
+* Packages [3/28]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** EVAL doom-themes
@@ -219,3 +221,6 @@ https://emacs.stackexchange.com/questions/32617/how-to-jump-directly-to-an-org-h
 - Keystroke visualizer for GUI version Emacs
 - Can also show the called functions, which is super useful for debugging
 - https://github.com/chuntaro/emacs-keypression
+** TODO explain-pause-mode
+- Emacs minor mode that watches for long pauses and reports them.
+- https://github.com/lastquestion/explain-pause-mode

@@ -6,8 +6,29 @@
 
 ;; Save custom settings to another file so they don't mess up the init file
 (setq custom-file "~/.emacs.d/custom.el")
-;; Load the custom file first so personal settings will always override it
-;; (load custom-file :noerror) ; Figure out a way to load only desired variables
+
+;; Load only specified variables from `custom-file'.
+;; This is done to avoid customizations that were removed from init.el
+;; from being loaded from custom.el.
+(defun my/load-custom-file ()
+  "Load only whitelisted variables from `custom-file'."
+  (when (file-readable-p custom-file)
+    (let ((custom-expressions
+           ;; Extract the expressions from `custom-file'.
+           (with-temp-buffer
+             (save-excursion
+               (insert-file-contents custom-file)
+               (goto-char (point-max)))
+             ;; Ignore the custom-set-variables call.
+             (cdr (read (current-buffer)))))
+          (variable-whitelist '("safe-local-variable-values")))
+      ;; Load expression if it is in the whitelist.
+      (dolist (expression custom-expressions)
+        ;; Remove the quote.
+        (setq expression (cadr expression))
+        (when (member (symbol-name (car expression)) variable-whitelist)
+          (custom-set-variables expression))))))
+(with-demoted-errors "Error loading custom-file: %S" (my/load-custom-file))
 
 (add-to-list 'load-path "~/.emacs.d/init/")
 

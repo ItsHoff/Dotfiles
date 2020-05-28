@@ -140,7 +140,7 @@ C-M-n   my/outline-down-heading
 ** TODO org-goto
 https://emacs.stackexchange.com/questions/32617/how-to-jump-directly-to-an-org-headline
 ** TODO org-habit
-* Packages [3/28]
+* Packages [3/29]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** EVAL doom-themes
@@ -206,6 +206,7 @@ https://emacs.stackexchange.com/questions/32617/how-to-jump-directly-to-an-org-h
 ** TODO org-roam
 - Rudimentary Roam replica with Org-mode
 - https://github.com/jethrokuan/org-roam
+- https://www.ianjones.us/blog/2020-05-05-doom-emacs/
 ** TODO org-superstar-mode
 - Make org-mode stars a little more super
 - https://github.com/integral-dw/org-superstar-mode
@@ -225,3 +226,6 @@ https://emacs.stackexchange.com/questions/32617/how-to-jump-directly-to-an-org-h
 ** TODO explain-pause-mode
 - Emacs minor mode that watches for long pauses and reports them.
 - https://github.com/lastquestion/explain-pause-mode
+** TODO display-buffer-control
+- Control how to open buffers matching specified conditions
+- https://gitlab.com/matsievskiysv/display-buffer-control

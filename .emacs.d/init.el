@@ -46,7 +46,6 @@
 
 ;;; GENERAL SETTINGS ----------------------------------------------------------------------------
 
-(server-start)                      ; Start server for external programs
 (setq visible-bell 1)               ; No error beep
 (tool-bar-mode -1)                  ; No toolbar
 (scroll-bar-mode -1)                ; No scrollbar
@@ -62,6 +61,10 @@
 (setq history-length 1000)          ; Increase the amount of history
 (setq create-lockfiles nil)         ; Don't create lockfiles
 (setq auto-save-default nil)        ; No auto-saves
+
+;; Start a server if it is not already running.
+(require 'server)
+(unless (server-running-p) (server-start))
 
 ;; Performance suggestions from lsp (https://github.com/emacs-lsp/lsp-mode#performance)
 (setq gc-cons-threshold (* 100 1024 1024)) ; 100 mb

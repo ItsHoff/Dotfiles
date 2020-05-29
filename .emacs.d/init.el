@@ -91,6 +91,10 @@
 (setq gc-cons-threshold (* 100 1024 1024)) ; 100 mb
 (setq read-process-output-max (* 1024 1024)) ; 1 mb
 
+;; Increase stack size (https://www.gnu.org/software/emacs/manual/html_mono/eintr.html#fn-13)
+(setq max-specpdl-size 13000)
+(setq max-lisp-eval-depth 8000)
+
 ;; Don't compact font caches. Will consume more memory, but improves performance.
 (setq inhibit-compacting-font-caches t)
 

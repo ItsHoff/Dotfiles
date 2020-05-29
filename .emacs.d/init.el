@@ -21,12 +21,12 @@
                (goto-char (point-max)))
              ;; Ignore the custom-set-variables call.
              (cdr (read (current-buffer)))))
-          (variable-whitelist '("safe-local-variable-values")))
+          (variable-whitelist '(safe-local-variable-values)))
       ;; Load expression if it is in the whitelist.
       (dolist (expression custom-expressions)
         ;; Remove the quote.
         (setq expression (cadr expression))
-        (when (member (symbol-name (car expression)) variable-whitelist)
+        (when (memq (car expression) variable-whitelist)
           (custom-set-variables expression))))))
 (with-demoted-errors "Error loading custom-file: %S" (my/load-custom-file))
 

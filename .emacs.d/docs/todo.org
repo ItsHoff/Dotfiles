@@ -138,17 +138,19 @@ C-M-n   my/outline-down-heading
 ** TODO Figure out how to do archiving
 ** TODO Heading movement doesn't work in visual mode
 ** TODO org-goto
-https://emacs.stackexchange.com/questions/32617/how-to-jump-directly-to-an-org-headline
+- https://emacs.stackexchange.com/questions/32617/how-to-jump-directly-to-an-org-headline
 ** TODO org-habit
-* Packages [3/29]
+- https://orgmode.org/manual/Tracking-your-habits.html
+* Packages [3/26]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** EVAL doom-themes
 - State "EVAL"       from "TODO"       [2020-01-10 pe 16:05]
 - https://github.com/hlissner/emacs-doom-themes
-** EVAL straight.el
-- State "EVAL"       from "TODO"       [2020-02-01 Sat 13:36]
-- https://github.com/raxod502/straight.el
+** EVAL explain-pause-mode
+- State "EVAL"       from "TODO"       [2020-07-15 ke 13:21]
+- Emacs minor mode that watches for long pauses and reports them.
+- https://github.com/lastquestion/explain-pause-mode
 ** TODO Agressive indent
 - minor mode that keeps your code always indented
 - https://github.com/Malabarba/aggressive-indent-mode
@@ -199,17 +201,10 @@ https://emacs.stackexchange.com/questions/32617/how-to-jump-directly-to-an-org-h
 ** TODO ranger.el
 - Dired alternative
 - https://github.com/ralesi/ranger.el
-** TODO dimmer.el
-- Visually highlight the selected buffer.
-- https://github.com/gonewest818/dimmer.el
-- Though, it is often the case that other buffers contain relevant info
 ** TODO org-roam
 - Rudimentary Roam replica with Org-mode
 - https://github.com/jethrokuan/org-roam
 - https://www.ianjones.us/blog/2020-05-05-doom-emacs/
-** TODO org-superstar-mode
-- Make org-mode stars a little more super
-- https://github.com/integral-dw/org-superstar-mode
 ** TODO org-spacer.el
 - Enforce the number of blank lines between elements in an org-mode document
 - https://github.com/dustinlacewell/org-spacer.el
@@ -223,9 +218,6 @@ https://emacs.stackexchange.com/questions/32617/how-to-jump-directly-to-an-org-h
 - Keystroke visualizer for GUI version Emacs
 - Can also show the called functions, which is super useful for debugging
 - https://github.com/chuntaro/emacs-keypression
-** TODO explain-pause-mode
-- Emacs minor mode that watches for long pauses and reports them.
-- https://github.com/lastquestion/explain-pause-mode
 ** TODO display-buffer-control
 - Control how to open buffers matching specified conditions
 - https://gitlab.com/matsievskiysv/display-buffer-control

@@ -118,7 +118,7 @@ C-M-n   my/outline-down-heading
 - https://old.reddit.com/r/emacs/comments/fyqkip/rme_ryans_minimal_emacs/fn21psa/
 ** TODO Investigate if isearch-lazy-count in Emacs 27 can replace anzu.el
 ** TODO which-key-show-top-level
-* Org-mode [1/8]
+* Org-mode [1/9]
 ** EVAL org-cycle jumps to the beginning of line
 - State "EVAL"       from "TODO"       [2019-08-20 Tue 14:16]
 - There needs to be a space between the bullets and point for it to work correctly
@@ -141,7 +141,10 @@ C-M-n   my/outline-down-heading
 - https://emacs.stackexchange.com/questions/32617/how-to-jump-directly-to-an-org-headline
 ** TODO org-habit
 - https://orgmode.org/manual/Tracking-your-habits.html
-* Packages [3/26]
+** TODO org-ql
+- An Org-mode query language, including search commands and saved views
+- https://github.com/alphapapa/org-ql
+* Packages [3/24]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** EVAL doom-themes
@@ -172,18 +175,12 @@ C-M-n   my/outline-down-heading
 ** TODO Dumb-jump
 - an Emacs "jump to definition" package for 40+ languages
 - https://github.com/jacktasia/dumb-jump
-** TODO evil-owl
-- preview registers and marks before actually using them
-- https://github.com/mamapanda/evil-owl
 ** TODO Rustic
 - Rust development environment for Emacs
 - https://github.com/brotzeit/rustic
 ** TODO handle
 - A handle for major-mode generic functions.
 - https://gitlab.com/jjzmajic/handle
-** TODO org-ql
-- An Org-mode query language, including search commands and saved views
-- https://github.com/alphapapa/org-ql
 ** TODO psession
 - Yet another package for emacs persistent sessions
 - https://github.com/thierryvolpiatto/psession

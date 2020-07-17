@@ -63,9 +63,12 @@
 
 ;; Report culprits for long pauses
 (use-package explain-pause-mode
+  :disabled
   :straight (explain-pause-mode :type git :host github :repo "lastquestion/explain-pause-mode")
+  :diminish explain-pause-mode
+  :custom (explain-pause-logging-default-log-location (expand-file-name "explain-pause-log.socket" user-emacs-directory))
   :config
-  (explain-pause-mode))
+  (explain-pause-mode t))
 
 ;; Log emacs interactions
 (use-package interaction-log

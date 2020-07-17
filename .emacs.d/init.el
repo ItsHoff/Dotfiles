@@ -917,6 +917,7 @@
 
 ;; Python
 (use-package anaconda-mode
+  :diminish anaconda-mode
   :commands anaconda-mode
   :init
   (add-hook 'python-mode-hook #'anaconda-mode)

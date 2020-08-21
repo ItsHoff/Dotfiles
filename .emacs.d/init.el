@@ -710,6 +710,7 @@
     :config (counsel-projectile-mode t))
   (evil-add-command-properties #'counsel-projectile-find-file :jump t)
   (evil-add-command-properties #'projectile-find-other-file :jump t)
+  (evil-add-command-properties #'projectile-find-other-file-other-window :jump t)
   (projectile-mode t)
   :general
   (:keymaps 'projectile-command-map

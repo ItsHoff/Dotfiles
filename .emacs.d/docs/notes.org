@@ -20,6 +20,17 @@
 - Add External Command n to the context menu
 - https://stackoverflow.com/questions/16566315/add-an-item-to-the-visual-studio-folder-right-click-menu-within-addin
 - https://docs.microsoft.com/en-us/visualstudio/ide/managing-external-tools?view=vs-2019
+** compile_commands.json
+*** cmake
+- DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+*** scons
+- https://github.com/SCons/scons/issues/3355
+*** Visual Studio
+- Sourcetrail
+- https://www.sourcetrail.com/blog/export_clang_compilation_database_from_visual_studio_solution/
+- https://old.reddit.com/r/cpp/comments/6o7uh8/how_to_export_a_clang_compilation_database_from_a/
+*** other
+- https://sarcasm.github.io/notes/dev/compilation-database.html#how-to-generate-a-json-compilation-database
 * Windows
 - You can run commands in WSL from emacs using the wsl prefix. For example: (setq mu4e-get-mail-command "wsl offlineimap -c offlineimaprc")
 * Check

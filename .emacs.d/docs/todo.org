@@ -1,6 +1,6 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [2/22]
+* General [2/23]
 ** EVAL Fix smerge bindings
 - State "EVAL"       from "TODO"       [2020-03-03 ti 11:21]
 - [[*Find a way to do mode specific additions to prefix maps][Find a way to do mode specific additions to prefix maps]]
@@ -118,6 +118,9 @@ C-M-n   my/outline-down-heading
 - https://old.reddit.com/r/emacs/comments/fyqkip/rme_ryans_minimal_emacs/fn21psa/
 ** TODO Investigate if isearch-lazy-count in Emacs 27 can replace anzu.el
 ** TODO which-key-show-top-level
+** TODO early-init
+- Emacs 27
+- https://github.com/hlissner/doom-emacs/blob/develop/early-init.el
 * Org-mode [1/9]
 ** EVAL org-cycle jumps to the beginning of line
 - State "EVAL"       from "TODO"       [2019-08-20 Tue 14:16]

@@ -147,7 +147,7 @@ C-M-n   my/outline-down-heading
 ** TODO org-ql
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
-* Packages [3/24]
+* Packages [3/25]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** EVAL doom-themes
@@ -221,3 +221,5 @@ C-M-n   my/outline-down-heading
 ** TODO display-buffer-control
 - Control how to open buffers matching specified conditions
 - https://gitlab.com/matsievskiysv/display-buffer-control
+** TODO org-padding
+- https://github.com/TonCherAmi/org-padding

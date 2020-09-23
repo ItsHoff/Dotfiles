@@ -387,6 +387,7 @@
   :config
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)
+  ;; (doom-themes-org-config) to try out
   (load-theme 'doom-nord t))
 
 ;; Shows documentation about symbol under point on the echo area

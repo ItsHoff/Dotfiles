@@ -934,10 +934,10 @@
   :mode "SConstruct")
 
 ;; Rust
-(use-package rust-mode
-  :commands rust-mode
+(use-package rustic
+  :commands rustic-mode
   :init
-  (add-hook 'rust-mode-hook #'lsp-deferred))
+  (add-hook 'rustic-mode-hook #'lsp-deferred))
 
 ;; Tex
 (use-package tex

@@ -706,6 +706,7 @@
   :custom
   (projectile-indexing-method 'hybrid) ; Required tools should be installed on windows as well
   (projectile-completion-system 'ivy)
+  (projectile-git-submodule-command nil) ; Submodules seem to be causing issues, so disabling for now 1.10.20
   :config
   (use-package counsel-projectile
     :config (counsel-projectile-mode t))

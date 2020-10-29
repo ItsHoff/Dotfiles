@@ -373,7 +373,11 @@
   :config
   (evil-collection-dired-setup)
   (put 'dired-find-alternate-file 'disabled nil) ; Allow dired to use the same buffer
-  (evil-add-command-properties #'dired-jump :jump t))
+  (evil-add-command-properties #'dired-jump :jump t)
+  (evil-declare-not-repeat #'dired-jump)
+  (evil-declare-not-repeat #'dired-next-line)
+  (evil-declare-not-repeat #'dired-previous-line)
+  (evil-declare-not-repeat #'dired-find-file))
 
 ;; Display line numbers
 (use-package display-line-numbers

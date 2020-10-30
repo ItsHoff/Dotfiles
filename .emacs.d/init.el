@@ -825,12 +825,16 @@
   :custom
   (whitespace-style '(trailing tabs space-before-tab tab-mark))
   ;; Change tab mark (this removes space and newline marks)
-  (whitespace-display-mappings '((tab-mark ?\t [?▸ ?\t] [?› ?\t] [?> ?\t])))
+  (whitespace-display-mappings '((tab-mark ?\t [?… ?… ?… ?╷] [?▸ ?\t] [?› ?\t] [?> ?\t])))
   :hook
   (prog-mode . (lambda ()
                  (setq-local whitespace-style
                              '(face trailing tabs space-before-tab tab-mark))))
-  :config (global-whitespace-mode))
+  :config
+  ;; Tabs shouldn't glow red.
+  (set-face-attribute 'whitespace-tab nil :inherit 'whitespace-space :foreground 'unspecified
+                      :inverse-video 'unspecified :slant 'normal)
+  (global-whitespace-mode))
 
 ;; Snippets
 (use-package yasnippet

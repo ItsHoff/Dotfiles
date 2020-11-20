@@ -163,6 +163,7 @@ One hop over heading that is one level higher is allowed."
   (org-directory "~/Dropbox/notes")
   (org-startup-align-all-tables t)
   (org-startup-truncated nil)
+  (org-startup-folded t)
   (org-adapt-indentation nil)
   (org-cycle-emulate-tab nil)
   (org-cycle-include-plain-lists nil)

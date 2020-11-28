@@ -15,13 +15,13 @@ F24::
     Run, c:\windows\system32\control.exe mmsys.cpl
     WinWaitActive, Sound
     WinSet, AlwaysOnTop, On, Sound
-    Send, {DOWN 2}
+    Send, {DOWN}
     Sleep, 300
     ControlGet, MyState, Enabled, , Button2
     If (MyState = 1){
         ControlClick, Button2, A
     } Else {
-        Send, {DOWN 2}
+        Send, {DOWN 5}
         Sleep, 300
         ControlGet, MyState, Enabled, , Button2
         If (MyState = 1){

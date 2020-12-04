@@ -207,6 +207,7 @@
   ;; Open new splits right or below
   (evil-vsplit-window-right 1)
   (evil-split-window-below 1)
+  (evil-undo-system 'undo-tree)
   :config
   (evil-mode 1)
   (setq evil-normal-state-tag "NORM")
@@ -786,16 +787,18 @@
 
 ;; Vim like undo
 (use-package undo-tree
+  :demand t
   :diminish undo-tree-mode
-  :init
-  (setq undo-tree-auto-save-history t)
-  (setq undo-tree-history-directory-alist `(("." . ,undo-directory)))
-  (setq undo-tree-visualizer-diff t)
-  (setq undo-tree-visualizer-timestamps t)
-  (setq undo-tree-visualizer-lazy-drawing nil) ; Change this to improve perf
+  :custom
+  (undo-tree-auto-save-history t)
+  (undo-tree-history-directory-alist `(("." . ,undo-directory)))
+  (undo-tree-visualizer-diff t)
+  (undo-tree-visualizer-timestamps t)
+  (undo-tree-visualizer-lazy-drawing nil) ; Change this to improve perf
   ;; Disable region undo since it seems to be flaky
-  (setq undo-tree-enable-undo-in-region nil)
+  (undo-tree-enable-undo-in-region nil)
   :config
+  (global-undo-tree-mode)
   ;; 10.8.19
   ;; (evil-make-overriding-map undo-tree-visualizer-mode-map 'motion)
   (advice-add #'undo-tree-undo-1 :filter-args #'my/advice-preserve-timestamps)

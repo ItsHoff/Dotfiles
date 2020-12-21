@@ -336,6 +336,7 @@
     (evil-declare-not-repeat command))
   (evil-add-command-properties #'counsel-find-file :jump t)
   (evil-add-command-properties #'ivy-switch-buffer :jump t)
+  (evil-add-command-properties #'ivy-occur-press-and-switch :jump t)
   (use-package ivy
     :diminish ivy-mode
     ;; ivy-mode replaces completing-read-function

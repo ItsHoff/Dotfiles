@@ -658,13 +658,14 @@
 ;; Git support
 (use-package magit
   :defer 2
+  :after evil-collection
   :commands (magit-status magit-blame-addition)
   :custom
   (magit-diff-paint-whitespace-lines 'all)
   (magit-diff-refine-hunk 'all)
+  (evil-collection-magit-want-horizontal-movement t)
   :config
-  (use-package evil-magit
-    :custom (evil-magit-want-horizontal-movement t))
+  (evil-collection-magit-setup)
   (evil-add-command-properties #'magit-diff-visit-file :jump t)
   (evil-add-command-properties #'magit-status :jump t)
   :general

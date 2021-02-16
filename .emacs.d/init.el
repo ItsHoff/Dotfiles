@@ -291,6 +291,7 @@
   (global-company-mode)
   :general
   (:keymaps 'company-active-map
+            "C-h" nil
             "C-<return>" #'newline-and-indent))
 
 ;; LSP backend for company

@@ -1,6 +1,6 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [2/24]
+* General [2/26]
 ** EVAL Fix smerge bindings
 - State "EVAL"       from "TODO"       [2020-03-03 ti 11:21]
 - [[*Find a way to do mode specific additions to prefix maps][Find a way to do mode specific additions to prefix maps]]
@@ -123,6 +123,15 @@ C-M-n   my/outline-down-heading
 - https://github.com/hlissner/doom-emacs/blob/develop/early-init.el
 ** TODO Speed up magit
 - https://jakemccrary.com/blog/2020/11/14/speeding-up-magit/
+** TODO Better projectile-find-file
+https://github.com/Gleek/emacs.d/search?q=projectile-find-file
+https://umarahmad.xyz/blog/improved-ranking-for-projectile-find-file/
+** TODO Selectrum etc
+- https://old.reddit.com/r/emacs/comments/kqutap/selectrum_prescient_consult_embark_getting_started/
+- https://github.com/raxod502/selectrum
+- https://github.com/minad/consult
+- https://github.com/minad/marginalia
+- https://github.com/oantolin/embark
 * Org-mode [1/9]
 ** EVAL org-cycle jumps to the beginning of line
 - State "EVAL"       from "TODO"       [2019-08-20 Tue 14:16]

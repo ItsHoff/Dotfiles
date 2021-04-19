@@ -35,8 +35,7 @@
 ;;; STRAIGHT -----------------------------------------------------------------------------------
 
 (custom-set-variables '(straight-use-package-by-default t)
-                      ; Switched to develop since built-in packages messed up freezing
-                      '(straight-repository-branch "develop"))
+                      '(straight-repository-branch "master"))
 
 (defvar bootstrap-version)
 (let ((bootstrap-file

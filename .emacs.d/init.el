@@ -77,8 +77,6 @@
 ;;; GENERAL SETTINGS ----------------------------------------------------------------------------
 
 (setq visible-bell 1)               ; No error beep
-(tool-bar-mode -1)                  ; No toolbar
-(scroll-bar-mode -1)                ; No scrollbar
 (electric-indent-mode -1)           ; Handle indendation elsewhere
 (setq inhibit-startup-screen t)     ; No message at startup
 (modify-syntax-entry ?_ "w" (standard-syntax-table)) ; _ is now part of a word
@@ -97,7 +95,6 @@
 (unless (server-running-p) (server-start))
 
 ;; Performance suggestions from lsp (https://github.com/emacs-lsp/lsp-mode#performance)
-(setq gc-cons-threshold (* 100 1024 1024)) ; 100 mb
 (setq read-process-output-max (* 1024 1024)) ; 1 mb
 
 ;; Increase stack size (https://www.gnu.org/software/emacs/manual/html_mono/eintr.html#fn-13)

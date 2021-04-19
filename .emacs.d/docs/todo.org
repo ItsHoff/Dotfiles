@@ -1,6 +1,6 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [2/26]
+* General [2/27]
 ** EVAL Fix smerge bindings
 - State "EVAL"       from "TODO"       [2020-03-03 ti 11:21]
 - [[*Find a way to do mode specific additions to prefix maps][Find a way to do mode specific additions to prefix maps]]
@@ -132,6 +132,8 @@ https://umarahmad.xyz/blog/improved-ranking-for-projectile-find-file/
 - https://github.com/minad/consult
 - https://github.com/minad/marginalia
 - https://github.com/oantolin/embark
+** TODO Evil motion training
+- https://martin.baillie.id/wrote/evil-motion-training-for-emacs/
 * Org-mode [1/9]
 ** EVAL org-cycle jumps to the beginning of line
 - State "EVAL"       from "TODO"       [2019-08-20 Tue 14:16]

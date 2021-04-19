@@ -730,7 +730,7 @@
   :demand t
   :straight (:type built-in)
   :custom
-  (recentf-max-saved-items 50)
+  (recentf-max-saved-items 100)
   :config
   (add-to-list 'recentf-exclude "autoloads\\.el\\'")
   ;; Exclude files with no suffix

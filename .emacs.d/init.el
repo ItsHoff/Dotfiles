@@ -655,7 +655,7 @@
 
 ;; Git support
 (use-package magit
-  :defer 2
+  :defer 10
   :after evil-collection
   :commands (magit-status magit-blame-addition)
   :custom

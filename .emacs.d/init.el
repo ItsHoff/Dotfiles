@@ -773,6 +773,19 @@
   :demand t
   :config
   (load-theme 'solarized-dark t)
+  (require 'solarized-palettes)
+  ;; Check out child-theme-example for how to probably do this better.
+  (solarized-with-color-variables 'dark 'solarized-dark
+    solarized-dark-color-palette-alist
+    '((custom-theme-set-faces
+       theme-name
+       ;; Copy markdown-header-faces from org-level faces
+       `(markdown-header-face-1 ((,class (:inherit ,s-variable-pitch :foreground ,orange :height ,solarized-height-plus-4))))
+       `(markdown-header-face-2 ((,class (:inherit ,s-variable-pitch :foreground ,green :height ,solarized-height-plus-3))))
+       `(markdown-header-face-3 ((,class (:inherit ,s-variable-pitch :foreground ,blue :height ,solarized-height-plus-2))))
+       `(markdown-header-face-4 ((,class (:inherit ,s-variable-pitch :foreground ,yellow :height ,solarized-height-plus-1))))
+       `(markdown-header-face-5 ((,class (:inherit ,s-variable-pitch :foreground ,cyan))))
+       `(markdown-header-face-6 ((,class (:inherit ,s-variable-pitch :foreground ,green)))))))
   ;; Disable mode-line over and underlines
   (set-face-attribute 'mode-line nil :overline 'unspecified :underline 'unspecified)
   (set-face-attribute 'mode-line-inactive nil :overline 'unspecified :underline 'unspecified))
@@ -918,6 +931,16 @@
 ;; Lua
 (use-package lua-mode
   :commands lua-mode)
+
+;; Markdown
+(use-package markdown-mode
+  :commands markdown-mode
+  :custom
+  (markdown-command '("pandoc" "--from=markdown" "--to=html5"))
+  (markdown-asymmetric-header t))
+
+(use-package markdown-preview-mode
+  :commands markdown-preview-mode)
 
 ;; Octave / Matlab
 (use-package octave-mode

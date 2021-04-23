@@ -1,3 +1,4 @@
 .projectile
 .clangd/
 compile_commands.json
+.markdown-preview.html

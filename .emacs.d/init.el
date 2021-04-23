@@ -851,6 +851,7 @@
 
 ;; Snippets
 (use-package yasnippet
+  :disabled ; 23.4.2021
   :diminish yas-minor-mode
   :init
   (defvar my/yas-command-map (make-sparse-keymap))

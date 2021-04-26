@@ -1,6 +1,6 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [2/27]
+* General [2/28]
 ** EVAL Fix smerge bindings
 - State "EVAL"       from "TODO"       [2020-03-03 ti 11:21]
 - [[*Find a way to do mode specific additions to prefix maps][Find a way to do mode specific additions to prefix maps]]
@@ -134,6 +134,14 @@ https://umarahmad.xyz/blog/improved-ranking-for-projectile-find-file/
 - https://github.com/oantolin/embark
 ** TODO Evil motion training
 - https://martin.baillie.id/wrote/evil-motion-training-for-emacs/
+** TODO Fix git submodule workpaths
+- .git/modules/{module_path}/config contains the worktree property
+- The worktree path gets messed up because of the ~/Dotfiles/.emacs.d/-> ~/.emacs.d symlink
+  - Git initializes with the full path, but status uses the abbreviated path.
+#+BEGIN_SRC
+fatal: cannot chdir to '../../../../../../../../../../.emacs.d/straight/repos/emacs-tree-sitter/doc/themes/docdock': No such file or directory
+fatal: 'git status --porcelain=2' failed in submodule doc/themes/docdock
+#+END_SRC
 * Org-mode [1/9]
 ** EVAL org-cycle jumps to the beginning of line
 - State "EVAL"       from "TODO"       [2019-08-20 Tue 14:16]

@@ -35,6 +35,7 @@
 ;;; STRAIGHT -----------------------------------------------------------------------------------
 
 (custom-set-variables '(straight-use-package-by-default t)
+                      '(straight-check-for-modifications '(check-on-save find-when-checking))
                       '(straight-repository-branch "master"))
 
 (defvar bootstrap-version)

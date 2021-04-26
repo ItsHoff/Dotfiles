@@ -57,6 +57,8 @@
  ("markdown-preview-mode" . "01af98ac1adcc9cb247fbc6c80fb159c30360ee6")
  ("melpa" . "4a3f94025604a6efc529891d4bc78293f0a11a98")
  ("olivetti" . "46e43802237c83e12e07833419f6181ba3aeac91")
+ ("org" . "97a2022382c7adeb3b8b1a6fb1b2c3e1ef40e11f")
+ ("org-chef" . "5b461ed7d458cdcbff0af5013fbdbe88cbfb13a4")
  ("parsebib" . "25ea94f57c6f3531dd8383f8c5a45ee8d81272bd")
  ("pdf-tools" . "c510442ab89c8a9e9881230eeb364f4663f59e76")
  ("pkg-info" . "76ba7415480687d05a4353b27fea2ae02b8d9d61")

@@ -1024,9 +1024,10 @@
 ;; Vimrc
 (use-package vimrc-mode)
 
-(require 'my-functions)
-(require 'my-org-setup)
-(require 'my-bindings)
+;; Load other files
+(load "my-functions")
+(load "my-org-setup")
+(load "my-bindings")
 
 (provide 'init)
 ;;; init.el ends here

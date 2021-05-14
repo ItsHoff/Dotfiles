@@ -660,6 +660,8 @@
   (magit-diff-paint-whitespace-lines 'all)
   (magit-diff-refine-hunk 'all)
   (evil-collection-magit-want-horizontal-movement t)
+  :init
+  (setq magit-bind-magit-project-status nil) ; Not customizable variable
   :config
   (evil-collection-magit-setup)
   (evil-add-command-properties #'magit-diff-visit-file :jump t)
@@ -1024,7 +1026,6 @@
 ;; Vimrc
 (use-package vimrc-mode)
 
-;; Load other files
 (load "my-functions")
 (load "my-org-setup")
 (load "my-bindings")

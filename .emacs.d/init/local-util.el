@@ -17,7 +17,10 @@
 
 (defmacro local/defvar (variable value)
   "Define a local VALUE for a VARIABLE."
-  `(defvar ,(intern (concat local/variable-prefix (symbol-name variable))) ,value))
+  (let ((symbol (intern (concat local/variable-prefix (symbol-name variable)))))
+    ;; Use defvar + setq to ensure the value can be updated without restart.
+    `(defvar ,symbol nil "Local value set by local-util")
+    `(setq ,symbol ,value)))
 
 (defmacro local/setq (variable)
   "Set a VARIABLE to a local value if a local value has been defined."

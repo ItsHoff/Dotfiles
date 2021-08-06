@@ -930,7 +930,11 @@
 
 ;; Kotlin
 (use-package kotlin-mode
-  :commands kotlin-mode)
+  :commands kotlin-mode
+  :init
+  (add-hook 'kotlin-mode-hook #'lsp-deferred)
+  :config
+  (local/custom lsp-clients-kotlin-server-executable))
 
 ;; Lua
 (use-package lua-mode

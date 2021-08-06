@@ -1,6 +1,6 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [2/28]
+* General [2/29]
 ** EVAL Fix smerge bindings
 - State "EVAL"       from "TODO"       [2020-03-03 ti 11:21]
 - [[*Find a way to do mode specific additions to prefix maps][Find a way to do mode specific additions to prefix maps]]
@@ -142,6 +142,8 @@ https://umarahmad.xyz/blog/improved-ranking-for-projectile-find-file/
 fatal: cannot chdir to '../../../../../../../../../../.emacs.d/straight/repos/emacs-tree-sitter/doc/themes/docdock': No such file or directory
 fatal: 'git status --porcelain=2' failed in submodule doc/themes/docdock
 #+END_SRC
+** TODO start-evil-substitution-on-selection
+https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-selection/
 * Org-mode [1/9]
 ** EVAL org-cycle jumps to the beginning of line
 - State "EVAL"       from "TODO"       [2019-08-20 Tue 14:16]
@@ -168,7 +170,7 @@ fatal: 'git status --porcelain=2' failed in submodule doc/themes/docdock
 ** TODO org-ql
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
-* Packages [3/25]
+* Packages [3/26]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** EVAL doom-themes
@@ -244,3 +246,5 @@ fatal: 'git status --porcelain=2' failed in submodule doc/themes/docdock
 - https://gitlab.com/matsievskiysv/display-buffer-control
 ** TODO org-padding
 - https://github.com/TonCherAmi/org-padding
+** TODO corfu
+- https://github.com/minad/corfu

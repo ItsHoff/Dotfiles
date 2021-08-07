@@ -21,7 +21,7 @@ F24::
     If (MyState = 1){
         ControlClick, Button2, A
     } Else {
-        Send, {DOWN 5}
+        Send, {DOWN 4}
         Sleep, 300
         ControlGet, MyState, Enabled, , Button2
         If (MyState = 1){

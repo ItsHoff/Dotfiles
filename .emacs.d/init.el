@@ -974,6 +974,11 @@
   :straight (:type built-in)
   :mode "SConstruct")
 
+;; RST
+(use-package rst
+  :straight (:type built-in))
+  :init (add-hook 'rst-mode-hook (lambda () (my/set-tab-width 2)))
+
 ;; Rust
 (use-package rustic
   :commands rustic-mode

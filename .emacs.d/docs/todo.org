@@ -170,7 +170,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO org-ql
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
-* Packages [3/26]
+* Packages [3/27]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** EVAL doom-themes
@@ -248,3 +248,5 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - https://github.com/TonCherAmi/org-padding
 ** TODO corfu
 - https://github.com/minad/corfu
+** TODO evil-textobj-tree-sitter
+- https://github.com/meain/evil-textobj-tree-sitter

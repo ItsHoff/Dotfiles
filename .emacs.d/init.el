@@ -87,6 +87,7 @@
 (setq history-length 1000)          ; Increase the amount of history
 (setq create-lockfiles nil)         ; Don't create lockfiles
 (setq auto-save-default nil)        ; No auto-saves
+(setq sentence-end-double-space nil) ; Don't require double space at end of sentence.
 
 ;; Start a server if it is not already running.
 (require 'server)

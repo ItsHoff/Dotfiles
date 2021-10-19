@@ -933,7 +933,8 @@
 (use-package kotlin-mode
   :commands kotlin-mode
   :init
-  (add-hook 'kotlin-mode-hook #'lsp-deferred)
+  ;; Disabled 19.10.21 kotlin lsp is not very good yet.
+  ;; (add-hook 'kotlin-mode-hook #'lsp-deferred)
   :config
   (local/custom lsp-clients-kotlin-server-executable))
 

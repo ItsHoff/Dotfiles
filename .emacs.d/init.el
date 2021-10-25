@@ -715,8 +715,10 @@
   (projectile-git-submodule-command nil) ; Submodules seem to be causing issues, so disabling for now 1.10.20
   :config
   (use-package counsel-projectile
-    :disabled ; 19.10.21 counsel-projectile-switch-project is very slow compared to projectile-switch-project
-    :config (counsel-projectile-mode t))
+    :config
+    ;; counsel-projectile-switch-project is super slow for some reason, so don't override it.
+    (setq counsel-projectile-key-bindings (assq-delete-all 'projectile-switch-project counsel-projectile-key-bindings))
+    (counsel-projectile-mode t))
   (evil-add-command-properties #'counsel-projectile-find-file :jump t)
   (evil-add-command-properties #'projectile-find-other-file :jump t)
   (evil-add-command-properties #'projectile-find-other-file-other-window :jump t)

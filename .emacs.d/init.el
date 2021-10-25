@@ -277,9 +277,6 @@
   (company-require-match nil)
   (company-dabbrev-downcase nil)
   :config
-  ;; Fuzzy matching for company
-  (use-package company-flx
-    :config (company-flx-mode t))
   (dotimes (i 10)
     (general-define-key :keymaps 'company-active-map
                         (format "C-%d" i) #'company-complete-number))
@@ -289,6 +286,11 @@
   (:keymaps 'company-active-map
             "C-h" nil
             "C-<return>" #'newline-and-indent))
+
+;; Fuzzy matching for company
+(use-package company-flx
+  :after company
+  :config (company-flx-mode t))
 
 ;; LSP backend for company
 (use-package company-lsp
@@ -334,13 +336,6 @@
   (evil-add-command-properties #'counsel-find-file :jump t)
   (evil-add-command-properties #'ivy-switch-buffer :jump t)
   (evil-add-command-properties #'ivy-occur-press-and-switch :jump t)
-  (use-package ivy
-    :diminish ivy-mode
-    ;; ivy-mode replaces completing-read-function
-    :config (ivy-mode t))
-  (use-package ivy-hydra
-    :commands hydra-ivy/body)
-  (use-package amx)
   (evil-collection-ivy-setup)
   ;; counsel-mode replaces built in commands with counsel alternatives
   (counsel-mode t)
@@ -349,8 +344,18 @@
             "C-h" #'ivy-alt-done
             "<escape>" #'minibuffer-keyboard-quit)
   (:keymaps 'ivy-occur-grep-mode-map
-            "n" nil) ; Conflicts with search (was next-error-no-select)
-  )
+            "n" nil)) ; Conflicts with search (was next-error-no-select)
+
+;; Completion framework behind counsel
+(use-package ivy
+  :after counsel
+  :diminish ivy-mode
+  ;; ivy-mode replaces completing-read-function
+  :config (ivy-mode t))
+
+;; Enhanced M-x interface
+(use-package amx
+  :after counsel)
 
 ;; Save and restore emacs session
 (use-package desktop
@@ -714,12 +719,6 @@
   (projectile-completion-system 'ivy)
   (projectile-git-submodule-command nil) ; Submodules seem to be causing issues, so disabling for now 1.10.20
   :config
-  (use-package counsel-projectile
-    :config
-    ;; counsel-projectile-switch-project is super slow for some reason, so don't override it.
-    (setq counsel-projectile-key-bindings (assq-delete-all 'projectile-switch-project counsel-projectile-key-bindings))
-    (counsel-projectile-mode t))
-  (evil-add-command-properties #'counsel-projectile-find-file :jump t)
   (evil-add-command-properties #'projectile-find-other-file :jump t)
   (evil-add-command-properties #'projectile-find-other-file-other-window :jump t)
   (projectile-mode t)
@@ -728,6 +727,14 @@
             "ESC" nil
             "s s" #'lsp-ivy-workspace-symbol
             "s a" #'projectile-ag))
+
+(use-package counsel-projectile
+  :after projectile
+  :config
+  (evil-add-command-properties #'counsel-projectile-find-file :jump t)
+  ;; counsel-projectile-switch-project is super slow for some reason, so don't override it.
+  (setq counsel-projectile-key-bindings (assq-delete-all 'projectile-switch-project counsel-projectile-key-bindings))
+  (counsel-projectile-mode t))
 
 ;; Save recently visited files between sessions
 (use-package recentf
@@ -864,14 +871,20 @@
   (defvar my/yas-command-map (make-sparse-keymap))
   (fset 'my/yas-command-map my/yas-command-map)
   :config
-  (use-package ivy-yasnippet)
-  (use-package yasnippet-snippets)
   (yas-global-mode)
   :general
   (:keymaps 'my/yas-command-map
             "y" #'ivy-yasnippet
             "n" #'yas-new-snippet
             "v" #'yas-visit-snippet-file))
+
+;; Ivy integration for yasnippet
+(use-package ivy-yasnippet
+  :after yasnippet)
+
+;; Yasnippet snippets
+(use-package yasnippet-snippets
+  :after yasnippet)
 
 ;;; PROGRAMMING MODES ---------------------------------------------------------------------------
 
@@ -968,11 +981,11 @@
   :commands anaconda-mode
   :init
   (add-hook 'python-mode-hook #'anaconda-mode)
-  (add-hook 'python-mode-hook (lambda () (my/set-tab-width 4)))
+  (add-hook 'python-mode-hook (lambda () (my/set-tab-width 4))))
+
+(use-package company-anaconda
   :config
-  (use-package company-anaconda
-    :config
-    (add-to-list 'company-backends '(company-anaconda :with company-capf))))
+  (add-to-list 'company-backends '(company-anaconda :with company-capf)))
 
 (use-package python-mode
   :straight (:type built-in)

@@ -197,7 +197,6 @@ One hop over heading that is one level higher is allowed."
            "%(org-chef-get-recipe-from-url)")
           ("R" "Recipe manually" entry (file+olp "~/Dropbox/notes/recipes.org" "Uncategorized")
            "* %^{Recipe title: }\n  :PROPERTIES:\n  :source-url:\n  :servings:\n  :prep-time:\n  :cook-time:\n  :ready-in:\n  :END:\n** Ingredients\n   %?\n** Directions\n\n")))
-  (use-package org-chef)
   (defhydra my/org-hydra (:hint nil)
     "
 ^Modify^             ^Tables^
@@ -226,8 +225,7 @@ _-_: Toggle bullet
             "<right>" #'my/org-forward-heading-same-level
             "<left>" #'my/org-backward-heading-same-level
             "C-M-p" #'my/outline-up-heading
-            "C-M-n" #'my/outline-down-heading
-            )
+            "C-M-n" #'my/outline-down-heading)
   (:keymaps 'org-mode-map
             :states '(normal visual insert)
             "M-h" #'org-metaleft
@@ -237,8 +235,9 @@ _-_: Toggle bullet
             "M-j" #'org-metadown
             "M-J" #'org-shiftmetadown
             "M-k" #'org-metaup
-            "M-K" #'org-shiftmetaup
-            ))
+            "M-K" #'org-shiftmetaup))
+
+(use-package org-chef)
 
 (provide 'my-org-setup)
 ;;; org-mode.el ends here

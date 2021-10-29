@@ -920,6 +920,10 @@
 (use-package csharp-mode
   :commands csharp-mode)
 
+;; Git
+(use-package git-modes
+  :commands (gitattributes-mode gitconfig-mode gitignore-mode))
+
 ;; GLSL
 (use-package glsl-mode
   :commands glsl-mode

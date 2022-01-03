@@ -45,6 +45,7 @@ C-M-n   my/outline-down-heading
   - https://github.com/DamienCassou/hierarchy
 - alternative: treesitter
   - https://old.reddit.com/r/emacs/comments/chnxzm/dynamic_module_binding_for_treesitter_an/
+  - https://github.com/polaris64/symex-ts
 **** TODO Magit
 - magit-section-forward
 - magit-section-backward
@@ -170,7 +171,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO org-ql
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
-* Packages [3/27]
+* Packages [3/28]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** EVAL doom-themes
@@ -250,3 +251,5 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - https://github.com/minad/corfu
 ** TODO evil-textobj-tree-sitter
 - https://github.com/meain/evil-textobj-tree-sitter
+** TODO tree-edit
+- https://github.com/ethan-leba/tree-edit

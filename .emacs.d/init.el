@@ -63,7 +63,7 @@
 
 ;; Report culprits for long pauses
 (use-package explain-pause-mode
-  :disabled
+  :disabled ; Blocked emacs when tried 16.11.21
   :straight (explain-pause-mode :type git :host github :repo "lastquestion/explain-pause-mode")
   :diminish explain-pause-mode
   :custom (explain-pause-logging-default-log-location (expand-file-name "explain-pause-log.socket" user-emacs-directory)))
@@ -406,6 +406,7 @@
 (use-package evil-anzu
   :after evil
   :custom
+  (anzu-minimum-input-length 3)
   (anzu-cons-mode-line-p nil))
 
 (use-package evil-collection

@@ -46,6 +46,7 @@ C-M-n   my/outline-down-heading
 - alternative: treesitter
   - https://old.reddit.com/r/emacs/comments/chnxzm/dynamic_module_binding_for_treesitter_an/
   - https://github.com/polaris64/symex-ts
+- built-in end-of-defun beginning-of-defun
 **** TODO Magit
 - magit-section-forward
 - magit-section-backward
@@ -133,6 +134,7 @@ https://umarahmad.xyz/blog/improved-ranking-for-projectile-find-file/
 - https://github.com/minad/consult
 - https://github.com/minad/marginalia
 - https://github.com/oantolin/embark
+- https://kristofferbalintona.me/posts/vertico-marginalia-all-the-icons-completion-and-orderless/
 ** TODO Evil motion training
 - https://martin.baillie.id/wrote/evil-motion-training-for-emacs/
 ** TODO Fix git submodule workpaths
@@ -145,7 +147,7 @@ fatal: 'git status --porcelain=2' failed in submodule doc/themes/docdock
 #+END_SRC
 ** TODO start-evil-substitution-on-selection
 https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-selection/
-* Org-mode [1/9]
+* Org-mode [1/10]
 ** EVAL org-cycle jumps to the beginning of line
 - State "EVAL"       from "TODO"       [2019-08-20 Tue 14:16]
 - There needs to be a space between the bullets and point for it to work correctly
@@ -171,6 +173,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO org-ql
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
+** TODO org-use-speed-commands
 * Packages [3/29]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
@@ -249,6 +252,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - https://github.com/TonCherAmi/org-padding
 ** TODO corfu
 - https://github.com/minad/corfu
+- https://kristofferbalintona.me/posts/corfu-kind-icon-and-corfu-doc/
 ** TODO evil-textobj-tree-sitter
 - https://github.com/meain/evil-textobj-tree-sitter
 ** TODO tree-edit

@@ -440,6 +440,19 @@
 (use-package evil-numbers
   :after evil)
 
+;; Tree sitter syntax highlighting
+(use-package tree-sitter
+  :hook (prog-mode . tree-sitter-hl-mode))
+(use-package tree-sitter-langs)
+
+;; Tree-sitter powered textobjects for evil mode in Emacs.
+(use-package evil-textobj-tree-sitter
+  :after evil
+  :general
+  (:keymaps 'evil-normal-state-map
+            "<down>" (lambda () (interactive) (evil-textobj-tree-sitter-goto-textobj "function.outer"))
+            "<up>" (lambda () (interactive) (evil-textobj-tree-sitter-goto-textobj "function.outer" t))))
+
 ;; Start a * or # search from the visual selection
 (use-package evil-visualstar
   :after evil

@@ -174,7 +174,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
 ** TODO org-use-speed-commands
-* Packages [3/29]
+* Packages [4/34]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** EVAL doom-themes
@@ -184,6 +184,13 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - State "EVAL"       from "TODO"       [2020-07-15 ke 13:21]
 - Emacs minor mode that watches for long pauses and reports them.
 - https://github.com/lastquestion/explain-pause-mode
+** EVAL evil-textobj-tree-sitter
+- State "EVAL"       from "TODO"       [2022-06-06 ma 15:35]
+- Tree-sitter powered textobjects for evil mode in Emacs.
+- https://github.com/meain/evil-textobj-tree-sitter
+- https://blog.meain.io/2022/more-treesitter-emacs/
+- move between text objects: https://github.com/meain/dotfiles/blob/34ef5e3331757ac32dd066f5baa54f76cf78211b/emacs/.config/emacs/init.el#L2237-L2256
+
 ** TODO Agressive indent
 - minor mode that keeps your code always indented
 - https://github.com/Malabarba/aggressive-indent-mode
@@ -253,9 +260,25 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO corfu
 - https://github.com/minad/corfu
 - https://kristofferbalintona.me/posts/corfu-kind-icon-and-corfu-doc/
-** TODO evil-textobj-tree-sitter
-- https://github.com/meain/evil-textobj-tree-sitter
 ** TODO tree-edit
 - https://github.com/ethan-leba/tree-edit
 ** TODO turbo-log
 - https://github.com/Artawower/turbo-log
+** TODO evil-lion
+- This package provides gl and gL align operators: gl MOTION CHAR and right-align gL MOTION CHAR.
+- https://github.com/edkolev/evil-lion
+** TODO evil-snipe / avy
+- It provides 2-character motions for quickly (and more accurately) jumping around text, compared to evil's built-in f/F/t/T motions, incrementally highlighting candidate targets as you type.
+- https://github.com/hlissner/evil-snipe
+- avy is a GNU Emacs package for jumping to visible text using a char-based decision tree.
+- https://github.com/abo-abo/avy
+
+** TODO evil-commentary
+- Alternative to evil-nerd-commenter
+- https://github.com/linktohack/evil-commentary
+** TODO evil-owl
+- evil-owl allows you to view registers and marks before using them.
+- https://github.com/mamapanda/evil-owl
+** TODO esup
+- Emacs Start Up Profiler
+- https://github.com/jschaf/esup

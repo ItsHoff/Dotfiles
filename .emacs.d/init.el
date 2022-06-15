@@ -946,7 +946,8 @@
 
 ;; Groovy / Gradle
 (use-package groovy-mode
-  :commands groovy-mode)
+  :commands groovy-mode
+  :mode "\\.Jenkinsfile\\'")
 
 ;; ELisp
 (use-package elisp-mode

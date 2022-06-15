@@ -647,7 +647,7 @@
   :commands (lsp lsp-deferred)
   :custom
   (lsp-keep-workspace-alive nil)
-  (lsp-auto-guess-root t)
+  (lsp-auto-guess-root nil)
   (lsp-prefer-flymake nil)
   (lsp-enable-snippet nil)
   (lsp-prefer-capf t)

@@ -1,6 +1,6 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [2/29]
+* General [2/30]
 ** EVAL Fix smerge bindings
 - State "EVAL"       from "TODO"       [2020-03-03 ti 11:21]
 - [[*Find a way to do mode specific additions to prefix maps][Find a way to do mode specific additions to prefix maps]]
@@ -147,6 +147,8 @@ fatal: 'git status --porcelain=2' failed in submodule doc/themes/docdock
 #+END_SRC
 ** TODO start-evil-substitution-on-selection
 https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-selection/
+** TODO Investigate slow diff perfomance
+- kzproj files take several minutes to show in status buffer
 * Org-mode [1/10]
 ** EVAL org-cycle jumps to the beginning of line
 - State "EVAL"       from "TODO"       [2019-08-20 Tue 14:16]

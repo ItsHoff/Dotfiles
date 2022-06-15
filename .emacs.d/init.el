@@ -652,6 +652,7 @@
   (lsp-enable-snippet nil)
   (lsp-prefer-capf t)
   (lsp-clients-clangd-args '("--header-insertion=never" "--suggest-missing-includes"))
+  (lsp-volar-take-over-mode t)
   :config
   (defun my/goto-definition-lsp (_string _position)
     (when (bound-and-true-p lsp-mode)
@@ -1072,6 +1073,13 @@
 
 ;; Vimrc
 (use-package vimrc-mode)
+
+;; Web
+(use-package web-mode
+  :commands web-mode
+  :mode ("\\.ts\\'" "\\.vue\\'")
+  :init
+  (add-hook 'web-mode-hook #'lsp-deferred))
 
 (load "my-functions")
 (load "my-org-setup")

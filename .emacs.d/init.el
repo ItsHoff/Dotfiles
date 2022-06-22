@@ -245,6 +245,11 @@
   :straight (:type built-in)
   :diminish abbrev-mode)
 
+;; Run code formatter on buffer contents.
+(use-package apheleia
+  :config
+  (apheleia-global-mode t))
+
 ;; Automatically reload changed files
 (use-package autorevert
   :demand t

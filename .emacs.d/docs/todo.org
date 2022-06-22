@@ -192,7 +192,6 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - https://github.com/meain/evil-textobj-tree-sitter
 - https://blog.meain.io/2022/more-treesitter-emacs/
 - move between text objects: https://github.com/meain/dotfiles/blob/34ef5e3331757ac32dd066f5baa54f76cf78211b/emacs/.config/emacs/init.el#L2237-L2256
-
 ** TODO Agressive indent
 - minor mode that keeps your code always indented
 - https://github.com/Malabarba/aggressive-indent-mode
@@ -227,6 +226,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - ESUP - Emacs Start Up Profiler
 - https://github.com/jschaf/esup
 ** TODO lsp-treemacs
+- Integration between lsp-mode and treemacs and implementation of treeview controls using treemacs as a tree renderer.
 - https://github.com/emacs-lsp/lsp-treemacs
 ** TODO dap-mode
 - Emacs ❤ Debug Adapter Protocol

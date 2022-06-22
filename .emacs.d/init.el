@@ -1084,8 +1084,14 @@
 (use-package web-mode
   :commands web-mode
   :mode ("\\.ts\\'" "\\.vue\\'")
+  :custom
+  (web-mode-part-padding 0)
+  (web-mode-script-padding 0)
+  (web-mode-style-padding 0)
   :init
-  (add-hook 'web-mode-hook #'lsp-deferred))
+  (add-hook 'web-mode-hook #'lsp-deferred)
+  :config
+  (modify-syntax-entry ?_ "w" web-mode-syntax-table)) ; _ is now part of a word
 
 (load "my-functions")
 (load "my-org-setup")

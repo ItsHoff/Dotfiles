@@ -247,6 +247,7 @@
 
 ;; Run code formatter on buffer contents.
 (use-package apheleia
+  :diminish apheleia-mode
   :config
   (apheleia-global-mode t))
 
@@ -651,6 +652,7 @@
 ;; LSP support
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
+  :diminish lsp-lens-mode
   :custom
   (lsp-keep-workspace-alive nil)
   (lsp-auto-guess-root nil)

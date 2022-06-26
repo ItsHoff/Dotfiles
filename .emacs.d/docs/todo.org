@@ -176,7 +176,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
 ** TODO org-use-speed-commands
-* Packages [4/34]
+* Packages [4/35]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** EVAL doom-themes
@@ -284,3 +284,6 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO esup
 - Emacs Start Up Profiler
 - https://github.com/jschaf/esup
+** TODO sidekick.el
+- Sidekick is a Emacs package that provides information about a symbol inside a single window.
+- https://github.com/VernonGrant/sidekick.el

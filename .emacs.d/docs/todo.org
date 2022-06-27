@@ -33,7 +33,13 @@ Fall back to sibling at top level
 <left>  my/org-backward-heading-same-level
 C-M-p   my/outline-up-heading
 C-M-n   my/outline-down-heading
-**** TODO LSP
+**** TODO Programming modes
+***** Treesitter
+- https://github.com/mickeynp/combobulate
+- https://old.reddit.com/r/emacs/comments/chnxzm/dynamic_module_binding_for_treesitter_an/
+- https://github.com/polaris64/symex-ts
+
+***** LSP
 - LSP: textDocument/documentSymbol
   - https://microsoft.github.io/language-server-protocol/specification#textDocument_documentSymbol
   - children is the intended source
@@ -43,9 +49,6 @@ C-M-n   my/outline-down-heading
   - https://github.com/emacs-lsp/lsp-treemacs
 - potential helper: hierarchy
   - https://github.com/DamienCassou/hierarchy
-- alternative: treesitter
-  - https://old.reddit.com/r/emacs/comments/chnxzm/dynamic_module_binding_for_treesitter_an/
-  - https://github.com/polaris64/symex-ts
 - built-in end-of-defun beginning-of-defun
 **** TODO Magit
 - magit-section-forward
@@ -176,7 +179,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
 ** TODO org-use-speed-commands
-* Packages [4/34]
+* Packages [4/36]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** EVAL doom-themes
@@ -285,3 +288,9 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO sidekick.el
 - Sidekick is a Emacs package that provides information about a symbol inside a single window.
 - https://github.com/VernonGrant/sidekick.el
+** TODO combobulate
+- Structured Editing and Navigation in Emacs
+- https://github.com/mickeynp/combobulate
+** TODO tsi.el
+- use the syntax tree provided by the tree-sitter minor mode as the basis for indentation.
+- https://github.com/orzechowskid/tsi.el/

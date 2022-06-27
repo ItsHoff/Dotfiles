@@ -469,7 +469,8 @@
 (use-package flycheck
   :diminish flycheck-mode
   :commands flycheck-mode
-  :init (add-hook 'prog-mode-hook (lambda () (flycheck-mode))))
+  :init (add-hook 'prog-mode-hook (lambda () (flycheck-mode)))
+  :config (flycheck-add-mode 'javascript-eslint 'web-mode))
 
 ;; Frame utility
 (use-package framegroups

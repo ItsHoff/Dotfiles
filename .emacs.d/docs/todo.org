@@ -176,7 +176,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
 ** TODO org-use-speed-commands
-* Packages [4/35]
+* Packages [4/34]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** EVAL doom-themes
@@ -227,6 +227,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - https://github.com/jschaf/esup
 ** TODO lsp-treemacs
 - Integration between lsp-mode and treemacs and implementation of treeview controls using treemacs as a tree renderer.
+- Bug with error list: https://github.com/emacs-lsp/lsp-treemacs/issues/109#issuecomment-1114766364
 - https://github.com/emacs-lsp/lsp-treemacs
 ** TODO dap-mode
 - Emacs ❤ Debug Adapter Protocol
@@ -281,9 +282,6 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO evil-owl
 - evil-owl allows you to view registers and marks before using them.
 - https://github.com/mamapanda/evil-owl
-** TODO esup
-- Emacs Start Up Profiler
-- https://github.com/jschaf/esup
 ** TODO sidekick.el
 - Sidekick is a Emacs package that provides information about a symbol inside a single window.
 - https://github.com/VernonGrant/sidekick.el

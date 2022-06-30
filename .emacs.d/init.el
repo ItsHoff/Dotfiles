@@ -446,11 +446,11 @@
 (use-package evil-numbers
   :after evil)
 
-;; TODO: set up tree sitter properly for supported languages
 ;; Tree sitter syntax highlighting
-;; (use-package tree-sitter
-;;   :hook (prog-mode . tree-sitter-hl-mode))
-;; (use-package tree-sitter-langs)
+(use-package tree-sitter
+  :hook ((prog-mode . turn-on-tree-sitter-mode)
+         (tree-sitter-mode . tree-sitter-hl-mode)))
+(use-package tree-sitter-langs)
 
 ;; Tree-sitter powered textobjects for evil mode in Emacs.
 ;; (use-package evil-textobj-tree-sitter

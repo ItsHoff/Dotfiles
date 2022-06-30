@@ -418,7 +418,7 @@
 (use-package evil-collection
   :diminish evil-collection-unimpaired-mode
   :config
-  (evil-collection-init '((custom cus-edit) debug help (package-menu package) xref)))
+  (evil-collection-init '((custom cus-edit) debug eshell help (package-menu package) xref)))
 
 ;; Visual hints for evil edits
 (use-package evil-goggles

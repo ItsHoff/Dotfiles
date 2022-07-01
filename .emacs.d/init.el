@@ -249,6 +249,9 @@
 (use-package apheleia
   :diminish apheleia-mode
   :config
+  ;; https://github.com/radian-software/apheleia/issues/108
+  (setf (alist-get 'clang-format apheleia-formatters)
+        '("clang-format" file))
   (apheleia-global-mode t))
 
 ;; Automatically reload changed files

@@ -175,6 +175,7 @@ One hop over heading that is one level higher is allowed."
   (org-outline-path-complete-in-steps nil)
   (org-refile-allow-creating-parent-nodes 'confirm)
   :config
+  (evil-make-overriding-map org-mode-map 'normal)
   (dolist (cmd '(org-cycle org-shifttab org-ctrl-c-ctrl-c))
     (evil-declare-not-repeat cmd))
   (dolist (cmd '(outline-next-visible-heading

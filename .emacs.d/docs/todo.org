@@ -179,7 +179,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
 ** TODO org-use-speed-commands
-* Packages [4/36]
+* Packages [4/37]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** EVAL doom-themes
@@ -294,3 +294,6 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO tsi.el
 - use the syntax tree provided by the tree-sitter minor mode as the basis for indentation.
 - https://github.com/orzechowskid/tsi.el/
+** TODO editorconfig-emacs
+- EditorConfig plugin for Emacs
+- https://github.com/editorconfig/editorconfig-emacs

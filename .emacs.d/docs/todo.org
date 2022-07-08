@@ -179,7 +179,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
 ** TODO org-use-speed-commands
-* Packages [4/37]
+* Packages [5/38]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** EVAL doom-themes
@@ -195,6 +195,10 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - https://github.com/meain/evil-textobj-tree-sitter
 - https://blog.meain.io/2022/more-treesitter-emacs/
 - move between text objects: https://github.com/meain/dotfiles/blob/34ef5e3331757ac32dd066f5baa54f76cf78211b/emacs/.config/emacs/init.el#L2237-L2256
+** EVAL npm.el
+- State "EVAL"       from "TODO"       [2022-07-08 pe 16:37]
+- NPM client for emacs
+- https://github.com/shaneikennedy/npm.el
 ** TODO Agressive indent
 - minor mode that keeps your code always indented
 - https://github.com/Malabarba/aggressive-indent-mode

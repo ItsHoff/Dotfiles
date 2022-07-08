@@ -714,6 +714,9 @@
   (:keymaps 'transient-map
             "<escape>" #'transient-quit-one))
 
+;; NPM client for emacs
+(use-package npm)
+
 ;; Improved writing experience
 (use-package olivetti
   :commands olivetti-mode

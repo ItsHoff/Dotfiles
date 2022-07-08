@@ -1106,6 +1106,10 @@
   :config
   (modify-syntax-entry ?_ "w" web-mode-syntax-table)) ; _ is now part of a word
 
+;; Yaml
+(use-package yaml-mode
+  :commands yaml-mode)
+
 (load "my-functions")
 (load "my-org-setup")
 (load "my-bindings")

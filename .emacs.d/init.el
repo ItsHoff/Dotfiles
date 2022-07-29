@@ -1097,6 +1097,8 @@
   (web-mode-part-padding 0)
   (web-mode-script-padding 0)
   (web-mode-style-padding 0)
+  ;; workaround: https://github.com/emacs-tree-sitter/tree-sitter-langs/issues/23#issuecomment-832815710
+  (tree-sitter-hl-use-font-lock-keywords nil)
   :init
   (add-hook 'web-mode-hook #'lsp-deferred)
   ;; Separate mode for tree sitter ts and tsx support.

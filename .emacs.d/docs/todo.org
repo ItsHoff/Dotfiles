@@ -181,7 +181,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
 ** TODO org-use-speed-commands
-* Packages [5/38]
+* Packages [5/40]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 ** EVAL doom-themes
@@ -201,6 +201,32 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - State "EVAL"       from "TODO"       [2022-07-08 pe 16:37]
 - NPM client for emacs
 - https://github.com/shaneikennedy/npm.el
+** TODO flycheck-posframe
+- Display flycheck error messages via posframe.
+- https://github.com/alexmurray/flycheck-posframe
+- Does not close when moving. (https://github.com/alexmurray/flycheck-posframe/issues/27)
+
+*** Trial config
+;; Display flycheck error messages via posframe.
+(use-package flycheck-posframe
+  :after flycheck
+  :disabled ; Doesn't close when moving away from the error.
+  :config
+  (set-face-attribute 'flycheck-posframe-warning-face nil :inherit 'warning)
+  (set-face-attribute 'flycheck-posframe-error-face nil :inherit 'error)
+
+  ;; Fix posframe not closing when moving away. https://github.com/doomemacs/doomemacs/issues/6416
+  (defun flycheck-posframe-monitor-post-command ()
+    (when (not (flycheck-posframe-check-position))
+      (posframe-hide flycheck-posframe-buffer)))
+  (defun fix-flycheck-posframe-not-hide-immediately ()
+    (cond (flycheck-posframe-mode
+           (add-hook 'post-command-hook 'flycheck-posframe-monitor-post-command nil t))
+          ((not flycheck-posframe-mode)
+           (remove-hook 'post-command-hook 'flycheck-posframe-monitor-post-command t))))
+  (add-hook 'flycheck-posframe-mode #'fix-flycheck-posframe-not-hide-immediately)
+
+  (add-hook 'flycheck-mode-hook #'flycheck-posframe-mode))
 ** TODO Agressive indent
 - minor mode that keeps your code always indented
 - https://github.com/Malabarba/aggressive-indent-mode
@@ -303,3 +329,6 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO editorconfig-emacs
 - EditorConfig plugin for Emacs
 - https://github.com/editorconfig/editorconfig-emacs
+** TODO dirvish
+- A polished Dired with batteries included
+- https://github.com/alexluigit/dirvish

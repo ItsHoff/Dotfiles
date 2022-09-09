@@ -1105,15 +1105,28 @@
   (tree-sitter-hl-use-font-lock-keywords nil)
   :init
   (add-hook 'web-mode-hook #'lsp-deferred)
+  ;; Disabled 9.9.2022 web-mode uncommenting and syntax highlighting worked badly with ts and react.
+  ;; Switched to typescript-mode instead.
   ;; Separate mode for tree sitter ts and tsx support.
-  (define-derived-mode typescript-web-mode web-mode "TypeScript (Web)")
-  (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-web-mode))
-  (add-to-list 'tree-sitter-major-mode-language-alist '(typescript-web-mode . typescript))
-  (define-derived-mode typescript-tsx-mode web-mode "TypeScript/TSX (Web)")
+  ;; (define-derived-mode web-typescript-mode web-mode "TypeScript (Web)")
+  ;; (add-to-list 'auto-mode-alist '("\\.ts\\'" . web-typescript-mode))
+  ;; (add-to-list 'tree-sitter-major-mode-language-alist '(web-typescript-mode . typescript))
+  ;; (define-derived-mode web-tsx-mode web-mode "TypeScript/TSX (Web)")
+  ;; (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-tsx-mode))
+  ;; (add-to-list 'tree-sitter-major-mode-language-alist '(web-tsx-mode . tsx))
+  :config
+  (modify-syntax-entry ?_ "w" web-mode-syntax-table)) ; _ is now part of a word
+
+(use-package typescript-mode
+  :after tree-sitter
+  :init
+  (add-hook 'typescript-mode-hook #'lsp-deferred)
+  ;; Separate mode for tree sitter ts and tsx support.
+  (define-derived-mode typescript-tsx-mode typescript-mode "TypeScript/TSX (TypeScript)")
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
   (add-to-list 'tree-sitter-major-mode-language-alist '(typescript-tsx-mode . tsx))
   :config
-  (modify-syntax-entry ?_ "w" web-mode-syntax-table)) ; _ is now part of a word
+  (modify-syntax-entry ?_ "w" typescript-mode-syntax-table)) ; _ is now part of a word
 
 ;; Yaml
 (use-package yaml-mode

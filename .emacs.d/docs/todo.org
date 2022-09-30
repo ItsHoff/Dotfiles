@@ -1,6 +1,6 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [2/31]
+* General [2/32]
 ** EVAL Fix smerge bindings
 - State "EVAL"       from "TODO"       [2020-03-03 ti 11:21]
 - [[*Find a way to do mode specific additions to prefix maps][Find a way to do mode specific additions to prefix maps]]
@@ -154,6 +154,8 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - kzproj files take several minutes to show in status buffer
 ** TODO Improve compilation-mode
 - https://old.reddit.com/r/emacs/comments/w07vrf/thoughts_on_improving_compilation_mode/
+** TODO Improve display-buffer-alist
+- https://www.masteringemacs.org/article/demystifying-emacs-window-manager
 * Org-mode [1/10]
 ** EVAL org-cycle jumps to the beginning of line
 - State "EVAL"       from "TODO"       [2019-08-20 Tue 14:16]

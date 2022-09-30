@@ -88,6 +88,7 @@
 (setq create-lockfiles nil)         ; Don't create lockfiles
 (setq auto-save-default nil)        ; No auto-saves
 (setq sentence-end-double-space nil) ; Don't require double space at end of sentence.
+(setq switch-to-buffer-obey-display-actions t) ; https://www.masteringemacs.org/article/demystifying-emacs-window-manager
 
 ;; Start a server if it is not already running.
 (require 'server)

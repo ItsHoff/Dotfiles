@@ -29,6 +29,7 @@
 ;; Everywhere
 (general-define-key :keymaps 'override
                     :states  '(motion normal visual emacs insert)
+                    "C-." #'embark-act
                     "M-+" help-map                    ; Remap help
                     "M-<dead-acute>" #'describe-key   ; Map key help (next to +)
                     "M-/" help-map                    ; Remap help for ansi
@@ -38,7 +39,7 @@
 (general-define-key :keymaps 'override
                     :states '(motion normal visual emacs)
                     :prefix "SPC"
-                    "SPC" #'counsel-M-x
+                    "SPC" #'execute-extended-command
                     "b" #'magit-blame-addition
                     "c" #'org-capture
                     "d" #'dired-jump
@@ -68,9 +69,8 @@
                     "C-w j" #'buf-move-down
                     "C-w k" #'buf-move-up
                     "C-w l" #'buf-move-right
-                    "C-f" #'counsel-find-file
-                    "C-b" #'ivy-switch-buffer
-                    "M-x" #'counsel-M-x)
+                    "C-f" #'find-file
+                    "C-b" #'consult-buffer)
 
 ;; Vim movement states
 (general-define-key :keymaps 'override

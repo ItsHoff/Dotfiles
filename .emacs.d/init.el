@@ -319,6 +319,7 @@
 
 ;; Minibuffer completion framework
 (use-package counsel
+  :disabled ; trying out vertico
   :after evil-collection
   :demand t
   :diminish counsel-mode
@@ -358,6 +359,7 @@
 
 ;; Completion framework behind counsel
 (use-package ivy
+  :disabled ; trying out vertico
   :after counsel
   :diminish ivy-mode
   ;; ivy-mode replaces completing-read-function
@@ -365,6 +367,7 @@
 
 ;; Enhanced M-x interface
 (use-package amx
+  :disabled ; trying out vertico
   :after counsel)
 
 ;; Save and restore emacs session
@@ -653,6 +656,7 @@
   (local/custom ispell-program-name))
 
 (use-package lsp-ivy
+  :disabled ; trying out vertico
   :commands (lsp-ivy-workspace-symbol lsp-ivy-global-workspace-symbol)
   :config
   (evil-add-command-properties #'lsp-ivy-workspace-symbol :jump t)
@@ -752,7 +756,7 @@
   :demand t
   :custom
   (projectile-indexing-method 'alien) ; Required tools should be installed on windows as well
-  (projectile-completion-system 'ivy)
+  ;; (projectile-completion-system 'ivy) ; trying out vertico
   (projectile-git-submodule-command nil) ; Submodules seem to be causing issues, so disabling for now 1.10.20
   :config
   (evil-add-command-properties #'projectile-find-other-file :jump t)
@@ -769,6 +773,7 @@
             "s a" #'projectile-ag))
 
 (use-package counsel-projectile
+  :disabled ; trying out vertico
   :after projectile
   :config
   (evil-add-command-properties #'counsel-projectile-find-file :jump t)
@@ -920,6 +925,7 @@
 
 ;; Ivy integration for yasnippet
 (use-package ivy-yasnippet
+  :disabled ; trying out vertico
   :after yasnippet)
 
 ;; Yasnippet snippets
@@ -1081,6 +1087,7 @@
 
 ;; Bibliography management
 (use-package ivy-bibtex
+  :disabled ; trying out vertico
   :commands ivy-bibtex
   :custom
   (bibtex-completion-pdf-open-function #'org-open-file-with-system)
@@ -1136,6 +1143,53 @@
 ;; Yaml
 (use-package yaml-mode
   :commands yaml-mode)
+
+;;; Vertico and friends ---------------------------------------------------------------------------
+
+;; Extra completing-read commands.
+(use-package consult
+  :after evil-collection
+  :config
+  (evil-collection-consult-setup))
+
+;; Choose a command to run based on what is near point, both during a minibuffer completion session
+;; and in normal buffers.
+(use-package embark
+  :after evil-collection
+  :commands embark-act
+  :config
+  (evil-collection-embark-setup))
+
+;; Adds information to  minibuffer completions.
+(use-package marginalia
+  :init
+  (marginalia-mode))
+
+;; Persist history over Emacs restarts. Vertico sorts by history position.
+(use-package savehist
+  :demand nil
+  :init
+  (savehist-mode))
+
+;; Provides an orderless completion style that divides the pattern into space-separated components, and
+;; matches candidates that match all of the components in any order.
+(use-package orderless
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles basic partial-completion)))))
+
+;; Minimalistic vertical completion UI.
+(use-package vertico
+  :after evil-collection
+  :straight (:files (:defaults "extensions/*"))
+  :init
+  (vertico-mode)
+  :config
+  (evil-collection-vertico-setup)
+  :general
+  (:keymaps 'vertico-map
+            "<backspace>" #'vertico-directory-delete-char
+            "C-." #'embark-act))
 
 (load "my-functions")
 (load "my-org-setup")

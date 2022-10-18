@@ -300,6 +300,8 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO corfu
 - https://github.com/minad/corfu
 - https://kristofferbalintona.me/posts/corfu-kind-icon-and-corfu-doc/
+- https://old.reddit.com/r/emacs/comments/ppg98f/which_completion_framework_do_you_use_and_why/hd99c0r/
+
 ** TODO tree-edit
 - https://github.com/ethan-leba/tree-edit
 ** TODO turbo-log

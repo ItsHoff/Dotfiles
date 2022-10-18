@@ -597,7 +597,11 @@
                "*LV*"
                " *transient*"
                " *which-key*"))
-    (add-to-list 'golden-ratio-exclude-buffer-names n)))
+    (add-to-list 'golden-ratio-exclude-buffer-names n))
+  (add-to-list 'golden-ratio-inhibit-functions
+               (lambda ()
+                 (and (boundp 'which-key--buffer)
+                      (window-live-p (get-buffer-window which-key--buffer))))))
 
 ;; Move up and down the screen nicely
 (use-package golden-ratio-scroll-screen

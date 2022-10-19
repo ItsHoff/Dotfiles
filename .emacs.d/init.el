@@ -1160,6 +1160,10 @@
   :config
   (evil-collection-embark-setup))
 
+;; Provides integration between embark and consult.
+(use-package embark-consult
+  :after (embark consult))
+
 ;; Adds information to  minibuffer completions.
 (use-package marginalia
   :init

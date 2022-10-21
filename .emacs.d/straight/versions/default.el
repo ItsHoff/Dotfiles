@@ -10,6 +10,7 @@
  ("company-mode" . "35408c0ac3a730908fbce0810f8d159eb353c1d5")
  ("compat" . "056e3ccffc716990dcb7b33273453d5fce0402de")
  ("consult" . "cf9c5e5d0c060189fec174e65d8deb8c77cd1580")
+ ("consult-lsp" . "19606a03cf854e1b0930c4526ed92c4560dccdc2")
  ("csharp-mode" . "6e9d1f6b9900d3b8aa4106abf84a89311dfed85f")
  ("dash.el" . "0ac1ecf6b56eb67bb81a3cf70f8d4354b5782341")
  ("diminish.el" . "fbd5d846611bad828e336b25d2e131d1bc06b83d")

@@ -769,8 +769,8 @@
   :general
   (:keymaps 'projectile-command-map
             "ESC" nil
-            "s s" #'lsp-ivy-workspace-symbol
-            "s a" #'projectile-ag))
+            "s r" #'consult-ripgrep
+            "s s" #'consult-lsp-symbols))
 
 (use-package counsel-projectile
   :disabled ; trying out vertico
@@ -1151,6 +1151,12 @@
   :after evil-collection
   :config
   (evil-collection-consult-setup))
+
+(use-package consult-lsp
+  :commands (consult-lsp-symbols consult-lsp-file-symbols)
+  :config
+  (evil-add-command-properties #'consult-lsp-file-symbols :jump t)
+  (evil-add-command-properties #'consult-lsp-symbols :jump t))
 
 ;; Choose a command to run based on what is near point, both during a minibuffer completion session
 ;; and in normal buffers.

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2021-08-07 13:48:21" build="180418">
+		<key name=".Vanilla" modified="2022-10-19 11:32:21" build="200615">
 			<value name="StartType" type="hex" data="02"/>
 			<value name="CmdLine" type="string" data=""/>
 			<value name="StartTasksFile" type="string" data=""/>
@@ -59,8 +59,8 @@
 			<value name="FontSize" type="ulong" data="14"/>
 			<value name="StatusFontHeight" type="long" data="12"/>
 			<value name="TabFontHeight" type="long" data="13"/>
-			<key name="HotKeys" modified="2018-06-23 11:39:09" build="180418">
-				<value name="MinimizeRestore" type="dword" data="000011c0"/>
+			<key name="HotKeys" modified="2022-10-19 11:32:21" build="200615">
+				<value name="MinimizeRestore" type="dword" data="001211de"/>
 				<value name="KeyMacroVersion" type="hex" data="02"/>
 				<value name="Multi.Modifier" type="dword" data="000000a2"/>
 				<value name="Multi.ArrowsModifier" type="dword" data="0000005b"/>
@@ -308,8 +308,9 @@
 			<value name="JumpListAutoUpdate" type="hex" data="01"/>
 			<value name="SaveCmdHistory" type="hex" data="01"/>
 			<value name="CmdLineHistory" type="multi">
-				<line data="{Shells::cmd (Admin)}"/>
+				<line data='set "PATH=%ConEmuDir%\..\Git\usr\bin;%PATH%" &amp; "%ConEmuDir%\..\Git\git-cmd.exe" --no-cd --command=%ConEmuBaseDirShort%\conemu-msys2-64.exe /usr/bin/bash.exe -l -i -cur_console:p'/>
 				<line data="{Shells::PowerShell}"/>
+				<line data="{Shells::cmd (Admin)}"/>
 				<line data="{Shells::cmd}"/>
 				<line data="{Bash::Git bash (Admin)}"/>
 				<line data="{Bash::Git bash}"/>
@@ -363,11 +364,11 @@
 			<value name="Cascaded" type="hex" data="01"/>
 			<value name="IntegralSize" type="hex" data="00"/>
 			<value name="WindowMode" type="dword" data="0000051f"/>
-			<value name="ConWnd X" type="long" data="59"/>
+			<value name="ConWnd X" type="long" data="559"/>
 			<value name="ConWnd Y" type="long" data="0"/>
 			<value name="LastMonitor" type="string" data="0,0,2560,1400"/>
-			<value name="ConWnd Width" type="dword" data="00000131"/>
-			<value name="ConWnd Height" type="dword" data="0000004c"/>
+			<value name="ConWnd Width" type="dword" data="000000b4"/>
+			<value name="ConWnd Height" type="dword" data="00000036"/>
 			<value name="16bit Height" type="ulong" data="0"/>
 			<value name="Restore2ActiveMon" type="hex" data="00"/>
 			<value name="QuakeAnimation" type="ulong" data="100"/>
@@ -708,6 +709,10 @@
 			<value name="RestoreInactive" type="hex" data="00"/>
 			<value name="DynamicBufferHeight" type="hex" data="01"/>
 			<value name="StatusBar.Hide.WMode" type="hex" data="01"/>
+			<value name="AnsiLogCodes" type="hex" data="00"/>
+			<value name="AutoReloadEnvironment" type="hex" data="01"/>
+			<value name="AutoTrimSingleLine" type="hex" data="00"/>
+			<value name="StatusBar.Hide.InputGrouping" type="hex" data="00"/>
 		</key>
 	</key>
 </key>

@@ -1149,6 +1149,8 @@
 ;; Extra completing-read commands.
 (use-package consult
   :after evil-collection
+  :custom
+  (consult-project-function (lambda (_) (projectile-project-root)))
   :config
   (evil-collection-consult-setup))
 

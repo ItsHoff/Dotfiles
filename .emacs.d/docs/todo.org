@@ -154,8 +154,12 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - kzproj files take several minutes to show in status buffer
 ** TODO Improve compilation-mode
 - https://old.reddit.com/r/emacs/comments/w07vrf/thoughts_on_improving_compilation_mode/
+- https://codeberg.org/ideasman42/emacs-fancy-compilation
+- https://www.gnu.org/software/emacs/manual/html_node/emacs/Compilation-Mode.html
+
 ** TODO Improve display-buffer-alist
 - https://www.masteringemacs.org/article/demystifying-emacs-window-manager
+
 * Org-mode [1/10]
 ** EVAL org-cycle jumps to the beginning of line
 - State "EVAL"       from "TODO"       [2019-08-20 Tue 14:16]
@@ -186,23 +190,28 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 * Packages [5/40]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
+
 ** EVAL doom-themes
 - State "EVAL"       from "TODO"       [2020-01-10 pe 16:05]
 - https://github.com/hlissner/emacs-doom-themes
+
 ** EVAL explain-pause-mode
 - State "EVAL"       from "TODO"       [2020-07-15 ke 13:21]
 - Emacs minor mode that watches for long pauses and reports them.
 - https://github.com/lastquestion/explain-pause-mode
+
 ** EVAL evil-textobj-tree-sitter
 - State "EVAL"       from "TODO"       [2022-06-06 ma 15:35]
 - Tree-sitter powered textobjects for evil mode in Emacs.
 - https://github.com/meain/evil-textobj-tree-sitter
 - https://blog.meain.io/2022/more-treesitter-emacs/
 - move between text objects: https://github.com/meain/dotfiles/blob/34ef5e3331757ac32dd066f5baa54f76cf78211b/emacs/.config/emacs/init.el#L2237-L2256
+
 ** EVAL npm.el
 - State "EVAL"       from "TODO"       [2022-07-08 pe 16:37]
 - NPM client for emacs
 - https://github.com/shaneikennedy/npm.el
+
 ** TODO flycheck-posframe
 - Display flycheck error messages via posframe.
 - https://github.com/alexmurray/flycheck-posframe
@@ -229,86 +238,113 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
   (add-hook 'flycheck-posframe-mode #'fix-flycheck-posframe-not-hide-immediately)
 
   (add-hook 'flycheck-mode-hook #'flycheck-posframe-mode))
+
 ** TODO Agressive indent
 - minor mode that keeps your code always indented
 - https://github.com/Malabarba/aggressive-indent-mode
+
 ** TODO ws-butler
 - Unobtrusively trim extraneous white-space *ONLY* in lines edited.
 - https://github.com/lewang/ws-butler
+
 ** TODO wgrep
 - wgrep allows you to edit a grep buffer and apply those changes to the file buffer.
 - https://github.com/mhayashi1120/Emacs-wgrep
+
 ** TODO targets
 - Extension of evil text objects (not "stable" but feel free to try and give feedback)
 - https://github.com/noctuid/targets.el
+
 ** TODO org-projectile
 - Manage org-mode TODOs for your projectile projects
 - https://github.com/IvanMalison/org-projectile
+
 ** TODO compdef
 - A stupid Emacs completion definer.
 - https://gitlab.com/jjzmajic/compdef
+
 ** TODO Dumb-jump
 - an Emacs "jump to definition" package for 40+ languages
 - https://github.com/jacktasia/dumb-jump
+
 ** TODO Rustic
 - Rust development environment for Emacs
 - https://github.com/brotzeit/rustic
+
 ** TODO handle
 - A handle for major-mode generic functions.
 - https://gitlab.com/jjzmajic/handle
+
 ** TODO psession
 - Yet another package for emacs persistent sessions
 - https://github.com/thierryvolpiatto/psession
+
 ** TODO ESUP
 - ESUP - Emacs Start Up Profiler
 - https://github.com/jschaf/esup
+
 ** TODO lsp-treemacs
 - Integration between lsp-mode and treemacs and implementation of treeview controls using treemacs as a tree renderer.
 - Bug with error list: https://github.com/emacs-lsp/lsp-treemacs/issues/109#issuecomment-1114766364
 - https://github.com/emacs-lsp/lsp-treemacs
+
 ** TODO dap-mode
 - Emacs ❤ Debug Adapter Protocol
 - https://github.com/emacs-lsp/dap-mode
+
 ** TODO Shackle
 - Enforce rules for popup windows
 - https://github.com/wasamasa/shackle
+
 ** TODO ranger.el
 - Dired alternative
 - https://github.com/ralesi/ranger.el
+
 ** TODO org-roam
 - Rudimentary Roam replica with Org-mode
 - https://github.com/jethrokuan/org-roam
 - https://www.ianjones.us/blog/2020-05-05-doom-emacs/
+
 ** TODO org-spacer.el
 - Enforce the number of blank lines between elements in an org-mode document
 - https://github.com/dustinlacewell/org-spacer.el
+
 ** TODO prescient.el
 - Simple but effective sorting and filtering for Emacs.
 - https://github.com/raxod502/prescient.el
+
 ** TODO winds.el
 - Window configuration switcher grouped by workspaces
 - https://github.com/Javyre/winds.el
+
 ** TODO emacs-keypression
 - Keystroke visualizer for GUI version Emacs
 - Can also show the called functions, which is super useful for debugging
 - https://github.com/chuntaro/emacs-keypression
+
 ** TODO display-buffer-control
 - Control how to open buffers matching specified conditions
 - https://gitlab.com/matsievskiysv/display-buffer-control
+
 ** TODO org-padding
 - https://github.com/TonCherAmi/org-padding
+
 ** TODO corfu
 - https://github.com/minad/corfu
 - https://kristofferbalintona.me/posts/corfu-kind-icon-and-corfu-doc/
 - https://old.reddit.com/r/emacs/comments/ppg98f/which_completion_framework_do_you_use_and_why/hd99c0r/
 
 ** TODO tree-edit
+- Structural editing in Emacs for any™ language!
 - https://github.com/ethan-leba/tree-edit
+
 ** TODO turbo-log
 - https://github.com/Artawower/turbo-log
+
 ** TODO evil-lion
 - This package provides gl and gL align operators: gl MOTION CHAR and right-align gL MOTION CHAR.
 - https://github.com/edkolev/evil-lion
+
 ** TODO evil-snipe / avy
 - It provides 2-character motions for quickly (and more accurately) jumping around text, compared to evil's built-in f/F/t/T motions, incrementally highlighting candidate targets as you type.
 - https://github.com/hlissner/evil-snipe
@@ -318,21 +354,27 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO evil-commentary
 - Alternative to evil-nerd-commenter
 - https://github.com/linktohack/evil-commentary
+
 ** TODO evil-owl
 - evil-owl allows you to view registers and marks before using them.
 - https://github.com/mamapanda/evil-owl
+
 ** TODO sidekick.el
 - Sidekick is a Emacs package that provides information about a symbol inside a single window.
 - https://github.com/VernonGrant/sidekick.el
+
 ** TODO combobulate
 - Structured Editing and Navigation in Emacs
 - https://github.com/mickeynp/combobulate
+
 ** TODO tsi.el
 - use the syntax tree provided by the tree-sitter minor mode as the basis for indentation.
 - https://github.com/orzechowskid/tsi.el/
+
 ** TODO editorconfig-emacs
 - EditorConfig plugin for Emacs
 - https://github.com/editorconfig/editorconfig-emacs
+
 ** TODO dirvish
 - A polished Dired with batteries included
 - https://github.com/alexluigit/dirvish

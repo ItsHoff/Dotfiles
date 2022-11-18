@@ -108,3 +108,5 @@
 - https://www.masteringemacs.org/article/mastering-key-bindings-emacs
 * Elisp Cheat Sheet
 - https://alhassy.github.io/ElispCheatSheet/CheatSheet.pdf
+* tree-sitter missing tsc-dyn-get
+- Copy tsc-dyn-get.el from straight\repos\elisp-tree-sitter\core to straight\build\tree-sitter

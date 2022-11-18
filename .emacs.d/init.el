@@ -459,7 +459,8 @@
 (use-package tree-sitter
   :hook ((prog-mode . turn-on-tree-sitter-mode)
          (tree-sitter-mode . tree-sitter-hl-mode)))
-(use-package tree-sitter-langs)
+(use-package tree-sitter-langs
+  :after tree-sitter)
 
 ;; Tree-sitter powered textobjects for evil mode in Emacs.
 ;; (use-package evil-textobj-tree-sitter

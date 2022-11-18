@@ -218,6 +218,8 @@
 
   (evil-declare-not-repeat #'compile-goto-error)
   (evil-declare-not-repeat #'eval-buffer)
+  (evil-add-command-properties #'find-file :jump t)
+  (evil-add-command-properties #'switch-to-buffer :jump t)
 
   ;; esc quits
   (defun minibuffer-keyboard-quit ()
@@ -759,6 +761,7 @@
   ;; (projectile-completion-system 'ivy) ; trying out vertico
   (projectile-git-submodule-command nil) ; Submodules seem to be causing issues, so disabling for now 1.10.20
   :config
+  (evil-add-command-properties #'projectile-find-file :jump t)
   (evil-add-command-properties #'projectile-find-other-file :jump t)
   (evil-add-command-properties #'projectile-find-other-file-other-window :jump t)
   ;; Configure other file support for React.

@@ -47,7 +47,7 @@
                     "h" #'my/helm-command-map
                     "o" #'olivetti-mode
                     "p" #'projectile-command-map
-                    "r" #'ivy-resume
+                    "r" #'vertico-repeat
                     "s" #'my/framegroups-command-map
                     "y" #'my/yas-command-map)
 

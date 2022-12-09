@@ -218,8 +218,9 @@
 
   (evil-declare-not-repeat #'compile-goto-error)
   (evil-declare-not-repeat #'eval-buffer)
-  (evil-add-command-properties #'find-file :jump t)
-  (evil-add-command-properties #'switch-to-buffer :jump t)
+  (evil-declare-not-repeat #'push-button)
+  (evil-add-command-properties #'find-file :jump t :repeat nil)
+  (evil-add-command-properties #'switch-to-buffer :jump t :repeat nil)
 
   ;; esc quits
   (defun minibuffer-keyboard-quit ()
@@ -762,9 +763,9 @@
   ;; (projectile-completion-system 'ivy) ; trying out vertico
   (projectile-git-submodule-command nil) ; Submodules seem to be causing issues, so disabling for now 1.10.20
   :config
-  (evil-add-command-properties #'projectile-find-file :jump t)
-  (evil-add-command-properties #'projectile-find-other-file :jump t)
-  (evil-add-command-properties #'projectile-find-other-file-other-window :jump t)
+  (evil-add-command-properties #'projectile-find-file :jump t :repeat nil)
+  (evil-add-command-properties #'projectile-find-other-file :jump t :repeat nil)
+  (evil-add-command-properties #'projectile-find-other-file-other-window :jump t :repeat nil)
   ;; Configure other file support for React.
   (add-to-list 'projectile-other-file-alist '("tsx" "module.scss" "scss"))
   (add-to-list 'projectile-other-file-alist '("module.scss" "tsx"))
@@ -780,7 +781,7 @@
   :disabled ; trying out vertico
   :after projectile
   :config
-  (evil-add-command-properties #'counsel-projectile-find-file :jump t)
+  (evil-add-command-properties #'counsel-projectile-find-file :jump t :repeat nil)
   ;; counsel-projectile-switch-project is super slow for some reason, so don't override it.
   (setq counsel-projectile-key-bindings (assq-delete-all 'projectile-switch-project counsel-projectile-key-bindings))
   (counsel-projectile-mode t))
@@ -1161,8 +1162,8 @@
 (use-package consult-lsp
   :commands (consult-lsp-symbols consult-lsp-file-symbols)
   :config
-  (evil-add-command-properties #'consult-lsp-file-symbols :jump t)
-  (evil-add-command-properties #'consult-lsp-symbols :jump t))
+  (evil-add-command-properties #'consult-lsp-file-symbols :jump t :repeat nil)
+  (evil-add-command-properties #'consult-lsp-symbols :jump t :repeat nil))
 
 ;; Choose a command to run based on what is near point, both during a minibuffer completion session
 ;; and in normal buffers.

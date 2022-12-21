@@ -1160,6 +1160,7 @@
   :custom
   (consult-project-function (lambda (_) (projectile-project-root)))
   :config
+  (evil-add-command-properties #'consult-buffer :jump t :repeat nil)
   (evil-collection-consult-setup))
 
 (use-package consult-lsp

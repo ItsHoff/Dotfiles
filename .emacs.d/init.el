@@ -915,7 +915,6 @@
 
 ;; Snippets
 (use-package yasnippet
-  :disabled ; 23.4.2021
   :diminish yas-minor-mode
   :init
   (defvar my/yas-command-map (make-sparse-keymap))
@@ -924,9 +923,13 @@
   (yas-global-mode)
   :general
   (:keymaps 'my/yas-command-map
-            "y" #'ivy-yasnippet
+            "y" #'consult-yasnippet
             "n" #'yas-new-snippet
             "v" #'yas-visit-snippet-file))
+
+;; Consult integration for yasnippet
+(use-package consult-yasnippet
+  :after yasnippet)
 
 ;; Ivy integration for yasnippet
 (use-package ivy-yasnippet

@@ -365,10 +365,12 @@
 ;; Completion framework behind counsel
 (use-package ivy
   :disabled ; trying out vertico
-  :after counsel
+  :after (counsel evil-collection)
   :diminish ivy-mode
   ;; ivy-mode replaces completing-read-function
-  :config (ivy-mode t))
+  :config
+  (ivy-mode t)
+  (evil-collection-ivy-setup))
 
 ;; Enhanced M-x interface
 (use-package amx
@@ -403,6 +405,7 @@
 
 ;; Display line numbers
 (use-package display-line-numbers
+  :straight (:type built-in)
   :commands display-line-numbers-mode
   :custom (display-line-numbers-type 'visual)
   :init (add-hook 'prog-mode-hook #'display-line-numbers-mode))
@@ -418,7 +421,10 @@
 
 ;; Shows documentation about symbol under point on the echo area
 (use-package eldoc
-  :diminish eldoc-mode)
+  :after evil-collection
+  :straight (:type built-in)
+  :diminish eldoc-mode
+  :config (evil-collection-eldoc-setup))
 
 ;; Shows search matches on modeline
 (use-package evil-anzu
@@ -458,13 +464,6 @@
 (use-package evil-numbers
   :after evil)
 
-;; Tree sitter syntax highlighting
-(use-package tree-sitter
-  :hook ((prog-mode . turn-on-tree-sitter-mode)
-         (tree-sitter-mode . tree-sitter-hl-mode)))
-(use-package tree-sitter-langs
-  :after tree-sitter)
-
 ;; Tree-sitter powered textobjects for evil mode in Emacs.
 ;; (use-package evil-textobj-tree-sitter
 ;;   :after evil
@@ -480,10 +479,14 @@
 
 ;; On the fly syntax checking
 (use-package flycheck
+  :after evil-collection
   :diminish flycheck-mode
   :commands flycheck-mode
-  :init (add-hook 'prog-mode-hook (lambda () (flycheck-mode)))
-  :config (flycheck-add-mode 'javascript-eslint 'web-mode))
+  :init
+  (add-hook 'prog-mode-hook (lambda () (flycheck-mode)))
+  :config
+  (flycheck-add-mode 'javascript-eslint 'web-mode)
+  (evil-collection-flycheck-setup))
 
 ;; Frame utility
 (use-package framegroups
@@ -864,6 +867,13 @@
   :disabled t ; 23.10.19
   :commands ssh-agency-ensure)
 
+;; Tree sitter syntax highlighting
+(use-package tree-sitter
+  :hook ((prog-mode . turn-on-tree-sitter-mode)
+         (tree-sitter-mode . tree-sitter-hl-mode)))
+(use-package tree-sitter-langs
+  :after tree-sitter)
+
 ;; Vim like undo
 (use-package undo-tree
   :demand t
@@ -895,8 +905,10 @@
 
 ;; Show key hints
 (use-package which-key
+  :after evil-collection
   :diminish which-key-mode
-  :init (which-key-mode))
+  :init (which-key-mode)
+  :config (evil-collection-which-key-setup))
 
 ;; Visualize extra whitespace
 ;; Could be used to also clean whitespace
@@ -995,12 +1007,14 @@
 
 ;; ELisp
 (use-package elisp-mode
+  :after evil-collection
   :straight (:type built-in)
   :commands emacs-lisp-mode
   :init (add-hook 'emacs-lisp-mode-hook (lambda () (my/set-tab-width 2)))
   :config
   (modify-syntax-entry ?_ "w" emacs-lisp-mode-syntax-table) ; _ is now part of a word
   (modify-syntax-entry ?- "w" emacs-lisp-mode-syntax-table) ; aswell as -
+  (evil-collection-elisp-mode-setup)
   :general
   (:keymaps '(emacs-lisp-mode-map lisp-interaction-mode-map)
    :states 'normal
@@ -1012,10 +1026,12 @@
 ;; Kotlin
 (use-package kotlin-mode
   :commands kotlin-mode
+  :after evil-collection
   :init
   ;; Disabled 19.10.21 kotlin lsp is not very good yet.
   ;; (add-hook 'kotlin-mode-hook #'lsp-deferred)
   :config
+  (evil-collection-kotlin-mode-setup)
   (local/custom lsp-clients-kotlin-server-executable))
 
 ;; Lua
@@ -1024,10 +1040,13 @@
 
 ;; Markdown
 (use-package markdown-mode
+  :after evil-collection
   :commands markdown-mode
   :custom
   (markdown-command '("pandoc" "--from=markdown" "--to=html5"))
-  (markdown-asymmetric-header t))
+  (markdown-asymmetric-header t)
+  :config
+  (evil-collection-markdown-mode-setup))
 
 (use-package markdown-preview-mode
   :commands markdown-preview-mode)
@@ -1041,19 +1060,24 @@
 
 ;; Python
 (use-package anaconda-mode
+  :after evil-collection
   :diminish anaconda-mode
   :commands anaconda-mode
   :init
   (add-hook 'python-mode-hook #'anaconda-mode)
-  (add-hook 'python-mode-hook (lambda () (my/set-tab-width 4))))
+  (add-hook 'python-mode-hook (lambda () (my/set-tab-width 4)))
+  :config
+  (evil-collection-anaconda-mode-setup))
 
 (use-package company-anaconda
   :config
   (add-to-list 'company-backends '(company-anaconda :with company-capf)))
 
 (use-package python-mode
+  :after evil-collection
   :straight (:type built-in)
-  :mode "SConstruct")
+  :mode "SConstruct"
+  :config (evil-collection-python-setup))
 
 ;; RST
 (use-package rst
@@ -1143,7 +1167,7 @@
   (modify-syntax-entry ?_ "w" web-mode-syntax-table)) ; _ is now part of a word
 
 (use-package typescript-mode
-  :after tree-sitter
+  :after (tree-sitter evil-collection)
   :init
   (add-hook 'typescript-mode-hook #'lsp-deferred)
   ;; Separate mode for tree sitter ts and tsx support.
@@ -1151,11 +1175,14 @@
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
   (add-to-list 'tree-sitter-major-mode-language-alist '(typescript-tsx-mode . tsx))
   :config
+  (evil-collection-typescript-mode-setup)
   (modify-syntax-entry ?_ "w" typescript-mode-syntax-table)) ; _ is now part of a word
 
 ;; Yaml
 (use-package yaml-mode
-  :commands yaml-mode)
+  :after evil-collection
+  :commands yaml-mode
+  :config (evil-collection-yaml-mode-setup))
 
 ;;; Vertico and friends ---------------------------------------------------------------------------
 

@@ -1,6 +1,6 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [2/34]
+* General [3/34]
 ** EVAL Fix smerge bindings
 - State "EVAL"       from "TODO"       [2020-03-03 ti 11:21]
 - [[*Find a way to do mode specific additions to prefix maps][Find a way to do mode specific additions to prefix maps]]
@@ -11,6 +11,9 @@
 ** EVAL Load only specific things from custom file
 - State "EVAL"       from "TODO"       [2020-05-28 to 15:13]
 - Custom file can contain old settings that were removed from init file
+** EVAL Check for new evil-collection modes
+- State "EVAL"       from "TODO"       [2023-01-10 ti 11:24]
+- https://github.com/emacs-evil/evil-collection/tree/master/modes
 ** TODO Semantic movement [1/3]
 *** EVAL Figure out functionality and bindings
 - State "EVAL"       from "TODO"       [2020-05-16 Sat 14:50]
@@ -162,8 +165,6 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO M-n to work with consult-lsp
 - consult--grep sets `:add-history (consult--async-split-thingatpt 'symbol)`
 - consult-lsp does not
-** TODO Check for new evil-collection modes
-- https://github.com/emacs-evil/evil-collection/tree/master/modes
 * Org-mode [1/10]
 ** EVAL org-cycle jumps to the beginning of line
 - State "EVAL"       from "TODO"       [2019-08-20 Tue 14:16]

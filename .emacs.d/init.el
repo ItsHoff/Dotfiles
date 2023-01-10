@@ -280,6 +280,7 @@
 ;; Auto completion
 (use-package company
   :demand t
+  :after evil-collection
   :diminish company-mode
   :custom
   (company-tooltip-limit 20)
@@ -294,6 +295,7 @@
     (general-define-key :keymaps 'company-active-map
                         (format "C-%d" i) #'company-complete-number))
   (setq company-backends (remove #'company-clang company-backends))
+  (evil-collection-company-setup)
   (global-company-mode)
   :general
   (:keymaps 'company-active-map

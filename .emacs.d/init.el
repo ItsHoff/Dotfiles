@@ -677,9 +677,11 @@
   (lsp-auto-guess-root nil)
   (lsp-prefer-flymake nil)
   (lsp-enable-snippet nil)
-  (lsp-prefer-capf t)
   (lsp-clients-clangd-args '("--header-insertion=never" "--suggest-missing-includes"))
   (lsp-volar-take-over-mode t)
+  ;; Disable modeline diagnostics due to their poor performance.
+  (lsp-modeline-diagnostics-enable nil)
+  (lsp-modeline-code-actions-enable nil)
   :config
   (defun my/goto-definition-lsp (_string _position)
     (when (bound-and-true-p lsp-mode)

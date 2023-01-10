@@ -130,7 +130,7 @@
 (setq hscroll-margin 5)
 
 ;; Tabs & Spaces
-(setq-default tab-always-indent nil)    ; Allow tabbing outside of indent
+(setq-default tab-always-indent 'complete)    ; Allow tabbing outside of indent
 (setq-default indent-tabs-mode nil)     ; Use spaces instead of tabs
 (setq-default tab-width 4)              ; Tab = 4 spaces
 (setq-default evil-shift-width tab-width)
@@ -949,7 +949,7 @@
   :custom
   (c-default-style "bsd")
   (c-basic-offset 4)
-  (c-tab-always-indent nil)
+  (c-tab-always-indent 'complete)
   :init
   (add-to-list 'auto-mode-alist '("\\inl\\'" . c++-mode))
   (add-hook 'c-mode-common-hook

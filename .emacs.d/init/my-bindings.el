@@ -44,7 +44,6 @@
                     "c" #'org-capture
                     "d" #'dired-jump
                     "g" #'magit-status
-                    "h" #'my/helm-command-map
                     "o" #'olivetti-mode
                     "p" #'projectile-command-map
                     "r" #'vertico-repeat
@@ -90,7 +89,6 @@
 ;; Motions (normal, visual and some special buffers)
 (general-define-key :keymaps '(motion normal visual)
                     "<C-i>" #'evil-jump-forward
-                    "<C-m>" #'helm-mini
                     "TAB" #'evil-toggle-fold
                     "z j" #'evil-window-bottom
                     "z k" #'evil-window-top

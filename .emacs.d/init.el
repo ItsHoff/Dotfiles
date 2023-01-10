@@ -623,6 +623,7 @@
 
 ;; Heavier 'minibuffer' completion
 (use-package helm
+  :disabled ; 10.1.23 replaced with vertico
   :diminish helm-mode
   :init
   (defvar my/helm-command-map (make-sparse-keymap))

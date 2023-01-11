@@ -422,7 +422,9 @@
 ;; Shows documentation about symbol under point on the echo area
 (use-package eldoc
   :after evil-collection
-  :straight (:type built-in)
+  ;; LSP-mode messes with eldoc that is bundled with emacs 27, so use a newer version from package repository.
+  ;; https://github.com/emacs-lsp/lsp-mode/issues/3295#issuecomment-1308994099
+  ;; :straight (:type built-in)
   :diminish eldoc-mode
   :config (evil-collection-eldoc-setup))
 

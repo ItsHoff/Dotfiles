@@ -279,6 +279,7 @@
 
 ;; Auto completion
 (use-package company
+  :disabled ; 9.1.23 trying out corfu
   :demand t
   :after evil-collection
   :diminish company-mode
@@ -304,6 +305,7 @@
 
 ;; Fuzzy matching for company
 (use-package company-flx
+  :disabled ; 9.1.23 trying out corfu
   :after company
   :config (company-flx-mode t))
 
@@ -321,6 +323,19 @@
   (compilation-scroll-output 'first-error)
   :config
   (evil-collection-compile-setup))
+
+(use-package corfu
+  :demand t
+  :after evil-collection
+  :custom
+  (corfu-auto t)
+  (corfu-auto-prefix 2)
+  (corfu-auto-delay 0.2)
+  (corfu-cycle t)
+  :config
+  (evil-collection-corfu-setup)
+  (evil-make-overriding-map corfu-map 'insert)
+  (global-corfu-mode))
 
 ;; Minibuffer completion framework
 (use-package counsel
@@ -1079,6 +1094,7 @@
   (evil-collection-anaconda-mode-setup))
 
 (use-package company-anaconda
+  :disabled  ; 9.1.23 trying out corfu
   :config
   (add-to-list 'company-backends '(company-anaconda :with company-capf)))
 

@@ -192,7 +192,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
 ** TODO org-use-speed-commands
-* Packages [5/40]
+* Packages [6/41]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 
@@ -216,6 +216,12 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - State "EVAL"       from "TODO"       [2022-07-08 pe 16:37]
 - NPM client for emacs
 - https://github.com/shaneikennedy/npm.el
+
+** EVAL corfu
+- State "EVAL"       from "TODO"       [2023-01-10 ti 11:48]
+- https://github.com/minad/corfu
+- https://kristofferbalintona.me/posts/corfu-kind-icon-and-corfu-doc/
+- https://old.reddit.com/r/emacs/comments/ppg98f/which_completion_framework_do_you_use_and_why/hd99c0r/
 
 ** TODO flycheck-posframe
 - Display flycheck error messages via posframe.
@@ -334,11 +340,6 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO org-padding
 - https://github.com/TonCherAmi/org-padding
 
-** TODO corfu
-- https://github.com/minad/corfu
-- https://kristofferbalintona.me/posts/corfu-kind-icon-and-corfu-doc/
-- https://old.reddit.com/r/emacs/comments/ppg98f/which_completion_framework_do_you_use_and_why/hd99c0r/
-
 ** TODO tree-edit
 - Structural editing in Emacs for any™ language!
 - https://github.com/ethan-leba/tree-edit
@@ -383,3 +384,6 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO dirvish
 - A polished Dired with batteries included
 - https://github.com/alexluigit/dirvish
+** TODO cape
+- Completion At Point Extensions
+- https://github.com/minad/cape

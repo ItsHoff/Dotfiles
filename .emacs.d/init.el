@@ -765,6 +765,13 @@
   (pdf-tools-install)
   (evil-collection-pdf-setup))
 
+;; Profiler
+(use-package profiler
+  :after evil-collection
+  :straight (:type built-in)
+  :config
+  (evil-collection-profiler-setup))
+
 ;; Project management
 (use-package projectile
   :demand t

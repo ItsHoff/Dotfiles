@@ -1024,6 +1024,14 @@
 (use-package csharp-mode
   :commands csharp-mode)
 
+;; CSS
+(use-package css-mode
+  :straight (:type built-in)
+  :init
+  (add-hook 'css-mode-hook #'lsp-deferred)
+  :config
+  (modify-syntax-entry ?- "w" css-mode-syntax-table))      ; - is now part of a word
+
 ;; Git
 (use-package git-modes
   :commands (gitattributes-mode gitconfig-mode gitignore-mode))

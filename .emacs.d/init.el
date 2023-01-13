@@ -327,6 +327,7 @@
 (use-package corfu
   :demand t
   :after evil-collection
+  :straight (:files (:defaults "extensions/*"))
   :custom
   (corfu-auto t)
   (corfu-auto-prefix 2)
@@ -335,7 +336,8 @@
   :config
   (evil-collection-corfu-setup)
   (evil-make-overriding-map corfu-map 'insert)
-  (global-corfu-mode))
+  (global-corfu-mode)
+  (corfu-indexed-mode))
 
 ;; Minibuffer completion framework
 (use-package counsel

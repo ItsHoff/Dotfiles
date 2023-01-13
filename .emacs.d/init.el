@@ -702,9 +702,16 @@
   (lsp-enable-snippet nil)
   (lsp-clients-clangd-args '("--header-insertion=never" "--suggest-missing-includes"))
   (lsp-volar-take-over-mode t)
+  (lsp-completion-provider :none) ; we use Corfu!
   ;; Disable modeline diagnostics due to their poor performance.
   (lsp-modeline-diagnostics-enable nil)
   (lsp-modeline-code-actions-enable nil)
+  :init
+  (defun my/lsp-mode-setup-completion ()
+    (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
+          '(orderless))) ;; Configure orderless
+  :hook
+  (lsp-completion-mode . my/lsp-mode-setup-completion)
   :config
   (defun my/goto-definition-lsp (_string _position)
     (when (bound-and-true-p lsp-mode)

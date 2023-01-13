@@ -192,7 +192,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
 ** TODO org-use-speed-commands
-* Packages [6/41]
+* Packages [6/42]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 
@@ -387,3 +387,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO cape
 - Completion At Point Extensions
 - https://github.com/minad/cape
+** TODO kind-icon
+- Completion kind text/icon prefix labelling for emacs in-region completion
+- https://github.com/jdtsmith/kind-icon
+- https://kristofferbalintona.me/posts/202202270056/#kind-icon

@@ -1,6 +1,6 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [3/34]
+* General [3/35]
 ** EVAL Fix smerge bindings
 - State "EVAL"       from "TODO"       [2020-03-03 ti 11:21]
 - [[*Find a way to do mode specific additions to prefix maps][Find a way to do mode specific additions to prefix maps]]
@@ -165,6 +165,8 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO M-n to work with consult-lsp
 - consult--grep sets `:add-history (consult--async-split-thingatpt 'symbol)`
 - consult-lsp does not
+** TODO Utilize emacs 29 treesitter
+- https://archive.casouri.cc/note/2023/tree-sitter-in-emacs-29/index.html
 * Org-mode [1/10]
 ** EVAL org-cycle jumps to the beginning of line
 - State "EVAL"       from "TODO"       [2019-08-20 Tue 14:16]

@@ -167,6 +167,9 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - consult-lsp does not
 ** TODO Utilize emacs 29 treesitter
 - https://archive.casouri.cc/note/2023/tree-sitter-in-emacs-29/index.html
+- https://old.reddit.com/r/emacs/comments/10iuim1/getting_emacs_29_to_automatically_use_treesitter/
+- https://robbmann.io/posts/emacs-treesit-auto/
+
 * Org-mode [1/10]
 ** EVAL org-cycle jumps to the beginning of line
 - State "EVAL"       from "TODO"       [2019-08-20 Tue 14:16]
@@ -194,7 +197,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
 ** TODO org-use-speed-commands
-* Packages [6/42]
+* Packages [6/43]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 
@@ -393,3 +396,6 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - Completion kind text/icon prefix labelling for emacs in-region completion
 - https://github.com/jdtsmith/kind-icon
 - https://kristofferbalintona.me/posts/202202270056/#kind-icon
+** TODO ts-movement
+- Emacs 29+ minor mode for syntax tree navigation using Tree Sitter
+- https://github.com/haritkapadia/ts-movement

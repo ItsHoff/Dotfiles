@@ -1238,8 +1238,11 @@
   (evil-collection-consult-setup))
 
 (use-package consult-lsp
+  :after consult
   :commands (consult-lsp-symbols consult-lsp-file-symbols)
   :config
+  ;; Add thing-at-point to history (M-n) (https://github.com/gagbo/consult-lsp/pull/35).
+  (consult-customize consult-lsp-symbols :add-history (consult--async-split-thingatpt 'symbol))
   (evil-add-command-properties #'consult-lsp-file-symbols :jump t :repeat nil)
   (evil-add-command-properties #'consult-lsp-symbols :jump t :repeat nil))
 

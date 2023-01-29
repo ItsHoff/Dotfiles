@@ -1,6 +1,6 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [3/35]
+* General [3/36]
 ** EVAL Fix smerge bindings
 - State "EVAL"       from "TODO"       [2020-03-03 ti 11:21]
 - [[*Find a way to do mode specific additions to prefix maps][Find a way to do mode specific additions to prefix maps]]
@@ -169,6 +169,8 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - https://archive.casouri.cc/note/2023/tree-sitter-in-emacs-29/index.html
 - https://old.reddit.com/r/emacs/comments/10iuim1/getting_emacs_29_to_automatically_use_treesitter/
 - https://robbmann.io/posts/emacs-treesit-auto/
+** TODO Straight fails with Emacs 28
+- Seems to be this issue: https://github.com/radian-software/straight.el/issues/701
 
 * Org-mode [1/10]
 ** EVAL org-cycle jumps to the beginning of line

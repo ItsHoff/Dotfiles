@@ -254,8 +254,12 @@
   :diminish apheleia-mode
   :config
   ;; https://github.com/radian-software/apheleia/issues/108
-  (setf (alist-get 'clang-format apheleia-formatters)
-        '("clang-format" file))
+  ;; 23.1.23 Bug is reportedly fixed.
+  ;; (setf (alist-get 'clang-format apheleia-formatters)
+  ;;       '("clang-format" file))
+  ;; https://github.com/radian-software/apheleia/issues/150
+  (setf (alist-get 'prettier-json apheleia-formatters)
+        '(npx "prettier" "--stdin-filepath" filepath))
   (apheleia-global-mode t))
 
 ;; Automatically reload changed files
@@ -1067,6 +1071,10 @@
   (:keymaps '(emacs-lisp-mode-map lisp-interaction-mode-map)
    :states 'visual
    "C-c C-c" #'eval-region))
+
+;; JSON
+(use-package json-mode
+  :commands json-mode)
 
 ;; Kotlin
 (use-package kotlin-mode

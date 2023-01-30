@@ -1,6 +1,6 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [3/37]
+* General [4/37]
 ** EVAL Fix smerge bindings
 - State "EVAL"       from "TODO"       [2020-03-03 ti 11:21]
 - [[*Find a way to do mode specific additions to prefix maps][Find a way to do mode specific additions to prefix maps]]
@@ -14,6 +14,12 @@
 ** EVAL Check for new evil-collection modes
 - State "EVAL"       from "TODO"       [2023-01-10 ti 11:24]
 - https://github.com/emacs-evil/evil-collection/tree/master/modes
+** EVAL Improve compilation-mode
+- State "EVAL"       from "TODO"       [2023-01-30 ma 10:00]
+- https://old.reddit.com/r/emacs/comments/w07vrf/thoughts_on_improving_compilation_mode/
+- https://codeberg.org/ideasman42/emacs-fancy-compilation
+- https://www.gnu.org/software/emacs/manual/html_node/emacs/Compilation-Mode.html
+
 ** TODO Semantic movement [1/3]
 *** EVAL Figure out functionality and bindings
 - State "EVAL"       from "TODO"       [2020-05-16 Sat 14:50]
@@ -155,11 +161,6 @@ fatal: 'git status --porcelain=2' failed in submodule doc/themes/docdock
 https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-selection/
 ** TODO Investigate slow diff perfomance
 - kzproj files take several minutes to show in status buffer
-** TODO Improve compilation-mode
-- https://old.reddit.com/r/emacs/comments/w07vrf/thoughts_on_improving_compilation_mode/
-- https://codeberg.org/ideasman42/emacs-fancy-compilation
-- https://www.gnu.org/software/emacs/manual/html_node/emacs/Compilation-Mode.html
-
 ** TODO Improve display-buffer-alist
 - https://www.masteringemacs.org/article/demystifying-emacs-window-manager
 ** TODO M-n to work with consult-lsp

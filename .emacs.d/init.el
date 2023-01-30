@@ -496,6 +496,10 @@
   :after evil
   :config (global-evil-visualstar-mode))
 
+;; Enchances compilation-mode
+(use-package fancy-compilation
+  :config (fancy-compilation-mode))
+
 ;; On the fly syntax checking
 (use-package flycheck
   :after evil-collection

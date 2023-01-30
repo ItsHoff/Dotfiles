@@ -809,8 +809,8 @@
   (evil-add-command-properties #'projectile-find-other-file-other-window :jump t :repeat nil)
   ;; Configure other file support for React.
   (add-to-list 'projectile-other-file-alist '("tsx" "module.scss" "scss"))
-  (add-to-list 'projectile-other-file-alist '("module.scss" "tsx"))
   (add-to-list 'projectile-other-file-alist '("scss" "tsx"))
+  (add-to-list 'projectile-other-file-alist '("module.scss" "tsx"))
   (projectile-mode t)
   :general
   (:keymaps 'projectile-command-map

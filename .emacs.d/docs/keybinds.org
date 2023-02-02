@@ -209,6 +209,7 @@
 | c   | evilnc-comment-or-uncomment-lines |         |
 | i   | evil-numbers/inc-at-pt            |         |
 | d   | evil-numbers/dec-at-pt            |         |
+| r   | lsp-rename                        |         |
 ** Prefix: g - Go
 | Key | Function                            | Comment      |
 |-----+-------------------------------------+--------------|

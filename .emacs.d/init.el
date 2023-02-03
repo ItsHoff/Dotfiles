@@ -51,6 +51,9 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
+;; Workaround https://github.com/radian-software/straight.el/issues/701.
+(setq find-file-visit-truename nil)
+
 (straight-use-package 'use-package)
 
 ;;; ANALYSIS ------------------------------------------------------------------------------------

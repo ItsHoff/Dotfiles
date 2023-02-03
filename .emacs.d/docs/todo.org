@@ -1,6 +1,6 @@
 #+TAGS: { bug(b) improvement(i) package(p) }
 #+TODO: TODO EVAL(!)
-* General [4/38]
+* General [7/38]
 ** EVAL Fix smerge bindings
 - State "EVAL"       from "TODO"       [2020-03-03 ti 11:21]
 - [[*Find a way to do mode specific additions to prefix maps][Find a way to do mode specific additions to prefix maps]]
@@ -19,6 +19,27 @@
 - https://old.reddit.com/r/emacs/comments/w07vrf/thoughts_on_improving_compilation_mode/
 - https://codeberg.org/ideasman42/emacs-fancy-compilation
 - https://www.gnu.org/software/emacs/manual/html_node/emacs/Compilation-Mode.html
+
+** EVAL Straight fails with Emacs 28
+- State "EVAL"       from "TODO"       [2023-02-03 pe 13:30]
+- Seems to be this issue: https://github.com/radian-software/straight.el/issues/701
+
+** EVAL Selectrum etc
+- State "EVAL"       from "TODO"       [2023-02-03 pe 13:31]
+- https://old.reddit.com/r/emacs/comments/kqutap/selectrum_prescient_consult_embark_getting_started/
+- https://github.com/raxod502/selectrum
+- https://github.com/minad/consult
+- https://github.com/minad/marginalia
+- https://github.com/oantolin/embark
+- https://kristofferbalintona.me/posts/vertico-marginalia-all-the-icons-completion-and-orderless/
+** EVAL Add open in other window action to counsel-find-file and ivy-switch-buffer
+- State "EVAL"       from "TODO"       [2023-02-03 pe 13:33]
+- INVALID since switch to vertico (achieved via embark)
+- Action exists (M-o j), but have a direct binding
+- ivy-switch-buffer-map
+- ivy--switch-buffer-other-window-action
+- counsel-find-file-map
+- find-file-other-window
 
 ** TODO Semantic movement [1/3]
 *** EVAL Figure out functionality and bindings
@@ -70,12 +91,6 @@ C-M-n   my/outline-down-heading
 - imenu might be good enough
 - but automatic jump would be nice
 - https://old.reddit.com/r/emacs/comments/3mtus3/how_to_display_a_list_of_classes_functions_etc/
-** TODO Add open in other window action to counsel-find-file and ivy-switch-buffer
-- Action exists (M-o j), but have a direct binding
-- ivy-switch-buffer-map
-- ivy--switch-buffer-other-window-action
-- counsel-find-file-map
-- find-file-other-window
 ** TODO my/split-line messes up dot
 ** TODO Marks
 - M create mark
@@ -140,13 +155,6 @@ C-M-n   my/outline-down-heading
 ** TODO Better projectile-find-file
 https://github.com/Gleek/emacs.d/search?q=projectile-find-file
 https://umarahmad.xyz/blog/improved-ranking-for-projectile-find-file/
-** TODO Selectrum etc
-- https://old.reddit.com/r/emacs/comments/kqutap/selectrum_prescient_consult_embark_getting_started/
-- https://github.com/raxod502/selectrum
-- https://github.com/minad/consult
-- https://github.com/minad/marginalia
-- https://github.com/oantolin/embark
-- https://kristofferbalintona.me/posts/vertico-marginalia-all-the-icons-completion-and-orderless/
 ** TODO Evil motion training
 - https://martin.baillie.id/wrote/evil-motion-training-for-emacs/
 ** TODO Fix git submodule workpaths
@@ -170,9 +178,6 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - https://archive.casouri.cc/note/2023/tree-sitter-in-emacs-29/index.html
 - https://old.reddit.com/r/emacs/comments/10iuim1/getting_emacs_29_to_automatically_use_treesitter/
 - https://robbmann.io/posts/emacs-treesit-auto/
-** TODO Straight fails with Emacs 28
-- Seems to be this issue: https://github.com/radian-software/straight.el/issues/701
-
 ** TODO Debug why straight-check does not work
 ** TODO Corfu jumps to the wrong location when completion starts with two panes viewing the same buffer
 * Org-mode [1/10]

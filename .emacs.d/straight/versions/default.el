@@ -7,7 +7,7 @@
  ("cmake" . "82f61a20b4becbe3468e6280d71bb9b01cffd2e6")
  ("compat" . "8885b1cd3f5a2833c727b4448583213deb2d1d76")
  ("consult" . "e421843b4634b79b03a7a7e46d45ae387125e2bf")
- ("consult-lsp" . "771cfad7c383d9dbbb5559a9439cb4de127d2fe6")
+ ("consult-lsp" . "f8db3252c0daa41225ba4ed1c0d178b281cd3e90")
  ("consult-yasnippet" . "ae0450889484f23dc4ec37518852a2c61b89f184")
  ("corfu" . "9e28ab247bc6872e506578ef812110925b7fc014")
  ("csharp-mode" . "02c61c219b2c22491eff9b7315fed661fab423d4")

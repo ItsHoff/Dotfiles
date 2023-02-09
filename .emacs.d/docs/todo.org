@@ -177,7 +177,10 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO Utilize emacs 29 treesitter
 - https://archive.casouri.cc/note/2023/tree-sitter-in-emacs-29/index.html
 - https://old.reddit.com/r/emacs/comments/10iuim1/getting_emacs_29_to_automatically_use_treesitter/
+- https://github.com/renzmann/treesit-auto
 - https://robbmann.io/posts/emacs-treesit-auto/
+- https://gitlab.com/bricka/emacs-kotlin-ts-mode
+
 ** TODO Debug why straight-check does not work
 ** TODO Corfu jumps to the wrong location when completion starts with two panes viewing the same buffer
 * Org-mode [1/10]

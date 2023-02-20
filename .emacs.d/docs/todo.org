@@ -180,6 +180,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - https://github.com/renzmann/treesit-auto
 - https://robbmann.io/posts/emacs-treesit-auto/
 - https://gitlab.com/bricka/emacs-kotlin-ts-mode
+- https://github.com/casouri/tree-sitter-module/issues/13
 
 ** TODO Debug why straight-check does not work
 ** TODO Corfu jumps to the wrong location when completion starts with two panes viewing the same buffer

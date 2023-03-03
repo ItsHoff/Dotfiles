@@ -211,7 +211,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
 ** TODO org-use-speed-commands
-* Packages [6/43]
+* Packages [6/44]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 
@@ -415,3 +415,6 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO ts-movement
 - Emacs 29+ minor mode for syntax tree navigation using Tree Sitter
 - https://github.com/haritkapadia/ts-movement
+** TODO eldoc-box
+- This package displays ElDoc documentations in a childframe.
+- https://github.com/casouri/eldoc-box

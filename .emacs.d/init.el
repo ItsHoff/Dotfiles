@@ -286,7 +286,6 @@
 
 ;; Auto completion
 (use-package company
-  :disabled ; 9.1.23 trying out corfu
   :demand t
   :after evil-collection
   :diminish company-mode
@@ -312,7 +311,6 @@
 
 ;; Fuzzy matching for company
 (use-package company-flx
-  :disabled ; 9.1.23 trying out corfu
   :after company
   :config (company-flx-mode t))
 
@@ -332,6 +330,7 @@
   (evil-collection-compile-setup))
 
 (use-package corfu
+  :disabled ; 17.2.23 comparing with company
   :demand t
   :after evil-collection
   :straight (:files (:defaults "extensions/*"))

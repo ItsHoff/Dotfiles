@@ -326,6 +326,8 @@
   :commands compilation-mode
   :custom
   (compilation-scroll-output 'first-error)
+  :init
+  (add-hook 'compilation-mode-hook (lambda () (setq truncate-lines nil)))
   :config
   (evil-collection-compile-setup))
 
@@ -513,6 +515,7 @@
   :commands flycheck-mode
   :init
   (add-hook 'prog-mode-hook (lambda () (flycheck-mode)))
+  (add-hook 'flycheck-error-list-mode-hook (lambda () (setq truncate-lines nil)))
   :config
   (flycheck-add-mode 'javascript-eslint 'web-mode)
   (evil-collection-flycheck-setup))

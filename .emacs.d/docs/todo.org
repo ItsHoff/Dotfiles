@@ -175,6 +175,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - consult--grep sets `:add-history (consult--async-split-thingatpt 'symbol)`
 - consult-lsp does not
 ** TODO Utilize emacs 29 treesitter
+- https://www.masteringemacs.org/article/how-to-get-started-tree-sitter
 - https://archive.casouri.cc/note/2023/tree-sitter-in-emacs-29/index.html
 - https://old.reddit.com/r/emacs/comments/10iuim1/getting_emacs_29_to_automatically_use_treesitter/
 - https://github.com/renzmann/treesit-auto
@@ -211,7 +212,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
 ** TODO org-use-speed-commands
-* Packages [6/44]
+* Packages [6/45]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 
@@ -418,3 +419,6 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO eldoc-box
 - This package displays ElDoc documentations in a childframe.
 - https://github.com/casouri/eldoc-box
+** TODO elpaca
+- An elisp package manager
+- https://github.com/progfolio/elpaca

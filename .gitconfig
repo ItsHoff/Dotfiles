@@ -5,3 +5,5 @@
     attributesfile = ~/Dotfiles/.gitattributes_personal
     autocrlf = input
     symlinks = true
+[gc]
+	auto = 256

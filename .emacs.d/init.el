@@ -1005,6 +1005,10 @@
 
 ;;; PROGRAMMING MODES ---------------------------------------------------------------------------
 
+;; AutoHotkey
+(use-package ahk-mode
+  :custom (ahk-indentation 4))
+
 ;; C and C++
 (use-package cc-mode
   :commands (c++-mode c-mode java-mode)

@@ -212,7 +212,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
 ** TODO org-use-speed-commands
-* Packages [6/45]
+* Packages [6/46]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 
@@ -423,3 +423,6 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO elpaca
 - An elisp package manager
 - https://github.com/progfolio/elpaca
+** TODO consult-todo
+- https://github.com/liuyinz/consult-todo
+- https://old.reddit.com/r/emacs/comments/162v446/new_package_consulttodo/

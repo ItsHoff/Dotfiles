@@ -92,6 +92,8 @@
 (setq auto-save-default nil)        ; No auto-saves
 (setq sentence-end-double-space nil) ; Don't require double space at end of sentence.
 (setq switch-to-buffer-obey-display-actions t) ; https://www.masteringemacs.org/article/demystifying-emacs-window-manager
+(setq require-final-newline t)      ; Require new line at the end-of-file.
+(setq bookmark-save-flag 1)         ; Save bookmarks every time it is modified.
 
 ;; Start a server if it is not already running.
 (require 'server)
@@ -419,6 +421,8 @@
 (use-package dired
   :after evil-collection
   :straight (:type built-in)
+  :custom
+  (dired-auto-revert-buffer t)
   :config
   (evil-collection-dired-setup)
   (put 'dired-find-alternate-file 'disabled nil) ; Allow dired to use the same buffer

@@ -18,7 +18,7 @@
 (add-hook 'after-init-hook
           (lambda ()
             ;; Reset gc-cons-threshold to more sensible value.
-            (setq gc-cons-threshold (* 100 1024 1024) ; 100 mb
+            (setq gc-cons-threshold (* 10 1024 1024) ; 10 mb
                   gc-cons-percentage 0.1
                   ;; Restore file-name-handler-alist.
                   file-name-handler-alist backup--file-name-handler-alist)))

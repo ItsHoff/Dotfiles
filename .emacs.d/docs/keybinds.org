@@ -196,6 +196,7 @@
 |-----+----------------------+---------|
 | s   | framegroups          |         |
 | d   | dired                |         |
+| f   | flycheck-list-errors |         |
 | g   | magit-status         |         |
 | h   | helm                 |         |
 |-----+----------------------+---------|

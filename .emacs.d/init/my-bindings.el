@@ -43,6 +43,7 @@
                     "b" #'magit-blame-addition
                     "c" #'org-capture
                     "d" #'dired-jump
+                    "f" #'flycheck-list-errors
                     "g" #'magit-status
                     "o" #'olivetti-mode
                     "p" #'projectile-command-map

@@ -7,3 +7,5 @@
     symlinks = true
 [gc]
 	auto = 256
+[rerere]
+	enabled = true

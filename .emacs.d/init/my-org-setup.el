@@ -145,7 +145,7 @@ One hop over heading that is one level higher is allowed."
   :init
   (add-hook 'org-mode-hook
             (lambda ()
-              (my/set-tab-width 2)
+              ;; (my/set-tab-width 2) ; Apparently org should have tab-width of 8
               ;; This is needed for org-cycle to behave correctly
               (setq-local evil-move-beyond-eol t)
               (add-hook 'before-save-hook

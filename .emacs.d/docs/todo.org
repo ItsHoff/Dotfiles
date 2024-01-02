@@ -212,7 +212,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
 ** TODO org-use-speed-commands
-* Packages [6/46]
+* Packages [6/49]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 
@@ -426,3 +426,11 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO consult-todo
 - https://github.com/liuyinz/consult-todo
 - https://old.reddit.com/r/emacs/comments/162v446/new_package_consulttodo/
+** TODO completion-preview
+- https://eshelyaron.com/posts/2023-11-17-completion-preview-in-emacs.html
+** TODO mode-minder
+- Show all major and minor modes available in Emacs.
+- https://github.com/jdtsmith/mode-minder
+** TODO org-sticky-header
+- Show off-screen Org heading at top of window
+- https://github.com/alphapapa/org-sticky-header

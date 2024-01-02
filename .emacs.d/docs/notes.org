@@ -110,3 +110,8 @@
 - https://alhassy.github.io/ElispCheatSheet/CheatSheet.pdf
 * tree-sitter missing tsc-dyn-get
 - Copy tsc-dyn-get.el from straight\repos\elisp-tree-sitter\core to straight\build\tree-sitter
+* Install tree-sitter grammars
+- https://www.masteringemacs.org/article/how-to-get-started-tree-sitter#using-pre-compiled-language-grammars
+- Download from https://github.com/emacs-tree-sitter/tree-sitter-langs/releases
+- Extract to ~/.emacs.d/tree-sitter
+- rename files to libtree-sitter-<LANGUAGE>.so

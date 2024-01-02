@@ -143,18 +143,18 @@
 ;; Put backups in .emacs.d
 (defvar backup-directory (concat user-emacs-directory "backups"))
 (if (not (file-exists-p backup-directory))
-        (make-directory backup-directory t))
+    (make-directory backup-directory t))
 (defvar undo-directory (concat user-emacs-directory "undos"))
 (if (not (file-exists-p undo-directory))
-        (make-directory undo-directory t))
+    (make-directory undo-directory t))
 (setq backup-directory-alist `(("." . ,backup-directory)))
 
 ;; Fonts
 (cond
-  ((find-font (font-spec :name "Consolas"))
-   (add-to-list 'default-frame-alist '(font . "Consolas-11")))
-  ((find-font (font-spec :name "DejaVu Sans Mono"))
-   (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-11"))))
+ ((find-font (font-spec :name "Consolas"))
+  (add-to-list 'default-frame-alist '(font . "Consolas-11")))
+ ((find-font (font-spec :name "DejaVu Sans Mono"))
+  (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-11"))))
 
 ;;; SYSTEM SETUP --------------------------------------------------------------------------------
 
@@ -654,6 +654,7 @@
 ;; Move up and down the screen nicely
 (use-package golden-ratio-scroll-screen
   :demand t
+  :after evil
   :custom
   (golden-ratio-scroll-recenter nil)
   :config
@@ -917,11 +918,21 @@
   :disabled t ; 23.10.19
   :commands ssh-agency-ensure)
 
+;; Automatic installation, usage, and fallback for tree-sitter major modes in Emacs 29
+(use-package treesit-auto
+  :custom
+  (treesit-auto-install 'prompt)
+  :config
+  (treesit-auto-add-to-auto-mode-alist 'all)
+  (global-treesit-auto-mode))
+
 ;; Tree sitter syntax highlighting
 (use-package tree-sitter
+  :disabled t ; 2.1.24 migrate to 29.1
   :hook ((prog-mode . turn-on-tree-sitter-mode)
          (tree-sitter-mode . tree-sitter-hl-mode)))
 (use-package tree-sitter-langs
+  :disabled t ; 2.1.24 migrate to 29.1
   :after tree-sitter)
 
 ;; Vim like undo
@@ -1036,20 +1047,30 @@
   (modify-syntax-entry ?_ "w" c++-mode-syntax-table)    ; _ is now part of a word
   (modify-syntax-entry ?_ "w" java-mode-syntax-table))  ; _ is now part of a word
 
+(use-package c-ts-mode
+  :commands (c++-ts-mode c-ts-mode c-or-c++-ts-mode)
+  :straight (:type built-in)
+  :init
+  (add-hook 'c-ts-base-mode-hook #'lsp-deferred))
+
 ;; CMake
 (use-package cmake-mode
   :commands cmake-mode
   :custom (cmake-tab-width 4))
 
+(use-package cmake-ts-mode
+  :straight (:type built-in))
+
 ;; C#
 (use-package csharp-mode
-  :commands csharp-mode)
+  :straight (:type built-in)
+  :commands (csharp-mode csharp-ts-mode))
 
 ;; CSS
 (use-package css-mode
   :straight (:type built-in)
   :init
-  (add-hook 'css-mode-hook #'lsp-deferred)
+  (add-hook 'css-base-mode-hook #'lsp-deferred)
   :config
   (modify-syntax-entry ?- "w" css-mode-syntax-table))      ; - is now part of a word
 
@@ -1079,15 +1100,20 @@
   (evil-collection-elisp-mode-setup)
   :general
   (:keymaps '(emacs-lisp-mode-map lisp-interaction-mode-map)
-   :states 'normal
-   "C-c C-c" #'eval-buffer)
+            :states 'normal
+            "C-c C-c" #'eval-buffer)
   (:keymaps '(emacs-lisp-mode-map lisp-interaction-mode-map)
-   :states 'visual
-   "C-c C-c" #'eval-region))
+            :states 'visual
+            "C-c C-c" #'eval-region))
 
 ;; JSON
 (use-package json-mode
+  :disabled t ; 2.1.2024 Hijacks auto-mode-alist
   :commands json-mode)
+
+(use-package json-ts-mode
+  :straight (:type built-in)
+  :commands json-ts-mode)
 
 ;; Kotlin
 (use-package kotlin-mode
@@ -1148,8 +1174,8 @@
 
 ;; RST
 (use-package rst
-  :straight (:type built-in))
-  :init (add-hook 'rst-mode-hook (lambda () (my/set-tab-width 2)))
+  :straight (:type built-in)
+  :init (add-hook 'rst-mode-hook (lambda () (my/set-tab-width 2))))
 
 ;; Rust
 (use-package rustic
@@ -1244,6 +1270,11 @@
   :config
   (evil-collection-typescript-mode-setup)
   (modify-syntax-entry ?_ "w" typescript-mode-syntax-table)) ; _ is now part of a word
+
+(use-package typescript-ts-mode
+  :straight (:type built-in)
+  :init
+  (add-hook 'typescript-ts-mode-hook #'lsp-deferred))
 
 ;; Yaml
 (use-package yaml-mode

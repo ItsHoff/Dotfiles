@@ -1232,6 +1232,24 @@
   (local/custom bibtex-completion-library-path)
   (local/custom bibtex-completion-notes-path))
 
+;; Typescript
+(use-package typescript-mode
+  :after (tree-sitter evil-collection)
+  :init
+  (add-hook 'typescript-mode-hook #'lsp-deferred)
+  ;; Separate mode for tree sitter ts and tsx support.
+  (define-derived-mode typescript-tsx-mode typescript-mode "TypeScript/TSX (TypeScript)")
+  (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
+  (add-to-list 'tree-sitter-major-mode-language-alist '(typescript-tsx-mode . tsx))
+  :config
+  (evil-collection-typescript-mode-setup)
+  (modify-syntax-entry ?_ "w" typescript-mode-syntax-table)) ; _ is now part of a word
+
+(use-package typescript-ts-mode
+  :straight (:type built-in)
+  :init
+  (add-hook 'typescript-ts-mode-hook #'lsp-deferred))
+
 ;; Vimrc
 (use-package vimrc-mode)
 
@@ -1258,23 +1276,6 @@
   ;; (add-to-list 'tree-sitter-major-mode-language-alist '(web-tsx-mode . tsx))
   :config
   (modify-syntax-entry ?_ "w" web-mode-syntax-table)) ; _ is now part of a word
-
-(use-package typescript-mode
-  :after (tree-sitter evil-collection)
-  :init
-  (add-hook 'typescript-mode-hook #'lsp-deferred)
-  ;; Separate mode for tree sitter ts and tsx support.
-  (define-derived-mode typescript-tsx-mode typescript-mode "TypeScript/TSX (TypeScript)")
-  (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
-  (add-to-list 'tree-sitter-major-mode-language-alist '(typescript-tsx-mode . tsx))
-  :config
-  (evil-collection-typescript-mode-setup)
-  (modify-syntax-entry ?_ "w" typescript-mode-syntax-table)) ; _ is now part of a word
-
-(use-package typescript-ts-mode
-  :straight (:type built-in)
-  :init
-  (add-hook 'typescript-ts-mode-hook #'lsp-deferred))
 
 ;; Yaml
 (use-package yaml-mode

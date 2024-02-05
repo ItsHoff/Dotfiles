@@ -1238,6 +1238,7 @@
 
 ;; Typescript
 (use-package typescript-mode
+  :disabled ; 18.1.24 Prefer tree-sitter
   :after (tree-sitter evil-collection)
   :init
   (add-hook 'typescript-mode-hook #'lsp-deferred)

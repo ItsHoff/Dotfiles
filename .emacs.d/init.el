@@ -1050,8 +1050,12 @@
 (use-package c-ts-mode
   :commands (c++-ts-mode c-ts-mode c-or-c++-ts-mode)
   :straight (:type built-in)
+  :custom
+  (c-ts-mode-indent-offset 4)
   :init
-  (add-hook 'c-ts-base-mode-hook #'lsp-deferred))
+  (add-hook 'c-ts-base-mode-hook #'lsp-deferred)
+  :config
+  (modify-syntax-entry ?_ "w" c-ts-mode--syntax-table)) ; _ is now part of a word
 
 ;; CMake
 (use-package cmake-mode
@@ -1072,7 +1076,7 @@
   :init
   (add-hook 'css-base-mode-hook #'lsp-deferred)
   :config
-  (modify-syntax-entry ?- "w" css-mode-syntax-table))      ; - is now part of a word
+  (modify-syntax-entry ?- "w" css-mode-syntax-table)) ; - is now part of a word
 
 ;; Git
 (use-package git-modes
@@ -1248,7 +1252,9 @@
 (use-package typescript-ts-mode
   :straight (:type built-in)
   :init
-  (add-hook 'typescript-ts-mode-hook #'lsp-deferred))
+  (add-hook 'typescript-ts-base-mode-hook #'lsp-deferred)
+  :config
+  (modify-syntax-entry ?_ "w" typescript-ts-mode--syntax-table)) ; _ is now part of a word
 
 ;; Vimrc
 (use-package vimrc-mode)

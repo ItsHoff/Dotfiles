@@ -2,7 +2,7 @@
  ("anaconda-mode" . "efd42aa8736d855a3c95e06e6daf4aa797290a93")
  ("annalist.el" . "134fa3f0fb91a636a1c005c483516d4b64905a6d")
  ("anzu" . "26fb50b429ee968eb944b0615dd0aed1dd66172c")
- ("apheleia" . "01f2f0da561e29b75c6b12933943a40850cf704c")
+ ("apheleia" . "47547ea6941e605198369de9a7f3a63847765e5")
  ("auctex" . "86b2397abdc20a638e5751251026727bc6282022")
  ("buffer-move" . "e7800b3ab1bd76ee475ef35507ec51ecd5a3f065")
  ("cmake" . "ae667813deb5861c6f829eb8c2f944155f7cf8fe")

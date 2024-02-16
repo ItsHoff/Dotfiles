@@ -265,8 +265,8 @@
   ;; (setf (alist-get 'clang-format apheleia-formatters)
   ;;       '("clang-format" file))
   ;; https://github.com/radian-software/apheleia/issues/150
-  (setf (alist-get 'prettier-json apheleia-formatters)
-        '(npx "prettier" "--stdin-filepath" filepath))
+  (setf (alist-get 'json-mode apheleia-mode-alist) 'prettier)
+  (setf (alist-get 'json-ts-mode apheleia-mode-alist) 'prettier)
   (apheleia-global-mode t))
 
 ;; Automatically reload changed files

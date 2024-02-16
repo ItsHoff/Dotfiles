@@ -1068,7 +1068,10 @@
 ;; C#
 (use-package csharp-mode
   :straight (:type built-in)
-  :commands (csharp-mode csharp-ts-mode))
+  :commands (csharp-mode csharp-ts-mode)
+  :init
+  (add-hook 'csharp-mode-hook #'lsp-deferred)
+  (add-hook 'csharp-ts-mode-hook #'lsp-deferred))
 
 ;; CSS
 (use-package css-mode

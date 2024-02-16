@@ -257,6 +257,8 @@
 ;; Run code formatter on buffer contents.
 (use-package apheleia
   :diminish apheleia-mode
+  :custom
+  (apheleia-formatters-respect-indent-level nil) ; Defer indent level to the formatters.
   :config
   ;; https://github.com/radian-software/apheleia/issues/108
   ;; 23.1.23 Bug is reportedly fixed.

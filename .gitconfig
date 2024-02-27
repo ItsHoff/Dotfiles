@@ -9,3 +9,12 @@
 	auto = 256
 [rerere]
 	enabled = true
+[pull]
+	rebase = true
+[merge]
+	conflictstyle = zdiff3
+[diff]
+	algorithm = histogram
+	submodule = log
+[status]
+	submoduleSummary = true

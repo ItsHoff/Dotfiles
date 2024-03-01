@@ -396,6 +396,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - https://old.reddit.com/r/emacs/comments/10q4o1g/combobulate_structured_movement_and_editing_with/
 - https://www.masteringemacs.org/article/combobulate-structured-movement-editing-treesitter
 - https://www.masteringemacs.org/article/combobulate-editing-searching-new-query-builder
+- https://www.masteringemacs.org/article/combobulate-intuitive-structured-navigation-treesitter
 
 ** TODO tsi.el
 - use the syntax tree provided by the tree-sitter minor mode as the basis for indentation.

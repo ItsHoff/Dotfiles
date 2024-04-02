@@ -925,9 +925,12 @@
 ;; Automatic installation, usage, and fallback for tree-sitter major modes in Emacs 29
 (use-package treesit-auto
   :custom
-  (treesit-auto-install 'prompt)
+  ;; Auto install does not work on Windows.
+  (treesit-auto-install (if (member system-type '(ms-dos windows-nt cygwin))
+                            nil
+                          'prompt))
   :config
-  (treesit-auto-add-to-auto-mode-alist 'all)
+  (treesit-auto-add-to-auto-mode-alist nil)
   (global-treesit-auto-mode))
 
 ;; Tree sitter syntax highlighting

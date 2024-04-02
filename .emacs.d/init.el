@@ -1074,8 +1074,12 @@
   :straight (:type built-in)
   :commands (csharp-mode csharp-ts-mode)
   :init
-  (add-hook 'csharp-mode-hook #'lsp-deferred)
-  (add-hook 'csharp-ts-mode-hook #'lsp-deferred))
+  (dolist (hook '(csharp-ts-mode-hook
+                  csharp-mode-hook))
+    (add-hook hook (lambda ()
+                     (lsp-deferred)
+                     ;; csharp-ls didn't provide any formatting results. 28.3.24
+                     (setq-local lsp-enable-indentation nil)))))
 
 ;; CSS
 (use-package css-mode

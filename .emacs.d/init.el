@@ -760,6 +760,7 @@
   :custom
   (magit-diff-paint-whitespace-lines 'all)
   (magit-diff-refine-hunk 'all)
+  (magit-stash-read-message-function #'magit-stash-read-message-traditional)
   (evil-collection-magit-want-horizontal-movement t)
   :init
   (setq magit-bind-magit-project-status nil) ; Not customizable variable

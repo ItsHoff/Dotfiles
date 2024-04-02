@@ -1,5 +1,7 @@
 .projectile
+.dir-locals.el
 .clangd/
+**/.cache/lsp-csharp/
 compile_commands.json
 .markdown-preview.html
 .volarrc

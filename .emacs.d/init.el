@@ -837,6 +837,7 @@
   (:keymaps 'projectile-command-map
             "ESC" nil
             "s r" #'consult-ripgrep
+            "s f" #'consult-lsp-file-symbols
             "s s" #'consult-lsp-symbols))
 
 (use-package counsel-projectile

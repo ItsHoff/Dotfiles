@@ -35,11 +35,6 @@
                                document-symbols))
                      :mode 'alive))
 
-(defun my/set-tab-width (width)
-  "Set 'tab-width' to WIDTH."
-  (setq tab-width width)
-  (setq evil-shift-width width))
-
 (defun my/beginning-of-line ()
   "First go to beginning of visual line.
 Then to the beginning of line and finally
@@ -48,9 +43,9 @@ to the hard beginning of line."
   (let ((save-point (point)))
     (evil-first-non-blank-of-visual-line)
     (when (<= save-point (point))
-        (evil-beginning-of-visual-line))
+      (evil-beginning-of-visual-line))
     (when (<= save-point (point))
-        (evil-beginning-of-line))))
+      (evil-beginning-of-line))))
 
 (evil-declare-motion #'my/beginning-of-line)
 
@@ -69,7 +64,7 @@ If point is at or ahead of it move to last character."
     (when (eq evil-state 'visual)
       (forward-char))
     (when (>= save-point (point))
-        (evil-end-of-line))))
+      (evil-end-of-line))))
 
 (evil-declare-motion #'my/end-of-line)
 
@@ -125,9 +120,9 @@ If point is at or ahead of it move to last character."
   (interactive (list (prefix-numeric-value current-prefix-arg)
                      (not evil-repeat-move-cursor)))
   (cond ((and (memq last-command '(evil-paste-after
-                              evil-paste-before
-                              evil-visual-paste))
-             evil-last-paste)
+                                   evil-paste-before
+                                   evil-visual-paste))
+              evil-last-paste)
          (evil-paste-pop count))
         ((and (eq last-command #'evil-repeat)
               evil-last-repeat)
@@ -141,9 +136,9 @@ If point is at or ahead of it move to last character."
   (interactive (list (prefix-numeric-value current-prefix-arg)
                      (not evil-repeat-move-cursor)))
   (cond ((and (memq last-command '(evil-paste-after
-                              evil-paste-before
-                              evil-visual-paste))
-             evil-last-paste)
+                                   evil-paste-before
+                                   evil-visual-paste))
+              evil-last-paste)
          (evil-paste-pop-next count))
         ((and (eq last-command #'evil-repeat)
               evil-last-repeat)
@@ -173,16 +168,6 @@ First try vertical split and only then horizontal split"
                  (with-selected-window window
                    (split-window-right))))))))
 
-(defun my/split-only-root (&optional window)
-  "Split WINDOW only if there are no existing splits.
-Perform the split along the longest axis."
-  (when (one-window-p t)
-    (if (> (window-pixel-height) (window-pixel-width))
-        (with-selected-window window
-          (split-window-below))
-      (with-selected-window window
-        (split-window-right)))))
-
 (evil-define-command my/paste-clipboard-before (count)
   "Pastes the clipboard before point."
   :suppress-operator t
@@ -209,12 +194,6 @@ Perform the split along the longest axis."
   :repeat nil
   (interactive "<R>")
   (evil-yank-line beg end type ?+))
-
-(defun my/advice-preserve-timestamps (args)
-  "Change preserve-timestamps in ARGS to t.
-Filters arguments for undo-tree-undo-1 and undo-tree-redo-1.
-Advice type: filter-args."
-  (list (nth 0 args) (nth 1 args) t))
 
 ;; https://github.com/bbatsov/solarized-emacs/issues/390#issuecomment-576626439
 (defun my/disable-all-themes()

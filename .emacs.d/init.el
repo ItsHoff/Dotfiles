@@ -110,6 +110,16 @@
 (setq inhibit-compacting-font-caches t)
 
 ;; Use nicer window splitting method for automatic splits
+(defun my/split-only-root (&optional window)
+  "Split WINDOW only if there are no existing splits.
+Perform the split along the longest axis."
+  (when (one-window-p t)
+    (if (> (window-pixel-height) (window-pixel-width))
+        (with-selected-window window
+          (split-window-below))
+      (with-selected-window window
+        (split-window-right)))))
+
 (setq split-window-preferred-function #'my/split-only-root)
 
 ;; Make C-i and C-m different from <tab> and <return>
@@ -958,6 +968,13 @@
   (global-undo-tree-mode)
   ;; 10.8.19
   ;; (evil-make-overriding-map undo-tree-visualizer-mode-map 'motion)
+
+  (defun my/advice-preserve-timestamps (args)
+    "Change preserve-timestamps in ARGS to t.
+     Filters arguments for undo-tree-undo-1 and undo-tree-redo-1.
+     Advice type: filter-args."
+    (list (nth 0 args) (nth 1 args) t))
+
   (advice-add #'undo-tree-undo-1 :filter-args #'my/advice-preserve-timestamps)
   (advice-add #'undo-tree-redo-1 :filter-args #'my/advice-preserve-timestamps)
   :general
@@ -1026,6 +1043,11 @@
   :after yasnippet)
 
 ;;; PROGRAMMING MODES ---------------------------------------------------------------------------
+
+(defun my/set-tab-width (width)
+  "Set 'tab-width' to WIDTH."
+  (setq tab-width width)
+  (setq evil-shift-width width))
 
 ;; AutoHotkey
 (use-package ahk-mode

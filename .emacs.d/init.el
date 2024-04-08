@@ -1102,6 +1102,7 @@ Perform the split along the longest axis."
   (dolist (hook '(csharp-ts-mode-hook
                   csharp-mode-hook))
     (add-hook hook (lambda ()
+                     (my/set-tab-width 4)
                      (lsp-deferred)
                      ;; csharp-ls didn't provide any formatting results. 28.3.24
                      (setq-local lsp-enable-indentation nil)))))

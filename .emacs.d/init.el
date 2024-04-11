@@ -1354,6 +1354,13 @@ Perform the split along the longest axis."
 (use-package embark
   :after evil-collection
   :commands embark-act
+  :custom
+  ;; Use completing read to select the command.
+  (embark-prompter 'embark-completing-read-prompter)
+  (embark-indicators
+   '(embark-minimal-indicator  ; default is embark-mixed-indicator
+     embark-highlight-indicator
+     embark-isearch-highlight-indicator))
   :config
   (evil-collection-embark-setup))
 
@@ -1405,6 +1412,15 @@ Perform the split along the longest axis."
   (:keymaps 'vertico-map
             "<backspace>" #'vertico-directory-delete-char
             "C-." #'embark-act))
+
+;; Configure multiform extension.
+(use-package vertico-multiform
+  :after vertico
+  :straight nil
+  :demand t
+  :config
+  (add-to-list 'vertico-multiform-categories '(embark-keybinding grid))
+  (vertico-multiform-mode))
 
 (load "my-functions")
 (load "my-org-setup")

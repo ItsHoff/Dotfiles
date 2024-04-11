@@ -213,7 +213,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
 ** TODO org-use-speed-commands
-* Packages [6/50]
+* Packages [6/51]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 
@@ -440,3 +440,6 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO emacs-lsp-booster
 - Emacs LSP performance booster
 - https://github.com/blahgeek/emacs-lsp-booster
+** TODO yasnippet-treesitter-shim
+- Use yasnippet-snippets together with tree-sitter major modes
+- https://github.com/fbrosda/yasnippet-treesitter-shim

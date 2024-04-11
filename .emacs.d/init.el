@@ -736,6 +736,8 @@ Perform the split along the longest axis."
   ;; Disable modeline diagnostics due to their poor performance.
   (lsp-modeline-diagnostics-enable nil)
   (lsp-modeline-code-actions-enable nil)
+  (lsp-log-max 3000)
+  (lsp-log-io nil)
   :init
   (defun my/lsp-mode-setup-completion ()
     (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))

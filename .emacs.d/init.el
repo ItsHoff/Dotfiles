@@ -1106,7 +1106,10 @@ Perform the split along the longest axis."
                      (my/set-tab-width 4)
                      (lsp-deferred)
                      ;; csharp-ls didn't provide any formatting results. 28.3.24
-                     (setq-local lsp-enable-indentation nil)))))
+                     (setq-local lsp-enable-indentation nil))))
+  :config
+  (modify-syntax-entry ?_ "w" csharp-mode-syntax-table)) ; _ is now part of a word
+
 
 ;; CSS
 (use-package css-mode

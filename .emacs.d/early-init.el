@@ -15,6 +15,9 @@
 (tool-bar-mode -1)                  ; No toolbar
 (scroll-bar-mode -1)                ; No scrollbar
 
+;; https://emacs-lsp.github.io/lsp-mode/page/performance/#use-plists-for-deserialization
+(setenv "LSP_USE_PLISTS" "true")
+
 (add-hook 'after-init-hook
           (lambda ()
             ;; Reset gc-cons-threshold to more sensible value.

@@ -213,7 +213,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
 ** TODO org-use-speed-commands
-* Packages [6/51]
+* Packages [6/53]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 
@@ -443,3 +443,9 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO yasnippet-treesitter-shim
 - Use yasnippet-snippets together with tree-sitter major modes
 - https://github.com/fbrosda/yasnippet-treesitter-shim
+** TODO el-easydraw
+- Embedded drawing tool for Emacs
+- https://github.com/misohena/el-easydraw
+** TODO treesit-ispell.el
+- Run ispell on text nodes.
+- https://github.com/erickgnavar/treesit-ispell.el

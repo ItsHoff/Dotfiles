@@ -768,7 +768,7 @@ Perform the split along the longest axis."
 (use-package magit
   :defer 10
   :after evil-collection
-  :commands (magit-status magit-blame-addition)
+  :commands (magit-status magit-dispatch magit-blame-addition)
   :custom
   (magit-diff-paint-whitespace-lines 'all)
   (magit-diff-refine-hunk 'all)

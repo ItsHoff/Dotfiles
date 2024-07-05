@@ -45,6 +45,7 @@
                     "d" #'dired-jump
                     "f" #'flycheck-list-errors
                     "g" #'magit-status
+                    "G" #'magit-dispatch
                     "o" #'olivetti-mode
                     "p" #'projectile-command-map
                     "r" #'vertico-repeat

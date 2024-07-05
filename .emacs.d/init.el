@@ -732,12 +732,12 @@ Perform the split along the longest axis."
   (lsp-enable-snippet nil)
   (lsp-clients-clangd-args '("--header-insertion=never" "--suggest-missing-includes"))
   (lsp-volar-take-over-mode t)
-  (lsp-completion-provider :none) ; we use Corfu!
   ;; Disable modeline diagnostics due to their poor performance.
   (lsp-modeline-diagnostics-enable nil)
   (lsp-modeline-code-actions-enable nil)
   (lsp-log-max 3000)
   (lsp-log-io nil)
+  (lsp-lens-enable nil)
   :init
   (defun my/lsp-mode-setup-completion ()
     (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))

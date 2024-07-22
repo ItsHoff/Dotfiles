@@ -435,6 +435,8 @@ Perform the split along the longest axis."
   :straight (:type built-in)
   :custom
   (dired-auto-revert-buffer t)
+  (dired-create-destination-dirs 'ask)
+  (dired-create-destination-dirs-on-trailing-dirsep t)
   :config
   (evil-collection-dired-setup)
   (put 'dired-find-alternate-file 'disabled nil) ; Allow dired to use the same buffer

@@ -213,7 +213,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
 ** TODO org-use-speed-commands
-* Packages [6/53]
+* Packages [6/55]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 
@@ -449,3 +449,9 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO treesit-ispell.el
 - Run ispell on text nodes.
 - https://github.com/erickgnavar/treesit-ispell.el
+** TODO dimmer.el
+- Interactively highlight which buffer is active by dimming the others.
+- https://github.com/gonewest818/dimmer.el
+** TODO git-link
+- Emacs package to get the GitHub/Bitbucket/GitLab/... URL for a buffer location
+- https://github.com/sshaw/git-link

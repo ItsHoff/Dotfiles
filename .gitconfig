@@ -5,6 +5,8 @@
     attributesfile = ~/Dotfiles/.gitattributes_personal
     autocrlf = input
     symlinks = true
+	untrackedCache = true
+	fsmonitor = true
 [gc]
 	auto = 256
 [rerere]

@@ -213,7 +213,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
 ** TODO org-use-speed-commands
-* Packages [6/55]
+* Packages [6/56]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 
@@ -455,3 +455,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO git-link
 - Emacs package to get the GitHub/Bitbucket/GitLab/... URL for a buffer location
 - https://github.com/sshaw/git-link
+** TODO casual-dired
+- An opinionated porcelain for Emacs file manager Dired.
+- https://github.com/kickingvegas/casual-dired
+- https://old.reddit.com/r/emacs/comments/1clvkfe/announcing_casual_dired_an_opinionated_porcelain/

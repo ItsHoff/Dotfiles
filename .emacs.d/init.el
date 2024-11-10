@@ -752,6 +752,7 @@ Perform the split along the longest axis."
       (not (stringp (lsp-find-definition)))))
   (setq evil-goto-definition-functions (delete #'evil-goto-definition-search evil-goto-definition-functions))
   (add-to-list 'evil-goto-definition-functions #'my/goto-definition-lsp)
+  (delete 'lsp-terraform lsp-client-packages) ; due to https://github.com/emacs-lsp/lsp-mode/issues/3577
   :general
   (:keymaps 'lsp-mode-map
             "C-M-a" #'lsp-execute-code-action))

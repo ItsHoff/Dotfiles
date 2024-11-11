@@ -213,7 +213,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
 ** TODO org-use-speed-commands
-* Packages [6/56]
+* Packages [6/57]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 
@@ -398,6 +398,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - https://www.masteringemacs.org/article/combobulate-editing-searching-new-query-builder
 - https://www.masteringemacs.org/article/combobulate-intuitive-structured-navigation-treesitter
 - https://www.masteringemacs.org/article/combobulate-interactive-node-editing-treesitter
+- https://www.masteringemacs.org/article/combobulate-bulk-editing-treesitter-nodes-multiple-cursors
 
 ** TODO tsi.el
 - use the syntax tree provided by the tree-sitter minor mode as the basis for indentation.
@@ -459,3 +460,6 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - An opinionated porcelain for Emacs file manager Dired.
 - https://github.com/kickingvegas/casual-dired
 - https://old.reddit.com/r/emacs/comments/1clvkfe/announcing_casual_dired_an_opinionated_porcelain/
+** TODO symbol-overlay
+- Highlight symbols with keymap-enabled overlays
+- https://github.com/wolray/symbol-overlay

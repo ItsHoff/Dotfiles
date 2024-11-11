@@ -5,6 +5,8 @@
     attributesfile = ~/Dotfiles/.gitattributes_personal
     autocrlf = input
     symlinks = true
+	# Avoid diffs due to file mode changes
+	fileMode = false
 	untrackedCache = true
 	fsmonitor = true
 [gc]

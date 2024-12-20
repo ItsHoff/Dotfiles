@@ -1117,7 +1117,6 @@ Perform the split along the longest axis."
   :config
   (modify-syntax-entry ?_ "w" csharp-mode-syntax-table)) ; _ is now part of a word
 
-
 ;; CSS
 (use-package css-mode
   :straight (:type built-in)
@@ -1346,6 +1345,7 @@ Perform the split along the longest axis."
   :custom
   (consult-project-function (lambda (_) (projectile-project-root)))
   :config
+  (consult-customize consult-buffer :preview-key nil)
   (evil-add-command-properties #'consult-buffer :jump t :repeat nil)
   (evil-collection-consult-setup))
 

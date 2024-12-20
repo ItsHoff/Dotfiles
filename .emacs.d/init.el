@@ -1394,8 +1394,10 @@ Perform the split along the longest axis."
 (use-package orderless
   :custom
   (completion-styles '(orderless basic))
-  (completion-category-overrides '((file (styles basic partial-completion))))
-  (orderless-component-separator #'orderless-escapable-split-on-space)
+  ;; This is causing mid path matches to be hidden when path start matches exist.
+  ;; However, according to orderless docs basic needs to be tried first for TRAMP hostname completion to work.
+  ;; (completion-category-overrides '((file (styles basic partial-completion))))
+  (orderless-component-separator #'orderless-escapable-split-on-space))
 ;; 26.11.24 should be implemented in orderless now. https://github.com/oantolin/orderless?tab=readme-ov-file#style-dispatchers
 ;; (orderless-style-dispatchers '(flex-if-twiddle
 ;;                                without-if-bang))

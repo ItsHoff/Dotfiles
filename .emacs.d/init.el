@@ -946,6 +946,8 @@ Perform the split along the longest axis."
                             nil
                           'prompt))
   :config
+  ;; glsl-ts-mode got added with nil to auto-mode-alist. 4.12.24
+  (delete 'glsl treesit-auto-langs)
   (treesit-auto-add-to-auto-mode-alist nil)
   (global-treesit-auto-mode))
 

@@ -1396,19 +1396,20 @@ Perform the split along the longest axis."
   (completion-styles '(orderless basic))
   (completion-category-overrides '((file (styles basic partial-completion))))
   (orderless-component-separator #'orderless-escapable-split-on-space)
-  (orderless-style-dispatchers '(flex-if-twiddle
-                                 without-if-bang))
-  :init
-  (defun flex-if-twiddle (pattern _index _total)
-    (when (string-prefix-p "~" pattern)
-      `(orderless-flex . ,(substring pattern 1))))
+;; 26.11.24 should be implemented in orderless now. https://github.com/oantolin/orderless?tab=readme-ov-file#style-dispatchers
+;; (orderless-style-dispatchers '(flex-if-twiddle
+;;                                without-if-bang))
+;; :init
+;; (defun flex-if-twiddle (pattern _index _total)
+;;   (when (string-prefix-p "~" pattern)
+;;     `(orderless-flex . ,(substring pattern 1))))
 
-  (defun without-if-bang (pattern _index _total)
-    (cond
-     ((equal "!" pattern)
-      '(orderless-literal . ""))
-     ((string-prefix-p "!" pattern)
-      `(orderless-without-literal . ,(substring pattern 1))))))
+;; (defun without-if-bang (pattern _index _total)
+;;   (cond
+;;    ((equal "!" pattern)
+;;     '(orderless-literal . ""))
+;;    ((string-prefix-p "!" pattern)
+;;     `(orderless-without-literal . ,(substring pattern 1))))))
 
 ;; Minimalistic vertical completion UI.
 (use-package vertico

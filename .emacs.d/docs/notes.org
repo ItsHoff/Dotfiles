@@ -31,8 +31,15 @@
 - https://old.reddit.com/r/cpp/comments/6o7uh8/how_to_export_a_clang_compilation_database_from_a/
 *** other
 - https://sarcasm.github.io/notes/dev/compilation-database.html#how-to-generate-a-json-compilation-database
+* Install tree-sitter grammars
+- https://www.masteringemacs.org/article/how-to-get-started-tree-sitter#using-pre-compiled-language-grammars
+- Download from https://github.com/emacs-tree-sitter/tree-sitter-langs/releases
+- Extract to ~/.emacs.d/tree-sitter
+- rename files to libtree-sitter-<LANGUAGE>.so
+
 * Windows
 - You can run commands in WSL from emacs using the wsl prefix. For example: (setq mu4e-get-mail-command "wsl offlineimap -c offlineimaprc")
+
 * Check
 - http://pages.sachachua.com/.emacs.d/Sacha.html#orgdda953f
 - https://ileriseviye.wordpress.com/2019/05/09/how-to-preview-fixed-width-mono-spaced-fonts-in-an-editable-emacs-buffer/
@@ -110,8 +117,3 @@
 - https://alhassy.github.io/ElispCheatSheet/CheatSheet.pdf
 * tree-sitter missing tsc-dyn-get
 - Copy tsc-dyn-get.el from straight\repos\elisp-tree-sitter\core to straight\build\tree-sitter
-* Install tree-sitter grammars
-- https://www.masteringemacs.org/article/how-to-get-started-tree-sitter#using-pre-compiled-language-grammars
-- Download from https://github.com/emacs-tree-sitter/tree-sitter-langs/releases
-- Extract to ~/.emacs.d/tree-sitter
-- rename files to libtree-sitter-<LANGUAGE>.so

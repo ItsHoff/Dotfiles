@@ -780,6 +780,7 @@ Perform the split along the longest axis."
   ;; Non customizable variables
   (setq magit-bind-magit-project-status nil)
   (setq magit-stash-read-message-function #'magit-stash-read-message-traditional)
+  (setq magit-show-long-lines-warning nil)
   :config
   (evil-collection-magit-setup)
   (evil-add-command-properties #'magit-diff-visit-file :jump t)

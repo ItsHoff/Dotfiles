@@ -244,6 +244,11 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - https://kristofferbalintona.me/posts/corfu-kind-icon-and-corfu-doc/
 - https://old.reddit.com/r/emacs/comments/ppg98f/which_completion_framework_do_you_use_and_why/hd99c0r/
 
+** TODO elpaca
+- An elisp package manager
+- https://github.com/progfolio/elpaca
+- https://github.com/progfolio/elpaca/wiki/Migrating-to-Elpaca
+  - example: https://github.com/erickgnavar/dotfiles/commit/0d1fb67d5de1f819d921663bc079ba974d2c5d08
 ** TODO flycheck-posframe
 - Display flycheck error messages via posframe.
 - https://github.com/alexmurray/flycheck-posframe
@@ -424,9 +429,6 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO eldoc-box
 - This package displays ElDoc documentations in a childframe.
 - https://github.com/casouri/eldoc-box
-** TODO elpaca
-- An elisp package manager
-- https://github.com/progfolio/elpaca
 ** TODO consult-todo
 - https://github.com/liuyinz/consult-todo
 - https://old.reddit.com/r/emacs/comments/162v446/new_package_consulttodo/

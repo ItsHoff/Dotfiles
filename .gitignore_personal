@@ -1,4 +1,5 @@
 .projectile
+.projectile-cache.eld
 .dir-locals.el
 .clangd/
 **/.cache/lsp-csharp/

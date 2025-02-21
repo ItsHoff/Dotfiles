@@ -9,8 +9,10 @@
 	fileMode = false
 	untrackedCache = true
 	fsmonitor = true
+	commitGraph = true
 [gc]
 	auto = 256
+	writeCommitGraph = true
 [rerere]
 	enabled = true
 [pull]
@@ -22,3 +24,5 @@
 	submodule = log
 [status]
 	submoduleSummary = true
+[fetch]
+	writeCommitGraph = true

@@ -15,6 +15,7 @@
 	writeCommitGraph = true
 [rerere]
 	enabled = true
+	autoupdate = true
 [pull]
 	rebase = true
 [merge]
@@ -22,7 +23,27 @@
 [diff]
 	algorithm = histogram
 	submodule = log
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
 [status]
 	submoduleSummary = true
 [fetch]
 	writeCommitGraph = true
+	prune = true
+	pruneTags = true
+	all = true
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[tag]
+	sort = version:refname
+[push]
+	followTags = true
+[help]
+	autocorrect = prompt
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true

@@ -849,6 +849,9 @@ Perform the split along the longest axis."
   (add-to-list 'projectile-other-file-alist '("tsx" "module.scss" "scss"))
   (add-to-list 'projectile-other-file-alist '("scss" "tsx"))
   (add-to-list 'projectile-other-file-alist '("module.scss" "tsx"))
+  ;; And WPF.
+  (add-to-list 'projectile-other-file-alist '("xaml" "xaml.cs"))
+  (add-to-list 'projectile-other-file-alist '("xaml.cs" "xaml"))
   (projectile-mode t)
   :general
   (:keymaps 'projectile-command-map

@@ -1,10 +1,10 @@
 [user]
-    useConfigOnly = true
+	useConfigOnly = true
 [core]
-    excludesfile = ~/Dotfiles/.gitignore_personal
-    attributesfile = ~/Dotfiles/.gitattributes_personal
-    autocrlf = input
-    symlinks = true
+	excludesfile = ~/Dotfiles/.gitignore_personal
+	attributesfile = ~/Dotfiles/.gitattributes_personal
+	autocrlf = input
+	symlinks = true
 	# Avoid diffs due to file mode changes
 	fileMode = false
 	untrackedCache = true

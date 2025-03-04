@@ -47,3 +47,5 @@
 	autoSquash = true
 	autoStash = true
 	updateRefs = true
+[log]
+	date = iso

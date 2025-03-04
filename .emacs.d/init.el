@@ -416,6 +416,10 @@ Perform the split along the longest axis."
   :disabled ; trying out vertico
   :after counsel)
 
+;; A collection of opinionated keyboard-driven user interfaces for various built-in Emacs modes.
+(use-package casual
+  :commands casual-dired-tmenu)
+
 ;; Save and restore emacs session
 (use-package desktop
   :disabled ; never used properly with this setup
@@ -444,7 +448,10 @@ Perform the split along the longest axis."
   (evil-declare-not-repeat #'dired-jump)
   (evil-declare-not-repeat #'dired-next-line)
   (evil-declare-not-repeat #'dired-previous-line)
-  (evil-declare-not-repeat #'dired-find-file))
+  (evil-declare-not-repeat #'dired-find-file)
+  :general
+  (:keymaps 'dired-mode-map
+            "M-o" #'casual-dired-tmenu))
 
 ;; Display line numbers
 (use-package display-line-numbers

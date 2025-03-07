@@ -83,19 +83,26 @@
 - https://github.com/Somelauw/evil-org-mode
 - https://www.reddit.com/r/orgmode/comments/6mfvb1/syncing_org_files_to_android_orgzly_with_tasker/
 - https://www.reddit.com/r/orgmode/comments/6t7ufq/what_are_the_best_packages_plugins_for_org_mode/
+
 * Writing
 - https://github.com/tmalsburg/guess-language.el
+
 * Debugging
+- https://emacsredux.com/blog/2025/02/03/debugging-emacs-commands/
+- https://emacsredux.com/blog/2025/03/01/debugging-errors-in-emacs/
 - toggle-debug-on-quit
 - interaction-log-mode
 - what-cursor-position
 - debug-on-entry
+
 * Profiling
 - profiler-start
 - profiler-stop
 - profiler-report
 - https://stackoverflow.com/questions/568150/tips-for-profiling-misbehaving-emacs-lisp
 - (setq use-package-compute-statistics t)
+- https://docs.projectile.mx/projectile/troubleshooting.html#profiling-projectile-commands
+
 ** benchmark-init
 - Benchmark your Emacs initialization
 - https://github.com/dholm/benchmark-init-el

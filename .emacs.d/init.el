@@ -71,10 +71,6 @@
   :diminish explain-pause-mode
   :custom (explain-pause-logging-default-log-location (expand-file-name "explain-pause-log.socket" user-emacs-directory)))
 
-;; Log emacs interactions
-(use-package interaction-log
-  :commands interaction-log-mode)
-
 ;;; GENERAL SETTINGS ----------------------------------------------------------------------------
 
 (setq visible-bell 1)               ; No error beep

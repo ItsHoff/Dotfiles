@@ -47,7 +47,6 @@
  ("groovy-emacs-modes" . "7b8520b2e2d3ab1d62b35c426e17ac25ed0120bb")
  ("ht.el" . "1c49aad1c820c86f7ee35bf9fff8429502f60fef")
  ("hydra" . "317e1de33086637579a7aeb60f77ed0405bf359b")
- ("interaction-log.el" . "a49a06746d4df6bcfceec3c48dece065d635f9f9")
  ("js2-mode" . "e0c302872de4d26a9c1614fac8d6b94112b96307")
  ("kotlin-mode" . "fddd747e5b4736e8b27a147960f369b86179ddff")
  ("let-alist" . "35a1dae3c540705433a510c13c8af80206b29b5f")

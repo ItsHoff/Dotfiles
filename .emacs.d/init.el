@@ -90,6 +90,7 @@
 (setq switch-to-buffer-obey-display-actions t) ; https://www.masteringemacs.org/article/demystifying-emacs-window-manager
 (setq require-final-newline t)      ; Require new line at the end-of-file.
 (setq bookmark-save-flag 1)         ; Save bookmarks every time it is modified.
+(setopt use-package-hook-name-suffix nil) ; Don't append -hook to :hook definitions
 
 ;; Start a server if it is not already running.
 (require 'server)
@@ -748,7 +749,7 @@ Perform the split along the longest axis."
     (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
           '(orderless))) ;; Configure orderless
   :hook
-  (lsp-completion-mode . my/lsp-mode-setup-completion)
+  (lsp-completion-mode-hook . my/lsp-mode-setup-completion)
   :config
   (defun my/goto-definition-lsp (_string _position)
     (when (bound-and-true-p lsp-mode)
@@ -961,8 +962,8 @@ Perform the split along the longest axis."
 ;; Tree sitter syntax highlighting
 (use-package tree-sitter
   :disabled t ; 2.1.24 migrate to 29.1
-  :hook ((prog-mode . turn-on-tree-sitter-mode)
-         (tree-sitter-mode . tree-sitter-hl-mode)))
+  :hook ((prog-mode-hook . turn-on-tree-sitter-mode)
+         (tree-sitter-mode-hook . tree-sitter-hl-mode)))
 (use-package tree-sitter-langs
   :disabled t ; 2.1.24 migrate to 29.1
   :after tree-sitter)
@@ -1021,9 +1022,9 @@ Perform the split along the longest axis."
   ;; Change tab mark (this removes space and newline marks)
   (whitespace-display-mappings '((tab-mark ?\t [?… ?… ?… ?╷] [?▸ ?\t] [?› ?\t] [?> ?\t])))
   :hook
-  (prog-mode . (lambda ()
-                 (setq-local whitespace-style
-                             '(face trailing tabs space-before-tab tab-mark))))
+  (prog-mode-hook . (lambda ()
+                      (setq-local whitespace-style
+                                  '(face trailing tabs space-before-tab tab-mark))))
   :config
   ;; Tabs shouldn't glow red.
   (set-face-attribute 'whitespace-tab nil :inherit 'whitespace-space :foreground 'unspecified

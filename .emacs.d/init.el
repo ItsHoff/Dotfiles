@@ -5,7 +5,7 @@
 ;;; Code:
 
 ;; Save custom settings to another file so they don't mess up the init file
-(setq custom-file "~/.emacs.d/custom.el")
+(setopt custom-file "~/.emacs.d/custom.el")
 
 ;; Load only specified variables from `custom-file'.
 ;; This is done to avoid customizations that were removed from init.el
@@ -52,7 +52,7 @@
   (load bootstrap-file nil 'nomessage))
 
 ;; Workaround https://github.com/radian-software/straight.el/issues/701.
-(setq find-file-visit-truename nil)
+(setopt find-file-visit-truename nil)
 
 (straight-use-package 'use-package)
 
@@ -73,23 +73,22 @@
 
 ;;; GENERAL SETTINGS ----------------------------------------------------------------------------
 
-(setq visible-bell 1)               ; No error beep
-(electric-indent-mode -1)           ; Handle indendation elsewhere
-(setq inhibit-startup-screen t)     ; No message at startup
+(setopt visible-bell t)               ; No error beep
+(electric-indent-mode -1)             ; Handle indendation elsewhere
+(setopt inhibit-startup-screen t)     ; No message at startup
 (modify-syntax-entry ?_ "w" (standard-syntax-table)) ; _ is now part of a word
 (modify-syntax-entry ?- "w" (standard-syntax-table)) ; aswell as -
-(setq select-enable-clipboard nil)  ; Disable emacs clipboard and rely on evil
-(setq completion-styles '(basic initials partial substring)) ; Better completion
-(fset 'yes-or-no-p 'y-or-n-p)       ; y or n should suffice for confirmation
-(setq-default fill-column 110)      ; Line wrap column
-(setq large-file-warning-threshold 50000000)  ; Allow larger files to be opened without confirmation
-(setq history-length 1000)          ; Increase the amount of history
-(setq create-lockfiles nil)         ; Don't create lockfiles
-(setq auto-save-default nil)        ; No auto-saves
-(setq sentence-end-double-space nil) ; Don't require double space at end of sentence.
-(setq switch-to-buffer-obey-display-actions t) ; https://www.masteringemacs.org/article/demystifying-emacs-window-manager
-(setq require-final-newline t)      ; Require new line at the end-of-file.
-(setq bookmark-save-flag 1)         ; Save bookmarks every time it is modified.
+(setopt select-enable-clipboard nil)  ; Disable emacs clipboard and rely on evil
+(fset 'yes-or-no-p 'y-or-n-p)         ; y or n should suffice for confirmation
+(setopt fill-column 110)      ; Line wrap column
+(setopt large-file-warning-threshold 50000000)  ; Allow larger files to be opened without confirmation
+(setopt history-length 1000)          ; Increase the amount of history
+(setopt create-lockfiles nil)         ; Don't create lockfiles
+(setopt auto-save-default nil)        ; No auto-saves
+(setopt sentence-end-double-space nil) ; Don't require double space at end of sentence.
+(setopt switch-to-buffer-obey-display-actions t) ; https://www.masteringemacs.org/article/demystifying-emacs-window-manager
+(setopt require-final-newline t)      ; Require new line at the end-of-file.
+(setopt bookmark-save-flag 1)         ; Save bookmarks every time it is modified.
 (setopt use-package-hook-name-suffix nil) ; Don't append -hook to :hook definitions
 
 ;; Start a server if it is not already running.
@@ -97,14 +96,13 @@
 (unless (server-running-p) (server-start))
 
 ;; Performance suggestions from lsp (https://github.com/emacs-lsp/lsp-mode#performance)
-(setq read-process-output-max (* 1024 1024)) ; 1 mb
+(setopt read-process-output-max (* 1024 1024)) ; 1 mb
 
 ;; Increase stack size (https://www.gnu.org/software/emacs/manual/html_mono/eintr.html#fn-13)
-(setq max-specpdl-size 13000)
-(setq max-lisp-eval-depth 8000)
+(setopt max-lisp-eval-depth 8000)
 
 ;; Don't compact font caches. Will consume more memory, but improves performance.
-(setq inhibit-compacting-font-caches t)
+(setopt inhibit-compacting-font-caches t)
 
 ;; Use nicer window splitting method for automatic splits
 (defun my/split-only-root (&optional window)
@@ -117,7 +115,7 @@ Perform the split along the longest axis."
       (with-selected-window window
         (split-window-right)))))
 
-(setq split-window-preferred-function #'my/split-only-root)
+(setopt split-window-preferred-function #'my/split-only-root)
 
 ;; Make C-i and C-m different from <tab> and <return>
 (define-key input-decode-map [?\C-i] [C-i])
@@ -131,21 +129,22 @@ Perform the split along the longest axis."
 (set-default-coding-systems 'utf-8-unix)
 (set-terminal-coding-system 'utf-8-unix)
 (set-keyboard-coding-system 'utf-8-unix)
-(setq-default buffer-file-coding-system 'utf-8-unix)
+(setopt buffer-file-coding-system 'utf-8-unix)
 
 ;; Smooth scrolling
-(setq scroll-step 1)
-(setq scroll-margin 5)
-(setq scroll-conservatively 10000)
-(setq auto-window-vscroll nil)
-(setq hscroll-step 1)
-(setq hscroll-margin 5)
+(setopt scroll-step 1)
+(setopt scroll-margin 5)
+(setopt scroll-conservatively 10000)
+(setopt auto-window-vscroll nil)
+(setopt hscroll-step 1)
+(setopt hscroll-margin 5)
 
 ;; Tabs & Spaces
-(setq-default tab-always-indent 'complete)    ; Allow tabbing outside of indent
-(setq-default indent-tabs-mode nil)     ; Use spaces instead of tabs
-(setq-default tab-width 4)              ; Tab = 4 spaces
-(setq-default evil-shift-width tab-width)
+(setopt tab-always-indent 'complete)    ; Allow tabbing outside of indent
+(setopt indent-tabs-mode nil)     ; Use spaces instead of tabs
+;; Does this work correctly with setopt instead of setq-default?
+(setopt tab-width 4)              ; Tab = 4 spaces
+(setopt evil-shift-width tab-width)
 
 ;; Put backups in .emacs.d
 (defvar backup-directory (concat user-emacs-directory "backups"))
@@ -154,7 +153,7 @@ Perform the split along the longest axis."
 (defvar undo-directory (concat user-emacs-directory "undos"))
 (if (not (file-exists-p undo-directory))
     (make-directory undo-directory t))
-(setq backup-directory-alist `(("." . ,backup-directory)))
+(setopt backup-directory-alist `(("." . ,backup-directory)))
 
 ;; Fonts
 (cond
@@ -590,7 +589,7 @@ Perform the split along the longest axis."
   (golden-ratio-mode 1)
   :config
   ;; From spacemacs
-  (setq window-combination-resize t)
+  (setopt window-combination-resize t)
   (add-to-list 'golden-ratio-exclude-buffer-regexp "^\\*[hH]elm.*")
   ;; golden-ratio-exclude-modes
   (dolist (m '("bs-mode"
@@ -754,7 +753,7 @@ Perform the split along the longest axis."
   (defun my/goto-definition-lsp (_string _position)
     (when (bound-and-true-p lsp-mode)
       (not (stringp (lsp-find-definition)))))
-  (setq evil-goto-definition-functions (delete #'evil-goto-definition-search evil-goto-definition-functions))
+  (setopt evil-goto-definition-functions (delete #'evil-goto-definition-search evil-goto-definition-functions))
   (add-to-list 'evil-goto-definition-functions #'my/goto-definition-lsp)
   (delete 'lsp-terraform lsp-client-packages) ; due to https://github.com/emacs-lsp/lsp-mode/issues/3577
   :general
@@ -870,7 +869,7 @@ Perform the split along the longest axis."
   :config
   (evil-add-command-properties #'counsel-projectile-find-file :jump t :repeat nil)
   ;; counsel-projectile-switch-project is super slow for some reason, so don't override it.
-  (setq counsel-projectile-key-bindings (assq-delete-all 'projectile-switch-project counsel-projectile-key-bindings))
+  (setopt counsel-projectile-key-bindings (assq-delete-all 'projectile-switch-project counsel-projectile-key-bindings))
   (counsel-projectile-mode t))
 
 ;; Save recently visited files between sessions
@@ -912,7 +911,7 @@ Perform the split along the longest axis."
   :after framegroups
   :config
   (require 'spaceline-config)
-  (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
+  (setopt spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
   (spaceline-define-segment framegroups
     "Segment for framegroups"
     (when (fboundp 'fg-mode-line-string)
@@ -1062,8 +1061,8 @@ Perform the split along the longest axis."
 
 (defun my/set-tab-width (width)
   "Set 'tab-width' to WIDTH."
-  (setq tab-width width)
-  (setq evil-shift-width width))
+  (setq-local tab-width width)
+  (setq-local evil-shift-width width))
 
 ;; AutoHotkey
 (use-package ahk-mode

@@ -357,61 +357,6 @@ Perform the split along the longest axis."
   (global-corfu-mode)
   (corfu-indexed-mode))
 
-;; Minibuffer completion framework
-(use-package counsel
-  :disabled ; trying out vertico
-  :after evil-collection
-  :demand t
-  :diminish counsel-mode
-  :custom
-  (ivy-on-del-error-function nil)
-  (ivy-use-virtual-buffers t)
-  (ivy-count-format "%d/%d ")
-  (ivy-initial-inputs-alist nil)
-  (ivy-flx-limit 10000)
-  (ivy-re-builders-alist '((t . ivy--regex-ignore-order)))
-  (ivy-wrap t)
-  (ivy-action-wrap t)
-  ;; Abbreviate virtual buffers so files with the same name are not ignored
-  (ivy-virtual-abbreviate 'abbreviate)
-  :config
-  (dolist (command '(ivy-switch-buffer
-                     counsel-find-file
-                     ivy-done
-                     ivy-alt-done
-                     ivy-occur-previous-line
-                     ivy-occur-next-line
-                     ivy-occur-revert-buffer
-                     counsel-M-x))
-    (evil-declare-not-repeat command))
-  (evil-add-command-properties #'counsel-find-file :jump t)
-  (evil-add-command-properties #'ivy-switch-buffer :jump t)
-  (evil-add-command-properties #'ivy-occur-press-and-switch :jump t)
-  (evil-collection-ivy-setup)
-  ;; counsel-mode replaces built in commands with counsel alternatives
-  (counsel-mode t)
-  :general
-  (:keymaps 'ivy-minibuffer-map
-            "C-h" #'ivy-alt-done
-            "<escape>" #'minibuffer-keyboard-quit)
-  (:keymaps 'ivy-occur-grep-mode-map
-            "n" nil)) ; Conflicts with search (was next-error-no-select)
-
-;; Completion framework behind counsel
-(use-package ivy
-  :disabled ; trying out vertico
-  :after (counsel evil-collection)
-  :diminish ivy-mode
-  ;; ivy-mode replaces completing-read-function
-  :config
-  (ivy-mode t)
-  (evil-collection-ivy-setup))
-
-;; Enhanced M-x interface
-(use-package amx
-  :disabled ; trying out vertico
-  :after counsel)
-
 ;; A collection of opinionated keyboard-driven user interfaces for various built-in Emacs modes.
 (use-package casual
   :commands casual-dired-tmenu)
@@ -678,35 +623,6 @@ Perform the split along the longest axis."
   (evil-declare-motion #'golden-ratio-scroll-screen-down)
   (evil-declare-motion #'golden-ratio-scroll-screen-up))
 
-;; Heavier 'minibuffer' completion
-(use-package helm
-  :disabled ; 10.1.23 replaced with vertico
-  :diminish helm-mode
-  :init
-  (defvar my/helm-command-map (make-sparse-keymap))
-  (fset 'my/helm-command-map my/helm-command-map)
-  :config
-  (require 'helm-config)
-  (setq helm-recentf-fuzzy-match t)
-  (setq helm-buffers-fuzzy-matching t)
-  (setq helm-M-x-fuzzy-match t)
-  (setq helm-apropos-fuzzy-match t)
-  (helm-autoresize-mode t)
-  :general
-  (:keymaps 'my/helm-command-map
-            "x" #'helm-M-x
-            "f" #'helm-find-files
-            "m" #'helm-mini
-            "o" #'helm-occur
-            "k" #'helm-man-woman
-            "r" #'helm-resume
-            "a" #'helm-apropos)
-  (:keymaps 'helm-map
-            "<tab>" #'helm-execute-persistent-action
-            "C-h" #'helm-execute-persistent-action
-            "C-p" #'helm-select-action
-            "C-n" #'helm-delete-minibuffer-contents))
-
 ;; Additional way of keybinding
 (use-package hydra
   :commands defhydra)
@@ -718,13 +634,6 @@ Perform the split along the longest axis."
   (ispell-silently-savep t)
   :config
   (local/custom ispell-program-name))
-
-(use-package lsp-ivy
-  :disabled ; trying out vertico
-  :commands (lsp-ivy-workspace-symbol lsp-ivy-global-workspace-symbol)
-  :config
-  (evil-add-command-properties #'lsp-ivy-workspace-symbol :jump t)
-  (evil-add-command-properties #'lsp-ivy-global-workspace-symbol :jump t))
 
 ;; LSP support
 (use-package lsp-mode
@@ -842,7 +751,6 @@ Perform the split along the longest axis."
   :demand t
   :custom
   (projectile-indexing-method 'alien) ; Required tools should be installed on windows as well
-  ;; (projectile-completion-system 'ivy) ; trying out vertico
   (projectile-git-submodule-command nil) ; Submodules seem to be causing issues, so disabling for now 1.10.20
   :config
   (evil-add-command-properties #'projectile-find-file :jump t :repeat nil)
@@ -862,15 +770,6 @@ Perform the split along the longest axis."
             "s r" #'consult-ripgrep
             "s f" #'consult-lsp-file-symbols
             "s s" #'consult-lsp-symbols))
-
-(use-package counsel-projectile
-  :disabled ; trying out vertico
-  :after projectile
-  :config
-  (evil-add-command-properties #'counsel-projectile-find-file :jump t :repeat nil)
-  ;; counsel-projectile-switch-project is super slow for some reason, so don't override it.
-  (setopt counsel-projectile-key-bindings (assq-delete-all 'projectile-switch-project counsel-projectile-key-bindings))
-  (counsel-projectile-mode t))
 
 ;; Save recently visited files between sessions
 (use-package recentf
@@ -1046,11 +945,6 @@ Perform the split along the longest axis."
 
 ;; Consult integration for yasnippet
 (use-package consult-yasnippet
-  :after yasnippet)
-
-;; Ivy integration for yasnippet
-(use-package ivy-yasnippet
-  :disabled ; trying out vertico
   :after yasnippet)
 
 ;; Yasnippet snippets

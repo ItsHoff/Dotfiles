@@ -1057,6 +1057,9 @@ Perform the split along the longest axis."
 (use-package yasnippet-snippets
   :after yasnippet)
 
+;; Writable grep
+(use-package wgrep)
+
 ;;; PROGRAMMING MODES ---------------------------------------------------------------------------
 
 (defun my/set-tab-width (width)

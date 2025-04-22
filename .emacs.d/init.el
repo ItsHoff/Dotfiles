@@ -342,7 +342,7 @@ Perform the split along the longest axis."
   (evil-collection-compile-setup))
 
 (use-package corfu
-  :disabled ; 17.2.23 comparing with company
+  :disabled ; 17.2.23 comparing with company, corfu didn't integrate properly with evil .
   :demand t
   :after evil-collection
   :straight (:files (:defaults "extensions/*"))
@@ -1223,7 +1223,6 @@ Perform the split along the longest axis."
   (evil-collection-anaconda-mode-setup))
 
 (use-package company-anaconda
-  :disabled  ; 9.1.23 trying out corfu
   :config
   (add-to-list 'company-backends '(company-anaconda :with company-capf)))
 

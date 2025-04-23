@@ -150,5 +150,5 @@
 
 (require 'easy-brackets)
 
-(provide 'my-bindings)
+(provide 'my-keybindings)
 ;;; bind.el ends here

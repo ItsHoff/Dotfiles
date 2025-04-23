@@ -1,6 +1,6 @@
 .emacs.d/*
 !.emacs.d/init.el
-!.emacs.d/init/
+!.emacs.d/config/
 !.emacs.d/docs/
 !.emacs.d/snippets/
 

@@ -30,7 +30,7 @@
           (custom-set-variables expression))))))
 (with-demoted-errors "Error loading custom-file: %S" (my/load-custom-file))
 
-(add-to-list 'load-path "~/.emacs.d/init/")
+(add-to-list 'load-path (expand-file-name "config/" user-emacs-directory))
 
 ;;; ELPACA -----------------------------------------------------------------------------------
 (defvar elpaca-installer-version 0.11)
@@ -1277,7 +1277,7 @@ Perform the split along the longest axis."
   :commands yaml-mode
   :config (evil-collection-yaml-mode-setup))
 
-;;; Vertico and friends ---------------------------------------------------------------------------
+;;; VERTICO AND FRIENDS ---------------------------------------------------------------------------
 
 ;; Extra completing-read commands.
 (use-package consult
@@ -1364,7 +1364,7 @@ Perform the split along the longest axis."
 (add-hook 'elpaca-after-init-hook
           (lambda ()
             (load "my-functions")
-            (load "my-bindings")))
+            (load "my-keybindings")))
 
 (provide 'init)
 ;;; init.el ends here

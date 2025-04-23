@@ -4,8 +4,8 @@
 !.emacs.d/docs/
 !.emacs.d/snippets/
 
-!.emacs.d/straight/
-.emacs.d/straight/*
-!.emacs.d/straight/versions/
+!.emacs.d/elpaca/
+.emacs.d/elpaca/*
+!.emacs.d/elpaca/elpaca.lock
 
 local-conf.el

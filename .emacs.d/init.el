@@ -32,29 +32,69 @@
 
 (add-to-list 'load-path "~/.emacs.d/init/")
 
-;;; STRAIGHT -----------------------------------------------------------------------------------
+;;; ELPACA -----------------------------------------------------------------------------------
+(defvar elpaca-installer-version 0.11)
+(defvar elpaca-directory (expand-file-name "elpaca/" user-emacs-directory))
+(defvar elpaca-builds-directory (expand-file-name "builds/" elpaca-directory))
+(defvar elpaca-repos-directory (expand-file-name "repos/" elpaca-directory))
+(defvar elpaca-order '(elpaca :repo "https://github.com/progfolio/elpaca.git"
+                              :ref nil :depth 1 :inherit ignore
+                              :files (:defaults "elpaca-test.el" (:exclude "extensions"))
+                              :build (:not elpaca--activate-package)))
+(let* ((repo  (expand-file-name "elpaca/" elpaca-repos-directory))
+       (build (expand-file-name "elpaca/" elpaca-builds-directory))
+       (order (cdr elpaca-order))
+       (default-directory repo))
+  (add-to-list 'load-path (if (file-exists-p build) build repo))
+  (unless (file-exists-p repo)
+    (make-directory repo t)
+    (when (<= emacs-major-version 28) (require 'subr-x))
+    (condition-case-unless-debug err
+        (if-let* ((buffer (pop-to-buffer-same-window "*elpaca-bootstrap*"))
+                  ((zerop (apply #'call-process `("git" nil ,buffer t "clone"
+                                                  ,@(when-let* ((depth (plist-get order :depth)))
+                                                      (list (format "--depth=%d" depth) "--no-single-branch"))
+                                                  ,(plist-get order :repo) ,repo))))
+                  ((zerop (call-process "git" nil buffer t "checkout"
+                                        (or (plist-get order :ref) "--"))))
+                  (emacs (concat invocation-directory invocation-name))
+                  ((zerop (call-process emacs nil buffer nil "-Q" "-L" "." "--batch"
+                                        "--eval" "(byte-recompile-directory \".\" 0 'force)")))
+                  ((require 'elpaca))
+                  ((elpaca-generate-autoloads "elpaca" repo)))
+            (progn (message "%s" (buffer-string)) (kill-buffer buffer))
+          (error "%s" (with-current-buffer buffer (buffer-string))))
+      ((error) (warn "%s" err) (delete-directory repo 'recursive))))
+  (unless (require 'elpaca-autoloads nil t)
+    (require 'elpaca)
+    (elpaca-generate-autoloads "elpaca" repo)
+    (let ((load-source-file-function nil)) (load "./elpaca-autoloads"))))
+(add-hook 'after-init-hook #'elpaca-process-queues)
+(elpaca `(,@elpaca-order))
 
-(custom-set-variables '(straight-use-package-by-default t)
-                      '(straight-check-for-modifications '(check-on-save find-when-checking))
-                      '(straight-repository-branch "master"))
+;; Install use-package support
+(elpaca elpaca-use-package
+  ;; Enable use-package :ensure support for Elpaca.
+  (elpaca-use-package-mode))
 
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-      (bootstrap-version 5))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
+(setopt use-package-always-ensure t)
+;; Limit the amount of simultaneous orders. The default was causing problems on Windows.
+(setopt elpaca-queue-limit 20)
 
-;; Workaround https://github.com/radian-software/straight.el/issues/701.
-(setopt find-file-visit-truename nil)
+(elpaca-wait)
 
-(straight-use-package 'use-package)
+;;; USE-PACKAGE EXTENSIONS ------------------------------------------------------------------------------------
+
+;; Keybinding utilities
+;; Provides the :general keyword
+(use-package general
+  :demand t
+  :config
+  (general-evil-setup)
+  (general-override-mode))
+
+;; Need to wait so that the extra keywords can be used below
+(elpaca-wait)
 
 ;;; ANALYSIS ------------------------------------------------------------------------------------
 
@@ -67,7 +107,7 @@
 ;; Report culprits for long pauses
 (use-package explain-pause-mode
   :disabled ; Blocked emacs when tried 16.11.21
-  :straight (explain-pause-mode :type git :host github :repo "lastquestion/explain-pause-mode")
+  :ensure (:type git :host github :repo "lastquestion/explain-pause-mode")
   :diminish explain-pause-mode
   :custom (explain-pause-logging-default-log-location (expand-file-name "explain-pause-log.socket" user-emacs-directory)))
 
@@ -197,67 +237,9 @@ Perform the split along the longest axis."
 (use-package diminish
   :demand t)
 
-;; Keybinding utilities
-(use-package general
-  :demand t
-  :config
-  (general-evil-setup)
-  (general-override-mode))
-
-;; Vim emulation
-(use-package evil
-  :demand t
-  :custom
-  (evil-want-keybinding nil)        ; Use evil-collection for integration
-  (evil-want-Y-yank-to-eol t)
-  (evil-want-C-w-in-emacs-state t)  ; Window commands should always work
-  (evil-ex-substitute-global t)     ; substitute replaces all occurences in line
-  ;; Open new splits right or below
-  (evil-vsplit-window-right 1)
-  (evil-split-window-below 1)
-  (evil-undo-system 'undo-tree)
-  :config
-  (evil-mode 1)
-  (setq evil-normal-state-tag "NORM")
-  (setq evil-visual-state-tag "VIS")
-  (setq evil-motion-state-tag "MOT")
-  (setq evil-insert-state-tag "INS")
-  (setq evil-operator-state-tag "OP")
-  (setq evil-emacs-state-tag "EMACS")
-  ;; Allow c-o and c-i to jump to buffers matching the regexp
-  (setq evil--jumps-buffer-targets "\\`magit")
-
-  (evil-declare-not-repeat #'compile-goto-error)
-  (evil-declare-not-repeat #'eval-buffer)
-  (evil-declare-not-repeat #'push-button)
-  (evil-add-command-properties #'find-file :jump t :repeat nil)
-  (evil-add-command-properties #'switch-to-buffer :jump t :repeat nil)
-
-  ;; esc quits
-  (defun minibuffer-keyboard-quit ()
-    "Abort recursive edit.
-  In Delete Selection mode, if the mark is active, just deactivate it;
-  then it takes a second \\[keyboard-quit] to abort the minibuffer."
-    (interactive)
-    (if (and delete-selection-mode transient-mark-mode mark-active)
-        (setq deactivate-mark  t)
-      (when (get-buffer "*Completions*") (delete-windows-on "*Completions*"))
-      (abort-recursive-edit)))
-
-  (define-key evil-normal-state-map [escape] #'keyboard-quit)
-  (define-key evil-visual-state-map [escape] #'keyboard-quit)
-  (define-key minibuffer-local-map [escape] #'minibuffer-keyboard-quit)
-  (define-key minibuffer-local-ns-map [escape] #'minibuffer-keyboard-quit)
-  (define-key minibuffer-local-completion-map [escape] #'minibuffer-keyboard-quit)
-  (define-key minibuffer-local-must-match-map [escape] #'minibuffer-keyboard-quit)
-  (define-key minibuffer-local-isearch-map [escape] #'minibuffer-keyboard-quit)
-  (define-key minibuffer-local-isearch-map [escape] #'minibuffer-keyboard-quit)
-  (define-key minibuffer-inactive-mode-map [escape] #'minibuffer-keyboard-quit)
-  (global-set-key [escape] #'evil-exit-emacs-state))
-
 ;; Company abbrev enables this
 (use-package abbrev
-  :straight (:type built-in)
+  :ensure nil
   :diminish abbrev-mode)
 
 ;; Run code formatter on buffer contents.
@@ -278,7 +260,7 @@ Perform the split along the longest axis."
 ;; Automatically reload changed files
 (use-package autorevert
   :demand t
-  :straight (:type built-in)
+  :ensure nil
   :diminish auto-revert-mode
   :custom
   (global-auto-revert-ignore-modes '(pdf-view-mode))
@@ -331,7 +313,7 @@ Perform the split along the longest axis."
   :custom (company-lsp-enable-snippet nil))
 
 (use-package compile
-  :straight (:type built-in)
+  :ensure nil
   :after evil-collection
   :commands compilation-mode
   :custom
@@ -345,7 +327,6 @@ Perform the split along the longest axis."
   :disabled ; 17.2.23 comparing with company, corfu didn't integrate properly with evil .
   :demand t
   :after evil-collection
-  :straight (:files (:defaults "extensions/*"))
   :custom
   (corfu-auto t)
   (corfu-auto-prefix 2)
@@ -377,7 +358,7 @@ Perform the split along the longest axis."
 ;; Directory editor
 (use-package dired
   :after evil-collection
-  :straight (:type built-in)
+  :ensure nil
   :custom
   (dired-auto-revert-buffer t)
   (dired-create-destination-dirs 'ask)
@@ -396,7 +377,7 @@ Perform the split along the longest axis."
 
 ;; Display line numbers
 (use-package display-line-numbers
-  :straight (:type built-in)
+  :ensure nil
   :commands display-line-numbers-mode
   :custom (display-line-numbers-type 'visual)
   :init (add-hook 'prog-mode-hook #'display-line-numbers-mode))
@@ -413,11 +394,60 @@ Perform the split along the longest axis."
 ;; Shows documentation about symbol under point on the echo area
 (use-package eldoc
   :after evil-collection
-  ;; LSP-mode messes with eldoc that is bundled with emacs 27, so use a newer version from package repository.
-  ;; https://github.com/emacs-lsp/lsp-mode/issues/3295#issuecomment-1308994099
-  ;; :straight (:type built-in)
+  :ensure nil
   :diminish eldoc-mode
   :config (evil-collection-eldoc-setup))
+
+;; Vim emulation
+(use-package evil
+  :demand t
+  :custom
+  (evil-want-keybinding nil)        ; Use evil-collection for integration
+  (evil-want-Y-yank-to-eol t)
+  (evil-want-C-w-in-emacs-state t)  ; Window commands should always work
+  (evil-ex-substitute-global t)     ; substitute replaces all occurences in line
+  ;; Open new splits right or below
+  (evil-vsplit-window-right 1)
+  (evil-split-window-below 1)
+  (evil-undo-system 'undo-tree)
+  :config
+  (evil-mode 1)
+  (setq evil-normal-state-tag "NORM")
+  (setq evil-visual-state-tag "VIS")
+  (setq evil-motion-state-tag "MOT")
+  (setq evil-insert-state-tag "INS")
+  (setq evil-operator-state-tag "OP")
+  (setq evil-emacs-state-tag "EMACS")
+  ;; Allow c-o and c-i to jump to buffers matching the regexp
+  (setq evil--jumps-buffer-targets "\\`magit")
+
+  (evil-declare-not-repeat #'compile-goto-error)
+  (evil-declare-not-repeat #'eval-buffer)
+  (evil-declare-not-repeat #'push-button)
+  (evil-add-command-properties #'find-file :jump t :repeat nil)
+  (evil-add-command-properties #'switch-to-buffer :jump t :repeat nil)
+
+  ;; esc quits
+  (defun minibuffer-keyboard-quit ()
+    "Abort recursive edit.
+  In Delete Selection mode, if the mark is active, just deactivate it;
+  then it takes a second \\[keyboard-quit] to abort the minibuffer."
+    (interactive)
+    (if (and delete-selection-mode transient-mark-mode mark-active)
+        (setq deactivate-mark  t)
+      (when (get-buffer "*Completions*") (delete-windows-on "*Completions*"))
+      (abort-recursive-edit)))
+
+  (define-key evil-normal-state-map [escape] #'keyboard-quit)
+  (define-key evil-visual-state-map [escape] #'keyboard-quit)
+  (define-key minibuffer-local-map [escape] #'minibuffer-keyboard-quit)
+  (define-key minibuffer-local-ns-map [escape] #'minibuffer-keyboard-quit)
+  (define-key minibuffer-local-completion-map [escape] #'minibuffer-keyboard-quit)
+  (define-key minibuffer-local-must-match-map [escape] #'minibuffer-keyboard-quit)
+  (define-key minibuffer-local-isearch-map [escape] #'minibuffer-keyboard-quit)
+  (define-key minibuffer-local-isearch-map [escape] #'minibuffer-keyboard-quit)
+  (define-key minibuffer-inactive-mode-map [escape] #'minibuffer-keyboard-quit)
+  (global-set-key [escape] #'evil-exit-emacs-state))
 
 ;; Shows search matches on modeline
 (use-package evil-anzu
@@ -489,7 +519,7 @@ Perform the split along the longest axis."
 ;; Frame utility
 (use-package framegroups
   :demand t
-  :straight (:host github :repo "noctuid/framegroups.el")
+  :ensure (:host github :repo "noctuid/framegroups.el")
   :config
   (defvar my/framegroups-command-map (make-sparse-keymap))
   (fset 'my/framegroups-command-map my/framegroups-command-map)
@@ -629,7 +659,7 @@ Perform the split along the longest axis."
 
 ;; Spell checking
 (use-package ispell
-  :straight (:type built-in)
+  :ensure nil
   :custom
   (ispell-silently-savep t)
   :config
@@ -637,6 +667,7 @@ Perform the split along the longest axis."
 
 ;; LSP support
 (use-package lsp-mode
+  :after eldoc
   :commands (lsp lsp-deferred)
   :diminish lsp-lens-mode
   :custom
@@ -679,10 +710,13 @@ Perform the split along the longest axis."
   (lsp-ui-sideline-show-diagnostics t)
   (lsp-ui-sideline-show-symbol t))
 
+;; Use transient from repository to avoid version warnings with built-in transient
+(use-package transient)
+
 ;; Git support
 (use-package magit
   :defer 10
-  :after evil-collection
+  :after (evil-collection transient)
   :commands (magit-status magit-dispatch magit-blame-addition)
   :custom
   (magit-diff-paint-whitespace-lines 'all)
@@ -722,7 +756,7 @@ Perform the split along the longest axis."
 
 ;; Show matching parenthesis
 (use-package paren
-  :straight (:type built-in)
+  :ensure nil
   :custom
   (show-paren-when-point-inside-paren t)
   (show-paren-when-point-in-periphery t)
@@ -742,7 +776,7 @@ Perform the split along the longest axis."
 ;; Profiler
 (use-package profiler
   :after evil-collection
-  :straight (:type built-in)
+  :ensure nil
   :config
   (evil-collection-profiler-setup))
 
@@ -774,7 +808,7 @@ Perform the split along the longest axis."
 ;; Save recently visited files between sessions
 (use-package recentf
   :demand t
-  :straight (:type built-in)
+  :ensure nil
   :custom
   (recentf-max-saved-items 100)
   :config
@@ -787,12 +821,12 @@ Perform the split along the longest axis."
 
 (use-package saveplace
   :demand t
-  :straight (:type built-in)
+  :ensure nil
   :config
   (save-place-mode t))
 
 (use-package smerge-mode
-  :straight (:type built-in)
+  :ensure nil
   :commands smerge-mode
   :general
   (:definer 'minor-mode
@@ -913,7 +947,7 @@ Perform the split along the longest axis."
 ;; Could be used to also clean whitespace
 (use-package whitespace
   :demand t
-  :straight (:type built-in)
+  :ensure nil
   :diminish global-whitespace-mode
   :custom
   (whitespace-style '(trailing tabs space-before-tab tab-mark))
@@ -931,6 +965,7 @@ Perform the split along the longest axis."
 
 ;; Snippets
 (use-package yasnippet
+  :after eldoc
   :diminish yas-minor-mode
   :init
   (defvar my/yas-command-map (make-sparse-keymap))
@@ -968,7 +1003,7 @@ Perform the split along the longest axis."
 ;; C and C++
 (use-package cc-mode
   :commands (c++-mode c-mode java-mode)
-  :straight (:type built-in)
+  :ensure nil
   :custom
   (c-default-style "bsd")
   (c-basic-offset 4)
@@ -990,7 +1025,7 @@ Perform the split along the longest axis."
 
 (use-package c-ts-mode
   :commands (c++-ts-mode c-ts-mode c-or-c++-ts-mode)
-  :straight (:type built-in)
+  :ensure nil
   :custom
   (c-ts-mode-indent-offset 4)
   :init
@@ -1004,11 +1039,11 @@ Perform the split along the longest axis."
   :custom (cmake-tab-width 4))
 
 (use-package cmake-ts-mode
-  :straight (:type built-in))
+  :ensure nil)
 
 ;; C#
 (use-package csharp-mode
-  :straight (:type built-in)
+  :ensure nil
   :commands (csharp-mode csharp-ts-mode)
   :init
   (dolist (hook '(csharp-ts-mode-hook
@@ -1023,7 +1058,7 @@ Perform the split along the longest axis."
 
 ;; CSS
 (use-package css-mode
-  :straight (:type built-in)
+  :ensure nil
   :init
   (add-hook 'css-base-mode-hook #'lsp-deferred)
   :config
@@ -1046,7 +1081,7 @@ Perform the split along the longest axis."
 ;; ELisp
 (use-package elisp-mode
   :after evil-collection
-  :straight (:type built-in)
+  :ensure nil
   :commands emacs-lisp-mode
   :init (add-hook 'emacs-lisp-mode-hook (lambda () (my/set-tab-width 2)))
   :config
@@ -1067,7 +1102,7 @@ Perform the split along the longest axis."
   :commands json-mode)
 
 (use-package json-ts-mode
-  :straight (:type built-in)
+  :ensure nil
   :commands json-ts-mode)
 
 ;; Kotlin
@@ -1100,7 +1135,7 @@ Perform the split along the longest axis."
 
 ;; Octave / Matlab
 (use-package octave-mode
-  :straight (:type built-in)
+  :ensure nil
   :mode "\\.m\\'"
   :commands octave-mode
   :init (add-hook 'octave-mode-hook (lambda () (my/set-tab-width 2))))
@@ -1117,18 +1152,19 @@ Perform the split along the longest axis."
   (evil-collection-anaconda-mode-setup))
 
 (use-package company-anaconda
+  :after anaconda-mode
   :config
   (add-to-list 'company-backends '(company-anaconda :with company-capf)))
 
 (use-package python-mode
   :after evil-collection
-  :straight (:type built-in)
+  :ensure nil
   :mode "SConstruct"
   :config (evil-collection-python-setup))
 
 ;; RST
 (use-package rst
-  :straight (:type built-in)
+  :ensure nil
   :init (add-hook 'rst-mode-hook (lambda () (my/set-tab-width 2))))
 
 ;; Rust
@@ -1139,7 +1175,7 @@ Perform the split along the longest axis."
 
 ;; Tex
 (use-package tex
-  :straight auctex
+  :ensure auctex
   :commands latex-mode
   :custom
   (TeX-source-correlate-mode t)
@@ -1164,6 +1200,7 @@ Perform the split along the longest axis."
 
 ;; Easily create references in LaTex
 (use-package reftex
+  :ensure nil
   :commands turn-on-reftex
   :custom
   (reftex-plug-into-AUCTeX t)
@@ -1201,7 +1238,7 @@ Perform the split along the longest axis."
   (modify-syntax-entry ?_ "w" typescript-mode-syntax-table)) ; _ is now part of a word
 
 (use-package typescript-ts-mode
-  :straight (:type built-in)
+  :ensure nil
   :init
   (add-hook 'typescript-ts-base-mode-hook #'lsp-deferred)
   :config
@@ -1285,6 +1322,7 @@ Perform the split along the longest axis."
 
 ;; Persist history over Emacs restarts. Vertico sorts by history position.
 (use-package savehist
+  :ensure nil
   :demand nil
   :init
   (savehist-mode))
@@ -1302,11 +1340,10 @@ Perform the split along the longest axis."
 ;; Minimalistic vertical completion UI.
 (use-package vertico
   :after evil-collection
-  :straight (:files (:defaults "extensions/*"))
-  :init
-  (vertico-mode)
+  :demand t
   :config
   (evil-collection-vertico-setup)
+  (vertico-mode)
   :general
   (:keymaps 'vertico-map
             "<backspace>" #'vertico-directory-delete-char
@@ -1315,15 +1352,19 @@ Perform the split along the longest axis."
 ;; Configure multiform extension.
 (use-package vertico-multiform
   :after vertico
-  :straight nil
+  :ensure nil
   :demand t
   :config
   (add-to-list 'vertico-multiform-categories '(embark-keybinding grid))
   (vertico-multiform-mode))
 
-(load "my-functions")
 (load "my-org-setup")
-(load "my-bindings")
+
+;; TODO: clean this up
+(add-hook 'elpaca-after-init-hook
+          (lambda ()
+            (load "my-functions")
+            (load "my-bindings")))
 
 (provide 'init)
 ;;; init.el ends here

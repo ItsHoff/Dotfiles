@@ -213,7 +213,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
 ** TODO org-use-speed-commands
-* Packages [6/61]
+* Packages [8/61]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 
@@ -244,11 +244,18 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - https://kristofferbalintona.me/posts/corfu-kind-icon-and-corfu-doc/
 - https://old.reddit.com/r/emacs/comments/ppg98f/which_completion_framework_do_you_use_and_why/hd99c0r/
 
-** TODO elpaca
+** EVAL elpaca
+- State "EVAL"       from "TODO"       [2025-04-23 ke 10:32]
 - An elisp package manager
 - https://github.com/progfolio/elpaca
 - https://github.com/progfolio/elpaca/wiki/Migrating-to-Elpaca
   - example: https://github.com/erickgnavar/dotfiles/commit/0d1fb67d5de1f819d921663bc079ba974d2c5d08
+
+** EVAL wgrep
+- State "EVAL"       from "TODO"       [2025-04-23 ke 10:32]
+- wgrep allows you to edit a grep buffer and apply those changes to the file buffer.
+- https://github.com/mhayashi1120/Emacs-wgrep
+
 ** TODO flycheck-posframe
 - Display flycheck error messages via posframe.
 - https://github.com/alexmurray/flycheck-posframe
@@ -283,10 +290,6 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO ws-butler
 - Unobtrusively trim extraneous white-space *ONLY* in lines edited.
 - https://github.com/lewang/ws-butler
-
-** TODO wgrep
-- wgrep allows you to edit a grep buffer and apply those changes to the file buffer.
-- https://github.com/mhayashi1120/Emacs-wgrep
 
 ** TODO targets
 - Extension of evil text objects (not "stable" but feel free to try and give feedback)

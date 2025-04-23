@@ -71,8 +71,6 @@ If already at top heading go to the next heading above."
         (setq target-level start-level))
       (my/go-up-to-heading-level target-level))))
 
-(evil-declare-motion #'my/outline-up-heading)
-
 (defun my/outline-down-heading ()
   "Go down to heading of higher level.
 If already at top heading go to the next heading below.
@@ -85,8 +83,6 @@ Goto end if no lower higher level headings."
           (setq target-level (- start-level 1))
         (setq target-level start-level))
       (my/go-down-to-heading-level target-level))))
-
-(evil-declare-motion #'my/outline-down-heading)
 
 (defun my/org-backward-heading-same-level ()
   "Move backward to the previous subheading at same level as this one.
@@ -105,8 +101,6 @@ One hop over heading that is one level higher is allowed."
           (goto-char save-point)
         (org-reveal '(4))))))
 
-(evil-declare-motion #'my/org-backward-heading-same-level)
-
 (defun my/org-forward-heading-same-level ()
   "Move forward to the next subheading at same level as this one.
 One hop over heading that is one level higher is allowed."
@@ -124,8 +118,6 @@ One hop over heading that is one level higher is allowed."
           (goto-char save-point)
         (org-reveal '(4))))))
 
-(evil-declare-motion #'my/org-backward-heading-same-level)
-
 (defvar my/org-property-list nil "List of properties to add with my/org-add-properties.")
 
 (defun my/org-add-properties ()
@@ -141,7 +133,7 @@ One hop over heading that is one level higher is allowed."
 
 (use-package org
   :commands org-capture
-  :after evil-collection
+  :after (evil-collection hydra)
   :init
   (add-hook 'org-mode-hook
             (lambda ()
@@ -179,14 +171,19 @@ One hop over heading that is one level higher is allowed."
   ;; 17.7.22 evil-collection should handle this
   ;;(evil-make-overriding-map org-mode-map 'normal)
   (evil-collection-org-setup)
+
   (dolist (cmd '(org-cycle org-shifttab org-ctrl-c-ctrl-c))
     (evil-declare-not-repeat cmd))
   (dolist (cmd '(outline-next-visible-heading
                  outline-previous-visible-heading
                  outline-forward-same-level
-                 outline-backward-same-level))
-    (evil-declare-motion cmd)
-    (evil-declare-not-repeat cmd))
+                 outline-backward-same-level
+                 my/outline-up-heading
+                 my/outline-down-heading
+                 my/org-backward-heading-same-level
+                 my/org-backward-heading-same-level))
+    (evil-declare-motion cmd))
+
   ;; https://orgmode.org/manual/Capture-templates.html#Capture-templates
   (setq org-capture-templates
         '(("e" "Emacs todo" entry (file+olp "~/.emacs.d/docs/todo.org" "General")

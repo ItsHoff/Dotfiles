@@ -5,7 +5,9 @@
 ;;; Code:
 
 ;; Save custom settings to another file so they don't mess up the init file
-(setopt custom-file "~/.emacs.d/custom.el")
+(setopt custom-file (expand-file-name "custom.el" user-emacs-directory))
+
+(defvar my/custom-variable-whitelist '(safe-local-variable-values) "Defines the variables that `my/load-custom-file` loads from `custom-file`.")
 
 ;; Load only specified variables from `custom-file'.
 ;; This is done to avoid customizations that were removed from init.el
@@ -20,19 +22,19 @@
                (insert-file-contents custom-file)
                (goto-char (point-max)))
              ;; Ignore the custom-set-variables call.
-             (cdr (read (current-buffer)))))
-          (variable-whitelist '(safe-local-variable-values)))
+             (cdr (read (current-buffer))))))
       ;; Load expression if it is in the whitelist.
       (dolist (expression custom-expressions)
         ;; Remove the quote.
         (setq expression (cadr expression))
-        (when (memq (car expression) variable-whitelist)
+        (when (memq (car expression) my/custom-variable-whitelist)
           (custom-set-variables expression))))))
 (with-demoted-errors "Error loading custom-file: %S" (my/load-custom-file))
 
 (add-to-list 'load-path (expand-file-name "config/" user-emacs-directory))
 
 ;;; ELPACA -----------------------------------------------------------------------------------
+
 (defvar elpaca-installer-version 0.11)
 (defvar elpaca-directory (expand-file-name "elpaca/" user-emacs-directory))
 (defvar elpaca-builds-directory (expand-file-name "builds/" elpaca-directory))

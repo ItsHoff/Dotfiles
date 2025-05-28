@@ -1345,6 +1345,7 @@ Perform the split along the longest axis."
 ;; matches candidates that match all of the components in any order.
 (use-package orderless
   :custom
+  (orderless-smart-case t)
   (completion-styles '(orderless basic))
   ;; This is causing mid path matches to be hidden when path start matches exist.
   ;; However, according to orderless docs basic needs to be tried first for TRAMP hostname completion to work.

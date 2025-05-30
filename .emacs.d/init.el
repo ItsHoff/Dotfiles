@@ -1310,6 +1310,16 @@ Perform the split along the longest axis."
   (evil-add-command-properties #'consult-lsp-file-symbols :jump t :repeat nil)
   (evil-add-command-properties #'consult-lsp-symbols :jump t :repeat nil))
 
+;; Better consult support for projectile.
+;; Projectile default filtering does not show "Project.cs" for the input "project" if there are files that
+;; contain the lower case "project".
+(use-package consult-projectile
+  :after (consult projectile)
+  :general
+  (:keymaps 'projectile-command-map
+            "p" #'consult-projectile-switch-project
+            "f" #'consult-projectile-find-file))
+
 ;; Choose a command to run based on what is near point, both during a minibuffer completion session
 ;; and in normal buffers.
 (use-package embark

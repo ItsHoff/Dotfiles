@@ -96,19 +96,6 @@
 
 (elpaca-wait)
 
-;;; USE-PACKAGE EXTENSIONS ------------------------------------------------------------------------------------
-
-;; Keybinding utilities
-;; Provides the :general keyword
-(use-package general
-  :demand t
-  :config
-  (general-evil-setup)
-  (general-override-mode))
-
-;; Need to wait so that the extra keywords can be used below
-(elpaca-wait)
-
 ;;; ANALYSIS ------------------------------------------------------------------------------------
 
 (use-package benchmark-init
@@ -243,6 +230,55 @@ Perform the split along the longest axis."
 
 ;; Remove trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;;; PACKAGES THAT REQUIRE WAIT ------------------------------------------------------------------
+
+;; Keybinding utilities
+;; Waits required for :general keyword to work.
+(use-package general
+  :demand t
+  :config
+  (general-evil-setup)
+  (general-override-mode))
+
+(elpaca-wait)
+
+;; Git support
+(use-package magit
+  ;; Wait seems to be required for magit to install correctly with elpaca. (https://github.com/progfolio/elpaca/issues/343#issuecomment-2557421384)
+  ;; Without wait magit complains about old transient version.
+  ;; :ensure (:wait t)
+  :defer 10
+  :after (evil-collection transient)
+  :commands (magit-status magit-dispatch magit-blame-addition)
+  :custom
+  (magit-diff-paint-whitespace-lines 'all)
+  (magit-diff-refine-hunk 'all)
+  (evil-collection-magit-want-horizontal-movement nil) ; Disabled due to https://github.com/emacs-evil/evil-collection/issues/831
+  :init
+  ;; Non customizable variables
+  (setq magit-bind-magit-project-status nil)
+  (setq magit-stash-read-message-function #'magit-stash-read-message-traditional)
+  (setq magit-show-long-lines-warning nil)
+  :config
+  (evil-collection-magit-setup)
+  (evil-add-command-properties #'magit-diff-visit-file :jump t)
+  (evil-add-command-properties #'magit-status :jump t)
+  :general
+  (:keymaps 'magit-mode-map
+            "<up>" #'magit-section-backward
+            "<down>" #'magit-section-forward
+            "<left>" #'magit-section-backward-sibling
+            "<right>" #'magit-section-forward-sibling
+            "C-M-u" #'magit-section-up
+            "<return>" #'magit-visit-thing
+            "SPC" nil)
+  (:keymaps 'transient-sticky-map
+            "<escape>" #'transient-quit-seq)
+  (:keymaps 'transient-map
+            "<escape>" #'transient-quit-one))
+
+(elpaca-wait)
 
 ;;; PACKAGES ------------------------------------------------------------------------------------
 
@@ -723,44 +759,6 @@ Perform the split along the longest axis."
   (lsp-ui-sideline-show-diagnostics t)
   (lsp-ui-sideline-show-symbol t))
 
-;; Use transient from repository to avoid version warnings with built-in transient
-(use-package transient)
-
-;; Git support
-(use-package magit
-  ;; Seems to be required for magit to install correctly with elpaca. (https://github.com/progfolio/elpaca/issues/343#issuecomment-2557421384)
-  ;; Without this magit complains about old transient version.
-  :ensure (:wait t)
-  :defer 10
-  :after (evil-collection transient)
-  :commands (magit-status magit-dispatch magit-blame-addition)
-  :custom
-  (magit-diff-paint-whitespace-lines 'all)
-  (magit-diff-refine-hunk 'all)
-  (evil-collection-magit-want-horizontal-movement nil) ; Disabled due to https://github.com/emacs-evil/evil-collection/issues/831
-  :init
-  ;; Non customizable variables
-  (setq magit-bind-magit-project-status nil)
-  (setq magit-stash-read-message-function #'magit-stash-read-message-traditional)
-  (setq magit-show-long-lines-warning nil)
-  :config
-  (evil-collection-magit-setup)
-  (evil-add-command-properties #'magit-diff-visit-file :jump t)
-  (evil-add-command-properties #'magit-status :jump t)
-  :general
-  (:keymaps 'magit-mode-map
-            "<up>" #'magit-section-backward
-            "<down>" #'magit-section-forward
-            "<left>" #'magit-section-backward-sibling
-            "<right>" #'magit-section-forward-sibling
-            "C-M-u" #'magit-section-up
-            "<return>" #'magit-visit-thing
-            "SPC" nil)
-  (:keymaps 'transient-sticky-map
-            "<escape>" #'transient-quit-seq)
-  (:keymaps 'transient-map
-            "<escape>" #'transient-quit-one))
-
 ;; NPM client for emacs
 (use-package npm)
 
@@ -894,6 +892,9 @@ Perform the split along the longest axis."
 (use-package ssh-agency
   :disabled t ; 23.10.19
   :commands ssh-agency-ensure)
+
+;; Use transient from repository to avoid version warnings with built-in transient
+(use-package transient)
 
 ;; Automatic installation, usage, and fallback for tree-sitter major modes in Emacs 29
 (use-package treesit-auto

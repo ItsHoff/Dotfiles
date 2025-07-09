@@ -1309,6 +1309,10 @@ Perform the split along the longest axis."
   :after evil-collection
   :custom
   (consult-project-function (lambda (_) (projectile-project-root)))
+  (consult-narrow-key "'")
+  ;; Use Consult to select xref locations with preview
+  (xref-show-xrefs-function #'consult-xref)
+  (xref-show-definitions-function #'consult-xref)
   :config
   (consult-customize consult-buffer :preview-key nil)
   (evil-add-command-properties #'consult-buffer :jump t :repeat nil)

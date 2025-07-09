@@ -273,6 +273,12 @@ Perform the split along the longest axis."
             "C-M-u" #'magit-section-up
             "<return>" #'magit-visit-thing
             "SPC" nil)
+  (:keymaps 'magit-hunk-section-map
+            "<return>" #'magit-diff-visit-file-other-window)
+  (:keymaps 'magit-file-section-map
+            "<return>" #'magit-diff-visit-file-other-window)
+  (:keymaps 'magit-diff-section-map
+            "<return>" #'magit-diff-visit-file-other-window)
   (:keymaps 'transient-sticky-map
             "<escape>" #'transient-quit-seq)
   (:keymaps 'transient-map

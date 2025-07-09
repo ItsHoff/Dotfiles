@@ -446,6 +446,13 @@ Perform the split along the longest axis."
   ;; (doom-themes-org-config) to try out
   (load-theme 'doom-nord t))
 
+;; The Emacs Client for the Language Server Protocol
+(use-package eglot
+  :after evil-collection
+  :commands (eglot eglot-ensure)
+  :config
+  (evil-collection-eglot-setup))
+
 ;; Shows documentation about symbol under point on the echo area
 (use-package eldoc
   :after evil-collection
@@ -561,6 +568,7 @@ Perform the split along the longest axis."
 
 ;; On the fly syntax checking
 (use-package flycheck
+  :disabled ; 30.6.25 try out eglot with flymake
   :after evil-collection
   :diminish flycheck-mode
   :commands flycheck-mode
@@ -570,6 +578,15 @@ Perform the split along the longest axis."
   :config
   (flycheck-add-mode 'javascript-eslint 'web-mode)
   (evil-collection-flycheck-setup))
+
+;; Depended on by eglot
+(use-package flymake
+  :after evil-collection
+  :commands flymake-mode
+  :init
+  (add-hook 'prog-mode-hook (lambda () (flymake-mode)))
+  :config
+  (evil-collection-flymake-setup))
 
 ;; Frame utility
 (use-package framegroups
@@ -722,6 +739,7 @@ Perform the split along the longest axis."
 
 ;; LSP support
 (use-package lsp-mode
+  :disabled ; 25.6.25 trying out eglot
   :after eldoc
   :commands (lsp lsp-deferred)
   :diminish lsp-lens-mode
@@ -757,6 +775,7 @@ Perform the split along the longest axis."
 
 ;; Fancy ui for LSP
 (use-package lsp-ui
+  :disabled ; 25.6.25 trying out eglot
   :commands lsp-ui-mode
   :custom
   (lsp-ui-doc-enable nil)
@@ -823,8 +842,8 @@ Perform the split along the longest axis."
   (:keymaps 'projectile-command-map
             "ESC" nil
             "s r" #'consult-ripgrep
-            "s f" #'consult-lsp-file-symbols
-            "s s" #'consult-lsp-symbols))
+            ;;"s f" #'consult-lsp-file-symbols
+            "s s" #'consult-eglot-symbols))
 
 ;; Save recently visited files between sessions
 (use-package recentf
@@ -1039,8 +1058,8 @@ Perform the split along the longest axis."
               ;; Preferred comment style
               (setq comment-start "// "
                     comment-end "")))
-  (add-hook 'c++-mode-hook #'lsp-deferred)
-  (add-hook 'c-mode-hook #'lsp-deferred)
+  (add-hook 'c++-mode-hook #'eglot-ensure)
+  (add-hook 'c-mode-hook #'eglot-ensure)
   :config
   (c-set-offset 'innamespace 0)
   (modify-syntax-entry ?_ "w" c-mode-syntax-table)      ; _ is now part of a word
@@ -1053,7 +1072,7 @@ Perform the split along the longest axis."
   :custom
   (c-ts-mode-indent-offset 4)
   :init
-  (add-hook 'c-ts-base-mode-hook #'lsp-deferred)
+  (add-hook 'c-ts-base-mode-hook #'eglot-ensure)
   :config
   (modify-syntax-entry ?_ "w" c-ts-mode--syntax-table)) ; _ is now part of a word
 
@@ -1074,7 +1093,7 @@ Perform the split along the longest axis."
                   csharp-mode-hook))
     (add-hook hook (lambda ()
                      (my/set-tab-width 4)
-                     (lsp-deferred)
+                     (eglot-ensure)
                      ;; csharp-ls didn't provide any formatting results. 28.3.24
                      (setq-local lsp-enable-indentation nil))))
   :config
@@ -1084,7 +1103,7 @@ Perform the split along the longest axis."
 (use-package css-mode
   :ensure nil
   :init
-  (add-hook 'css-base-mode-hook #'lsp-deferred)
+  (add-hook 'css-base-mode-hook #'eglot-ensure)
   :config
   (modify-syntax-entry ?- "w" css-mode-syntax-table)) ; - is now part of a word
 
@@ -1196,7 +1215,7 @@ Perform the split along the longest axis."
 (use-package rustic
   :commands rustic-mode
   :init
-  (add-hook 'rustic-mode-hook #'lsp-deferred))
+  (add-hook 'rustic-mode-hook #'eglot-ensure))
 
 ;; Tex
 (use-package tex
@@ -1253,7 +1272,7 @@ Perform the split along the longest axis."
   :disabled ; 18.1.24 Prefer tree-sitter
   :after (tree-sitter evil-collection)
   :init
-  (add-hook 'typescript-mode-hook #'lsp-deferred)
+  (add-hook 'typescript-mode-hook #'eglot-ensure)
   ;; Separate mode for tree sitter ts and tsx support.
   (define-derived-mode typescript-tsx-mode typescript-mode "TypeScript/TSX (TypeScript)")
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
@@ -1265,7 +1284,7 @@ Perform the split along the longest axis."
 (use-package typescript-ts-mode
   :ensure nil
   :init
-  (add-hook 'typescript-ts-base-mode-hook #'lsp-deferred)
+  (add-hook 'typescript-ts-base-mode-hook #'eglot-ensure)
   :config
   (modify-syntax-entry ?_ "w" typescript-ts-mode--syntax-table)) ; _ is now part of a word
 
@@ -1283,7 +1302,7 @@ Perform the split along the longest axis."
   ;; workaround: https://github.com/emacs-tree-sitter/tree-sitter-langs/issues/23#issuecomment-832815710
   (tree-sitter-hl-use-font-lock-keywords nil)
   :init
-  (add-hook 'web-mode-hook #'lsp-deferred)
+  (add-hook 'web-mode-hook #'eglot-ensure)
   ;; Disabled 9.9.2022 web-mode uncommenting and syntax highlighting worked badly with ts and react.
   ;; Switched to typescript-mode instead.
   ;; Separate mode for tree sitter ts and tsx support.
@@ -1318,7 +1337,14 @@ Perform the split along the longest axis."
   (evil-add-command-properties #'consult-buffer :jump t :repeat nil)
   (evil-collection-consult-setup))
 
+(use-package consult-eglot
+  :after consult
+  :commands consult-eglot-symbols
+  :config
+  (evil-add-command-properties #'consult-eglot-symbols :jump t :repeat nil))
+
 (use-package consult-lsp
+  :disabled ; 25.6.25 trying out eglot
   :after consult
   :commands (consult-lsp-symbols consult-lsp-file-symbols)
   :config

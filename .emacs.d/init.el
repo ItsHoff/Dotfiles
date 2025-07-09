@@ -1171,7 +1171,6 @@ Perform the split along the longest axis."
   :commands anaconda-mode
   :init
   (add-hook 'python-mode-hook #'anaconda-mode)
-  (add-hook 'python-mode-hook (lambda () (my/set-tab-width 4)))
   :config
   (evil-collection-anaconda-mode-setup))
 
@@ -1184,6 +1183,8 @@ Perform the split along the longest axis."
   :after evil-collection
   :ensure nil
   :mode "SConstruct"
+  :init
+  (add-hook 'python-base-mode-hook (lambda () (my/set-tab-width 4)))
   :config (evil-collection-python-setup))
 
 ;; RST

@@ -1387,7 +1387,9 @@ Perform the split along the longest axis."
   :general
   (:keymaps 'vertico-map
             "<backspace>" #'vertico-directory-delete-char
-            "C-." #'embark-act))
+            "C-." #'embark-act
+            "C-M-n" #'vertico-next-group
+            "C-M-p" #'vertico-previous-group))
 
 ;; Configure multiform extension.
 (use-package vertico-multiform

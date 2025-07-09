@@ -241,8 +241,6 @@ Perform the split along the longest axis."
   (general-evil-setup)
   (general-override-mode))
 
-(elpaca-wait)
-
 ;; Git support
 (use-package magit
   ;; Wait seems to be required for magit to install correctly with elpaca. (https://github.com/progfolio/elpaca/issues/343#issuecomment-2557421384)
@@ -264,25 +262,25 @@ Perform the split along the longest axis."
   (evil-collection-magit-setup)
   (evil-add-command-properties #'magit-diff-visit-file :jump t)
   (evil-add-command-properties #'magit-status :jump t)
-  :general
-  (:keymaps 'magit-mode-map
-            "<up>" #'magit-section-backward
-            "<down>" #'magit-section-forward
-            "<left>" #'magit-section-backward-sibling
-            "<right>" #'magit-section-forward-sibling
-            "C-M-u" #'magit-section-up
-            "<return>" #'magit-visit-thing
-            "SPC" nil)
-  (:keymaps 'magit-hunk-section-map
-            "<return>" #'magit-diff-visit-file-other-window)
-  (:keymaps 'magit-file-section-map
-            "<return>" #'magit-diff-visit-file-other-window)
-  (:keymaps 'magit-diff-section-map
-            "<return>" #'magit-diff-visit-file-other-window)
-  (:keymaps 'transient-sticky-map
-            "<escape>" #'transient-quit-seq)
-  (:keymaps 'transient-map
-            "<escape>" #'transient-quit-one))
+  :bind
+  (:map magit-mode-map
+        ("<up>" . magit-section-backward)
+        ("<down>" . magit-section-forward)
+        ("<left>" . magit-section-backward-sibling)
+        ("<right>" . magit-section-forward-sibling)
+        ("C-M-u" . magit-section-up)
+        ("<return>" . magit-visit-thing)
+        ("SPC" . nil)
+        :map magit-hunk-section-map
+        ("<return>" . magit-diff-visit-file-other-window)
+        :map magit-file-section-map
+        ("<return>" . magit-diff-visit-file-other-window)
+        :map magit-diff-section-map
+        ("<return>" . magit-diff-visit-file-other-window)
+        :map transient-sticky-map
+        ("<escape>" . transient-quit-seq)
+        :map transient-map
+        ("<escape>" . transient-quit-one)))
 
 (elpaca-wait)
 

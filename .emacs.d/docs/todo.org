@@ -213,7 +213,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
 ** TODO org-use-speed-commands
-* Packages [8/61]
+* Packages [8/62]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 
@@ -481,3 +481,6 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO pulsar
 - Emacs package to pulse the current line after running select functions.
 - https://github.com/protesilaos/pulsar
+** TODO magit-prime
+- Speedup magit by priming caches before refresh
+- https://github.com/Azkae/magit-prime

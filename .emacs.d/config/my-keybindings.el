@@ -106,7 +106,7 @@
                     "; c" #'evilnc-comment-or-uncomment-lines
                     "; i" #'evil-numbers/inc-at-pt
                     "; d" #'evil-numbers/dec-at-pt
-                    "; r" #'lsp-rename
+                    "; r" #'eglot-rename
                     ;; Clipboard paste and yank
                     "M-Y" #'my/yank-clipboard)
 

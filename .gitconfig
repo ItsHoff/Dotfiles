@@ -10,6 +10,7 @@
 	untrackedCache = true
 	fsmonitor = true
 	commitGraph = true
+	longpaths = true
 [gc]
 	auto = 256
 	writeCommitGraph = true

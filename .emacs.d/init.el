@@ -448,6 +448,8 @@ Perform the split along the longest axis."
 (use-package eglot
   :after evil-collection
   :commands (eglot eglot-ensure)
+  :custom
+  (eglot-report-progress t)
   :config
   (evil-collection-eglot-setup))
 

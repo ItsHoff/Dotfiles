@@ -451,7 +451,10 @@ Perform the split along the longest axis."
   :custom
   (eglot-report-progress t)
   :config
-  (evil-collection-eglot-setup))
+  (evil-collection-eglot-setup)
+  :general
+  (:keymaps 'eglot-mode-map
+            "C-M-a" #'eglot-code-actions))
 
 ;; Shows documentation about symbol under point on the echo area
 (use-package eldoc

@@ -129,7 +129,8 @@
 (setopt switch-to-buffer-obey-display-actions t) ; https://www.masteringemacs.org/article/demystifying-emacs-window-manager
 (setopt require-final-newline t)      ; Require new line at the end-of-file.
 (setopt bookmark-save-flag 1)         ; Save bookmarks every time it is modified.
-(setopt use-package-hook-name-suffix nil) ; Don't append -hook to :hook definitions
+(setopt use-package-hook-name-suffix nil) ; Don't append -hook to :hook definitions.
+(setopt initial-scratch-message nil)  ; Don't display initial message in scratch.
 
 ;; Start a server if it is not already running.
 (require 'server)

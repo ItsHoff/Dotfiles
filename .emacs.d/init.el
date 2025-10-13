@@ -272,11 +272,14 @@ Perform the split along the longest axis."
         ("<return>" . magit-visit-thing)
         ("SPC" . nil)
         :map magit-hunk-section-map
-        ("<return>" . magit-diff-visit-file-other-window)
+        ("<return>" . magit-diff-visit-worktree-file-other-window)
+        ("M-<return>" . magit-diff-visit-file-other-window)
         :map magit-file-section-map
-        ("<return>" . magit-diff-visit-file-other-window)
+        ("<return>" . magit-diff-visit-worktree-file-other-window)
+        ("M-<return>" . magit-diff-visit-file-other-window)
         :map magit-diff-section-map
-        ("<return>" . magit-diff-visit-file-other-window)
+        ("<return>" . magit-diff-visit-worktree-file-other-window)
+        ("M-<return>" . magit-diff-visit-file-other-window)
         :map transient-sticky-map
         ("<escape>" . transient-quit-seq)
         :map transient-map

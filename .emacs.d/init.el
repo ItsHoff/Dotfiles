@@ -114,13 +114,12 @@
 ;;; GENERAL SETTINGS ----------------------------------------------------------------------------
 
 (setopt visible-bell t)               ; No error beep
-(electric-indent-mode -1)             ; Handle indendation elsewhere
+(electric-indent-mode nil)            ; Handle indendation elsewhere
 (setopt inhibit-startup-screen t)     ; No message at startup
-(modify-syntax-entry ?_ "w" (standard-syntax-table)) ; _ is now part of a word
-(modify-syntax-entry ?- "w" (standard-syntax-table)) ; aswell as -
+(global-superword-mode t)             ; Treat - and _ as part of a word
 (setopt select-enable-clipboard nil)  ; Disable emacs clipboard and rely on evil
 (fset 'yes-or-no-p 'y-or-n-p)         ; y or n should suffice for confirmation
-(setopt fill-column 110)      ; Line wrap column
+(setopt fill-column 110)              ; Line wrap column
 (setopt large-file-warning-threshold 50000000)  ; Allow larger files to be opened without confirmation
 (setopt history-length 1000)          ; Increase the amount of history
 (setopt create-lockfiles nil)         ; Don't create lockfiles
@@ -473,17 +472,23 @@ Perform the split along the longest axis."
   (evil-want-C-w-in-emacs-state t)  ; Window commands should always work
   (evil-ex-substitute-global t)     ; substitute replaces all occurences in line
   ;; Open new splits right or below
-  (evil-vsplit-window-right 1)
-  (evil-split-window-below 1)
+  (evil-vsplit-window-right t)
+  (evil-split-window-below t)
   (evil-undo-system 'undo-tree)
+  (evil-symbol-word-search t)
+
   :config
   (evil-mode 1)
+
   (setq evil-normal-state-tag "NORM")
   (setq evil-visual-state-tag "VIS")
   (setq evil-motion-state-tag "MOT")
   (setq evil-insert-state-tag "INS")
   (setq evil-operator-state-tag "OP")
   (setq evil-emacs-state-tag "EMACS")
+
+  ;; Treat _ as a word character
+  (defalias 'forward-evil-word 'forward-evil-symbol)
   ;; Allow c-o and c-i to jump to buffers matching the regexp
   (setq evil--jumps-buffer-targets "\\`magit")
 
@@ -1065,10 +1070,7 @@ Perform the split along the longest axis."
   (add-hook 'c++-mode-hook #'eglot-ensure)
   (add-hook 'c-mode-hook #'eglot-ensure)
   :config
-  (c-set-offset 'innamespace 0)
-  (modify-syntax-entry ?_ "w" c-mode-syntax-table)      ; _ is now part of a word
-  (modify-syntax-entry ?_ "w" c++-mode-syntax-table)    ; _ is now part of a word
-  (modify-syntax-entry ?_ "w" java-mode-syntax-table))  ; _ is now part of a word
+  (c-set-offset 'innamespace 0))
 
 (use-package c-ts-mode
   :commands (c++-ts-mode c-ts-mode c-or-c++-ts-mode)
@@ -1076,9 +1078,7 @@ Perform the split along the longest axis."
   :custom
   (c-ts-mode-indent-offset 4)
   :init
-  (add-hook 'c-ts-base-mode-hook #'eglot-ensure)
-  :config
-  (modify-syntax-entry ?_ "w" c-ts-mode--syntax-table)) ; _ is now part of a word
+  (add-hook 'c-ts-base-mode-hook #'eglot-ensure))
 
 ;; CMake
 (use-package cmake-mode
@@ -1101,17 +1101,13 @@ Perform the split along the longest axis."
                      ;; csharp-ls didn't provide any formatting results. 28.3.24
                      (setq-local eglot-ignored-server-capabilities (append eglot-ignored-server-capabilities
                                                                            '(:documentFormattingProvider :documentRangeFormattingProvider)))
-                     (setq-local lsp-enable-indentation nil))))
-  :config
-  (modify-syntax-entry ?_ "w" csharp-mode-syntax-table)) ; _ is now part of a word
+                     (setq-local lsp-enable-indentation nil)))))
 
 ;; CSS
 (use-package css-mode
   :ensure nil
   :init
-  (add-hook 'css-base-mode-hook #'eglot-ensure)
-  :config
-  (modify-syntax-entry ?- "w" css-mode-syntax-table)) ; - is now part of a word
+  (add-hook 'css-base-mode-hook #'eglot-ensure))
 
 ;; Git
 (use-package git-modes
@@ -1134,8 +1130,6 @@ Perform the split along the longest axis."
   :commands emacs-lisp-mode
   :init (add-hook 'emacs-lisp-mode-hook (lambda () (my/set-tab-width 2)))
   :config
-  (modify-syntax-entry ?_ "w" emacs-lisp-mode-syntax-table) ; _ is now part of a word
-  (modify-syntax-entry ?- "w" emacs-lisp-mode-syntax-table) ; aswell as -
   (evil-collection-elisp-mode-setup)
   :general
   (:keymaps '(emacs-lisp-mode-map lisp-interaction-mode-map)
@@ -1236,8 +1230,6 @@ Perform the split along the longest axis."
   :config
   (local/custom TeX-view-program-list)
   (local/custom TeX-view-program-selection)
-  (modify-syntax-entry ?_ "w" TeX-mode-syntax-table) ; _ is now part of a word
-  (modify-syntax-entry ?- "w" TeX-mode-syntax-table) ; - is now part of a word
   (require 'pdf-sync)
   (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
   (add-hook 'LaTeX-mode-hook (lambda () (outline-minor-mode)
@@ -1284,15 +1276,12 @@ Perform the split along the longest axis."
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode))
   (add-to-list 'tree-sitter-major-mode-language-alist '(typescript-tsx-mode . tsx))
   :config
-  (evil-collection-typescript-mode-setup)
-  (modify-syntax-entry ?_ "w" typescript-mode-syntax-table)) ; _ is now part of a word
+  (evil-collection-typescript-mode-setup))
 
 (use-package typescript-ts-mode
   :ensure nil
   :init
-  (add-hook 'typescript-ts-base-mode-hook #'eglot-ensure)
-  :config
-  (modify-syntax-entry ?_ "w" typescript-ts-mode--syntax-table)) ; _ is now part of a word
+  (add-hook 'typescript-ts-base-mode-hook #'eglot-ensure))
 
 ;; Vimrc
 (use-package vimrc-mode)
@@ -1308,7 +1297,6 @@ Perform the split along the longest axis."
   ;; workaround: https://github.com/emacs-tree-sitter/tree-sitter-langs/issues/23#issuecomment-832815710
   (tree-sitter-hl-use-font-lock-keywords nil)
   :init
-  (add-hook 'web-mode-hook #'eglot-ensure)
   ;; Disabled 9.9.2022 web-mode uncommenting and syntax highlighting worked badly with ts and react.
   ;; Switched to typescript-mode instead.
   ;; Separate mode for tree sitter ts and tsx support.
@@ -1318,8 +1306,7 @@ Perform the split along the longest axis."
   ;; (define-derived-mode web-tsx-mode web-mode "TypeScript/TSX (Web)")
   ;; (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-tsx-mode))
   ;; (add-to-list 'tree-sitter-major-mode-language-alist '(web-tsx-mode . tsx))
-  :config
-  (modify-syntax-entry ?_ "w" web-mode-syntax-table)) ; _ is now part of a word
+  (add-hook 'web-mode-hook #'eglot-ensure))
 
 ;; Yaml
 (use-package yaml-mode

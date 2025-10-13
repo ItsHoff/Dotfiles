@@ -234,7 +234,8 @@ Perform the split along the longest axis."
 ;;; PACKAGES THAT REQUIRE WAIT ------------------------------------------------------------------
 
 ;; Keybinding utilities
-;; Waits required for :general keyword to work.
+;;
+;; Wait required for :general keyword to work.
 (use-package general
   :demand t
   :config
@@ -242,12 +243,12 @@ Perform the split along the longest axis."
   (general-override-mode))
 
 ;; Git support
+;;
+;; Wait seems to be required for magit to install correctly with elpaca. (https://github.com/progfolio/elpaca/issues/343#issuecomment-2557421384)
+;; Without wait magit complains about old transient version.
 (use-package magit
-  ;; Wait seems to be required for magit to install correctly with elpaca. (https://github.com/progfolio/elpaca/issues/343#issuecomment-2557421384)
-  ;; Without wait magit complains about old transient version.
-  ;; :ensure (:wait t)
   :defer 10
-  :after (evil-collection transient)
+  :after evil-collection
   :commands (magit-status magit-dispatch magit-blame-addition)
   :custom
   (magit-diff-paint-whitespace-lines 'all)

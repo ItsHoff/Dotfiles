@@ -879,7 +879,7 @@ Perform the split along the longest axis."
 
 (use-package smerge-mode
   :ensure nil
-  :commands smerge-mode
+  :demand t
   :general
   (:definer 'minor-mode
             :keymaps 'smerge-mode

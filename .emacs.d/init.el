@@ -454,6 +454,7 @@ Perform the split along the longest axis."
   :commands (eglot eglot-ensure)
   :custom
   (eglot-report-progress t)
+  (eglot-events-buffer-config '(:size 2000000 :format 'lisp))
   :config
   (evil-collection-eglot-setup)
   :general

@@ -181,6 +181,8 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - kzproj files take several minutes to show in status buffer
 ** TODO Improve display-buffer-alist
 - https://www.masteringemacs.org/article/demystifying-emacs-window-manager
+- https://old.reddit.com/r/emacs/comments/1og34ko/configuring_displaybufferalist_is_absolutely/
+
 ** TODO M-n to work with consult-lsp
 - consult--grep sets `:add-history (consult--async-split-thingatpt 'symbol)`
 - consult-lsp does not

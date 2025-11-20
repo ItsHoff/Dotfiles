@@ -19,6 +19,7 @@
 	autoupdate = true
 [pull]
 	rebase = true
+	ff = only
 [merge]
 	conflictstyle = zdiff3
 [diff]

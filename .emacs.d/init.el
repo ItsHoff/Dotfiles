@@ -242,6 +242,9 @@ Perform the split along the longest axis."
   (general-evil-setup)
   (general-override-mode))
 
+;; Use transient from repository to avoid version warnings with built-in transient
+(use-package transient)
+
 ;; Git support
 ;;
 ;; Wait seems to be required for magit to install correctly with elpaca. (https://github.com/progfolio/elpaca/issues/343#issuecomment-2557421384)
@@ -931,9 +934,6 @@ Perform the split along the longest axis."
 (use-package ssh-agency
   :disabled t ; 23.10.19
   :commands ssh-agency-ensure)
-
-;; Use transient from repository to avoid version warnings with built-in transient
-(use-package transient)
 
 ;; Automatic installation, usage, and fallback for tree-sitter major modes in Emacs 29
 (use-package treesit-auto

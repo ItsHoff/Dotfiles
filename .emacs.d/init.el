@@ -453,6 +453,7 @@ Perform the split along the longest axis."
 
 ;; The Emacs Client for the Language Server Protocol
 (use-package eglot
+  :ensure nil
   :after evil-collection
   :commands (eglot eglot-ensure)
   :custom

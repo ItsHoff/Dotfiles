@@ -452,6 +452,35 @@ Perform the split along the longest axis."
   ;; (doom-themes-org-config) to try out
   (load-theme 'doom-nord t))
 
+;; Simple jump to definition fallback
+(use-package dumb-jump
+  :demand t
+  :init (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
+  :config
+  ;; Use dumb-jump when eglot fails.
+  ;; Source: https://github.com/joaotavora/eglot/issues/420#issuecomment-1257247512
+  (advice-add 'eglot-xref-backend :override 'xref-eglot+dumb-backend)
+
+  (defun xref-eglot+dumb-backend () 'eglot+dumb)
+
+  (cl-defmethod xref-backend-identifier-at-point ((_backend (eql eglot+dumb)))
+    (cons (xref-backend-identifier-at-point 'eglot)
+          (xref-backend-identifier-at-point 'dumb-jump)))
+
+  (cl-defmethod xref-backend-identifier-completion-table ((_backend (eql eglot+dumb)))
+    (xref-backend-identifier-completion-table 'eglot))
+
+  (cl-defmethod xref-backend-definitions ((_backend (eql eglot+dumb)) identifier)
+    (or (xref-backend-definitions 'eglot (car identifier))
+        (xref-backend-definitions 'dumb-jump (cdr identifier))))
+
+  (cl-defmethod xref-backend-references ((_backend (eql eglot+dumb)) identifier)
+    (or (xref-backend-references 'eglot (car identifier))
+        (xref-backend-references 'dumb-jump (cdr identifier))))
+
+  (cl-defmethod xref-backend-apropos ((_backend (eql eglot+dumb)) pattern)
+    (xref-backend-apropos 'eglot pattern)))
+
 ;; The Emacs Client for the Language Server Protocol
 (use-package eglot
   :ensure nil
@@ -1047,6 +1076,11 @@ Perform the split along the longest axis."
 
 ;; Writable grep
 (use-package wgrep)
+
+;; Built in find definition
+(use-package xref
+  :ensure nil
+  :config (remove-hook 'xref-backend-functions #'etags--xref-backend))
 
 ;;; PROGRAMMING MODES ---------------------------------------------------------------------------
 

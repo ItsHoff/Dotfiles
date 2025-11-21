@@ -215,7 +215,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
 ** TODO org-use-speed-commands
-* Packages [8/63]
+* Packages [9/63]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 
@@ -257,6 +257,11 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - State "EVAL"       from "TODO"       [2025-04-23 ke 10:32]
 - wgrep allows you to edit a grep buffer and apply those changes to the file buffer.
 - https://github.com/mhayashi1120/Emacs-wgrep
+
+** EVAL Dumb-jump
+- State "EVAL"       from "TODO"       [2025-11-21 Fri 16:53]
+- an Emacs "jump to definition" package for 40+ languages
+- https://github.com/jacktasia/dumb-jump
 
 ** TODO flycheck-posframe
 - Display flycheck error messages via posframe.
@@ -304,10 +309,6 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO compdef
 - A stupid Emacs completion definer.
 - https://gitlab.com/jjzmajic/compdef
-
-** TODO Dumb-jump
-- an Emacs "jump to definition" package for 40+ languages
-- https://github.com/jacktasia/dumb-jump
 
 ** TODO Rustic
 - Rust development environment for Emacs

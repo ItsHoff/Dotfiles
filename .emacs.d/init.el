@@ -257,6 +257,7 @@ Perform the split along the longest axis."
   (magit-diff-paint-whitespace-lines 'all)
   (magit-diff-refine-hunk 'all)
   (evil-collection-magit-want-horizontal-movement nil) ; Disabled due to https://github.com/emacs-evil/evil-collection/issues/831
+  (magit-status-margin '(t age magit-log-margin-width nil 18))
   :init
   ;; Non customizable variables
   (setq magit-bind-magit-project-status nil)

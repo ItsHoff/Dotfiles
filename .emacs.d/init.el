@@ -519,6 +519,8 @@ Perform the split along the longest axis."
   :config
   (evil-mode 1)
 
+  (add-to-list 'evil-motion-state-modes 'elpaca-log-mode)
+
   (setq evil-normal-state-tag "NORM")
   (setq evil-visual-state-tag "VIS")
   (setq evil-motion-state-tag "MOT")
@@ -1006,17 +1008,15 @@ Perform the split along the longest axis."
   (undo-tree-enable-undo-in-region nil)
   :config
   (global-undo-tree-mode)
-  ;; 10.8.19
-  ;; (evil-make-overriding-map undo-tree-visualizer-mode-map 'motion)
 
   (defun my/advice-preserve-timestamps (args)
     "Change preserve-timestamps in ARGS to t.
      Filters arguments for undo-tree-undo-1 and undo-tree-redo-1.
      Advice type: filter-args."
     (list (nth 0 args) (nth 1 args) t))
-
   (advice-add #'undo-tree-undo-1 :filter-args #'my/advice-preserve-timestamps)
   (advice-add #'undo-tree-redo-1 :filter-args #'my/advice-preserve-timestamps)
+
   :general
   (:keymaps 'undo-tree-visualizer-mode-map
             "q" #'undo-tree-visualizer-abort

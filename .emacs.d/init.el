@@ -267,6 +267,7 @@ Perform the split along the longest axis."
   (evil-collection-magit-setup)
   (evil-add-command-properties #'magit-diff-visit-file :jump t)
   (evil-add-command-properties #'magit-status :jump t)
+  (add-hook 'magit-status-sections-hook #'magit-insert-worktrees 50)
   :bind
   (:map magit-mode-map
         ("<up>" . magit-section-backward)

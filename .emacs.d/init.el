@@ -1028,6 +1028,11 @@ Perform the split along the longest axis."
             "h" #'undo-tree-visualize-switch-branch-left
             "l" #'undo-tree-visualize-switch-branch-right))
 
+;; Inbuilt version control
+(use-package vc
+  :ensure nil
+  :custom (vc-handled-backends nil)) ; Disable vc.
+
 ;; Show key hints
 (use-package which-key
   :after evil-collection

@@ -250,7 +250,6 @@ Perform the split along the longest axis."
 ;; Wait seems to be required for magit to install correctly with elpaca. (https://github.com/progfolio/elpaca/issues/343#issuecomment-2557421384)
 ;; Without wait magit complains about old transient version.
 (use-package magit
-  :defer 10
   :after evil-collection
   :commands (magit-status magit-dispatch magit-blame-addition)
   :custom

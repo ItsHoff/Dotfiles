@@ -880,6 +880,7 @@ Perform the split along the longest axis."
   (projectile-indexing-method 'alien) ; Required tools should be installed on windows as well
   (projectile-git-submodule-command nil) ; Submodules seem to be causing issues, so disabling for now 1.10.20
   (projectile-completion-system 'default)
+  (projectile-enable-caching 'persistent)
   :config
   (evil-add-command-properties #'projectile-find-file :jump t :repeat nil)
   (evil-add-command-properties #'projectile-find-other-file :jump t :repeat nil)

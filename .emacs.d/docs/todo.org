@@ -215,7 +215,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
 ** TODO org-use-speed-commands
-* Packages [9/63]
+* Packages [10/63]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 
@@ -263,6 +263,10 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - an Emacs "jump to definition" package for 40+ languages
 - https://github.com/jacktasia/dumb-jump
 
+** EVAL git-link
+- State "EVAL"       from "TODO"       [2025-12-22 Mon 14:17]
+- Emacs package to get the GitHub/Bitbucket/GitLab/... URL for a buffer location
+- https://github.com/sshaw/git-link
 ** TODO flycheck-posframe
 - Display flycheck error messages via posframe.
 - https://github.com/alexmurray/flycheck-posframe
@@ -446,9 +450,11 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO org-sticky-header
 - Show off-screen Org heading at top of window
 - https://github.com/alphapapa/org-sticky-header
-** TODO emacs-lsp-booster
+** TODO emacs-[lsp/eglot]-booster
 - Emacs LSP performance booster
 - https://github.com/blahgeek/emacs-lsp-booster
+- https://github.com/jdtsmith/eglot-booster
+
 ** TODO yasnippet-treesitter-shim
 - Use yasnippet-snippets together with tree-sitter major modes
 - https://github.com/fbrosda/yasnippet-treesitter-shim
@@ -461,9 +467,6 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO dimmer.el
 - Interactively highlight which buffer is active by dimming the others.
 - https://github.com/gonewest818/dimmer.el
-** TODO git-link
-- Emacs package to get the GitHub/Bitbucket/GitLab/... URL for a buffer location
-- https://github.com/sshaw/git-link
 ** TODO casual-dired
 - An opinionated porcelain for Emacs file manager Dired.
 - https://github.com/kickingvegas/casual-dired

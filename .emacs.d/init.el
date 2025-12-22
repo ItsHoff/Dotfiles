@@ -673,6 +673,10 @@ Perform the split along the longest axis."
             "m" #'toggle-frame-maximized
             "f" #'toggle-frame-fullscreen))
 
+;; Get the GitHub/Bitbucket/GitLab/... URL for a buffer location
+(use-package git-link
+  :custom (git-link-open-in-browser t))
+
 ;; Automatically resize splits
 (use-package golden-ratio
   :demand t

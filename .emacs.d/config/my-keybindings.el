@@ -50,6 +50,7 @@
                     "p" #'projectile-command-map
                     "r" #'vertico-repeat
                     "s" #'my/framegroups-command-map
+                    "/" #'consult-line
                     "y" #'my/yas-command-map)
 
 ;; Non-insert + emacs (for special emacs state buffers)

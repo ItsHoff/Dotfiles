@@ -114,11 +114,11 @@
 ;;; GENERAL SETTINGS ----------------------------------------------------------------------------
 
 (setopt visible-bell t)               ; No error beep
-(electric-indent-mode nil)            ; Handle indendation elsewhere
+(electric-indent-mode -1)             ; Handle indendation elsewhere
 (setopt inhibit-startup-screen t)     ; No message at startup
 (global-superword-mode t)             ; Treat - and _ as part of a word
 (setopt select-enable-clipboard nil)  ; Disable emacs clipboard and rely on evil
-(fset 'yes-or-no-p 'y-or-n-p)         ; y or n should suffice for confirmation
+(setopt use-short-answers t)          ; y or n should suffice for confirmation
 (setopt fill-column 110)              ; Line wrap column
 (setopt large-file-warning-threshold 50000000)  ; Allow larger files to be opened without confirmation
 (setopt history-length 1000)          ; Increase the amount of history
@@ -164,12 +164,9 @@ Perform the split along the longest axis."
 ;; Just define § as escape so things are sensible on bigger keyboards
 (define-key input-decode-map [?§] [escape])
 
-;; UTF-8 please
+;; UTF-8 with Unix line endings
+(set-language-environment "UTF-8")
 (prefer-coding-system 'utf-8-unix)
-(set-default-coding-systems 'utf-8-unix)
-(set-terminal-coding-system 'utf-8-unix)
-(set-keyboard-coding-system 'utf-8-unix)
-(setopt buffer-file-coding-system 'utf-8-unix)
 
 ;; Smooth scrolling
 (setopt scroll-step 1)
@@ -1297,6 +1294,7 @@ Perform the split along the longest axis."
   :commands turn-on-reftex
   :custom
   (reftex-plug-into-AUCTeX t)
+  :init
   (add-hook 'LaTeX-mode-hook #'turn-on-reftex))
 
 ;; Bibliography management
@@ -1432,8 +1430,8 @@ Perform the split along the longest axis."
 ;; Persist history over Emacs restarts. Vertico sorts by history position.
 (use-package savehist
   :ensure nil
-  :demand nil
-  :init
+  :demand t
+  :config
   (savehist-mode))
 
 ;; Provides an orderless completion style that divides the pattern into space-separated components, and

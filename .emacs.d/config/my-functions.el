@@ -93,7 +93,8 @@ If point is at or ahead of it move to last character."
 ;; This uses defvar + setq so that possible changes do not require a restart.
 (defvar my/extra-buffer-regexps nil "Regexps for buffers that `my/close-extra-buffers' should also quit.")
 (setq my/extra-buffer-regexps '("^magit.+"
-                                "^\*.+\*$"))
+                                "^\*.+\*$"
+                                "^Claude Code Agent @"))
 
 ;; TODO: Add white list for *x* buffers that should not be closed (if there ever comes a need)
 (defun my/close-extra-buffers ()

@@ -291,6 +291,34 @@ Perform the split along the longest axis."
 
 ;;; PACKAGES ------------------------------------------------------------------------------------
 
+;; A native Emacs buffer to interact with LLM agents powered by ACP
+(use-package agent-shell
+  :after evil
+  :custom
+  (agent-shell-prefer-viewport-interaction nil)
+  (agent-shell-preferred-agent-config (agent-shell-anthropic-make-claude-code-config))
+  (agent-shell-transcript-file-path-function nil)
+  :config
+
+  (evil-make-overriding-map agent-shell-viewport-view-mode-map 'motion)
+  (dolist (mode '(agent-shell-viewport-view-mode agent-shell-diff-mode))
+    (add-to-list 'evil-motion-state-modes mode))
+  (add-to-list 'evil-insert-state-modes 'agent-shell-viewport-edit-mode)
+
+  ;; Allow exiting with active acp-agents
+  (advice-add 'save-buffers-kill-emacs :before
+              (lambda (&rest _)
+                (dolist (proc (process-list))
+                  (when (string-prefix-p "acp" (process-name proc))
+                    (set-process-query-on-exit-flag proc nil)))))
+  :general
+  (:keymaps 'agent-shell-mode-map
+            "RET" #'newline
+            "C-c C-c" #'shell-maker-submit
+            "C-c C-k" #'agent-shell-interrupt)
+  (:keymaps 'agent-shell-diff-mode-map
+            "C-c C-c" #'agent-shell-diff-accept-all))
+
 ;; Hide packages from modeline
 (use-package diminish
   :demand t)

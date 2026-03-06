@@ -125,7 +125,6 @@
 (setopt create-lockfiles nil)         ; Don't create lockfiles
 (setopt auto-save-default nil)        ; No auto-saves
 (setopt sentence-end-double-space nil) ; Don't require double space at end of sentence.
-(setopt switch-to-buffer-obey-display-actions t) ; https://www.masteringemacs.org/article/demystifying-emacs-window-manager
 (setopt require-final-newline t)      ; Require new line at the end-of-file.
 (setopt bookmark-save-flag 1)         ; Save bookmarks every time it is modified.
 (setopt use-package-hook-name-suffix nil) ; Don't append -hook to :hook definitions.
@@ -143,6 +142,11 @@
 
 ;; Don't compact font caches. Will consume more memory, but improves performance.
 (setopt inhibit-compacting-font-caches t)
+
+;; Buffer display
+(setopt switch-to-buffer-in-dedicated-window 'pop)
+(setopt switch-to-buffer-obey-display-actions t) ; https://www.masteringemacs.org/article/demystifying-emacs-window-manager
+(setopt window-sides-slots '(1 1 1 1))
 
 ;; Use nicer window splitting method for automatic splits
 (defun my/split-only-root (&optional window)
@@ -304,6 +308,18 @@ Perform the split along the longest axis."
   (dolist (mode '(agent-shell-viewport-view-mode agent-shell-diff-mode))
     (add-to-list 'evil-motion-state-modes mode))
   (add-to-list 'evil-insert-state-modes 'agent-shell-viewport-edit-mode)
+
+  (add-to-list 'display-buffer-alist
+               '((lambda (buffer-name _action)
+                   (when-let ((buffer (get-buffer buffer-name)))
+                     (with-current-buffer buffer
+                       (or (derived-mode-p 'agent-shell-mode)
+                           (derived-mode-p 'agent-shell-viewport-view-mode)
+                           (derived-mode-p 'agent-shell-viewport-edit-mode)))))
+                 (display-buffer-in-side-window)
+                 (side . left)
+                 (window-width . 0.3)
+                 (window-min-width . 0.3)))
 
   ;; Allow exiting with active acp-agents
   (advice-add 'save-buffers-kill-emacs :before
@@ -718,7 +734,6 @@ Perform the split along the longest axis."
   :config
   ;; From spacemacs
   (setopt window-combination-resize t)
-  (add-to-list 'golden-ratio-exclude-buffer-regexp "^\\*[hH]elm.*")
   ;; golden-ratio-exclude-modes
   (dolist (m '("bs-mode"
                "calc-mode"
@@ -791,6 +806,9 @@ Perform the split along the longest axis."
                " *transient*"
                " *which-key*"))
     (add-to-list 'golden-ratio-exclude-buffer-names n))
+  ;; golden-ratio-exclude-buffer-regexp
+  (add-to-list 'golden-ratio-exclude-buffer-regexp "^\\*[hH]elm.*")
+  ;; golden-ratio-inhibit-functions
   (add-to-list 'golden-ratio-inhibit-functions
                (lambda ()
                  (and (boundp 'which-key--buffer)

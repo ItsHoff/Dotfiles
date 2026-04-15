@@ -128,13 +128,15 @@
 (setopt bookmark-save-flag 1)         ; Save bookmarks every time it is modified.
 (setopt use-package-hook-name-suffix nil) ; Don't append -hook to :hook definitions.
 (setopt initial-scratch-message nil)  ; Don't display initial message in scratch.
+(setopt read-extended-command-predicate #'command-completion-default-include-p) ; Filter non-relevant options from M-x
+(setopt redisplay-skip-fontification-on-input t) ; Skip fontification during input
 
 ;; Start a server if it is not already running.
 (require 'server)
 (unless (server-running-p) (server-start))
 
 ;; Performance suggestions from lsp (https://github.com/emacs-lsp/lsp-mode#performance)
-(setopt read-process-output-max (* 1024 1024)) ; 1 mb
+(setopt read-process-output-max (* 4 1024 1024)) ; 4 mb
 
 ;; Increase stack size (https://www.gnu.org/software/emacs/manual/html_mono/eintr.html#fn-13)
 (setopt max-lisp-eval-depth 8000)
@@ -201,6 +203,11 @@ Perform the split along the longest axis."
   (add-to-list 'default-frame-alist '(font . "Consolas-11")))
  ((find-font (font-spec :name "DejaVu Sans Mono"))
   (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-11"))))
+
+;; Disable bidirectional text
+(setq-default bidi-display-reordering 'left-to-right
+              bidi-paragraph-direction 'left-to-right)
+(setopt bidi-inhibit-bpa t)
 
 ;;; SYSTEM SETUP --------------------------------------------------------------------------------
 

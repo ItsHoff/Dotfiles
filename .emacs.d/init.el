@@ -250,7 +250,9 @@ Perform the split along the longest axis."
   (general-override-mode))
 
 ;; Use transient from repository to avoid version warnings with built-in transient
-(use-package transient)
+(use-package transient
+  :custom
+  (transient-detect-key-conflicts t))
 
 ;; Git support
 ;;

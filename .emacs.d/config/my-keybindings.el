@@ -39,7 +39,7 @@
 (general-define-key :keymaps 'override
                     :states '(motion normal visual emacs)
                     :prefix "SPC"
-                    "a" #'agent-shell
+                    "a" #'my/agent-shell-command-map
                     "SPC" #'execute-extended-command
                     "b" #'magit-blame-addition
                     "c" #'org-capture

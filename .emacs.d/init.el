@@ -300,9 +300,15 @@ Perform the split along the longest axis."
   :custom
   (agent-shell-prefer-viewport-interaction nil)
   (agent-shell-preferred-agent-config (agent-shell-anthropic-make-claude-code-config))
+  (agent-shell-session-strategy 'new)
   (agent-shell-transcript-file-path-function nil)
-  :config
 
+  :init
+  (defvar my/agent-shell-command-map (make-sparse-keymap))
+  (fset 'my/agent-shell-command-map my/agent-shell-command-map)
+
+  :config
+  (evil-make-overriding-map agent-shell-mode-map 'normal)
   (evil-make-overriding-map agent-shell-viewport-view-mode-map 'motion)
   (dolist (mode '(agent-shell-viewport-view-mode agent-shell-diff-mode))
     (add-to-list 'evil-motion-state-modes mode))
@@ -326,11 +332,20 @@ Perform the split along the longest axis."
                 (dolist (proc (process-list))
                   (when (string-prefix-p "acp" (process-name proc))
                     (set-process-query-on-exit-flag proc nil)))))
+
   :general
+  (:keymaps 'my/agent-shell-command-map
+            "a" #'agent-shell
+            "n" #'agent-shell-new-shell
+            "s" #'agent-shell-send-dwim
+            "t" #'agent-shell-toggle)
   (:keymaps 'agent-shell-mode-map
             "RET" #'newline
+            "n" nil
+            "p" nil
             "C-c C-c" #'shell-maker-submit
-            "C-c C-k" #'agent-shell-interrupt)
+            "C-c C-k" #'agent-shell-interrupt
+            "q" nil);#'agent-shell-toggle)
   (:keymaps 'agent-shell-diff-mode-map
             "C-c C-c" #'agent-shell-diff-accept-all))
 

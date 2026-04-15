@@ -770,6 +770,7 @@ Perform the split along the longest axis."
 
 ;; Automatically resize splits
 (use-package golden-ratio
+  :disabled ; 31.3.2026 Running into issues, and trying if this is really needed. Alternative https://github.com/cyrus-and/zoom
   :demand t
   :diminish golden-ratio-mode
   :custom
@@ -858,7 +859,14 @@ Perform the split along the longest axis."
   (add-to-list 'golden-ratio-inhibit-functions
                (lambda ()
                  (and (boundp 'which-key--buffer)
-                      (window-live-p (get-buffer-window which-key--buffer))))))
+                      (window-live-p (get-buffer-window which-key--buffer)))))
+  ;; (add-to-list 'golden-ratio-inhibit-functions
+  ;;              (lambda ()
+  ;;                (window-parameter (selected-window) 'window-side)))
+  ;; (add-to-list 'golden-ratio-inhibit-functions
+  ;;              (lambda ()
+  ;;                (window-preserved-size (selected-window))))
+  )
 
 ;; Move up and down the screen nicely
 (use-package golden-ratio-scroll-screen

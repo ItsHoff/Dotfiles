@@ -294,6 +294,11 @@ Perform the split along the longest axis."
   ;;                (window-width . 0.4)
   ;;                ;; (preserve-size . (t . nil))
   ;;                ))
+  (with-eval-after-load 'magit-diff
+    (transient-append-suffix 'magit-diff "r"
+      '("U" "Diff upstream..HEAD" (lambda ()
+                                    (interactive)
+                                    (magit-diff-range (concat (magit-get-upstream-branch) "..HEAD"))))))
   :bind
   (:map magit-mode-map
         ("<up>" . magit-section-backward)

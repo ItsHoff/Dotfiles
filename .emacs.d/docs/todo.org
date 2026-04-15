@@ -215,7 +215,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
 ** TODO org-use-speed-commands
-* Packages [10/63]
+* Packages [10/65]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 
@@ -493,3 +493,10 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 ** TODO minibuffer-nonselected-mode
 - Emacs 31 will ship with a similar feature to the one described below called minibuffer-nonselected-mode.
 - https://stebalien.com/blog/dim-minibuffer-prompt-when-unfocused/
+** TODO surround
+- https://github.com/mkleehammer/surround
+- https://emacsredux.com/blog/2026/03/17/surround-el-vim-style-pair-editing-comes-to-emacs/
+** TODO zoom
+- Fixed and automatic balanced window layout for Emacs
+- Alternative to golden-ratio
+- https://github.com/cyrus-and/zoom

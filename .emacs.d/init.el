@@ -1551,6 +1551,9 @@ Perform the split along the longest axis."
 (use-package vertico
   :after evil-collection
   :demand t
+  :custom
+  (vertico-count 15)
+  (vertico-cycle t)
   :config
   (evil-collection-vertico-setup)
   (vertico-mode)

@@ -267,6 +267,8 @@ Perform the split along the longest axis."
   (magit-diff-refine-hunk 'all)
   (evil-collection-magit-want-horizontal-movement nil) ; Disabled due to https://github.com/emacs-evil/evil-collection/issues/831
   (magit-status-margin '(t age magit-log-margin-width nil 18))
+  ;; To manually control magit buffer display
+  ;;(magit-display-buffer-function #'display-buffer) disabled 2026-04
   :init
   ;; Non customizable variables
   (setq magit-bind-magit-project-status nil)
@@ -277,6 +279,21 @@ Perform the split along the longest axis."
   (evil-add-command-properties #'magit-diff-visit-file :jump t)
   (evil-add-command-properties #'magit-status :jump t)
   (add-hook 'magit-status-sections-hook #'magit-insert-worktrees 50)
+  ;; disabled 2026-04
+  ;; (add-to-list 'display-buffer-alist
+  ;;              '((derived-mode . magit-status-mode)
+  ;;                (display-buffer-in-side-window)
+  ;;                (side . right)
+  ;;                (window-width . 0.4)
+  ;;                ;; (preserve-size . (t . nil))
+  ;;                ))
+  ;; (add-to-list 'display-buffer-alist
+  ;;              '("COMMIT_EDITMSG"
+  ;;                (display-buffer-in-side-window)
+  ;;                (side . right)
+  ;;                (window-width . 0.4)
+  ;;                ;; (preserve-size . (t . nil))
+  ;;                ))
   :bind
   (:map magit-mode-map
         ("<up>" . magit-section-backward)

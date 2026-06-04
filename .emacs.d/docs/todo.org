@@ -215,7 +215,7 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - An Org-mode query language, including search commands and saved views
 - https://github.com/alphapapa/org-ql
 ** TODO org-use-speed-commands
-* Packages [10/66]
+* Packages [10/67]
 ** EVAL YASnippet
 - https://github.com/joaotavora/yasnippet
 
@@ -504,3 +504,6 @@ https://philjackson.github.io//evil/emacs/2021/07/11/start-evil-substitution-on-
 - Save Emacs buffers when they lose focus
 - https://github.com/bbatsov/super-save/
 - https://emacsredux.com/blog/2026/03/18/super-save-0-dot-5/
+** TODO magit-difftastic
+- Integrate difftastic into magit
+- https://github.com/rschmukler/magit-difftastic

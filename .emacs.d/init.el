@@ -436,6 +436,7 @@ Perform the split along the longest axis."
 
 ;; Auto completion
 (use-package company
+  :disabled ; 4.5.2026 switching to corfu
   :demand t
   :after evil-collection
   :diminish company-mode
@@ -481,8 +482,8 @@ Perform the split along the longest axis."
   :config
   (evil-collection-compile-setup))
 
+;; Completion pop ups
 (use-package corfu
-  :disabled ; 17.2.23 comparing with company, corfu didn't integrate properly with evil .
   :demand t
   :after evil-collection
   :custom
@@ -490,6 +491,8 @@ Perform the split along the longest axis."
   (corfu-auto-prefix 2)
   (corfu-auto-delay 0.2)
   (corfu-cycle t)
+  (global-corfu-minibuffer nil)
+  (evil-collection-corfu-key-themes '(default magic-return))
   :config
   (evil-collection-corfu-setup)
   (evil-make-overriding-map corfu-map 'insert)

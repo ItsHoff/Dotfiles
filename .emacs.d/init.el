@@ -241,6 +241,12 @@ Perform the split along the longest axis."
 
 ;;; PACKAGES THAT REQUIRE WAIT ------------------------------------------------------------------
 
+;; Use latest version of built-in packages from repository to avoid version warnings
+(use-package compat)
+(use-package transient
+  :custom
+  (transient-detect-key-conflicts t))
+
 ;; Keybinding utilities
 ;;
 ;; Wait required for :general keyword to work.
@@ -249,11 +255,6 @@ Perform the split along the longest axis."
   :config
   (general-evil-setup)
   (general-override-mode))
-
-;; Use transient from repository to avoid version warnings with built-in transient
-(use-package transient
-  :custom
-  (transient-detect-key-conflicts t))
 
 ;; Git support
 ;;

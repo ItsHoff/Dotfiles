@@ -578,6 +578,17 @@ Perform the split along the longest axis."
   (cl-defmethod xref-backend-apropos ((_backend (eql eglot+dumb)) pattern)
     (xref-backend-apropos 'eglot pattern)))
 
+;; Built-in diffing
+(use-package ediff
+  :ensure nil
+  :after evil-collection
+  :custom
+  (ediff-window-setup-function #'ediff-setup-windows-plain)
+  (ediff-split-window-function #'split-window-horizontally)
+  :config
+  (evil-collection-ediff-setup))
+
+
 ;; The Emacs Client for the Language Server Protocol
 (use-package eglot
   :ensure nil

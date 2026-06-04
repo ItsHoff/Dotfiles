@@ -334,8 +334,8 @@ Perform the split along the longest axis."
   :custom
   (agent-shell-prefer-viewport-interaction nil)
   (agent-shell-preferred-agent-config (agent-shell-anthropic-make-claude-code-config))
-  (agent-shell-session-strategy 'new)
   (agent-shell-transcript-file-path-function nil)
+  (agent-shell-session-strategy 'prompt)
 
   :init
   (defvar my/agent-shell-command-map (make-sparse-keymap))

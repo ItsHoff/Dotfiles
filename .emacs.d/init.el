@@ -341,6 +341,14 @@ Perform the split along the longest axis."
   (defvar my/agent-shell-command-map (make-sparse-keymap))
   (fset 'my/agent-shell-command-map my/agent-shell-command-map)
 
+  (defun my/agent-shell-restart ()
+    "Kill the current agent shell buffer and start a fresh one."
+    (interactive)
+    (unless (derived-mode-p 'agent-shell-mode)
+      (user-error "Not in an agent shell buffer"))
+    (kill-buffer (current-buffer))
+    (agent-shell-new-shell))
+
   :config
   (evil-make-overriding-map agent-shell-mode-map 'normal)
   (evil-make-overriding-map agent-shell-viewport-view-mode-map 'motion)
@@ -371,6 +379,7 @@ Perform the split along the longest axis."
   (:keymaps 'my/agent-shell-command-map
             "a" #'agent-shell
             "n" #'agent-shell-new-shell
+            "r" #'my/agent-shell-restart
             "s" #'agent-shell-send-dwim
             "t" #'agent-shell-toggle)
   (:keymaps 'agent-shell-mode-map

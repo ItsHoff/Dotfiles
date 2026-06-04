@@ -130,6 +130,7 @@
 (setopt initial-scratch-message nil)  ; Don't display initial message in scratch.
 (setopt read-extended-command-predicate #'command-completion-default-include-p) ; Filter non-relevant options from M-x
 (setopt redisplay-skip-fontification-on-input t) ; Skip fontification during input
+(setopt help-window-select t)         ; Select the help window automatically
 
 ;; Start a server if it is not already running.
 (require 'server)

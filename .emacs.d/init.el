@@ -599,8 +599,23 @@ Perform the split along the longest axis."
   (eglot-events-buffer-config '(:size 2000000 :format 'lisp))
   (eglot-sync-connect 2)
   (eglot-connect-timeout 120)
+  (eglot-extend-to-xref t)
   :config
   (evil-collection-eglot-setup)
+  (advice-add 'eglot-path-to-uri :filter-return
+              (lambda (uri)
+                "Decode percent-encoded colon in drive letter for Roslyn compatibility."
+                (if (and (stringp uri)
+                         (string-match "\\`\\(file:///[a-zA-Z]\\)%3A" uri))
+                    (concat (match-string 1 uri) ":" (substring uri (match-end 0)))
+                  uri)))
+  (add-to-list 'eglot-server-programs
+               `((csharp-mode csharp-ts-mode)
+                 . ,(eglot-alternatives
+                     '(("roslyn-language-server.cmd" "--stdio" "--autoLoadProjects")
+                       ("omnisharp" "-lsp")
+                       ("OmniSharp" "-lsp")
+                       ("csharp-ls")))))
   :general
   (:keymaps 'eglot-mode-map
             "C-M-a" #'eglot-code-actions))

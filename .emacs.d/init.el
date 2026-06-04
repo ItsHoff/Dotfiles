@@ -616,6 +616,12 @@ Perform the split along the longest axis."
                        ("omnisharp" "-lsp")
                        ("OmniSharp" "-lsp")
                        ("csharp-ls")))))
+  (add-to-list 'eglot-server-programs '(((js-mode :language-id "javascript")
+                                         (js-ts-mode :language-id "javascript")
+                                         (tsx-ts-mode :language-id "typescriptreact")
+                                         (typescript-ts-mode :language-id "typescript")
+                                         (typescript-mode :language-id "typescript"))
+                                        . ("vtsls" "--stdio")))
   :general
   (:keymaps 'eglot-mode-map
             "C-M-a" #'eglot-code-actions))

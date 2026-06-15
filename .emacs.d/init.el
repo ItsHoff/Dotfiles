@@ -335,18 +335,11 @@ Perform the split along the longest axis."
   (agent-shell-prefer-viewport-interaction nil)
   (agent-shell-preferred-agent-config (agent-shell-anthropic-make-claude-code-config))
   (agent-shell-session-strategy 'prompt)
+  (agent-shell-session-restore-verbosity 'first-last)
 
   :init
   (defvar my/agent-shell-command-map (make-sparse-keymap))
   (fset 'my/agent-shell-command-map my/agent-shell-command-map)
-
-  (defun my/agent-shell-restart ()
-    "Kill the current agent shell buffer and start a fresh one."
-    (interactive)
-    (unless (derived-mode-p 'agent-shell-mode)
-      (user-error "Not in an agent shell buffer"))
-    (kill-buffer (current-buffer))
-    (agent-shell-new-shell))
 
   :config
   (evil-make-overriding-map agent-shell-mode-map 'normal)
@@ -378,7 +371,7 @@ Perform the split along the longest axis."
   (:keymaps 'my/agent-shell-command-map
             "a" #'agent-shell
             "n" #'agent-shell-new-shell
-            "r" #'my/agent-shell-restart
+            "r" #'agent-shell-restart
             "s" #'agent-shell-send-dwim
             "t" #'agent-shell-toggle)
   (:keymaps 'agent-shell-mode-map
@@ -590,7 +583,6 @@ Perform the split along the longest axis."
   (ediff-split-window-function #'split-window-horizontally)
   :config
   (evil-collection-ediff-setup))
-
 
 ;; The Emacs Client for the Language Server Protocol
 (use-package eglot

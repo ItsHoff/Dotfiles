@@ -695,6 +695,9 @@ Perform the split along the longest axis."
   (anzu-minimum-input-length 3)
   (anzu-cons-mode-line-p nil))
 
+;; Dependency needed by evil-collection (probably not needed when properly defined in the recipe)
+(use-package annalist)
+;; A set of keybindings for evil-mode
 (use-package evil-collection
   :diminish evil-collection-unimpaired-mode
   :config

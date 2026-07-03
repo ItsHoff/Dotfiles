@@ -378,6 +378,7 @@ Perform the split along the longest axis."
             "RET" #'newline
             "n" nil
             "p" nil
+            "r" nil
             "C-c C-c" #'shell-maker-submit
             "C-c C-k" #'agent-shell-interrupt
             "q" nil);#'agent-shell-toggle)

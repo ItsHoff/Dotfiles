@@ -213,7 +213,16 @@ Perform the split along the longest axis."
 ;;; SYSTEM SETUP --------------------------------------------------------------------------------
 
 ;; Windows
-;;(when (member system-type '(ms-dos windows-nt cygwin)))
+(when (member system-type '(ms-dos windows-nt cygwin))
+  ;; Ensure emacs sees unix tools instead windows tools (find for example).
+  (let ((git-unix-bin "C:/Program Files/Git/usr/bin"))
+    (when (file-directory-p git-unix-bin)
+      ;; Prepend to exec-path (used when Emacs calls a program directly).
+      ;; Not add-to-list: the directory can already be in PATH behind
+      ;; system32, and add-to-list would not reorder an existing entry.
+      (setq exec-path (cons git-unix-bin (delete git-unix-bin exec-path)))
+      ;; Prepend to PATH (used for subprocesses spawned via a shell)
+      (setenv "PATH" (concat git-unix-bin ";" (getenv "PATH"))))))
 
 ;; Mac
 (use-package exec-path-from-shell

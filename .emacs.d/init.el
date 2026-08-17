@@ -205,6 +205,15 @@ Perform the split along the longest axis."
  ((find-font (font-spec :name "DejaVu Sans Mono"))
   (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-11"))))
 
+;; Fallbacks for symbols missing from the default font (e.g. ❯ U+276F). Emacs tries the
+;; candidates in order per character, so monospace fonts come first to keep columns aligned
+;; and the broad symbol fonts pick up whatever they don't cover. The default font still wins
+;; wherever it has the glyph, see `use-default-font-for-symbols'.
+(dolist (family '("Cascadia Mono" "DejaVu Sans Mono" "Symbola" "Noto Sans Symbols 2"
+                  "Noto Sans Symbols" "Segoe UI Symbol" "FreeMono"))
+  (when (find-font (font-spec :name family))
+    (set-fontset-font t 'symbol (font-spec :family family) nil 'append)))
+
 ;; Disable bidirectional text
 (setq-default bidi-display-reordering 'left-to-right
               bidi-paragraph-direction 'left-to-right)

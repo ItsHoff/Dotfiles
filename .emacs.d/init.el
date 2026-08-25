@@ -1558,11 +1558,12 @@ Perform the split along the longest axis."
 ;; Projectile default filtering does not show "Project.cs" for the input "project" if there are files that
 ;; contain the lower case "project".
 (use-package consult-projectile
+  :disabled ; 25.8.26 projectile should use orderless now
   :after (consult projectile)
   :general
   (:keymaps 'projectile-command-map
-            "p" #'consult-projectile-switch-project
-            "f" #'consult-projectile-find-file))
+            "p" #'consult-projectile-switch-project))
+;;"f" #'consult-projectile-find-file)) 11.5.26 no update cache support
 
 ;; Choose a command to run based on what is near point, both during a minibuffer completion session
 ;; and in normal buffers.
@@ -1604,6 +1605,10 @@ Perform the split along the longest axis."
   ;; This is causing mid path matches to be hidden when path start matches exist.
   ;; However, according to orderless docs basic needs to be tried first for TRAMP hostname completion to work.
   ;; (completion-category-overrides '((file (styles basic partial-completion))))
+  ;; The built-in category defaults force the case sensitive `basic'/`substring' styles for
+  ;; categories like project-file, buffer and xref-location, so orderless would not be used for
+  ;; e.g. `projectile-find-file'.
+  (completion-category-defaults nil)
   (orderless-component-separator #'orderless-escapable-split-on-space))
 
 ;; Minimalistic vertical completion UI.

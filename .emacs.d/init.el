@@ -781,6 +781,8 @@ Perform the split along the longest axis."
 (use-package flymake
   :after evil-collection
   :commands flymake-mode
+  :custom
+  (flymake-show-diagnostics-at-end-of-line 'short)
   :init
   (add-hook 'prog-mode-hook (lambda () (flymake-mode)))
   :config

@@ -288,7 +288,7 @@ Perform the split along the longest axis."
   (evil-collection-magit-want-horizontal-movement nil) ; Disabled due to https://github.com/emacs-evil/evil-collection/issues/831
   (magit-status-margin '(t age magit-log-margin-width nil 18))
   ;; To manually control magit buffer display
-  ;;(magit-display-buffer-function #'display-buffer) disabled 2026-04
+  (magit-display-buffer-function #'magit-display-buffer-fullcolumn-most-v1)
   :init
   ;; Non customizable variables
   (setq magit-bind-magit-project-status nil)

@@ -353,7 +353,7 @@ Perform the split along the longest axis."
   (agent-shell-prefer-viewport-interaction nil)
   (agent-shell-preferred-agent-config (agent-shell-anthropic-make-claude-code-config))
   (agent-shell-session-strategy 'prompt)
-  (agent-shell-session-restore-verbosity 'first-last)
+  (agent-shell-session-restore-verbosity 'full)
 
   :init
   (defvar my/agent-shell-command-map (make-sparse-keymap))

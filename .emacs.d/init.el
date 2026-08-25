@@ -91,7 +91,7 @@
 
 (setopt use-package-always-ensure t)
 ;; Limit the amount of simultaneous orders. The default was causing problems on Windows.
-(setopt elpaca-queue-limit 20)
+(setopt elpaca-queue-limit 10)
 
 (elpaca-wait)
 
